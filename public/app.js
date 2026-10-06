@@ -96,7 +96,12 @@
   }
 
   function renderIdeas() {
-    $("#ideas-list").innerHTML = (INDEX.ideas || []).map((i) => `<div class="idea"><span class="tag">Idea · not live</span><h3>${esc(i.title)}</h3><p>${esc(i.body)}</p></div>`).join("");
+    $("#ideas-list").innerHTML = (INDEX.ideas || []).map((i) => {
+      const tag = i.status === "live" ? "Live proxy" : i.status === "partial" ? "Partial · live proxy" : "Idea · not live";
+      const tagCls = i.status === "live" ? "live" : i.status === "partial" ? "partial" : "";
+      const live = i.liveOn ? ` <a href="#/${esc(i.liveOn)}">See ${esc(i.liveOn)} →</a>` : "";
+      return `<div class="idea"><span class="tag ${tagCls}">${esc(tag)}</span><h3>${esc(i.title)}</h3><p>${esc(i.body)}${live}</p></div>`;
+    }).join("");
   }
 
   // ---------- detail ----------
@@ -175,11 +180,20 @@
   }
 
 
+  const ALIASES = { roblox: "RBLX", rblx: "RBLX", meta: "META", facebook: "META", alphabet: "GOOGL", google: "GOOGL", googl: "GOOGL", nvidia: "NVDA", microsoft: "MSFT", apple: "AAPL", amazon: "AMZN", tesla: "TSLA", netflix: "NFLX", disney: "DIS" };
   function impactPanel(d) {
     const imp = d.summary?.impact || {};
-    const [cls, lab] = IMPACT[imp.lean] || IMPACT[d.summary?.lean === "leaning positive" ? "tailwind" : d.summary?.lean === "leaning negative" ? "headwind" : d.summary?.lean === "quiet" ? "quiet" : "mixed"] || ["", "Mixed"];
+    const leanKey = imp.lean || (d.summary?.lean === "leaning positive" ? "tailwind" : d.summary?.lean === "leaning negative" ? "headwind" : d.summary?.lean === "quiet" ? "quiet" : "mixed");
+    const [cls, lab] = IMPACT[leanKey] || ["", "Mixed"];
     const label = imp.label || lab;
-    const text = (d.ai?.text && imp.source === "ai" ? d.ai.text : null) || imp.text || d.ai?.text || d.summary?.text || "";
+    const mag = imp.magnitude || "unclear";
+    const magLabel = { mild: "Mild lean", moderate: "Moderate lean", strong: "Strong lean", unclear: "Magnitude unclear" }[mag] || mag;
+    const narrative = (d.ai?.text && (imp.source === "ai" || !imp.what) ? d.ai.text : null) || imp.text || d.summary?.text || "";
+    const what = imp.what || "See the signal cards below for the public series behind this page.";
+    const because = imp.because || `Combined lean: ${label}.`;
+    const horizon = imp.horizon || "weeks to a quarter";
+    const horizonNote = imp.horizonNote || "Educational range only — not a reliable clock.";
+    const conf = imp.confidence || "low";
     const m = d.market || {};
     const q = m.quote;
     let priceHtml = `<p class="note">Price feed not connected on this view. <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">Google Finance ↗</a></p>`;
@@ -190,10 +204,15 @@
     }
     return `<section class="impact" aria-label="Impact call">
       <div>
-        <p class="k">What these offbeat signals lean toward right now</p>
-        <div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind</span></div>
-        <p class="body">${esc(text)}</p>
-        <p class="fineprint">Educational reading of public data — not financial advice, not a forecast, and not a recommendation to buy or sell.</p>
+        <p class="k">Impact call · educational only</p>
+        <div class="impact-steps">
+          <div class="istep"><span class="n">1</span><div><h4>What the alt-data is</h4><p>${esc(what)}</p></div></div>
+          <div class="istep"><span class="n">2</span><div><h4>Because of that, the lean</h4><div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind · confidence ${esc(conf)}</span></div><p>${esc(because)}</p></div></div>
+          <div class="istep"><span class="n">3</span><div><h4>Rough magnitude band</h4><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
+          <div class="istep"><span class="n">4</span><div><h4>Typical time horizon</h4><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
+        </div>
+        <p class="body muted">${esc(narrative)}</p>
+        <p class="fineprint">Not financial advice. Not a forecast. Nothing here tells you to buy or sell.</p>
       </div>
       <div class="pricebox"><p class="pk">Current stock price</p>${priceHtml}</div>
     </section>`;
@@ -302,9 +321,10 @@
       const v = q.value.trim();
       clearTimeout(sugTimer);
       if (v.length < 1) { closeSug(); return; }
-      // Prefer curated matches instantly
+      const alias = ALIASES[v.toLowerCase()];
       const local = INDEX.tickers.filter((t) => t.ticker.toLowerCase().startsWith(v.toLowerCase()) || t.name.toLowerCase().includes(v.toLowerCase())).slice(0, 6)
         .map((t) => ({ symbol: t.ticker, name: t.name }));
+      if (alias && !local.some((x) => x.symbol === alias)) local.unshift({ symbol: alias, name: `${alias} (matched “${v}”)` });
       if (local.length) renderSug(local);
       sugTimer = setTimeout(async () => {
         try {
@@ -330,6 +350,8 @@
       const v = q.value.trim();
       if (!v) { document.getElementById("stocks").scrollIntoView(); return; }
       if (sugIdx >= 0 && sugItems[sugIdx]) { openTicker(sugItems[sugIdx].symbol); return; }
+      const alias = ALIASES[v.toLowerCase()];
+      if (alias) { openTicker(alias); return; }
       const exact = INDEX.tickers.find((t) => t.ticker.toLowerCase() === v.toLowerCase() || t.name.toLowerCase() === v.toLowerCase());
       if (exact) { openTicker(exact.ticker); return; }
       const first = INDEX.tickers.find((t) => [t.ticker, t.name, t.sector, ...t.signals.map((s) => s.name)].join(" ").toLowerCase().includes(v.toLowerCase()));

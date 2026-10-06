@@ -233,3 +233,10 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .suggest-list .nm{color:var(--mut);font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .loading-panel{padding:40px 20px;text-align:center;color:var(--mut)}
 @media (max-width:960px){.impact{grid-template-columns:1fr}}
+.impact-steps{display:grid;gap:12px;margin:0 0 14px}
+.istep{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.istep .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(94,234,212,.12);color:var(--teal);font:800 13px var(--mono)}
+.istep h4{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.istep p{margin:0;font-size:14.5px;color:#cfd8ea;line-height:1.45}
+.impact .body.muted{color:var(--mut);font-size:14.5px;margin:8px 0 0}
+.idea .tag.live{color:var(--up)}.idea .tag.partial{color:var(--amber)}

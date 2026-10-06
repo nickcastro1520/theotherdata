@@ -4,11 +4,16 @@
   "private": true,
   "description": "The Other Data: offbeat public signals behind well-known stocks, explained in plain English. Built by Nick Castro.",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node dev-server.mjs",
     "refresh": "node scripts/refresh.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
   }
 }
