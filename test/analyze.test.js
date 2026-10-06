@@ -62,3 +62,11 @@ test("summary counts readings", () => {
   assert.equal(s.tailwinds, 1); assert.equal(s.headwinds, 1);
   assert.match(s.text, /2 of 3/);
 });
+
+test("AI summary validator rejects advice and invented numbers", async () => {
+  const { validateSummary } = await import("../lib/explain.js");
+  const facts = "- PyTorch: 1.97M downloads/day, down 21% vs the 28 days before.";
+  assert.equal(validateSummary("Developer interest in AI tooling cooled, with PyTorch downloads down 21% from the prior month, which hints at a softer patch.", facts), null);
+  assert.equal(validateSummary("PyTorch downloads fell 21%, so investors should sell the stock before it drops further today.", facts), "advice");
+  assert.match(validateSummary("PyTorch downloads fell 35% last month, which hints at softer AI developer activity across the board.", facts), /number 35/);
+});
