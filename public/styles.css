@@ -197,3 +197,6 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .subh{margin:16px 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);border-top:1px solid var(--line);padding-top:14px}
 .news a.disc{display:inline;color:var(--dim);font-size:12px;text-decoration:underline}
 .warnline{color:#fcd98a}
+.pbig{font:700 26px/1.2 var(--mono);margin:4px 0 10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pbig .chg{margin:0}
+.price .spark{height:70px}

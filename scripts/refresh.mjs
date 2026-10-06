@@ -87,6 +87,15 @@ async function runNews(t, prev) {
     out.hn = prev?.news?.hn || [];
     out.hnFetchedAt = prev?.news?.hnFetchedAt || null;
   }
+  if (src.finnhubEnabled()) {
+    try {
+      const articles = await src.finnhubNews({ ticker: t.ticker });
+      mark("Finnhub company news", true);
+      if (articles.length) return { ...out, articles, status: "ok", source: { name: "Finnhub company news", url: "https://finnhub.io/" } };
+    } catch (e) {
+      mark("Finnhub company news", false, e.message);
+    }
+  }
   if (skipNews) return { ...(prev?.news || { status: "skipped", articles: [] }), hn: out.hn, hnFetchedAt: out.hnFetchedAt };
   return gdeltTurn(() => gdeltNews(t, prev, out));
 }
@@ -113,6 +122,32 @@ function fallbackNews(out, prev, err) {
   return { ...out, status: "error", error: err, articles: [] };
 }
 
+// Price data (optional keys). Prices are fetched once per day; the quote every run.
+async function runMarket(t, prev) {
+  const pm = prev?.market || {};
+  if (!src.finnhubEnabled() && !src.tiingoEnabled()) return { status: "off", note: "No market-data key configured (FINNHUB_API_KEY / TIINGO_API_KEY)." };
+  const out = { status: "ok", fetchedAt: startedAt };
+  if (src.tiingoEnabled()) {
+    if (pm.history?.length && pm.historyDay === today) { out.history = pm.history; out.historyDay = pm.historyDay; out.historySource = pm.historySource; }
+    else {
+      try { out.history = await src.tiingoPrices({ ticker: t.ticker }); out.historyDay = today; out.historySource = { name: "Tiingo (end-of-day, adjusted)", url: "https://www.tiingo.com/" }; mark("Tiingo prices", true); }
+      catch (e) { mark("Tiingo prices", false, e.message); if (pm.history?.length) { out.history = pm.history; out.historyDay = pm.historyDay; out.historySource = pm.historySource; out.historyStale = true; } }
+    }
+  }
+  if (src.finnhubEnabled()) {
+    try { out.quote = await src.finnhubQuote({ ticker: t.ticker }); out.quoteSource = { name: "Finnhub", url: "https://finnhub.io/" }; mark("Finnhub quotes", true); }
+    catch (e) { mark("Finnhub quotes", false, e.message); }
+  }
+  if (!out.quote && out.history?.length > 1) {
+    const h = out.history, a = h[h.length - 1], b = h[h.length - 2];
+    out.quote = { price: a.v, change: a.v - b.v, changePct: ((a.v - b.v) / b.v) * 100, at: a.t + "T21:00:00Z", eod: true };
+    out.quoteSource = out.historySource;
+  }
+  if (out.history?.length > 1) { const first = out.history[0].v, last = out.history[out.history.length - 1].v; out.yearPct = ((last - first) / first) * 100; }
+  if (!out.quote && !out.history) return { status: "error", error: "Market data providers didn't respond", fetchedAt: startedAt };
+  return out;
+}
+
 async function runSec(t, prev) {
   try {
     const r = await src.secFilings({ ticker: t.ticker });
@@ -131,17 +166,18 @@ console.log(`Refreshing ${targets.length} tickers${skipNews ? " (news skipped)" 
 const results = await Promise.all(targets.map(async (t) => {
   const prev = await readJson(join(OUT, "tickers", `${t.ticker}.json`), null);
   const prevSig = (id) => prev?.signals?.find((s) => s.id === id);
-  const [signals, news, sec] = await Promise.all([
+  const [signals, news, sec, market] = await Promise.all([
     Promise.all(t.signals.map((s) => runSignal(t, s, prevSig(s.id)))),
     runNews(t, prev),
     runSec(t, prev),
+    runMarket(t, prev),
   ]);
   const summary = summarize(t.name, t.ticker, signals);
   const ai = await aiSummary(t.name, t.ticker, signals);
-  const doc = { ticker: t.ticker, name: t.name, sector: t.sector, updatedAt: startedAt, summary, ai, signals, news, sec };
+  const doc = { ticker: t.ticker, name: t.name, sector: t.sector, updatedAt: startedAt, summary, ai, signals, news, sec, market };
   await writeFile(join(OUT, "tickers", `${t.ticker}.json`), JSON.stringify(doc));
   const okCount = signals.filter((s) => s.status === "ok").length;
-  console.log(`  ${t.ticker.padEnd(5)} ${okCount}/${signals.length} signals ok · news ${news.status} (${news.articles?.length || 0}) · hn ${news.hn?.length || 0} · sec ${sec.status}`);
+  console.log(`  ${t.ticker.padEnd(5)} ${okCount}/${signals.length} signals ok · news ${news.status} (${news.articles?.length || 0}) · hn ${news.hn?.length || 0} · sec ${sec.status} · market ${market.status}${ai ? " · ai summary" : ""}`);
   return doc;
 }));
 
@@ -152,6 +188,7 @@ for (const t of TICKERS) {
   if (!d) continue;
   all.push({
     ticker: d.ticker, name: d.name, sector: d.sector, updatedAt: d.updatedAt, summary: d.summary,
+    price: d.market?.quote ? { price: d.market.quote.price, changePct: d.market.quote.changePct } : null,
     signals: d.signals.map((s) => ({ id: s.id, name: s.name, source: s.source?.name || null, sourceUrl: s.source?.url || null, asOf: s.asOf || null, reading: s.reading || null, pct: s.pct ?? null, status: s.status, display: s.display || null, basis: s.basis || null, series: (s.series || []).slice(-40).map((p) => p.v) })),
     headline: (() => { const a = d.news?.articles?.[0] || d.news?.hn?.[0]; return a ? { title: a.title, domain: a.domain, url: a.url } : null; })(),
   });
@@ -161,6 +198,7 @@ const index = {
   generatedAt: startedAt,
   schedule: "Every 4 hours (GitHub Actions)",
   aiSummaries: aiEnabled(),
+  providers: { finnhub: src.finnhubEnabled(), tiingo: src.tiingoEnabled(), gemini: aiEnabled() },
   tickers: all,
   ideas: IDEAS,
   sources: { ...(only ? prevIndex.sources : {}), ...sourceHealth },

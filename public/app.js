@@ -133,10 +133,11 @@
     if (n.articles?.length) {
       body = (n.status === "stale" ? `<p class="note warnline">The news index didn't respond on the latest refresh, so these headlines are from ${esc(when(n.staleSince))}.</p>` : "") +
         `<ul class="news">${n.articles.slice(0, 6).map((a) => item(a)).join("")}</ul>`;
-    } else if (n.status === "error") body = `<p class="note warnline">The GDELT news index didn't respond on the latest refresh (it rate-limits heavily). We'll try again on the next run rather than show anything made up.</p>`;
+    } else if (n.status === "error") body = `<p class="note warnline">The news index didn't respond on the latest refresh (GDELT's free API rate-limits heavily). We'll try again on the next run rather than show anything made up.</p>`;
     else body = `<p class="note">No recent English-language headlines found.</p>`;
     const hn = n.hn?.length ? `<h4 class="subh">Discussed on Hacker News (last 2 weeks)</h4><ul class="news">${n.hn.slice(0, 4).map((a) => item(a, ` · ${a.points} points · <a class="disc" href="${esc(safeUrl(a.discuss))}" rel="noopener" target="_blank">discussion</a>`)).join("")}</ul>` : "";
-    return `<section class="panel"><h3>Latest news</h3><p class="ps">Headlines from the GDELT global news index${n.fetchedAt ? ` · checked ${esc(when(n.fetchedAt))}` : ""}</p>${body}${hn}</section>`;
+    const srcName = n.source?.name || "GDELT global news index";
+    return `<section class="panel"><h3>Latest news</h3><p class="ps">Headlines from ${esc(srcName)}${n.fetchedAt ? ` · checked ${esc(when(n.fetchedAt))}` : ""}</p>${body}${hn}</section>`;
   }
 
   const ITEMS = { "1.01": "Material agreement", "1.02": "Agreement ended", "2.01": "Acquisition or sale completed", "2.02": "Earnings results", "2.03": "New debt", "2.05": "Restructuring costs", "2.06": "Impairment", "3.01": "Listing notice", "4.01": "Auditor change", "5.02": "Executive or board change", "5.03": "Bylaws change", "5.07": "Shareholder vote results", "7.01": "Investor disclosure (Reg FD)", "8.01": "Other events", "9.01": "Financial exhibits" };
@@ -158,6 +159,18 @@
     return `<section class="panel"><h3>SEC filings</h3><p class="ps">From SEC EDGAR · fetched ${esc(when(s.fetchedAt))}</p>${f4}${list ? `<ul class="filings">${list}</ul>` : ""}</section>`;
   }
 
+  function pricePanel(d) {
+    const m = d.market || {};
+    const gf = `<a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">Google Finance ↗</a>`;
+    if (m.status !== "ok" || !m.quote) {
+      return `<section class="panel price"><h3>Stock price</h3><p class="note">${m.status === "error" ? "Our price provider didn't respond on the latest refresh, so we're not showing a number." : "A licensed price feed isn't connected yet, so we don't show prices here rather than scrape them."} See the live price on ${gf}.</p></section>`;
+    }
+    const q = m.quote, r = q.changePct > 0 ? "tailwind" : q.changePct < 0 ? "headwind" : "";
+    const hist = m.history?.length > 1 ? `${spark(m.history.map((p) => p.v), m.yearPct > 0 ? "tailwind" : "headwind", { w: 300, h: 70 })}<div class="range">${esc(dateOnly(m.history[0].t))} – ${esc(dateOnly(m.history[m.history.length - 1].t))} · ${esc(pctTxt(m.yearPct))} over the period</div>` : "";
+    const srcs = [m.quoteSource, m.historySource].filter((x, i, a) => x && a.findIndex((y) => y?.name === x.name) === i).map((x) => `<a href="${esc(safeUrl(x.url))}" rel="noopener" target="_blank">${esc(x.name)}</a>`).join(" · ");
+    return `<section class="panel price"><h3>Stock price</h3><div class="pbig">$${esc(q.price.toFixed(2))} <span class="chg ${r}">${esc(pctTxt(q.changePct))} ${q.eod ? "last session" : "today"}</span></div>${hist}<p class="note">${q.eod ? "End-of-day price" : "Quote"} as of ${esc(when(q.at || m.fetchedAt))}. Source: ${srcs}. Shown for context; the signals above don't predict it.</p></section>`;
+  }
+
   async function showTicker(tk) {
     const det = $("#detail");
     const t = INDEX.tickers.find((x) => x.ticker === tk);
@@ -175,7 +188,7 @@
       <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
       <div class="summary"><p class="k">${esc(sum.k)}</p><p>${esc(sum.text)}</p></div>
       <div class="dgrid"><div class="sigs">${d.signals.map((s) => sigCard(s, d)).join("")}</div>
-      <aside class="side">${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
+      <aside class="side">${pricePanel(d)}${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
     </div>`;
     window.scrollTo(0, 0);
   }

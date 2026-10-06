@@ -48,7 +48,7 @@
     <ul>
       <li>No made-up numbers. If a source fails, the card says "Data unavailable", or shows the last good data with a clear "stale" warning and the time it was fetched.</li>
       <li>Ideas without a live data source (like moth counts or recycling volumes) are labeled "Idea · not live".</li>
-      <li>We don't show stock prices, because we couldn't find a free price feed that permits automated use. Each stock page links out to a price chart instead.</li>
+      <li>Stock prices only appear when a licensed price feed (Finnhub for quotes, Tiingo for end-of-day history) is connected. We don't scrape prices from sites that disallow it. Otherwise each stock page links out to a price chart.</li>
       <li>Correlation isn't causation. Public data is often already priced in by the time it's published.</li>
     </ul>
 

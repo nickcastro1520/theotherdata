@@ -25,7 +25,10 @@ jobs:
           node-version: 20
       - name: Fetch public data
         env:
+          # All optional. Each feature turns on only when its secret exists.
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
         run: node scripts/refresh.mjs
       - name: Run tests
         run: node --test test/*.test.js
