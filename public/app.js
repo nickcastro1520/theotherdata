@@ -110,27 +110,52 @@
     let doc;
     try { doc = await (await fetch("/data/scout.json", { cache: "no-cache" })).json(); }
     catch { el.innerHTML = `<p class="note">Scout report not available yet.</p>`; return; }
-    const rows = (doc.shortlist || doc.top || []).slice(0, 8);
-    if (!rows.length) { el.innerHTML = `<p class="note">No scout pairings yet.</p>`; return; }
     const wiredBySeries = { VIXCLS: "NVDA", PERMIT: "UNP", UNRATE: "ABNB", BAMLH0A0HYM2: "F" };
     const wiredById = { vix: "NVDA", "hy-spread": "F", "housing-permits": "UNP", unrate: "ABNB" };
+    const linkFor = (r) => r.wiredTo || wiredById[r.candidateId] || wiredBySeries[r.sourceParams?.series] || null;
+    // Dedupe by candidateId: prefer wired rows, then strongest |ρ|
+    const raw = (doc.shortlist || doc.top || []).slice();
+    const best = new Map();
+    for (const r of raw) {
+      const key = r.candidateId || r.name;
+      const score = (linkFor(r) ? 1000 : 0) + (r.absSpearman || 0);
+      const prev = best.get(key);
+      if (!prev || score > (linkFor(prev) ? 1000 : 0) + (prev.absSpearman || 0)) best.set(key, r);
+    }
+    const rows = [...best.values()].sort((a, b) => {
+      const aw = linkFor(a) ? 0 : 1, bw = linkFor(b) ? 0 : 1;
+      if (aw !== bw) return aw - bw;
+      return (b.absSpearman || 0) - (a.absSpearman || 0);
+    }).slice(0, 8);
+    if (!rows.length) { el.innerHTML = `<p class="note">No scout pairings yet.</p>`; return; }
     el.innerHTML = rows.map((r) => {
-      const series = r.sourceParams?.series;
-      const linkTk = wiredById[r.candidateId] || wiredBySeries[series] || null;
+      const linkTk = linkFor(r);
       const live = Boolean(linkTk);
-      const rho = r.spearman > 0 ? `+${r.spearman}` : String(r.spearman);
+      const dir = r.live?.direction || "flat";
+      const pct = r.live?.pct;
+      const plain = r.plain || {};
+      const priceLean = plain.priceLean || "unclear";
+      const mag = plain.magnitude || (r.absSpearman >= 0.55 ? "strong" : r.absSpearman >= 0.4 ? "moderate" : "mild");
+      const leanCls = priceLean === "up" ? "up" : priceLean === "down" ? "down" : "flat";
+      const leanLabel = priceLean === "up" ? "Lean up" : priceLean === "down" ? "Lean down" : "No clear lean";
       const tag = live && linkTk ? `Live on ${linkTk}` : r.spuriousRisk === "high" ? "Spurious risk high" : "Scout hit";
-      const href = linkTk ? `#/${linkTk}` : "#stocks";
+      const href = linkTk ? `#/${linkTk}` : (r.targetKind === "ticker" ? `#/${r.target}` : "#stocks");
+      const targetShow = linkTk || r.targetLabel;
       return `<a class="scout-card" href="${href}">
-        <span class="tag ${live && linkTk ? "live" : ""}">${esc(tag)}</span>
-        <h3>${esc(r.name)} → ${esc(r.targetLabel)}</h3>
-        <p class="rho">Spearman ρ ${esc(rho)} · lead ${esc(r.leadPeriods)} ${esc(r.freq)} · n=${esc(r.n)}</p>
-        <p>${esc(r.why)}</p>
-        <p class="fine">Window ${esc(r.window?.from || "")} → ${esc(r.window?.to || "")}. Educational scan only.</p>
+        <div class="scout-top">
+          <span class="tag ${live ? "live" : ""}">${esc(tag)}</span>
+          <span class="chg ${esc(dir)}" title="Green = the public number is up vs its baseline; red = down">${pct == null ? "n/a" : esc(pctTxt(pct))} ${esc(dir === "up" ? "up" : dir === "down" ? "down" : "flat")}</span>
+        </div>
+        <h3>${esc(r.name)} → ${esc(targetShow)}</h3>
+        <p class="scout-q"><strong>What we pulled:</strong> ${esc(plain.whatPulled || r.name)}</p>
+        <p class="scout-q"><strong>Why it matters:</strong> ${esc(plain.whyMatters || r.why)}</p>
+        <p class="scout-q"><strong>How it can lean the price:</strong> <span class="chg ${esc(leanCls)}">${esc(leanLabel)}</span> · ${esc(mag)} · ${esc(plain.horizon || "weeks to a quarter")}</p>
+        <p class="scout-how">${esc(plain.howLean || "")}</p>
+        <p class="fine">Not financial advice. Correlation ≠ causation. Window ${esc(r.window?.from || "")} → ${esc(r.window?.to || "")}.</p>
       </a>`;
     }).join("");
     const meta = $("#scout-meta");
-    if (meta) meta.textContent = `Last scout run ${when(doc.generatedAt)} · ${doc.allCount || rows.length} pairings scored`;
+    if (meta) meta.textContent = `Last scout run ${when(doc.generatedAt)}${doc.enrichedAt ? ` · readings refreshed ${when(doc.enrichedAt)}` : ""} · ${doc.allCount || rows.length} pairings scored`;
   }
 
   // ---------- detail ----------
@@ -150,10 +175,26 @@
     const badge = s.status === "error" ? `<span class="badge error">Data unavailable</span>` : `<span class="badge ${esc(r)}">${esc(s.strength ? `${s.strength} ` : "")}${esc(READ[r] || r)}</span>`;
     const dir = dirOf(s.pct);
     const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
+    let scoutBox = "";
+    if (s.scout) {
+      const leanDir = r === "tailwind" ? "up" : r === "headwind" ? "down" : "flat";
+      const leanTxt = r === "tailwind"
+        ? `This reading looks like a ${s.strength || "mild"} lean <strong>up</strong> for ${d.ticker}'s story over weeks to a quarter.`
+        : r === "headwind"
+        ? `This reading looks like a ${s.strength || "mild"} lean <strong>down</strong> for ${d.ticker}'s story over weeks to a quarter.`
+        : `Right now this number is close to its usual range, so there is no clear up/down lean for ${d.ticker}.`;
+      scoutBox = `<div class="scout-lean ${leanDir}">
+        <p class="k">Scout find · easy read</p>
+        <p><strong>What we pulled:</strong> ${esc(s.what)}</p>
+        <p><strong>Why it matters for ${esc(d.ticker)}:</strong> ${esc(s.why)}</p>
+        <p><strong>How it can lean the price:</strong> ${leanTxt} <span class="chg ${leanDir}">${leanDir === "up" ? "Lean up" : leanDir === "down" ? "Lean down" : "No clear lean"}</span> Educational only — not advice to buy or sell.</p>
+      </div>`;
+    }
     return `<article class="sig ${esc(r)}${stale ? " stale" : ""}" id="sig-${esc(s.id)}">
-      <div class="top"><div><h3>${esc(s.name)}</h3><p class="metric">${esc(s.metric)}</p></div>${badge}</div>
+      <div class="top"><div><h3>${esc(s.name)}${s.scout ? ` <span class="scout-pill">Scout</span>` : ""}</h3><p class="metric">${esc(s.metric)}</p></div>${badge}</div>
       ${nums}
       ${stale ? `<div class="warnbox">The latest refresh couldn't reach this source (${esc(s.lastError || "error")}). Showing the last good data, fetched ${esc(when(s.staleSince || s.fetchedAt))}.</div>` : ""}
+      ${scoutBox}
       <div class="explain">
         <div><h4>What it is</h4><p>${esc(s.what)}</p></div>
         <div><h4>Why it might matter for ${esc(d.ticker)}</h4><p>${esc(s.why)}</p></div>

@@ -249,3 +249,19 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .scout-card .fine{margin-top:8px;font-size:12px;color:var(--dim)}
 .scout-card .tag{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--violet)}
 .scout-card .tag.live{color:var(--up)}
+
+/* Scout finds — green/red + plain-English lean */
+.scout-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}
+.scout-card .chg{margin-top:0;flex-shrink:0}
+.scout-q{margin:6px 0 0!important;font-size:13.5px!important;line-height:1.45!important;color:#cfd8ea!important}
+.scout-q strong{color:var(--ink);font-weight:700}
+.scout-how{margin-top:8px!important;font-size:13.5px!important;line-height:1.45!important;color:var(--mut)!important}
+.scout-pill{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;font:700 10px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;vertical-align:middle;background:rgba(167,139,250,.16);color:#d6c9ff;border:1px solid rgba(167,139,250,.35)}
+.scout-lean{margin:12px 0;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(148,163,184,.06)}
+.scout-lean.up{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.07)}
+.scout-lean.down{border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.07)}
+.scout-lean.flat{border-color:var(--line);background:rgba(148,163,184,.06)}
+.scout-lean .k{margin:0 0 8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--violet)}
+.scout-lean p{margin:0 0 6px;font-size:14px;line-height:1.45;color:#cfd8ea}
+.scout-lean p:last-child{margin-bottom:0}
+.scout-lean .chg{margin-top:0;margin-left:6px}

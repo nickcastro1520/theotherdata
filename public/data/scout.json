@@ -44,7 +44,24 @@
       "agreesWithHint": null,
       "spuriousRisk": "high",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 25.4,
+        "direction": "up",
+        "display": 114.97850000000001,
+        "baseline": 91.69315789473684,
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-09-29"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Brent crude oil price” from a free public feed (FRED). Right now that number is up (+25.4% vs the 28 days before).",
+        "whyMatters": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with Energy sector (XLE). That can lean the stock story up — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -74,7 +91,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -104,7 +140,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "brent",
@@ -134,7 +189,24 @@
       "agreesWithHint": null,
       "spuriousRisk": "high",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 25.4,
+        "direction": "up",
+        "display": 114.97850000000001,
+        "baseline": 91.69315789473684,
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-09-29"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Brent crude oil price” from a free public feed (FRED). Right now that number is up (+25.4% vs the 28 days before).",
+        "whyMatters": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with XOM. That can lean the stock story up — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "hy-spread",
@@ -164,7 +236,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "F"
+      "wiredTo": "F",
+      "live": {
+        "pct": 5.7,
+        "direction": "up",
+        "display": "2.84%",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "F",
+        "reading": "headwind",
+        "strength": "mild"
+      },
+      "plain": {
+        "whatPulled": "We pulled “U.S. high-yield credit spread” from a free public feed (FRED). Right now that number is up (+5.7% vs the 28 days before).",
+        "whyMatters": "Many car buyers use loans. Wider junk spreads mean tighter credit — that can lean against Ford; tighter spreads can lean with it.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with F. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -194,7 +285,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "unrate",
@@ -224,7 +334,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "ABNB"
+      "wiredTo": "ABNB",
+      "live": {
+        "pct": -3.1,
+        "direction": "down",
+        "display": "4.13%",
+        "basis": "vs the 3 months before",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-09-01",
+        "fromTicker": "ABNB",
+        "reading": "tailwind",
+        "strength": "mild"
+      },
+      "plain": {
+        "whatPulled": "We pulled “U.S. unemployment rate” from a free public feed (FRED). Right now that number is down (-3.1% vs the 3 months before).",
+        "whyMatters": "Airbnb stays are a want, not a need. Higher unemployment usually squeezes travel budgets; lower unemployment can support bookings.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with ABNB. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "housing-permits",
@@ -254,7 +383,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "UNP"
+      "wiredTo": "UNP",
+      "live": {
+        "pct": 1.5,
+        "direction": "up",
+        "display": "1.4M/yr pace",
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01",
+        "fromTicker": "UNP",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “Building permits” from a free public feed (FRED). Right now that number is up (+1.5% vs the same period last year).",
+        "whyMatters": "New homes need materials that often travel by rail. More permits can mean more freight for Union Pacific later; fewer can mean less.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with UNP. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "air-freight",
@@ -284,7 +432,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": -1.2,
+        "direction": "down",
+        "display": 135.86666666666665,
+        "baseline": 137.46666666666667,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-07-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Air freight revenue ton-miles (index)” from a free public feed (FRED). Right now that number is down (-1.2% vs the same period last year).",
+        "whyMatters": "Express air cargo often leads goods demand and high-value electronics shipping.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with Consumer discretionary (XLY). That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -314,7 +479,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with Consumer discretionary (XLY). That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -344,7 +526,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with DIS. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "containerboard-ppi",
@@ -374,7 +573,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 6.1,
+        "direction": "up",
+        "display": 491.8486666666667,
+        "baseline": 463.771,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Corrugated box PPI” from a free public feed (FRED). Right now that number is up (+6.1% vs the same period last year).",
+        "whyMatters": "Packaging prices as e-commerce/goods-flow proxy (already on AMZN; scout vs WMT/HD).",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with HD. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "air-freight",
@@ -404,7 +620,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": -1.2,
+        "direction": "down",
+        "display": 135.86666666666665,
+        "baseline": 137.46666666666667,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-07-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Air freight revenue ton-miles (index)” from a free public feed (FRED). Right now that number is down (-1.2% vs the same period last year).",
+        "whyMatters": "Express air cargo often leads goods demand and high-value electronics shipping.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with AMZN. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -434,7 +667,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -464,7 +716,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with WMT. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     }
   ],
   "shortlist": [
@@ -496,7 +765,24 @@
       "agreesWithHint": null,
       "spuriousRisk": "high",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 25.4,
+        "direction": "up",
+        "display": 114.97850000000001,
+        "baseline": 91.69315789473684,
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-09-29"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Brent crude oil price” from a free public feed (FRED). Right now that number is up (+25.4% vs the 28 days before).",
+        "whyMatters": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with Energy sector (XLE). That can lean the stock story up — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -526,7 +812,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -556,7 +861,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "brent",
@@ -586,7 +910,24 @@
       "agreesWithHint": null,
       "spuriousRisk": "high",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 25.4,
+        "direction": "up",
+        "display": 114.97850000000001,
+        "baseline": 91.69315789473684,
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-09-29"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Brent crude oil price” from a free public feed (FRED). Right now that number is up (+25.4% vs the 28 days before).",
+        "whyMatters": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with XOM. That can lean the stock story up — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "hy-spread",
@@ -616,7 +957,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "F"
+      "wiredTo": "F",
+      "live": {
+        "pct": 5.7,
+        "direction": "up",
+        "display": "2.84%",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "F",
+        "reading": "headwind",
+        "strength": "mild"
+      },
+      "plain": {
+        "whatPulled": "We pulled “U.S. high-yield credit spread” from a free public feed (FRED). Right now that number is up (+5.7% vs the 28 days before).",
+        "whyMatters": "Many car buyers use loans. Wider junk spreads mean tighter credit — that can lean against Ford; tighter spreads can lean with it.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with F. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -646,7 +1006,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a strong historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "strong",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "unrate",
@@ -676,7 +1055,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "ABNB"
+      "wiredTo": "ABNB",
+      "live": {
+        "pct": -3.1,
+        "direction": "down",
+        "display": "4.13%",
+        "basis": "vs the 3 months before",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-09-01",
+        "fromTicker": "ABNB",
+        "reading": "tailwind",
+        "strength": "mild"
+      },
+      "plain": {
+        "whatPulled": "We pulled “U.S. unemployment rate” from a free public feed (FRED). Right now that number is down (-3.1% vs the 3 months before).",
+        "whyMatters": "Airbnb stays are a want, not a need. Higher unemployment usually squeezes travel budgets; lower unemployment can support bookings.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with ABNB. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "housing-permits",
@@ -706,7 +1104,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "UNP"
+      "wiredTo": "UNP",
+      "live": {
+        "pct": 1.5,
+        "direction": "up",
+        "display": "1.4M/yr pace",
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01",
+        "fromTicker": "UNP",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “Building permits” from a free public feed (FRED). Right now that number is up (+1.5% vs the same period last year).",
+        "whyMatters": "New homes need materials that often travel by rail. More permits can mean more freight for Union Pacific later; fewer can mean less.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with UNP. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "air-freight",
@@ -736,7 +1153,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": -1.2,
+        "direction": "down",
+        "display": 135.86666666666665,
+        "baseline": 137.46666666666667,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-07-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Air freight revenue ton-miles (index)” from a free public feed (FRED). Right now that number is down (-1.2% vs the same period last year).",
+        "whyMatters": "Express air cargo often leads goods demand and high-value electronics shipping.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with Consumer discretionary (XLY). That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -766,7 +1200,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with Consumer discretionary (XLY). That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -796,7 +1247,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with DIS. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "containerboard-ppi",
@@ -826,7 +1294,24 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 6.1,
+        "direction": "up",
+        "display": 491.8486666666667,
+        "baseline": 463.771,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Corrugated box PPI” from a free public feed (FRED). Right now that number is up (+6.1% vs the same period last year).",
+        "whyMatters": "Packaging prices as e-commerce/goods-flow proxy (already on AMZN; scout vs WMT/HD).",
+        "howLean": "The public number is up, and in our sample it has usually moved up together with HD. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "air-freight",
@@ -856,7 +1341,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": -1.2,
+        "direction": "down",
+        "display": 135.86666666666665,
+        "baseline": 137.46666666666667,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-07-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Air freight revenue ton-miles (index)” from a free public feed (FRED). Right now that number is down (-1.2% vs the same period last year).",
+        "whyMatters": "Express air cargo often leads goods demand and high-value electronics shipping.",
+        "howLean": "The public number is down, and in our sample it has usually moved opposite ways with AMZN. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -886,7 +1388,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "retail-sales",
@@ -916,7 +1437,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 5.3,
+        "direction": "up",
+        "display": 733399.6666666666,
+        "baseline": 696793.6666666666,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Advance retail sales” from a free public feed (FRED). Right now that number is up (+5.3% vs the same period last year).",
+        "whyMatters": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with WMT. That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "hy-spread",
@@ -946,7 +1484,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "F"
+      "wiredTo": "F",
+      "live": {
+        "pct": 5.7,
+        "direction": "up",
+        "display": "2.84%",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "F",
+        "reading": "headwind",
+        "strength": "mild"
+      },
+      "plain": {
+        "whatPulled": "We pulled “U.S. high-yield credit spread” from a free public feed (FRED). Right now that number is up (+5.7% vs the 28 days before).",
+        "whyMatters": "Many car buyers use loans. Wider junk spreads mean tighter credit — that can lean against Ford; tighter spreads can lean with it.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with F. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "auto-inventory",
@@ -976,7 +1533,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": -15.1,
+        "direction": "down",
+        "display": 1.208,
+        "baseline": 1.4233333333333336,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Domestic auto inventories (months supply)” from a free public feed (FRED). Right now that number is down (-15.1% vs the same period last year).",
+        "whyMatters": "Dealer stock levels — high months-supply can pressure auto makers' pricing power.",
+        "howLean": "The public number is down, and in our sample it has usually moved up together with Consumer discretionary (XLY). That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "copper",
@@ -1006,7 +1580,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 39.4,
+        "direction": "up",
+        "display": 13535.672656377441,
+        "baseline": 9712.283146370539,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-07-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Global copper price” from a free public feed (FRED). Right now that number is up (+39.4% vs the same period last year).",
+        "whyMatters": "Copper is a classic 'Dr. Copper' cycle gauge and a physical input for power, grid, and data-center buildouts.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with Consumer discretionary (XLY). That can lean the stock story up — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "vix",
@@ -1036,7 +1627,26 @@
       "agreesWithHint": true,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": "NVDA"
+      "wiredTo": "NVDA",
+      "live": {
+        "pct": 5.6,
+        "direction": "up",
+        "display": "15.9",
+        "basis": "vs the 28 days before",
+        "currentLabel": "28-day average",
+        "asOf": "2026-10-05",
+        "fromTicker": "NVDA",
+        "reading": "neutral",
+        "strength": null
+      },
+      "plain": {
+        "whatPulled": "We pulled “VIX volatility index” from a free public feed (FRED). Right now that number is up (+5.6% vs the 28 days before).",
+        "whyMatters": "Nvidia is a high-flying growth stock. When market fear rises, those names often get hit first — a risk-mood clue, not chip demand.",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with NVDA. That can lean the stock story down — a moderate historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "down",
+        "magnitude": "moderate",
+        "horizon": "weeks to a quarter"
+      }
     },
     {
       "candidateId": "hotel-cpi",
@@ -1066,7 +1676,24 @@
       "agreesWithHint": false,
       "spuriousRisk": "moderate",
       "wireable": true,
-      "wiredTo": null
+      "wiredTo": null,
+      "live": {
+        "pct": 3.6,
+        "direction": "up",
+        "display": 189.15033333333335,
+        "baseline": 182.62933333333334,
+        "basis": "vs the same period last year",
+        "currentLabel": "last 3 months, average",
+        "asOf": "2026-08-01"
+      },
+      "plain": {
+        "whatPulled": "We pulled “Lodging away from home CPI” from a free public feed (FRED). Right now that number is up (+3.6% vs the same period last year).",
+        "whyMatters": "Hotel/short-stay prices track travel demand (already used for ABNB; scout vs DAL/DIS).",
+        "howLean": "The public number is up, and in our sample it has usually moved opposite ways with Consumer discretionary (XLY). That can lean the stock story up — a mild historical link, over weeks to a quarter. Educational only — not advice to buy or sell.",
+        "priceLean": "up",
+        "magnitude": "mild",
+        "horizon": "weeks to a quarter"
+      }
     }
   ],
   "allCount": 125,
@@ -1095,5 +1722,6 @@
       "id": "hy-spread",
       "note": "Junk credit stress → auto demand"
     }
-  ]
+  ],
+  "enrichedAt": "2026-10-06T18:04:55.976Z"
 }

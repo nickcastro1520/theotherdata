@@ -99,7 +99,13 @@
           <h2>Scout finds</h2>
           <p class="sub">A scheduled correlation scout scans free public series against curated stock prices (Tiingo) and ranks economically motivated pairings. Top hits below — correlation is not causation, and multiple testing is a real risk. Full method on the <a href="/how#scout">how it works</a> page.</p>
         </div>
+        <div class="legend" aria-label="Color legend">
+          <span><i class="dot up"></i><b>Green</b> = number is up</span>
+          <span><i class="dot down"></i><b>Red</b> = number is down</span>
+          <span><i class="dot neutral"></i>Gray = flat</span>
+        </div>
       </div>
+      <p class="legend-note" style="margin:-8px 0 14px">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline — not a buy/sell tip.</p>
       <p class="status-line" id="scout-meta" style="margin:0 0 16px"></p>
       <div class="scout-grid" id="scout-list"><p class="note">Loading scout results…</p></div>
       <p class="sub" style="margin-top:14px">Live signals from this scout also appear on the linked stock pages. Full tables live in the repo under <code>reports/correlation-scout.md</code>.</p>

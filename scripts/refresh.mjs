@@ -44,7 +44,7 @@ function staleCopy(prev, err) {
 }
 
 async function runSignal(t, sig, prevSig) {
-  const base = { id: sig.id, name: sig.name, metric: sig.metric, what: sig.what, why: sig.why, unit: sig.unit, polarity: sig.polarity, threshold: sig.threshold, compare: sig.compare, source: { name: sig.sourceName } };
+  const base = { id: sig.id, name: sig.name, metric: sig.metric, what: sig.what, why: sig.why, unit: sig.unit, polarity: sig.polarity, threshold: sig.threshold, compare: sig.compare, scout: Boolean(sig.scout), source: { name: sig.sourceName } };
   try {
     if (sig.source === "greenhouse") {
       const r = await fetchOnce("greenhouse", sig.params);
