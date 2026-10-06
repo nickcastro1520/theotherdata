@@ -174,6 +174,7 @@ const results = await Promise.all(targets.map(async (t) => {
   ]);
   const summary = summarize(t.name, t.ticker, signals);
   const ai = await aiSummary(t.name, t.ticker, signals);
+  if (ai?.text && summary.impact) summary.impact = { ...summary.impact, text: ai.text, source: "ai" };
   const doc = { ticker: t.ticker, name: t.name, sector: t.sector, updatedAt: startedAt, summary, ai, signals, news, sec, market };
   await writeFile(join(OUT, "tickers", `${t.ticker}.json`), JSON.stringify(doc));
   const okCount = signals.filter((s) => s.status === "ok").length;

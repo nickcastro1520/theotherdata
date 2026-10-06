@@ -70,3 +70,22 @@ test("AI summary validator rejects advice and invented numbers", async () => {
   assert.equal(validateSummary("PyTorch downloads fell 21%, so investors should sell the stock before it drops further today.", facts), "advice");
   assert.match(validateSummary("PyTorch downloads fell 35% last month, which hints at softer AI developer activity across the board.", facts), /number 35/);
 });
+
+test("summary includes an educational impact call", () => {
+  const s = summarize("Acme", "ACME", [
+    { status: "ok", reading: "tailwind", pct: 12, name: "A", basis: "vs x" },
+    { status: "ok", reading: "tailwind", pct: 8, name: "B", basis: "vs y" },
+    { status: "ok", reading: "headwind", pct: -5, name: "C", basis: "vs z" },
+  ]);
+  assert.equal(s.impact.lean, "tailwind");
+  assert.match(s.impact.label, /tailwind/i);
+  assert.match(s.impact.text, /lean toward/i);
+  assert.match(s.impact.text, /not advice to buy or sell/i);
+});
+
+test("directionOf maps pct to up/down/flat", async () => {
+  const { directionOf } = await import("../lib/analyze.js");
+  assert.equal(directionOf(3), "up");
+  assert.equal(directionOf(-1), "down");
+  assert.equal(directionOf(0), "flat");
+});

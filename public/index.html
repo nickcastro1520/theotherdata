@@ -44,7 +44,7 @@
         <p class="lede">Wall Street pays millions for "alternative data": airport lines, shipping boxes, what people look up online. We pull the free, public versions, compare them with the recent past, and tell you what they might mean in plain English.</p>
         <form class="picker" id="picker" role="search" autocomplete="off">
           <label for="q" class="sr">Pick a stock</label>
-          <input id="q" type="text" inputmode="search" placeholder="Pick a stock: try NVDA, Delta, or eggs…" aria-describedby="status-line">
+          <input id="q" type="text" inputmode="search" placeholder="Any ticker or company: NVDA, GOOGL, Meta…" aria-describedby="status-line">
           <button class="btn" type="submit">Show signals</button>
         </form>
         <div class="chips" id="chips" aria-label="Popular tickers"></div>
@@ -61,9 +61,16 @@
       <div class="band-head">
         <div>
           <h2>Pick a stock</h2>
-          <p class="sub">Each company is mapped to two to four indirect signals with real public data behind them. Green dots are tailwinds, red are headwinds, gray is noise or context.</p>
+          <p class="sub">Curated stocks get deep custom signals. You can also look up any US ticker for a lighter pack (price, news, Wikipedia, Hacker News, SEC inventory).</p>
         </div>
-        <div class="legend" aria-hidden="true"><span><i class="dot tailwind"></i>Tailwind</span><span><i class="dot headwind"></i>Headwind</span><span><i class="dot neutral"></i>Neutral / context</span></div>
+        <div class="legend-block" id="color-legend">
+        <div class="legend" role="note">
+          <span title="The underlying number rose vs its recent baseline"><i class="dot up"></i><b>Green</b> = number is up</span>
+          <span title="The underlying number fell vs its recent baseline"><i class="dot down"></i><b>Red</b> = number is down</span>
+          <span><i class="dot neutral"></i>Gray = flat / noise</span>
+        </div>
+        <p class="legend-note">Green and red track whether the <em>data</em> moved up or down vs its recent baseline. Separate <strong>Tailwind</strong> / <strong>Headwind</strong> badges say whether that move looks favorable or unfavorable for the company (some signals flip — e.g. more inventory can be a headwind even when the number is up).</p>
+      </div>
       </div>
       <div class="cards" id="cards"></div>
     </div>

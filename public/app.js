@@ -25,7 +25,9 @@
   const dateOnly = (t, freq) => new Date(t + "T12:00:00Z").toLocaleDateString(undefined, freq === "monthly" ? { month: "short", year: "numeric", timeZone: "UTC" } : { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
   const pctTxt = (p) => (p == null ? "" : `${p > 0 ? "+" : p < 0 ? "−" : ""}${Math.abs(p).toFixed(Math.abs(p) < 10 ? 1 : 0)}%`);
   const readingOf = (s) => (s.status === "error" ? "error" : s.reading || (s.status === "tracking" ? "tracking" : "unknown"));
-  const COLORS = { tailwind: "#34d399", headwind: "#f87171", error: "#fbbf24" };
+  const COLORS = { up: "#34d399", down: "#f87171", flat: "#94a3b8", tailwind: "#34d399", headwind: "#f87171", error: "#fbbf24" };
+  const dirOf = (pct) => (pct == null || !Number.isFinite(pct) ? "flat" : pct > 0 ? "up" : pct < 0 ? "down" : "flat");
+  const IMPACT = { tailwind: ["tailwind", "Lean tailwind"], headwind: ["headwind", "Lean headwind"], mixed: ["", "Mixed"], quiet: ["", "Quiet"] };
 
   function spark(values, reading, { w = 300, h = 84, axis = false, labels = null, id = "" } = {}) {
     const v = values.filter((x) => Number.isFinite(x));
@@ -71,8 +73,8 @@
     el.innerHTML = `<p class="spot-k">Biggest move right now</p>
       <div class="spot-t"><h3>${esc(s.name)}</h3><span class="tk">${esc(t.ticker)}</span></div>
       <div class="spot-big">${esc(s.display || "")}</div>
-      <p class="spot-sub"><span class="chg ${esc(s.reading)}">${esc(pctTxt(s.pct))}</span> ${esc(s.basis || "")} · <span class="badge ${esc(s.reading)}">${esc(READ[s.reading])} for ${esc(t.name)}</span></p>
-      ${spark(s.series, s.reading, { w: 320, h: 90 })}
+      <p class="spot-sub"><span class="chg ${esc(dirOf(s.pct))}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))}</span> ${esc(s.basis || "")} · <span class="badge ${esc(s.reading)}">${esc(READ[s.reading])} for ${esc(t.name)}</span></p>
+      ${spark(s.series, dirOf(s.pct), { w: 320, h: 90 })}
       <p class="txt">One of ${INDEX.tickers.reduce((a, x) => a + x.signals.length, 0)} offbeat signals we track. Every card explains what the data is and why it might matter.</p>
       <a class="btn" href="#/${esc(t.ticker)}">See all ${esc(t.ticker)} signals →</a>`;
   }
@@ -85,12 +87,12 @@
       const [cls, txt] = LEAN[t.summary.lean] || ["", t.summary.lean];
       return `<a class="tcard${hide ? " dimmed" : ""}" href="#/${esc(t.ticker)}" data-t="${esc(t.ticker)}">
         <div class="row1"><div><div class="tk">${esc(t.ticker)}</div><div class="nm">${esc(t.name)} · ${esc(t.sector)}</div></div><span class="lean ${cls}">${esc(txt)}</span></div>
-        <ul>${t.signals.map((s) => { const r = readingOf(s); return `<li><i class="dot ${r}"></i><span class="nm2">${esc(s.name)}</span><span class="pc ${r}">${s.status === "error" ? "n/a" : esc(pctTxt(s.pct))}</span><span class="mini">${spark(s.series || [], r, { w: 56, h: 18 })}</span></li>`; }).join("")}</ul>
+        <ul>${t.signals.map((s) => { const r = readingOf(s); const dir = dirOf(s.pct); return `<li><i class="dot ${r}" title="${esc(READ[r] || r)}"></i><span class="nm2">${esc(s.name)}</span><span class="pc ${dir}" title="Green = up vs baseline, red = down">${s.status === "error" ? "n/a" : esc(pctTxt(s.pct))}</span><span class="mini">${spark(s.series || [], dir, { w: 56, h: 18 })}</span></li>`; }).join("")}</ul>
         ${t.headline ? `<p class="hl">📰 ${esc(t.headline.title)}</p>` : ""}
       </a>`;
     }).join("");
     $("#cards").innerHTML = html;
-    if (f && !$("#cards .tcard:not(.dimmed)")) $("#cards").insertAdjacentHTML("beforeend", `<p class="empty">No stock or signal matches “${esc(filter)}”. Try a ticker like AAPL, or a signal like “gas”.</p>`);
+    if (f && !$("#cards .tcard:not(.dimmed)")) $("#cards").insertAdjacentHTML("beforeend", `<p class="empty">No curated stock matches “${esc(filter)}”. Press <b>Show signals</b> to look up any US ticker (price, news, and a light signal pack).</p>`);
   }
 
   function renderIdeas() {
@@ -112,7 +114,8 @@
     const vals = (s.series || []).map((p) => p.v);
     const range = s.series?.length > 1 ? `${dateOnly(s.series[0].t, s.freq)} – ${dateOnly(s.series[s.series.length - 1].t, s.freq)}` : "";
     const badge = s.status === "error" ? `<span class="badge error">Data unavailable</span>` : `<span class="badge ${esc(r)}">${esc(s.strength ? `${s.strength} ` : "")}${esc(READ[r] || r)}</span>`;
-    const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(r)}">${esc(pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, r, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
+    const dir = dirOf(s.pct);
+    const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
     return `<article class="sig ${esc(r)}${stale ? " stale" : ""}" id="sig-${esc(s.id)}">
       <div class="top"><div><h3>${esc(s.name)}</h3><p class="metric">${esc(s.metric)}</p></div>${badge}</div>
       ${nums}
@@ -165,32 +168,88 @@
     if (m.status !== "ok" || !m.quote) {
       return `<section class="panel price"><h3>Stock price</h3><p class="note">${m.status === "error" ? "Our price provider didn't respond on the latest refresh, so we're not showing a number." : "A licensed price feed isn't connected yet, so we don't show prices here rather than scrape them."} See the live price on ${gf}.</p></section>`;
     }
-    const q = m.quote, r = q.changePct > 0 ? "tailwind" : q.changePct < 0 ? "headwind" : "";
-    const hist = m.history?.length > 1 ? `${spark(m.history.map((p) => p.v), m.yearPct > 0 ? "tailwind" : "headwind", { w: 300, h: 70 })}<div class="range">${esc(dateOnly(m.history[0].t))} – ${esc(dateOnly(m.history[m.history.length - 1].t))} · ${esc(pctTxt(m.yearPct))} over the period</div>` : "";
+    const q = m.quote, r = dirOf(q.changePct);
+    const hist = m.history?.length > 1 ? `${spark(m.history.map((p) => p.v), dirOf(m.yearPct), { w: 300, h: 70 })}<div class="range">${esc(dateOnly(m.history[0].t))} – ${esc(dateOnly(m.history[m.history.length - 1].t))} · ${esc(pctTxt(m.yearPct))} over the period</div>` : "";
     const srcs = [m.quoteSource, m.historySource].filter((x, i, a) => x && a.findIndex((y) => y?.name === x.name) === i).map((x) => `<a href="${esc(safeUrl(x.url))}" rel="noopener" target="_blank">${esc(x.name)}</a>`).join(" · ");
     return `<section class="panel price"><h3>Stock price</h3><div class="pbig">$${esc(q.price.toFixed(2))} <span class="chg ${r}">${esc(pctTxt(q.changePct))} ${q.eod ? "last session" : "today"}</span></div>${hist}<p class="note">${q.eod ? "End-of-day price" : "Quote"} as of ${esc(when(q.at || m.fetchedAt))}. Source: ${srcs}. Shown for context; the signals above don't predict it.</p></section>`;
   }
 
-  async function showTicker(tk) {
+
+  function impactPanel(d) {
+    const imp = d.summary?.impact || {};
+    const [cls, lab] = IMPACT[imp.lean] || IMPACT[d.summary?.lean === "leaning positive" ? "tailwind" : d.summary?.lean === "leaning negative" ? "headwind" : d.summary?.lean === "quiet" ? "quiet" : "mixed"] || ["", "Mixed"];
+    const label = imp.label || lab;
+    const text = (d.ai?.text && imp.source === "ai" ? d.ai.text : null) || imp.text || d.ai?.text || d.summary?.text || "";
+    const m = d.market || {};
+    const q = m.quote;
+    let priceHtml = `<p class="note">Price feed not connected on this view. <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">Google Finance ↗</a></p>`;
+    if (q && q.price != null) {
+      const dir = dirOf(q.changePct);
+      const hist = m.history?.length > 1 ? spark(m.history.map((p) => p.v), dirOf(m.yearPct), { w: 260, h: 56 }) : "";
+      priceHtml = `<div class="pbig">$${esc(Number(q.price).toFixed(2))} <span class="chg ${dir}">${esc(pctTxt(q.changePct))} ${q.eod ? "last session" : "today"}</span></div>${hist}<p class="note">${q.eod ? "End-of-day" : "Quote"} · ${(m.quoteSource || m.historySource)?.name || "market data"}</p>`;
+    }
+    return `<section class="impact" aria-label="Impact call">
+      <div>
+        <p class="k">What these offbeat signals lean toward right now</p>
+        <div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind</span></div>
+        <p class="body">${esc(text)}</p>
+        <p class="fineprint">Educational reading of public data — not financial advice, not a forecast, and not a recommendation to buy or sell.</p>
+      </div>
+      <div class="pricebox"><p class="pk">Current stock price</p>${priceHtml}</div>
+    </section>`;
+  }
+
+  function renderDetail(d) {
     const det = $("#detail");
-    const t = INDEX.tickers.find((x) => x.ticker === tk);
-    if (!t) { location.hash = ""; return; }
-    document.title = `${t.ticker}: ${t.name} hidden signals | The Other Data`;
+    document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
-    for (const id of ["home", "stocks", "how", "ideas"]) $(`#${id}`).hidden = true;
-    det.innerHTML = `<div class="wrap"><p class="ps">Loading ${esc(t.ticker)}…</p></div>`;
-    let d;
-    try { d = await (await fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "no-cache" })).json(); }
-    catch { det.innerHTML = `<div class="wrap"><p class="warnbox">Couldn't load data for ${esc(tk)}. Please refresh.</p></div>`; return; }
-    const sum = d.ai?.text ? { k: "AI summary, written only from the numbers below", text: d.ai.text } : { k: "Summary, written from the numbers below", text: d.summary.text };
+    for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    const pack = d.pack === "light" ? `<div class="pack-banner">${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
     det.innerHTML = `<div class="wrap">
       <a class="back" href="#">← All stocks</a>
-      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
-      <div class="summary"><p class="k">${esc(sum.k)}</p><p>${esc(sum.text)}</p></div>
-      <div class="dgrid"><div class="sigs">${d.signals.map((s) => sigCard(s, d)).join("")}</div>
+      ${pack}
+      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
+      ${impactPanel(d)}
+      <div class="dgrid"><div class="sigs">${(d.signals || []).map((s) => sigCard(s, d)).join("") || `<p class="note">No signal cards available for this ticker yet.</p>`}</div>
       <aside class="side">${pricePanel(d)}${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
     </div>`;
     window.scrollTo(0, 0);
+  }
+
+  async function showTicker(tk) {
+    const det = $("#detail");
+    const curated = INDEX.tickers.find((x) => x.ticker === tk);
+    det.hidden = false;
+    for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    det.innerHTML = `<div class="wrap loading-panel">Loading ${esc(tk)}…</div>`;
+    if (curated) {
+      try {
+        const d = await (await fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "no-cache" })).json();
+        // Ensure impact exists for older cached JSON
+        if (!d.summary?.impact && d.summary) {
+          const lean = d.summary.lean === "leaning positive" ? "tailwind" : d.summary.lean === "leaning negative" ? "headwind" : d.summary.lean === "quiet" ? "quiet" : "mixed";
+          d.summary.impact = { lean, label: IMPACT[lean][1], text: d.ai?.text || d.summary.text, source: d.ai?.text ? "ai" : "template" };
+        } else if (d.ai?.text && d.summary?.impact) {
+          d.summary.impact = { ...d.summary.impact, text: d.ai.text, source: "ai" };
+        }
+        return renderDetail(d);
+      } catch {
+        det.innerHTML = `<div class="wrap"><p class="warnbox">Couldn't load data for ${esc(tk)}. Please refresh.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+        return;
+      }
+    }
+    // Open search: any other US ticker via /api/lookup
+    try {
+      const res = await fetch(`/api/lookup?q=${encodeURIComponent(tk)}`, { cache: "default" });
+      const d = await res.json();
+      if (!res.ok) {
+        det.innerHTML = `<div class="wrap"><p class="warnbox">${esc(d.message || `No data for ${tk}.`)}</p><p class="note">Try a curated ticker from the home page, or another US common stock symbol.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+        return;
+      }
+      return renderDetail(d);
+    } catch {
+      det.innerHTML = `<div class="wrap"><p class="warnbox">Lookup failed for ${esc(tk)}. Please try again in a moment.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+    }
   }
 
   function showHome() {
@@ -200,7 +259,7 @@
   }
 
   function route() {
-    const m = location.hash.match(/^#\/([A-Za-z.]{1,6})$/);
+    const m = location.hash.match(/^#\/([A-Za-z]{1,5}(?:\.[A-Za-z])?)$/);
     if (m) showTicker(m[1].toUpperCase());
     else {
       const wasDetail = !$("#detail").hidden; showHome();
@@ -214,16 +273,93 @@
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
     renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas();
     const q = $("#q");
-    q.addEventListener("input", () => renderCards(q.value));
+    // Suggestions dropdown
+    let sug = document.getElementById("suggest");
+    if (!sug) {
+      const wrap = document.createElement("div");
+      wrap.className = "suggest";
+      q.parentNode.insertBefore(wrap, q);
+      wrap.appendChild(q);
+      sug = document.createElement("div");
+      sug.id = "suggest";
+      sug.className = "suggest-list";
+      sug.setAttribute("role", "listbox");
+      wrap.appendChild(sug);
+    }
+    let sugTimer = null, sugItems = [], sugIdx = -1;
+    const closeSug = () => { sug.classList.remove("open"); sug.innerHTML = ""; sugItems = []; sugIdx = -1; };
+    const openTicker = (sym) => { closeSug(); location.hash = `#/${String(sym).toUpperCase()}`; };
+    const renderSug = (items) => {
+      sugItems = items || [];
+      sugIdx = -1;
+      if (!sugItems.length) { closeSug(); return; }
+      sug.innerHTML = sugItems.map((it, i) => `<button type="button" role="option" data-i="${i}"><span class="sym">${esc(it.symbol)}</span><span class="nm">${esc(it.name)}</span></button>`).join("");
+      sug.classList.add("open");
+      sug.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => openTicker(sugItems[+b.dataset.i].symbol)));
+    };
+    q.addEventListener("input", () => {
+      renderCards(q.value);
+      const v = q.value.trim();
+      clearTimeout(sugTimer);
+      if (v.length < 1) { closeSug(); return; }
+      // Prefer curated matches instantly
+      const local = INDEX.tickers.filter((t) => t.ticker.toLowerCase().startsWith(v.toLowerCase()) || t.name.toLowerCase().includes(v.toLowerCase())).slice(0, 6)
+        .map((t) => ({ symbol: t.ticker, name: t.name }));
+      if (local.length) renderSug(local);
+      sugTimer = setTimeout(async () => {
+        try {
+          const r = await fetch(`/api/search?q=${encodeURIComponent(v)}`);
+          const j = await r.json();
+          const remote = (j.results || []).map((x) => ({ symbol: x.symbol, name: x.name }));
+          const seen = new Set(local.map((x) => x.symbol));
+          renderSug([...local, ...remote.filter((x) => !seen.has(x.symbol))].slice(0, 8));
+        } catch { /* keep local */ }
+      }, 220);
+    });
+    q.addEventListener("keydown", (e) => {
+      if (!sug.classList.contains("open") || !sugItems.length) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); sugIdx = Math.min(sugIdx + 1, sugItems.length - 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); sugIdx = Math.max(sugIdx - 1, 0); }
+      else if (e.key === "Escape") { closeSug(); return; }
+      else return;
+      [...sug.querySelectorAll("button")].forEach((b, i) => b.classList.toggle("active", i === sugIdx));
+    });
+    document.addEventListener("click", (e) => { if (!e.target.closest(".suggest")) closeSug(); });
     $("#picker").addEventListener("submit", (e) => {
       e.preventDefault();
-      const v = q.value.trim().toLowerCase();
+      const v = q.value.trim();
       if (!v) { document.getElementById("stocks").scrollIntoView(); return; }
-      const exact = INDEX.tickers.find((t) => t.ticker.toLowerCase() === v || t.name.toLowerCase() === v);
-      const first = exact || INDEX.tickers.find((t) => [t.ticker, t.name, t.sector, ...t.signals.map((s) => s.name)].join(" ").toLowerCase().includes(v));
-      if (first) location.hash = `#/${first.ticker}`;
-      else { renderCards(q.value); document.getElementById("stocks").scrollIntoView(); }
+      if (sugIdx >= 0 && sugItems[sugIdx]) { openTicker(sugItems[sugIdx].symbol); return; }
+      const exact = INDEX.tickers.find((t) => t.ticker.toLowerCase() === v.toLowerCase() || t.name.toLowerCase() === v.toLowerCase());
+      if (exact) { openTicker(exact.ticker); return; }
+      const first = INDEX.tickers.find((t) => [t.ticker, t.name, t.sector, ...t.signals.map((s) => s.name)].join(" ").toLowerCase().includes(v.toLowerCase()));
+      const sym = v.toUpperCase().replace(/[^A-Z.]/g, "");
+      const looksLikeTicker = /^[A-Z]{1,5}(\.[A-Z])?$/.test(sym) && sym === v.toUpperCase();
+      if (first && !looksLikeTicker) { openTicker(first.ticker); return; }
+      if (looksLikeTicker) { openTicker(sym); return; }
+      // Company name (or odd query) → resolve via API, then set hash to the real ticker
+      (async () => {
+        detPrepare();
+        try {
+          const res = await fetch(`/api/lookup?q=${encodeURIComponent(v)}`);
+          const d = await res.json();
+          if (!res.ok) {
+            $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">${esc(d.message || "No match.")}</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+            return;
+          }
+          history.replaceState(null, "", `#/${d.ticker}`);
+          renderDetail(d);
+        } catch {
+          $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">Lookup failed. Please try again.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+        }
+      })();
     });
+    function detPrepare() {
+      const det = $("#detail");
+      det.hidden = false;
+      for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+      det.innerHTML = `<div class="wrap loading-panel">Looking that up…</div>`;
+    }
     window.addEventListener("hashchange", route);
     route();
   }
