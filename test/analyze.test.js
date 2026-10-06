@@ -1,0 +1,64 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { frequency, compare, readingFor, analyze, analyzeSnapshot, fmt, summarize } from "../lib/analyze.js";
+
+const days = (n, f) => Array.from({ length: n }, (_, i) => ({ t: new Date(Date.UTC(2026, 0, 1) + i * 864e5).toISOString().slice(0, 10), v: f(i) }));
+const months = (n, f) => Array.from({ length: n }, (_, i) => ({ t: new Date(Date.UTC(2023, i, 1)).toISOString().slice(0, 10), v: f(i) }));
+
+test("detects frequency", () => {
+  assert.equal(frequency(days(60, () => 1)), "daily");
+  assert.equal(frequency(months(24, () => 1)), "monthly");
+});
+
+test("recent daily compare uses 28-day windows", () => {
+  const s = days(56, (i) => (i < 28 ? 100 : 110));
+  const c = compare(s, "recent");
+  assert.equal(Math.round(c.current), 110);
+  assert.equal(Math.round(c.baseline), 100);
+});
+
+test("yoy monthly compare uses same months last year", () => {
+  const s = months(30, (i) => 100 + i);
+  const c = compare(s, "yoy");
+  assert.equal(Math.round(c.current - c.baseline), 12);
+});
+
+test("readings respect polarity and noise band", () => {
+  assert.equal(readingFor(10, 1, 5), "tailwind");
+  assert.equal(readingFor(10, -1, 5), "headwind");
+  assert.equal(readingFor(3, 1, 5), "neutral");
+  assert.equal(readingFor(30, 0, 5), "context");
+  assert.equal(readingFor(null, 1, 5), "unknown");
+});
+
+test("explanations are built from real numbers and never claim certainty", () => {
+  const sig = { metric: "Test metric", unit: "views", compare: "recent", polarity: 1, threshold: 5, up: "more interest", down: "less interest" };
+  const a = analyze(sig, days(56, (i) => (i < 28 ? 100 : 120)), "Acme");
+  assert.equal(a.reading, "tailwind");
+  assert.match(a.now, /120 views\/day/);
+  assert.match(a.now, /up 20%/);
+  assert.doesNotMatch(a.now, /\b(buy|sell|will rise|guarantee)\b/i);
+});
+
+test("snapshot signals say 'tracking' until history exists", () => {
+  const sig = { metric: "Open roles", unit: "roles", polarity: 1, threshold: 5, up: "u", down: "d" };
+  assert.equal(analyzeSnapshot(sig, [{ t: "2026-10-06", v: 200 }], "Acme").reading, "tracking");
+  const a = analyzeSnapshot(sig, [{ t: "2026-09-20", v: 200 }, { t: "2026-10-06", v: 230 }], "Acme");
+  assert.equal(a.reading, "tailwind");
+});
+
+test("formats units", () => {
+  assert.equal(fmt(3.456, "usdGal"), "$3.46/gal");
+  assert.equal(fmt(1875000, "downloads"), "1.88M downloads/day");
+  assert.equal(fmt(1275, "thousandUnits"), "1.28M/yr pace");
+});
+
+test("summary counts readings", () => {
+  const s = summarize("Acme", "ACME", [
+    { status: "ok", reading: "tailwind", pct: 12, name: "A", basis: "vs x" },
+    { status: "ok", reading: "headwind", pct: -30, name: "B", basis: "vs y" },
+    { status: "error", name: "C" },
+  ]);
+  assert.equal(s.tailwinds, 1); assert.equal(s.headwinds, 1);
+  assert.match(s.text, /2 of 3/);
+});

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How it works &amp; sources | The Other Data</title>
+<meta name="description" content="How The Other Data collects free public data, compares it with the recent past, and explains it in plain English. Full source list and live source health.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<!--GA-->
+<!--GSC-->
+<script src="/how.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="The Other Data home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/how">How it works</a><a href="#sources">Sources</a></nav>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+<main id="main" class="doc">
+  <div class="wrap">
+    <h1>How it works</h1>
+    <p>"Alternative data" is any information about a company that doesn't come from the company's own financial reports. Hedge funds spend heavily on it: credit-card panels, satellite photos, app downloads. The Other Data uses only <strong>free, public, legitimately accessible</strong> sources and explains each one like you'd explain it to a friend.</p>
+
+    <h2>1. Collect</h2>
+    <p>A scheduled GitHub Actions job runs every 4 hours. It calls each source's official API or public download (with a descriptive User-Agent, polite request spacing, and respect for robots.txt), then writes the results as static files that this site reads. Nothing requires a login and nothing is scraped from behind a paywall. Sources that update monthly or quarterly (like Census retail sales or SEC filings) simply show the same numbers until the agency publishes new ones.</p>
+
+    <h2>2. Compare</h2>
+    <ul>
+      <li><strong>Fast data</strong> (daily pageviews, downloads, prices): the last 28 days' average vs the 28 days before.</li>
+      <li><strong>Weekly data</strong> (gas prices, jobless claims, developer chatter): the last 4 weeks vs the 4 weeks before.</li>
+      <li><strong>Seasonal data</strong> (retail sales, carloads, FDA reports, TSA lines): this period vs the same period last year, so holidays don't fool us.</li>
+      <li><strong>Snapshot data</strong> (job-board counts): we save a snapshot every refresh and build the history ourselves. Until there's enough history, the card says "Tracking".</li>
+    </ul>
+    <p>Each signal has a noise band (for example ±8% for Wikipedia views, ±2% for TSA traffic). Moves inside it are called <em>neutral</em>. Outside it, the move is a <em>tailwind</em> or <em>headwind</em> depending on how that data has typically related to the company (rising jet fuel is bad for an airline, rising oil is good for an oil producer). Some signals cut both ways, so we label them <em>context</em>.</p>
+
+    <h2>3. Explain</h2>
+    <p>Every signal card answers three questions: what the data is, why it might matter for this company, and what it's showing now. The "showing now" text is generated from the actual numbers by a template. An optional AI summary (Gemini) can be switched on with an API key; it is only allowed to restate the computed facts and is rejected if it sounds like investment advice.</p>
+
+    <h2>Honesty rules</h2>
+    <ul>
+      <li>No made-up numbers. If a source fails, the card says "Data unavailable", or shows the last good data with a clear "stale" warning and the time it was fetched.</li>
+      <li>Ideas without a live data source (like moth counts or recycling volumes) are labeled "Idea · not live".</li>
+      <li>We don't show stock prices, because we couldn't find a free price feed that permits automated use. Each stock page links out to a price chart instead.</li>
+      <li>Correlation isn't causation. Public data is often already priced in by the time it's published.</li>
+    </ul>
+
+    <h2 id="sources">Sources and live health</h2>
+    <p id="health-meta">Loading the latest refresh…</p>
+    <div class="tblwrap"><table class="tbl" id="health"><thead><tr><th>Source</th><th>Latest refresh</th><th>Notes</th></tr></thead><tbody></tbody></table></div>
+
+    <h2>Every signal</h2>
+    <div class="tblwrap"><table class="tbl" id="all"><thead><tr><th>Stock</th><th>Signal</th><th>Source</th><th>Data through</th><th>Reading</th></tr></thead><tbody></tbody></table></div>
+
+    <h2>Not financial advice</h2>
+    <p>The Other Data is an educational project. It shows public statistics and explains common ways people interpret them. Nothing here is a recommendation to buy, sell, or hold any security. Do your own research or talk to a licensed professional.</p>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><p class="fine"><strong>Not financial advice. For education only.</strong> Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/">Back to the signals</a></p></div></footer>
+</body>
+</html>

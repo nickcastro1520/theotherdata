@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Other Data: hidden market signals, explained in plain English</title>
+<meta name="description" content="Offbeat public data, like airport lines, cardboard box prices, and Wikipedia curiosity, that can hint at how well-known companies are doing. Explained in plain English. Education only, not financial advice.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/styles.css">
+<meta property="og:title" content="The Other Data: hidden market signals, explained">
+<meta property="og:description" content="Airport lines, cardboard prices, FDA reports, developer chatter: the offbeat public data behind 17 well-known stocks, explained in plain English.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<!--GA-->
+<!--GSC-->
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="The Other Data home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="/#stocks">Stocks</a>
+      <a href="/how">How it works</a>
+      <a href="/how#sources">Sources</a>
+    </nav>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Alternative data, explained</span>
+        <h1>The hidden signals behind the stocks you know.</h1>
+        <p class="lede">Wall Street pays millions for "alternative data": airport lines, shipping boxes, what people look up online. We pull the free, public versions, compare them with the recent past, and tell you what they might mean in plain English.</p>
+        <form class="picker" id="picker" role="search" autocomplete="off">
+          <label for="q" class="sr">Pick a stock</label>
+          <input id="q" type="text" inputmode="search" placeholder="Pick a stock: try NVDA, Delta, or eggs…" aria-describedby="status-line">
+          <button class="btn" type="submit">Show signals</button>
+        </form>
+        <div class="chips" id="chips" aria-label="Popular tickers"></div>
+        <p class="status-line" id="status-line">Loading live data…</p>
+      </div>
+      <aside class="spotlight" id="spotlight" aria-live="polite">
+        <div class="spot-skel"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band" id="stocks">
+    <div class="wrap">
+      <div class="band-head">
+        <div>
+          <h2>Pick a stock</h2>
+          <p class="sub">Each company is mapped to two to four indirect signals with real public data behind them. Green dots are tailwinds, red are headwinds, gray is noise or context.</p>
+        </div>
+        <div class="legend" aria-hidden="true"><span><i class="dot tailwind"></i>Tailwind</span><span><i class="dot headwind"></i>Headwind</span><span><i class="dot neutral"></i>Neutral / context</span></div>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="detail" id="detail" hidden></section>
+
+  <section class="band alt" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Collect</h3><p>A scheduled job pulls fresh numbers from public sources like the St. Louis Fed, the SEC, the FDA, the TSA, Wikipedia, and the GDELT news index. No logins, no paywalls, no scraping where it isn't allowed.</p></div>
+        <div class="step"><span class="n">2</span><h3>Compare</h3><p>Each signal is compared with its own recent past (last 28 days vs the 28 before, or this year vs last year). Small moves inside a noise band are called neutral.</p></div>
+        <div class="step"><span class="n">3</span><h3>Explain</h3><p>Every card says what the data is, why it might matter for that company, and what it's showing right now, written from the actual numbers. If a source fails, we say so instead of guessing.</p></div>
+      </div>
+      <p class="more"><a href="/how">Read the full method and source list →</a></p>
+    </div>
+  </section>
+
+  <section class="band" id="ideas">
+    <div class="wrap">
+      <h2>Signals we'd love to add</h2>
+      <p class="sub">These are <strong>ideas, not live data</strong>. They're here because they're fun and real investors chase them, but we haven't found a free, frequent public source yet.</p>
+      <div class="ideas" id="ideas-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="fine"><strong>Not financial advice. For education only.</strong> The Other Data shows public statistics and explains common ways people interpret them. Nothing here is a recommendation to buy, sell, or hold any security. Signals can be wrong, late, or unrelated to a stock's price. Do your own research or talk to a licensed professional.</p>
+    <p class="fine">Data: FRED (Federal Reserve Bank of St. Louis), U.S. Census Bureau, BLS, BTS, EIA, SEC EDGAR, openFDA, NHTSA, TSA, Wikimedia, PyPI/pypistats, Hacker News (Algolia), Greenhouse job boards, The GDELT Project. Each card links to its source.</p>
+    <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how">Method &amp; sources</a></p>
+  </div>
+</footer>
+</body>
+</html>
