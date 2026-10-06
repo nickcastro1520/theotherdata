@@ -177,11 +177,19 @@
     const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
     let scoutBox = "";
     if (s.scout) {
-      const leanDir = r === "tailwind" ? "up" : r === "headwind" ? "down" : "flat";
-      const leanTxt = r === "tailwind"
-        ? `This reading looks like a ${s.strength || "mild"} lean <strong>up</strong> for ${d.ticker}'s story over weeks to a quarter.`
-        : r === "headwind"
-        ? `This reading looks like a ${s.strength || "mild"} lean <strong>down</strong> for ${d.ticker}'s story over weeks to a quarter.`
+      // Prefer current reading; if still in the noise band, hint from polarity × series direction
+      let leanDir = r === "tailwind" ? "up" : r === "headwind" ? "down" : "flat";
+      let mag = s.strength || "mild";
+      if (leanDir === "flat" && s.pct != null && Math.abs(s.pct) > 0.05 && s.polarity) {
+        const seriesUp = s.pct > 0;
+        const favors = (s.polarity > 0 && seriesUp) || (s.polarity < 0 && !seriesUp);
+        leanDir = favors ? "up" : "down";
+        mag = "mild";
+      }
+      const leanTxt = leanDir === "up"
+        ? `This reading looks like a ${mag} lean <strong>up</strong> for ${d.ticker}'s story over weeks to a quarter.`
+        : leanDir === "down"
+        ? `This reading looks like a ${mag} lean <strong>down</strong> for ${d.ticker}'s story over weeks to a quarter.`
         : `Right now this number is close to its usual range, so there is no clear up/down lean for ${d.ticker}.`;
       scoutBox = `<div class="scout-lean ${leanDir}">
         <p class="k">Scout find · easy read</p>
