@@ -20,7 +20,7 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
       <span>the<b>other</b>data</span>
     </a>
-    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/how">How it works</a><a href="#sources">Sources</a></nav>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="#sources">Sources</a></nav>
   </div>
 </header>
 <div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
@@ -48,6 +48,8 @@
 
     <h2>Ideas vs live proxies</h2>
     <p>Some classic alt-data stories (parking-lot cars from space, warehouse moths, municipal e-waste tonnage) do not have a free, frequent public feed. Where a legal free stand-in exists — for example weekly EIA crude stocks instead of paid satellite tank estimates, or Federal Reserve paperboard production instead of city recycling tonnage — we wire it into a curated stock and label the idea as live or partial on the home page. Everything else stays an idea.</p>
+    <h2 id="scout">Correlation scout</h2>
+    <p>A script (<code>scripts/correlation-scout.mjs</code>) periodically scans free public series (FRED, EIA, Wikipedia, PyPI, …) against curated stock prices from Tiingo. It scores Spearman correlations on weekly or monthly returns, tests a short lead window, and writes <code>public/data/scout.json</code> plus a markdown report. We only promote pairings that are wireable for free and have a plain-English economic story — and we still label correlation ≠ causation. Hits that look like pure data dredging stay in the report with a spurious-risk flag.</p>
     <h2>Honesty rules</h2>
     <ul>
       <li>No made-up numbers. If a source fails, the card says "Data unavailable", or shows the last good data with a clear "stale" warning and the time it was fetched.</li>

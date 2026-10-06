@@ -1,0 +1,29 @@
+name: Correlation scout
+on:
+  schedule:
+    - cron: "20 11 1 * *"   # monthly, ~6:20am CT
+  workflow_dispatch:
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - name: Run correlation scout
+        env:
+          TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: node scripts/correlation-scout.mjs
+      - name: Commit report if changed
+        run: |
+          git config user.name "nick castro"
+          git config user.email "nickcastro1520@gmail.com"
+          git add public/data/scout.json reports/correlation-scout.md
+          git diff --staged --quiet || git commit -m "data: correlation scout $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push

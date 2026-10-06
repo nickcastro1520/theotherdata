@@ -1,0 +1,1099 @@
+{
+  "generatedAt": "2026-10-06T17:42:41.664Z",
+  "method": "Spearman rank correlation on period returns (weekly or monthly). Lead 0–2/3 periods tested (signal leading price). Prices from Tiingo when keyed; public series from FRED/EIA/Wikipedia/PyPI. Educational scan — correlation ≠ causation; multiple-testing risk is real.",
+  "providers": {
+    "tiingo": true,
+    "fred": true
+  },
+  "failures": [
+    {
+      "id": "elec-power",
+      "error": "HTTP 404 from fred.stlouisfed.org"
+    },
+    {
+      "id": "gas-stocks",
+      "error": "HTTP 404 from fred.stlouisfed.org"
+    }
+  ],
+  "top": [
+    {
+      "candidateId": "brent",
+      "name": "Brent crude oil price",
+      "source": "fred",
+      "sourceParams": {
+        "series": "DCOILBRENTEU",
+        "years": 5
+      },
+      "unit": "usdBbl",
+      "why": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+      "target": "XLE",
+      "targetLabel": "Energy sector (XLE)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": 0.658,
+      "pearson": 0.56,
+      "absSpearman": 0.658,
+      "leadPeriods": 0,
+      "n": 128,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W40"
+      },
+      "pValue": 0,
+      "polarityHint": 0,
+      "agreesWithHint": null,
+      "spuriousRisk": "high",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "XLK",
+      "targetLabel": "Tech sector (XLK)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.651,
+      "pearson": -0.71,
+      "absSpearman": 0.651,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.645,
+      "pearson": -0.671,
+      "absSpearman": 0.645,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "brent",
+      "name": "Brent crude oil price",
+      "source": "fred",
+      "sourceParams": {
+        "series": "DCOILBRENTEU",
+        "years": 5
+      },
+      "unit": "usdBbl",
+      "why": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+      "target": "XOM",
+      "targetLabel": "XOM",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": 0.597,
+      "pearson": 0.551,
+      "absSpearman": 0.597,
+      "leadPeriods": 0,
+      "n": 128,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W40"
+      },
+      "pValue": 0,
+      "polarityHint": 0,
+      "agreesWithHint": null,
+      "spuriousRisk": "high",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "hy-spread",
+      "name": "U.S. high-yield credit spread",
+      "source": "fred",
+      "sourceParams": {
+        "series": "BAMLH0A0HYM2",
+        "years": 5
+      },
+      "unit": "pct",
+      "why": "Wider junk spreads = tighter financial conditions; historically tough for discretionary and growth.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.594,
+      "pearson": -0.608,
+      "absSpearman": 0.594,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "F"
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "AMZN",
+      "targetLabel": "AMZN",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.568,
+      "pearson": -0.57,
+      "absSpearman": 0.568,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "unrate",
+      "name": "U.S. unemployment rate",
+      "source": "fred",
+      "sourceParams": {
+        "series": "UNRATE",
+        "years": 5
+      },
+      "unit": "pct",
+      "why": "Labor-market soft patches tend to hit discretionary spending and travel.",
+      "target": "ABNB",
+      "targetLabel": "ABNB",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.523,
+      "pearson": -0.458,
+      "absSpearman": 0.523,
+      "leadPeriods": 1,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-09"
+      },
+      "pValue": 0.0086,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "ABNB"
+    },
+    {
+      "candidateId": "housing-permits",
+      "name": "Building permits",
+      "source": "fred",
+      "sourceParams": {
+        "series": "PERMIT",
+        "years": 5
+      },
+      "unit": "thousandUnits",
+      "why": "Forward-looking housing activity (permits lead starts); relevant for HD and freight.",
+      "target": "UNP",
+      "targetLabel": "UNP",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.515,
+      "pearson": 0.557,
+      "absSpearman": 0.515,
+      "leadPeriods": 0,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0006,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "UNP"
+    },
+    {
+      "candidateId": "air-freight",
+      "name": "Air freight revenue ton-miles (index)",
+      "source": "fred",
+      "sourceParams": {
+        "series": "TSIFRGHT",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Express air cargo often leads goods demand and high-value electronics shipping.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": -0.492,
+      "pearson": -0.414,
+      "absSpearman": 0.492,
+      "leadPeriods": 0,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-07"
+      },
+      "pValue": 0.0231,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": 0.489,
+      "pearson": 0.474,
+      "absSpearman": 0.489,
+      "leadPeriods": 2,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.006,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "DIS",
+      "targetLabel": "DIS",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.479,
+      "pearson": 0.455,
+      "absSpearman": 0.479,
+      "leadPeriods": 2,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0091,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "containerboard-ppi",
+      "name": "Corrugated box PPI",
+      "source": "fred",
+      "sourceParams": {
+        "series": "PCU322211322211",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Packaging prices as e-commerce/goods-flow proxy (already on AMZN; scout vs WMT/HD).",
+      "target": "HD",
+      "targetLabel": "HD",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.47,
+      "pearson": 0.435,
+      "absSpearman": 0.47,
+      "leadPeriods": 1,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0138,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "air-freight",
+      "name": "Air freight revenue ton-miles (index)",
+      "source": "fred",
+      "sourceParams": {
+        "series": "TSIFRGHT",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Express air cargo often leads goods demand and high-value electronics shipping.",
+      "target": "AMZN",
+      "targetLabel": "AMZN",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.457,
+      "pearson": -0.4,
+      "absSpearman": 0.457,
+      "leadPeriods": 0,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-07"
+      },
+      "pValue": 0.0289,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "NVDA",
+      "targetLabel": "NVDA",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.455,
+      "pearson": -0.514,
+      "absSpearman": 0.455,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "WMT",
+      "targetLabel": "WMT",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.45,
+      "pearson": -0.386,
+      "absSpearman": 0.45,
+      "leadPeriods": 0,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0327,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    }
+  ],
+  "shortlist": [
+    {
+      "candidateId": "brent",
+      "name": "Brent crude oil price",
+      "source": "fred",
+      "sourceParams": {
+        "series": "DCOILBRENTEU",
+        "years": 5
+      },
+      "unit": "usdBbl",
+      "why": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+      "target": "XLE",
+      "targetLabel": "Energy sector (XLE)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": 0.658,
+      "pearson": 0.56,
+      "absSpearman": 0.658,
+      "leadPeriods": 0,
+      "n": 128,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W40"
+      },
+      "pValue": 0,
+      "polarityHint": 0,
+      "agreesWithHint": null,
+      "spuriousRisk": "high",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "XLK",
+      "targetLabel": "Tech sector (XLK)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.651,
+      "pearson": -0.71,
+      "absSpearman": 0.651,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.645,
+      "pearson": -0.671,
+      "absSpearman": 0.645,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "brent",
+      "name": "Brent crude oil price",
+      "source": "fred",
+      "sourceParams": {
+        "series": "DCOILBRENTEU",
+        "years": 5
+      },
+      "unit": "usdBbl",
+      "why": "Global oil benchmark; complements WTI for integrated oils and jet-fuel costs.",
+      "target": "XOM",
+      "targetLabel": "XOM",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": 0.597,
+      "pearson": 0.551,
+      "absSpearman": 0.597,
+      "leadPeriods": 0,
+      "n": 128,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W40"
+      },
+      "pValue": 0,
+      "polarityHint": 0,
+      "agreesWithHint": null,
+      "spuriousRisk": "high",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "hy-spread",
+      "name": "U.S. high-yield credit spread",
+      "source": "fred",
+      "sourceParams": {
+        "series": "BAMLH0A0HYM2",
+        "years": 5
+      },
+      "unit": "pct",
+      "why": "Wider junk spreads = tighter financial conditions; historically tough for discretionary and growth.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "weekly",
+      "spearman": -0.594,
+      "pearson": -0.608,
+      "absSpearman": 0.594,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "F"
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "AMZN",
+      "targetLabel": "AMZN",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.568,
+      "pearson": -0.57,
+      "absSpearman": 0.568,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "unrate",
+      "name": "U.S. unemployment rate",
+      "source": "fred",
+      "sourceParams": {
+        "series": "UNRATE",
+        "years": 5
+      },
+      "unit": "pct",
+      "why": "Labor-market soft patches tend to hit discretionary spending and travel.",
+      "target": "ABNB",
+      "targetLabel": "ABNB",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.523,
+      "pearson": -0.458,
+      "absSpearman": 0.523,
+      "leadPeriods": 1,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-09"
+      },
+      "pValue": 0.0086,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "ABNB"
+    },
+    {
+      "candidateId": "housing-permits",
+      "name": "Building permits",
+      "source": "fred",
+      "sourceParams": {
+        "series": "PERMIT",
+        "years": 5
+      },
+      "unit": "thousandUnits",
+      "why": "Forward-looking housing activity (permits lead starts); relevant for HD and freight.",
+      "target": "UNP",
+      "targetLabel": "UNP",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.515,
+      "pearson": 0.557,
+      "absSpearman": 0.515,
+      "leadPeriods": 0,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0006,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "UNP"
+    },
+    {
+      "candidateId": "air-freight",
+      "name": "Air freight revenue ton-miles (index)",
+      "source": "fred",
+      "sourceParams": {
+        "series": "TSIFRGHT",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Express air cargo often leads goods demand and high-value electronics shipping.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": -0.492,
+      "pearson": -0.414,
+      "absSpearman": 0.492,
+      "leadPeriods": 0,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-07"
+      },
+      "pValue": 0.0231,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": 0.489,
+      "pearson": 0.474,
+      "absSpearman": 0.489,
+      "leadPeriods": 2,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.006,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "DIS",
+      "targetLabel": "DIS",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.479,
+      "pearson": 0.455,
+      "absSpearman": 0.479,
+      "leadPeriods": 2,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0091,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "containerboard-ppi",
+      "name": "Corrugated box PPI",
+      "source": "fred",
+      "sourceParams": {
+        "series": "PCU322211322211",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Packaging prices as e-commerce/goods-flow proxy (already on AMZN; scout vs WMT/HD).",
+      "target": "HD",
+      "targetLabel": "HD",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": 0.47,
+      "pearson": 0.435,
+      "absSpearman": 0.47,
+      "leadPeriods": 1,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0138,
+      "polarityHint": 1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "air-freight",
+      "name": "Air freight revenue ton-miles (index)",
+      "source": "fred",
+      "sourceParams": {
+        "series": "TSIFRGHT",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Express air cargo often leads goods demand and high-value electronics shipping.",
+      "target": "AMZN",
+      "targetLabel": "AMZN",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.457,
+      "pearson": -0.4,
+      "absSpearman": 0.457,
+      "leadPeriods": 0,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-07"
+      },
+      "pValue": 0.0289,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "NVDA",
+      "targetLabel": "NVDA",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.455,
+      "pearson": -0.514,
+      "absSpearman": 0.455,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "retail-sales",
+      "name": "Advance retail sales",
+      "source": "fred",
+      "sourceParams": {
+        "series": "RSAFS",
+        "years": 5
+      },
+      "unit": "usdM",
+      "why": "Headline consumer spending print that moves retailers and payment/e-commerce names.",
+      "target": "WMT",
+      "targetLabel": "WMT",
+      "targetKind": "ticker",
+      "freq": "monthly",
+      "spearman": -0.45,
+      "pearson": -0.386,
+      "absSpearman": 0.45,
+      "leadPeriods": 0,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0327,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "hy-spread",
+      "name": "U.S. high-yield credit spread",
+      "source": "fred",
+      "sourceParams": {
+        "series": "BAMLH0A0HYM2",
+        "years": 5
+      },
+      "unit": "pct",
+      "why": "Wider junk spreads = tighter financial conditions; historically tough for discretionary and growth.",
+      "target": "HD",
+      "targetLabel": "HD",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.44,
+      "pearson": -0.369,
+      "absSpearman": 0.44,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "F"
+    },
+    {
+      "candidateId": "auto-inventory",
+      "name": "Domestic auto inventories (months supply)",
+      "source": "fred",
+      "sourceParams": {
+        "series": "AISRSA",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Dealer stock levels — high months-supply can pressure auto makers' pricing power.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": 0.44,
+      "pearson": 0.386,
+      "absSpearman": 0.44,
+      "leadPeriods": 1,
+      "n": 28,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0331,
+      "polarityHint": -1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "copper",
+      "name": "Global copper price",
+      "source": "fred",
+      "sourceParams": {
+        "series": "PCOPPUSDM",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Copper is a classic 'Dr. Copper' cycle gauge and a physical input for power, grid, and data-center buildouts.",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": -0.44,
+      "pearson": -0.353,
+      "absSpearman": 0.44,
+      "leadPeriods": 1,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-07"
+      },
+      "pValue": 0.0595,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    },
+    {
+      "candidateId": "vix",
+      "name": "VIX volatility index",
+      "source": "fred",
+      "sourceParams": {
+        "series": "VIXCLS",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Risk-off gauge; often moves opposite high-beta growth and crypto-adjacent names.",
+      "target": "COIN",
+      "targetLabel": "COIN",
+      "targetKind": "ticker",
+      "freq": "weekly",
+      "spearman": -0.416,
+      "pearson": -0.394,
+      "absSpearman": 0.416,
+      "leadPeriods": 0,
+      "n": 129,
+      "window": {
+        "from": "2024-W17",
+        "to": "2026-W41"
+      },
+      "pValue": 0,
+      "polarityHint": -1,
+      "agreesWithHint": true,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": "NVDA"
+    },
+    {
+      "candidateId": "hotel-cpi",
+      "name": "Lodging away from home CPI",
+      "source": "fred",
+      "sourceParams": {
+        "series": "CUSR0000SEHB",
+        "years": 5
+      },
+      "unit": "index",
+      "why": "Hotel/short-stay prices track travel demand (already used for ABNB; scout vs DAL/DIS).",
+      "target": "XLY",
+      "targetLabel": "Consumer discretionary (XLY)",
+      "targetKind": "sector",
+      "freq": "monthly",
+      "spearman": -0.396,
+      "pearson": -0.38,
+      "absSpearman": 0.396,
+      "leadPeriods": 2,
+      "n": 27,
+      "window": {
+        "from": "2024-05",
+        "to": "2026-08"
+      },
+      "pValue": 0.0402,
+      "polarityHint": 1,
+      "agreesWithHint": false,
+      "spuriousRisk": "moderate",
+      "wireable": true,
+      "wiredTo": null
+    }
+  ],
+  "allCount": 125,
+  "wired": [
+    {
+      "signal": "VIXCLS",
+      "ticker": "NVDA",
+      "id": "vix-stress",
+      "note": "Market stress vs high-beta AI"
+    },
+    {
+      "signal": "PERMIT",
+      "ticker": "UNP",
+      "id": "building-permits",
+      "note": "Housing permits → rail freight"
+    },
+    {
+      "signal": "UNRATE",
+      "ticker": "ABNB",
+      "id": "unemployment",
+      "note": "Joblessness → travel demand"
+    },
+    {
+      "signal": "BAMLH0A0HYM2",
+      "ticker": "F",
+      "id": "hy-spread",
+      "note": "Junk credit stress → auto demand"
+    }
+  ]
+}

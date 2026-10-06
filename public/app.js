@@ -104,6 +104,35 @@
     }).join("");
   }
 
+  async function renderScout() {
+    const el = $("#scout-list");
+    if (!el) return;
+    let doc;
+    try { doc = await (await fetch("/data/scout.json", { cache: "no-cache" })).json(); }
+    catch { el.innerHTML = `<p class="note">Scout report not available yet.</p>`; return; }
+    const rows = (doc.shortlist || doc.top || []).slice(0, 8);
+    if (!rows.length) { el.innerHTML = `<p class="note">No scout pairings yet.</p>`; return; }
+    const wiredBySeries = { VIXCLS: "NVDA", PERMIT: "UNP", UNRATE: "ABNB", BAMLH0A0HYM2: "F" };
+    const wiredById = { vix: "NVDA", "hy-spread": "F", "housing-permits": "UNP", unrate: "ABNB" };
+    el.innerHTML = rows.map((r) => {
+      const series = r.sourceParams?.series;
+      const linkTk = wiredById[r.candidateId] || wiredBySeries[series] || null;
+      const live = Boolean(linkTk);
+      const rho = r.spearman > 0 ? `+${r.spearman}` : String(r.spearman);
+      const tag = live && linkTk ? `Live on ${linkTk}` : r.spuriousRisk === "high" ? "Spurious risk high" : "Scout hit";
+      const href = linkTk ? `#/${linkTk}` : "#stocks";
+      return `<a class="scout-card" href="${href}">
+        <span class="tag ${live && linkTk ? "live" : ""}">${esc(tag)}</span>
+        <h3>${esc(r.name)} → ${esc(r.targetLabel)}</h3>
+        <p class="rho">Spearman ρ ${esc(rho)} · lead ${esc(r.leadPeriods)} ${esc(r.freq)} · n=${esc(r.n)}</p>
+        <p>${esc(r.why)}</p>
+        <p class="fine">Window ${esc(r.window?.from || "")} → ${esc(r.window?.to || "")}. Educational scan only.</p>
+      </a>`;
+    }).join("");
+    const meta = $("#scout-meta");
+    if (meta) meta.textContent = `Last scout run ${when(doc.generatedAt)} · ${doc.allCount || rows.length} pairings scored`;
+  }
+
   // ---------- detail ----------
   function meter(sum) {
     const total = sum.tailwinds + sum.headwinds + sum.neutral + (sum.context || 0) || 1;
@@ -222,7 +251,7 @@
     const det = $("#detail");
     document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
-    for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
     const pack = d.pack === "light" ? `<div class="pack-banner">${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
     det.innerHTML = `<div class="wrap">
       <a class="back" href="#">← All stocks</a>
@@ -239,7 +268,7 @@
     const det = $("#detail");
     const curated = INDEX.tickers.find((x) => x.ticker === tk);
     det.hidden = false;
-    for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
     det.innerHTML = `<div class="wrap loading-panel">Loading ${esc(tk)}…</div>`;
     if (curated) {
       try {
@@ -274,7 +303,7 @@
   function showHome() {
     document.title = "The Other Data: hidden market signals, explained in plain English";
     $("#detail").hidden = true;
-    for (const id of ["home", "stocks", "how", "ideas"]) $(`#${id}`).hidden = false;
+    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = false; }
   }
 
   function route() {
@@ -290,7 +319,7 @@
   async function init() {
     try { INDEX = await (await fetch("/data/index.json", { cache: "no-cache" })).json(); }
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
-    renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas();
+    renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas(); renderScout();
     const q = $("#q");
     // Suggestions dropdown
     let sug = document.getElementById("suggest");
@@ -379,7 +408,7 @@
     function detPrepare() {
       const det = $("#detail");
       det.hidden = false;
-      for (const id of ["home", "stocks", "how", "ideas"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+      for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
       det.innerHTML = `<div class="wrap loading-panel">Looking that up…</div>`;
     }
     window.addEventListener("hashchange", route);
