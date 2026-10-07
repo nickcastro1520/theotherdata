@@ -437,3 +437,4 @@ nav.main a{white-space:nowrap}
 @media (max-width:560px){
   nav.main a:nth-child(n+3){display:none}
 }
+.tr-hist td:first-child{white-space:nowrap}.tr-hist{min-width:0}
