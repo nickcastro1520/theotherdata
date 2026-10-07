@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|styles.css)",
+      "source": "/(app.js|how.js|styles.css|symbol-search.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -87,10 +87,12 @@
   ],
   "functions": {
     "api/lookup.js": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "includeFiles": "public/data/symbols.json"
     },
     "api/search.js": {
-      "maxDuration": 15
+      "maxDuration": 15,
+      "includeFiles": "public/data/symbols.json"
     }
   }
 }

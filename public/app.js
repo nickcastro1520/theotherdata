@@ -7,7 +7,22 @@
   const LEAN = { "leaning positive": ["pos", "Leaning +"], "leaning negative": ["neg", "Leaning −"], mixed: ["", "Mixed"], quiet: ["", "Quiet"] };
   let INDEX = null;
   const NASDAQ = new Set(["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "COIN", "ABNB"]);
-  const quoteUrl = (tk) => `https://www.google.com/finance/quote/${encodeURIComponent(tk)}:${NASDAQ.has(tk) ? "NASDAQ" : "NYSE"}`;
+  const GF_EXCH = { Q: "NASDAQ", N: "NYSE", A: "NYSEAMERICAN", P: "NYSEARCA", Z: "BATS", O: "OTCMKTS" };
+  const quoteUrl = (tk, xc) => `https://www.google.com/finance/quote/${encodeURIComponent(String(tk).replace(/\./g, "-"))}:${GF_EXCH[xc] || (NASDAQ.has(tk) ? "NASDAQ" : "NYSE")}`;
+
+  // ---------- US symbol directory (public/data/symbols.json), loaded on first use of the search box ----------
+  let DIR = null, dirLoading = null, dirCount = 0;
+  const SS = () => window.TODSymbolSearch;
+  function loadDir() {
+    if (DIR || dirLoading || !SS()) return dirLoading;
+    dirLoading = fetch("/data/symbols.json", { cache: "default" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((doc) => { DIR = SS().prepare(doc); dirCount = DIR.length; return DIR; })
+      .catch(() => { dirLoading = null; return null; });
+    return dirLoading;
+  }
+  const curatedSet = () => new Set((INDEX?.tickers || []).map((t) => t.ticker));
+  const dirSearch = (v, limit = 8) => (DIR ? SS().search(DIR, v, { limit, curated: curatedSet(), aliases: ALIASES }) : null);
 
   const when = (iso) => {
     if (!iso) return "unknown";
@@ -238,7 +253,8 @@
 
   function secPanel(d) {
     const s = d.sec || {};
-    if (s.status === "error") return `<section class="panel"><h3>SEC filings</h3><p class="note">Couldn't reach SEC EDGAR on the latest refresh (${esc(s.error)}).</p></section>`;
+    if (s.status === "none") return `<section class="panel"><h3>SEC filings</h3><p class="note">${esc(s.message || "No SEC EDGAR company record is linked to this ticker.")}</p></section>`;
+    if (s.status === "error") return `<section class="panel"><h3>SEC filings</h3><p class="note">Couldn't reach SEC EDGAR ${d.pack === "light" ? "just now" : "on the latest refresh"} (${esc(s.error)}).</p></section>`;
     const f4 = d.ticker === "NVO" ? `<p class="note">Novo Nordisk is a foreign private issuer, so its insiders don't file U.S. Form 4s.</p>` :
       `<div class="stat"><span>Insider filings (Form 4), last 90 days</span><b>${s.form4Last90 ?? "n/a"}</b></div><div class="stat"><span>Prior 90 days</span><b>${s.form4Prior90 ?? "n/a"}</b></div><p class="note">Form 4s report insider buys, sells, and stock grants. A burst is worth a look, but most are routine pay-related filings.</p>`;
     const list = (s.notable || []).map((f) => `<li><span class="f">${esc(f.form)}</span><a href="${esc(safeUrl(f.url))}" rel="noopener" target="_blank">${esc(filingLabel(f))}</a> <span class="d">${esc(dateOnly(f.date))}</span></li>`).join("");
@@ -247,9 +263,10 @@
 
   function pricePanel(d) {
     const m = d.market || {};
-    const gf = `<a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">Google Finance ↗</a>`;
+    const gf = `<a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">Google Finance ↗</a>`;
     if (m.status !== "ok" || !m.quote) {
-      return `<section class="panel price"><h3>Stock price</h3><p class="note">${m.status === "error" ? "Our price provider didn't respond on the latest refresh, so we're not showing a number." : "A licensed price feed isn't connected yet, so we don't show prices here rather than scrape them."} See the live price on ${gf}.</p></section>`;
+      const why = d.pack === "light" && m.status === "error" ? "Our price providers (Finnhub, Tiingo) returned no price for this ticker, so we're not showing a number." : m.status === "error" ? "Our price provider didn't respond on the latest refresh, so we're not showing a number." : "A licensed price feed isn't connected yet, so we don't show prices here rather than scrape them.";
+      return `<section class="panel price"><h3>Stock price</h3><p class="note">${why} See the live price on ${gf}.</p></section>`;
     }
     const q = m.quote, r = dirOf(q.changePct);
     const hist = m.history?.length > 1 ? `${spark(m.history.map((p) => p.v), dirOf(m.yearPct), { w: 300, h: 70 })}<div class="range">${esc(dateOnly(m.history[0].t))} – ${esc(dateOnly(m.history[m.history.length - 1].t))} · ${esc(pctTxt(m.yearPct))} over the period</div>` : "";
@@ -274,7 +291,7 @@
     const conf = imp.confidence || "low";
     const m = d.market || {};
     const q = m.quote;
-    let priceHtml = `<p class="note">Price feed not connected on this view. <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">Google Finance ↗</a></p>`;
+    let priceHtml = `<p class="note">${d.pack === "light" && m.status === "error" ? "No price available from our providers for this ticker." : "Price feed not connected on this view."} <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">Google Finance ↗</a></p>`;
     if (q && q.price != null) {
       const dir = dirOf(q.changePct);
       const hist = m.history?.length > 1 ? spark(m.history.map((p) => p.v), dirOf(m.yearPct), { w: 260, h: 56 }) : "";
@@ -301,11 +318,13 @@
     document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
     for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
-    const pack = d.pack === "light" ? `<div class="pack-banner">${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
+    const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Light pack</span> ${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
+    const limited = d.pack === "light" && d.dataNote ? `<div class="${d.dataLevel === "limited" ? "warnbox limited" : "note-box"}">${d.dataLevel === "limited" ? "<strong>Limited data for this stock.</strong> " : ""}${esc(d.dataLevel === "limited" ? d.dataNote.replace(/^Limited data for this stock\.\s*/, "") : d.dataNote)}</div>` : "";
     det.innerHTML = `<div class="wrap">
       <a class="back" href="#">← All stocks</a>
       ${pack}
-      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
+      ${limited}
+      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
       ${impactPanel(d)}
       <div class="dgrid"><div class="sigs">${(d.signals || []).map((s) => sigCard(s, d)).join("") || `<p class="note">No signal cards available for this ticker yet.</p>`}</div>
       <aside class="side">${pricePanel(d)}${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
@@ -356,7 +375,7 @@
   }
 
   function route() {
-    const m = location.hash.match(/^#\/([A-Za-z]{1,5}(?:\.[A-Za-z])?)$/);
+    const m = location.hash.match(/^#\/([A-Za-z]{1,6}(?:\.[A-Za-z]{1,2})?)$/);
     if (m) showTicker(m[1].toUpperCase());
     else {
       const wasDetail = !$("#detail").hidden; showHome();
@@ -386,33 +405,54 @@
     let sugTimer = null, sugItems = [], sugIdx = -1;
     const closeSug = () => { sug.classList.remove("open"); sug.innerHTML = ""; sugItems = []; sugIdx = -1; };
     const openTicker = (sym) => { closeSug(); location.hash = `#/${String(sym).toUpperCase()}`; };
+    const cur = curatedSet();
+    const badge = (it) => (it.curated || cur.has(it.symbol) ? `<span class="pill deep">Deep signals</span>` : `<span class="pill light">Light pack</span>`);
     const renderSug = (items) => {
       sugItems = items || [];
       sugIdx = -1;
       if (!sugItems.length) { closeSug(); return; }
-      sug.innerHTML = sugItems.map((it, i) => `<button type="button" role="option" data-i="${i}"><span class="sym">${esc(it.symbol)}</span><span class="nm">${esc(it.name)}</span></button>`).join("");
+      sug.innerHTML = sugItems.map((it, i) => `<button type="button" role="option" data-i="${i}"><span class="sym">${esc(it.symbol)}</span><span class="nm">${esc(it.name)}</span><span class="meta">${it.exchange ? `<span class="ex">${esc(it.exchange)}${it.kind === "etf" ? " · ETF" : ""}</span>` : ""}${badge(it)}</span></button>`).join("");
       sug.classList.add("open");
       sug.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => openTicker(sugItems[+b.dataset.i].symbol)));
     };
-    q.addEventListener("input", () => {
-      renderCards(q.value);
+    const noMatch = (v) => { sugItems = []; sugIdx = -1; sug.innerHTML = `<div class="sug-empty">No US-listed stock or ETF matches “${esc(v)}”.</div>`; sug.classList.add("open"); };
+    const suggest = () => {
       const v = q.value.trim();
       clearTimeout(sugTimer);
       if (v.length < 1) { closeSug(); return; }
+      const fromDir = dirSearch(v, 8);
+      if (fromDir) {
+        if (fromDir.length) renderSug(fromDir);
+        else sugTimer = setTimeout(async () => { // brand-new listing? ask the server (Finnhub fallback)
+          try { const j = await (await fetch(`/api/search?q=${encodeURIComponent(v)}`)).json(); if (q.value.trim() !== v) return; (j.results || []).length ? renderSug(j.results) : noMatch(v); } catch { noMatch(v); }
+        }, 250);
+        return;
+      }
+      // Directory still loading: curated names instantly, then the server-side directory search.
       const alias = ALIASES[v.toLowerCase()];
       const local = INDEX.tickers.filter((t) => t.ticker.toLowerCase().startsWith(v.toLowerCase()) || t.name.toLowerCase().includes(v.toLowerCase())).slice(0, 6)
-        .map((t) => ({ symbol: t.ticker, name: t.name }));
+        .map((t) => ({ symbol: t.ticker, name: t.name, curated: true }));
       if (alias && !local.some((x) => x.symbol === alias)) local.unshift({ symbol: alias, name: `${alias} (matched “${v}”)` });
       if (local.length) renderSug(local);
       sugTimer = setTimeout(async () => {
         try {
           const r = await fetch(`/api/search?q=${encodeURIComponent(v)}`);
           const j = await r.json();
-          const remote = (j.results || []).map((x) => ({ symbol: x.symbol, name: x.name }));
-          const seen = new Set(local.map((x) => x.symbol));
-          renderSug([...local, ...remote.filter((x) => !seen.has(x.symbol))].slice(0, 8));
+          if (q.value.trim() !== v) return;
+          const remote = j.results || [];
+          renderSug([...local.filter((x) => !remote.some((y) => y.symbol === x.symbol)), ...remote].slice(0, 8));
         } catch { /* keep local */ }
-      }, 220);
+      }, 200);
+    };
+    const warm = () => { const p = loadDir(); if (p) p.then(() => { updateHint(); if (q.value.trim() && document.activeElement === q) suggest(); }); };
+    const hint = $("#search-hint");
+    const updateHint = () => { if (hint && dirCount) hint.textContent = `Search all ${dirCount.toLocaleString()} US-listed stocks and ETFs by ticker or company name. Curated names have deep signals; everything else gets a light pack.`; };
+    q.addEventListener("focus", warm, { once: true });
+    q.addEventListener("pointerenter", warm, { once: true });
+    q.addEventListener("input", () => {
+      renderCards(q.value);
+      warm();
+      suggest();
     });
     q.addEventListener("keydown", (e) => {
       if (!sug.classList.contains("open") || !sugItems.length) return;
@@ -430,6 +470,8 @@
       if (sugIdx >= 0 && sugItems[sugIdx]) { openTicker(sugItems[sugIdx].symbol); return; }
       const alias = ALIASES[v.toLowerCase()];
       if (alias) { openTicker(alias); return; }
+      const top = (dirSearch(v, 1) || [])[0];
+      if (top && top.tier <= 5) { openTicker(top.symbol); return; }
       const exact = INDEX.tickers.find((t) => t.ticker.toLowerCase() === v.toLowerCase() || t.name.toLowerCase() === v.toLowerCase());
       if (exact) { openTicker(exact.ticker); return; }
       const first = INDEX.tickers.find((t) => [t.ticker, t.name, t.sector, ...t.signals.map((s) => s.name)].join(" ").toLowerCase().includes(v.toLowerCase()));

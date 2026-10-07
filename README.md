@@ -14,6 +14,7 @@
 - **Every signal card answers three questions:** what the data is, why it might matter for this company, and what it's showing now. The last one is written from the actual numbers.
 - **Each signal gets a reading.** It's compared with its own recent past (28 days vs the prior 28, or year over year for seasonal data), then classed as a tailwind, headwind, neutral (inside a per-signal noise band), or context (the effect cuts both ways).
 - **Context panels** on each stock page: latest news, SEC filings with plain-English 8-K labels, insider (Form 4) filing counts, and an optional price chart.
+- **Search any US-listed stock or ETF.** A directory of ~14,000 symbols (Nasdaq, NYSE, NYSE American, NYSE Arca, Cboe, IEX, TXSE, plus SEC-reporting OTC companies) powers instant, typo-tolerant suggestions by ticker or partial name ("rocket lab", "lemonade", "soundhound"). The 17 curated names open their deep-signal pages; everything else opens a light pack (price, chart, news, Wikipedia curiosity, HN chatter, SEC filings) built on demand by `/api/lookup`, with an explicit "Limited data" notice when our free sources have little.
 - **Refreshes itself.** A scheduled GitHub Actions job pulls every source every 4 hours and commits the data, and each commit redeploys on Vercel. Every card shows when its data was fetched and what period it covers.
 
 ## Engineering choices worth a look
@@ -26,6 +27,7 @@
 | Sources that only show "today" (job boards) | The refresh job saves a snapshot each run in `data/history.json` and builds the trend itself. |
 | AI that stays honest | Optional Gemini summary per stock. The model may only restate computed facts. Output is length-checked and rejected if it sounds like investment advice ("buy", "price target", "will rise"…), then falls back to the template. |
 | Keys never leak | Provider keys go in request headers, not URLs. Error messages carry only the host. Keys live in GitHub Actions secrets. |
+| Find obscure tickers | `public/data/symbols.json` is built from the Nasdaq Trader symbol directory (`nasdaqlisted.txt`, `otherlisted.txt`) and SEC `company_tickers_exchange.json` (for CIKs and SEC-reporting OTC names), dropping test issues, warrants, rights, SPAC units, preferreds and notes. The same ranking code (`public/symbol-search.js`) runs in the browser and in `/api/search`: exact ticker → alias → name prefix → ticker prefix → word prefix → contains → fuzzy. Refreshed weekly by the scheduled workflow, with a guard that refuses to replace the file with a much smaller one. |
 | Fast and cheap | Static site (vanilla JS, no framework, no web fonts, strict CSP). Data is precomputed JSON, so there are no runtime servers or databases. |
 
 ## Data sources
@@ -41,6 +43,9 @@ lib/http.js         polite fetch (User-Agent, per-host spacing, retries, timeout
 lib/analyze.js      comparisons, readings, template explanations, summaries
 lib/explain.js      optional Gemini summary with validation and fallback
 scripts/refresh.mjs pulls everything, writes public/data/*.json
+scripts/build-symbols.mjs  US symbol directory → public/data/symbols.json (weekly)
+lib/symbol-directory.js    parses Nasdaq Trader + SEC ticker files
+lib/symbols.js             server-side directory search (shared ranking: public/symbol-search.js)
 public/             the static site (index, stock pages via #/TICKER, /how)
 .github/workflows/refresh.yml   every 4 hours: refresh → test → commit → Vercel deploy
 test/               node:test (analysis, data integrity, provider parsing and key safety)
@@ -51,6 +56,7 @@ test/               node:test (analysis, data integrity, provider parsing and ke
 ```bash
 node scripts/refresh.mjs                         # all tickers (~5–8 min; GDELT is slow)
 node scripts/refresh.mjs --only AAPL,NVDA --skip-news
+node scripts/build-symbols.mjs                   # refresh the US symbol directory (~2 s)
 node dev-server.mjs                              # http://localhost:3000
 node --test test/*.test.js
 ```

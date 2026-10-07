@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <!--GA-->
 <!--GSC-->
+<script src="/symbol-search.js" defer></script>
 <script src="/app.js" defer></script>
 </head>
 <body>
@@ -45,9 +46,10 @@
         <p class="lede">Wall Street pays millions for "alternative data": airport lines, shipping boxes, what people look up online. We pull the free, public versions, compare them with the recent past, and tell you what they might mean in plain English.</p>
         <form class="picker" id="picker" role="search" autocomplete="off">
           <label for="q" class="sr">Pick a stock</label>
-          <input id="q" type="text" inputmode="search" placeholder="Any ticker or company: NVDA, GOOGL, Meta…" aria-describedby="status-line">
+          <input id="q" type="text" inputmode="search" placeholder="Any US stock or ETF: RKLB, Lemonade, SoundHound…" aria-describedby="status-line">
           <button class="btn" type="submit">Show signals</button>
         </form>
+        <p class="search-hint" id="search-hint">Search any US-listed stock or ETF by ticker or company name. Curated names have deep signals; everything else gets a light pack.</p>
         <div class="chips" id="chips" aria-label="Popular tickers"></div>
         <p class="status-line" id="status-line">Loading live data…</p>
       </div>
@@ -105,10 +107,10 @@
           <span><i class="dot neutral"></i>Gray = flat</span>
         </div>
       </div>
-      <p class="legend-note" style="margin:-8px 0 14px">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline — not a buy/sell tip.</p>
-      <p class="status-line" id="scout-meta" style="margin:0 0 16px"></p>
+      <p class="legend-note scout-legend">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline — not a buy/sell tip.</p>
+      <p class="status-line scout-meta" id="scout-meta"></p>
       <div class="scout-grid" id="scout-list"><p class="note">Loading scout results…</p></div>
-      <p class="sub" style="margin-top:14px">Live signals from this scout also appear on the linked stock pages. Full tables live in the repo under <code>reports/correlation-scout.md</code>.</p>
+      <p class="sub scout-foot">Live signals from this scout also appear on the linked stock pages. Full tables live in the repo under <code>reports/correlation-scout.md</code>.</p>
     </div>
   </section>
 

@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Install dependencies
+        # lib/sources.js imports xlsx (EIA Excel downloads); without this the refresh fails with ERR_MODULE_NOT_FOUND.
+        run: npm ci
       - name: Fetch public data
         env:
           # All optional. Each feature turns on only when its secret exists.
@@ -30,6 +33,11 @@ jobs:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
         run: node scripts/refresh.mjs
+      - name: Refresh US symbol directory (weekly)
+        # Nasdaq Trader symbol files + SEC company_tickers_exchange.json -> public/data/symbols.json.
+        # Skips unless the committed file is 7+ days old; never blocks the signal refresh.
+        continue-on-error: true
+        run: node scripts/build-symbols.mjs --max-age=7d
       - name: Run tests
         run: node --test test/*.test.js
       - name: Commit if changed

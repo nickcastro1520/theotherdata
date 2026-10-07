@@ -11,6 +11,7 @@
     "dev": "node dev-server.mjs",
     "refresh": "node scripts/refresh.mjs",
     "build": "node scripts/build.mjs",
+    "symbols": "node scripts/build-symbols.mjs",
     "test": "node --test test/*.test.js",
     "scout": "node scripts/correlation-scout.mjs",
     "scout:fast": "node scripts/correlation-scout.mjs --fast"
