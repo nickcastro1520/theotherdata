@@ -11,6 +11,7 @@
   const signed = (x) => (x == null ? "n/a" : `${x > 0 ? "+" : x < 0 ? "−" : ""}${Math.abs(x * 100).toFixed(1)}%`);
   const ratio = (h, n) => (n ? `<b>${TT.fmtPct(h, n)}</b> <span class="n">${h} of ${n}</span>` : `<span class="n">no calls yet</span>`);
   const bt = doc.backtest, live = doc.live;
+  const sigTip = (sig) => (sig || "").split(",").filter(Boolean).map((x) => { const [id, r] = x.split(":"); return `${id}: ${r === "+" ? "tailwind" : r === "-" ? "headwind" : "neutral"}`; }).join(" · ");
   const LEAN = { tailwind: ["tailwind", "Tailwind"], headwind: ["headwind", "Headwind"], mixed: ["", "Mixed"], quiet: ["", "Quiet"] };
 
   // ---- status: live vs backtest ----
@@ -53,7 +54,7 @@
       const c = r.w[P];
       const [lc, ll] = LEAN[r.lean] || ["", r.lean];
       const res = !c ? `<span class="n">open</span>` : r.lean === "tailwind" || r.lean === "headwind" ? (c.hitX == null ? "" : c.hitX ? `<span class="ok">✓ played out</span>` : `<span class="bad">✗ didn't</span>`) : `<span class="n">no call</span>`;
-      return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}">${esc(ll)}</span> <span class="n">${esc(r.mag)}</span></td><td class="sigs-c">${esc((r.sig || "").split(",").map((x) => x.replace(/:\+$/, " ▲tail").replace(/:-$/, " ▼head").replace(/:0$/, " ·")).join(", "))}</td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${res}</td></tr>`;
+      return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${res}</td></tr>`;
     }).join("");
     const lt = t.live.latest;
     return `<article class="tr-stock" id="t-${esc(tk)}">
@@ -62,7 +63,7 @@
       <div class="tr-s-nums"><div><p class="k">Direction</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Vs S&amp;P 500</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
       <div class="sqs" aria-label="Monthly backtest results, oldest to newest">${sq}</div>
       ${lt ? `<p class="tr-live-line"><span class="pill live">Live</span> Latest lean ${esc(TT.day(lt.d))}: <span class="badge ${(LEAN[lt.lean] || [""])[0]}">${esc((LEAN[lt.lean] || ["", lt.lean])[1])}</span>${lt.px != null ? ` at $${esc(lt.px.toFixed(2))}` : ""}</p>` : ""}
-      <details><summary>Every checkpoint</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Signals</th><th>Stock, 1 mo</th><th>Vs S&amp;P</th><th>Result</th></tr></thead><tbody>${rows}</tbody></table></div></details>
+      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock, 1 mo</th><th>Vs S&amp;P</th><th>Result</th></tr></thead><tbody>${rows}</tbody></table></div></details>
     </article>`;
   }).join("");
 
