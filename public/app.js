@@ -6,6 +6,7 @@
   const READ = { tailwind: "Tailwind", headwind: "Headwind", neutral: "Neutral", context: "Context", tracking: "Tracking", unknown: "No reading", error: "Data unavailable", stale: "Stale" };
   const LEAN = { "leaning positive": ["pos", "Leaning +"], "leaning negative": ["neg", "Leaning −"], mixed: ["", "Mixed"], quiet: ["", "Quiet"] };
   let INDEX = null;
+  const HOME_SECTIONS = ["home", "stocks", "trackrecord", "how", "ideas", "scout"];
   const NASDAQ = new Set(["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "COIN", "ABNB"]);
   const GF_EXCH = { Q: "NASDAQ", N: "NYSE", A: "NYSEAMERICAN", P: "NYSEARCA", Z: "BATS", O: "OTCMKTS" };
   const quoteUrl = (tk, xc) => `https://www.google.com/finance/quote/${encodeURIComponent(String(tk).replace(/\./g, "-"))}:${GF_EXCH[xc] || (NASDAQ.has(tk) ? "NASDAQ" : "NYSE")}`;
@@ -253,6 +254,29 @@
     if (meta) meta.textContent = `Last scout run ${when(doc.generatedAt)}${doc.enrichedAt ? ` · readings refreshed ${when(doc.enrichedAt)}` : ""} · ${doc.allCount || rows.length} pairings scored`;
   }
 
+  // ---------- track record (home teaser + one line per stock page) ----------
+  let trackDoc = null;
+  const loadTrack = () => (trackDoc ||= fetch("/data/track-record.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  async function renderTrackTeaser() {
+    const el = $("#trk-line"), TT = window.TODTrack;
+    const doc = await loadTrack();
+    if (!el || !doc || !TT) return;
+    const p = doc.backtest?.summary?.[doc.primary];
+    const bits = [];
+    if (p?.calls) bits.push(`Backtest (${TT.month(doc.backtest.from)}–${TT.month(doc.backtest.to)}): leans called the 1-month direction right <b>${TT.fmtPct(p.hits, p.calls)}</b> of the time and beat or lagged the S&amp;P 500 as leaned <b>${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</b>, across ${p.calls} calls. ${esc(TT.verdict(p).key === "coin" ? "About a coin flip so far." : "")}`);
+    if (doc.live?.startedOn) bits.push(`Live tracking started ${esc(TT.day(doc.live.startedOn))}.`);
+    if (bits.length) el.innerHTML = bits.join(" ");
+  }
+  async function renderTrackLine(tk) {
+    const el = document.getElementById("track-line"), TT = window.TODTrack;
+    if (!el || !TT) return;
+    const doc = await loadTrack();
+    const line = doc && TT.stockLine(doc, tk);
+    if (!line || document.getElementById("track-line") !== el) return;
+    el.innerHTML = `<span class="k">How ${esc(tk)}'s leans have done</span> ${esc(line)} <a href="/track#t-${esc(tk)}">Track record →</a>`;
+    el.hidden = false;
+  }
+
   // ---------- detail ----------
   function meter(sum) {
     const total = sum.tailwinds + sum.headwinds + sum.neutral + (sum.context || 0) || 1;
@@ -397,7 +421,7 @@
     const det = $("#detail");
     document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
-    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
     const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Light pack</span> ${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
     const limited = d.pack === "light" && d.dataNote ? `<div class="${d.dataLevel === "limited" ? "warnbox limited" : "note-box"}">${d.dataLevel === "limited" ? "<strong>Limited data for this stock.</strong> " : ""}${esc(d.dataLevel === "limited" ? d.dataNote.replace(/^Limited data for this stock\.\s*/, "") : d.dataNote)}</div>` : "";
     det.innerHTML = `<div class="wrap">
@@ -406,17 +430,19 @@
       ${limited}
       <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
       ${impactPanel(d)}
+      <p class="track-line" id="track-line" hidden></p>
       <div class="dgrid"><div class="sigs">${(d.signals || []).map((s) => sigCard(s, d)).join("") || `<p class="note">No signal cards available for this ticker yet.</p>`}</div>
       <aside class="side">${pricePanel(d)}${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
     </div>`;
     window.scrollTo(0, 0);
+    if (d.pack !== "light") renderTrackLine(d.ticker);
   }
 
   async function showTicker(tk) {
     const det = $("#detail");
     const curated = INDEX.tickers.find((x) => x.ticker === tk);
     det.hidden = false;
-    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+    for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
     det.innerHTML = `<div class="wrap loading-panel">Loading ${esc(tk)}…</div>`;
     if (curated) {
       try {
@@ -451,7 +477,7 @@
   function showHome() {
     document.title = "The Other Data: hidden market signals, explained in plain English";
     $("#detail").hidden = true;
-    for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = false; }
+    for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = false; }
   }
 
   function route() {
@@ -467,7 +493,7 @@
   async function init() {
     try { INDEX = await (await fetch("/data/index.json", { cache: "no-cache" })).json(); }
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
-    renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas(); renderScout();
+    renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas(); renderScout(); renderTrackTeaser();
     const q = $("#q");
     // Suggestions dropdown
     let sug = document.getElementById("suggest");
@@ -579,7 +605,7 @@
     function detPrepare() {
       const det = $("#detail");
       det.hidden = false;
-      for (const id of ["home", "stocks", "how", "ideas", "scout"]) { const el = $(`#${id}`); if (el) el.hidden = true; }
+      for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
       det.innerHTML = `<div class="wrap loading-panel">Looking that up…</div>`;
     }
     window.addEventListener("hashchange", route);

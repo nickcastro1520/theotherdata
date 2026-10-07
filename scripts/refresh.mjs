@@ -2,13 +2,14 @@
 // Run by GitHub Actions on a schedule (see .github/workflows/refresh.yml) and locally with `npm run refresh`.
 //   --only AAPL,NVDA   refresh a subset (other tickers keep their previous files)
 //   --skip-news        skip GDELT (slow: one request every ~6 s)
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir, appendFile } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { TICKERS, IDEAS } from "../lib/catalog.js";
 import * as src from "../lib/sources.js";
 import { analyze, analyzeSnapshot, summarize, trimSeries, fmtDate } from "../lib/analyze.js";
 import { aiEnabled, aiSummary } from "../lib/explain.js";
+import { newLiveLines } from "../lib/track.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(ROOT, "public", "data");
@@ -208,5 +209,13 @@ await writeFile(join(OUT, "index.json"), JSON.stringify(index));
 await writeFile(HIST, JSON.stringify(history, null, 1));
 if (skipNews) index.sources["GDELT news"] = { ok: 0, failed: 0, errors: ["not called on this run (manual run with --skip-news); headlines kept from the last run"] };
 await writeFile(join(OUT, "index.json"), JSON.stringify(index));
+// Track record: append one lean + price snapshot per curated stock per UTC day. Append-only: earlier
+// lines are never rewritten. Scored later against real prices by scripts/track-record.mjs.
+if (!only) {
+  const LIVE = join(ROOT, "data", "track", "live.jsonl");
+  await mkdir(dirname(LIVE), { recursive: true });
+  const lines = newLiveLines(await readFile(LIVE, "utf8").catch(() => ""), results, startedAt);
+  if (lines.length) { await appendFile(LIVE, lines.join("\n") + "\n"); console.log(`Track record: logged ${lines.length} live lean snapshots for ${today}`); }
+}
 const failed = Object.entries(sourceHealth).filter(([, h]) => h.failed);
 console.log(`Done at ${new Date().toISOString()} (started ${startedAt}). Sources with failures: ${failed.length ? failed.map(([n, h]) => `${n} (${h.failed}: ${h.errors[0]})`).join("; ") : "none"}`);

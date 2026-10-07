@@ -371,3 +371,69 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
   .hiw li{padding:14px}
   .hero-fine{text-align:left}
 }
+
+/* ---------- track record ---------- */
+.eyebrow-k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 8px}
+.pill.live{background:var(--upbg);color:var(--up);border:1px solid rgba(52,211,153,.35)}
+.pill.bt{background:rgba(167,139,250,.12);color:#cdbcff;border:1px solid rgba(167,139,250,.3)}
+h2 .pill{vertical-align:middle;margin-left:8px;font-size:12px;letter-spacing:.04em}
+.track .lede-sm{font-size:18px;color:#c3cde2;max-width:780px}
+.track b.tw{color:var(--up)}.track b.hw{color:var(--down)}
+.track section{margin-top:12px}
+.track .n{color:var(--dim);font-size:12.5px}
+.track .ok{color:var(--up)}.track .bad{color:var(--down)}
+.tr-status{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 8px}
+.tr-status .spot-skel{grid-column:1/-1;height:170px}
+.tr-card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line2);border-radius:18px;padding:18px 20px}
+.tr-card.live-card{border-color:rgba(52,211,153,.35)}
+.tr-card.bt-card{border-color:rgba(167,139,250,.3)}
+.tr-card h2{margin:10px 0 8px;font-size:21px;letter-spacing:-.01em}
+.tr-card p{margin:0 0 8px;font-size:14.5px;color:var(--mut)}
+.tr-verdict{border-radius:14px;padding:14px 18px;margin:0 0 16px;background:var(--panel);border:1px solid var(--line2);border-left:4px solid var(--flat)}
+.tr-verdict.edge{border-left-color:var(--up)}.tr-verdict.worse{border-left-color:var(--down)}.tr-verdict.coin{border-left-color:var(--amber)}
+.tr-verdict .k,.tr-tile .k,.tr-s-nums .k{margin:0 0 4px;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.tr-verdict p{margin:0;font-size:16px;color:var(--ink)}
+.tr-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 14px}
+.tr-tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tr-tile .big{font:800 34px/1.1 var(--mono);margin:4px 0;color:var(--ink);letter-spacing:-.02em}
+.tr-tile .n{margin:0}
+.tr-tbl b{font-family:var(--mono)}
+.tr-stocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.tr-stock{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.tr-s-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tr-s-head .tk{font:800 16px var(--mono);color:var(--teal);text-decoration:none}
+.tr-s-head .nm{color:var(--ink);font-weight:600}
+.tr-s-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 10px}
+.tr-s-nums p{margin:0;font-size:14px}
+.tr-s-nums b{font-family:var(--mono);font-size:16px}
+.sqs{display:flex;flex-wrap:wrap;gap:3px;margin:4px 0 8px}
+.sq{display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--line2);vertical-align:middle}
+.sq.hit{background:var(--up)}.sq.miss{background:var(--down)}.sq.none{background:#2a3858}.sq.open{background:transparent;border:1px dashed var(--dim)}
+.sub .sq{margin:0 2px}
+.tr-live-line{margin:6px 0 4px;font-size:13.5px;color:var(--mut)}
+.tr-live-line .badge{font-size:11px;padding:3px 8px}
+.tr-stock details{margin-top:6px}
+.tr-stock summary{cursor:pointer;color:var(--teal);font-size:13.5px}
+.tr-hist{font-size:12.5px}.tr-hist td,.tr-hist th{padding:6px 8px}
+.tr-hist .badge{font-size:10.5px;padding:2px 7px}
+.tr-hist .sigs-c{color:var(--dim);max-width:220px}
+.tr-h3{margin:22px 0 8px;font-size:17px}
+.caveats li{margin-bottom:8px}
+/* home teaser */
+.band.trk{padding:8px 0 40px}
+.trk-box{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(167,139,250,.10),rgba(94,234,212,.06));border:1px solid var(--line2);border-radius:18px;padding:22px 24px}
+.trk-box h2{margin:0 0 6px}
+.trk-box .sub{margin:0;max-width:760px}
+.trk-box .btn{text-decoration:none}
+/* stock page line */
+.track-line{margin:14px 0 4px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:var(--panel);color:var(--mut);font-size:14px}
+.track-line .k{display:block;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+@media (max-width:760px){
+  .tr-status,.tr-tiles{grid-template-columns:1fr}
+  .tr-stocks{grid-template-columns:1fr}
+  .tr-tbl{min-width:640px}
+}
+nav.main a{white-space:nowrap}
+@media (max-width:560px){
+  nav.main a:nth-child(n+3){display:none}
+}

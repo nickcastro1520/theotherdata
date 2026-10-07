@@ -18,6 +18,7 @@
 <!--GSC-->
 <script src="/symbol-search.js" defer></script>
 <script src="/featured.js" defer></script>
+<script src="/track-text.js" defer></script>
 <script src="/app.js" defer></script>
 </head>
 <body>
@@ -30,6 +31,7 @@
     </a>
     <nav class="main" aria-label="Main">
       <a href="/#stocks">Stocks</a>
+      <a href="/track">Track record</a>
       <a href="/#scout">Scout</a>
       <a href="/how">How it works</a>
       <a href="/how#sources">Sources</a>
@@ -90,6 +92,19 @@
     </div>
   </section>
 
+  <section class="band trk" id="trackrecord">
+    <div class="wrap">
+      <div class="trk-box">
+        <div>
+          <p class="eyebrow-k">Track record</p>
+          <h2>Did the leans play out?</h2>
+          <p class="sub" id="trk-line">We log every stock's lean and check what the price did 2 weeks, 1 month, and 1 quarter later, against the S&amp;P 500 too.</p>
+        </div>
+        <a class="btn" href="/track">See the track record →</a>
+      </div>
+    </div>
+  </section>
+
   <section class="detail" id="detail" hidden></section>
 
   <section class="band alt" id="how">
@@ -138,7 +153,7 @@
   <div class="wrap">
     <p class="fine"><strong>Not financial advice. For education only.</strong> The Other Data shows public statistics and explains common ways people interpret them. Nothing here is a recommendation to buy, sell, or hold any security. Signals can be wrong, late, or unrelated to a stock's price. Do your own research or talk to a licensed professional.</p>
     <p class="fine">Data: FRED (Federal Reserve Bank of St. Louis), U.S. Census Bureau, BLS, BTS, EIA, SEC EDGAR, openFDA, NHTSA, TSA, Wikimedia, PyPI/pypistats, Hacker News (Algolia), Greenhouse job boards, The GDELT Project. Each card links to its source.</p>
-    <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how">Method &amp; sources</a></p>
+    <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how">Method &amp; sources</a> · <a href="/track">Track record</a></p>
   </div>
 </footer>
 </body>

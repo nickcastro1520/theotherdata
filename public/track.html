@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Track record: did the leans play out? | The Other Data</title>
+<meta name="description" content="We log every curated stock's alt-data lean and check what the stock actually did 2 weeks, 1 month, and 1 quarter later, against the S&P 500 too. Backtest and live results, with sample sizes and caveats. Education only.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/styles.css">
+<meta property="og:title" content="The Other Data: track record">
+<meta property="og:description" content="Did the hidden-signal leans play out? Hit rates vs the S&P 500, sample sizes, and honest caveats.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<!--GA-->
+<!--GSC-->
+<script src="/track-text.js" defer></script>
+<script src="/track.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="The Other Data home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track" aria-current="page">Track record</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a></nav>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Past results, real or backtested, don't predict future ones.</div></div>
+<main id="main" class="doc track">
+  <div class="wrap">
+    <p class="eyebrow-k">Track record</p>
+    <h1>Did the leans play out?</h1>
+    <p class="lede-sm">Every curated stock gets an overall lean from its offbeat signals: <b class="tw">tailwind</b>, <b class="hw">headwind</b>, mixed, or quiet. We log those leans and check what the stock actually did <strong>2 weeks, 1 month, and 1 quarter</strong> later, on its own and against the S&amp;P 500.</p>
+
+    <div class="tr-status" id="tr-status"><div class="spot-skel"></div></div>
+
+    <section aria-labelledby="bt-h">
+      <h2 id="bt-h">Backtest results <span class="pill bt">Backtest · reconstructed</span></h2>
+      <p class="sub" id="bt-sub">Loading…</p>
+      <div class="tr-verdict" id="bt-verdict"></div>
+      <div class="tr-tiles" id="bt-tiles"></div>
+      <div class="tblwrap"><table class="tbl tr-tbl" id="bt-table"><thead><tr><th>Window</th><th>Calls</th><th>Direction right</th><th>Vs S&amp;P 500, as leaned</th><th>"Always guess up"</th><th>Avg vs S&amp;P after tailwind</th><th>Avg vs S&amp;P after headwind</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section aria-labelledby="ps-h">
+      <h2 id="ps-h">Per stock</h2>
+      <p class="sub">1-month window. Each square is one monthly backtest checkpoint: <i class="sq hit"></i> lean beat (or lagged) the S&amp;P 500 the way it leaned, <i class="sq miss"></i> it didn't, <i class="sq none"></i> mixed or quiet (no call), <i class="sq open"></i> window still open. Here green and red mean "played out" or "didn't", not "number up or down".</p>
+      <div class="tr-stocks" id="tr-stocks"></div>
+    </section>
+
+    <section aria-labelledby="live-h">
+      <h2 id="live-h">Live log <span class="pill live">Live</span></h2>
+      <p class="sub" id="live-sub"></p>
+      <div class="tblwrap"><table class="tbl" id="live-table"><thead><tr><th>Stock</th><th>Latest logged lean</th><th>Price when logged</th><th>Logged</th><th>Live results</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section aria-labelledby="m-h">
+      <h2 id="m-h">How it's scored</h2>
+      <ul id="rules"></ul>
+      <h3 class="tr-h3">How the backtest avoids peeking</h3>
+      <ul id="bt-method"></ul>
+      <h3 class="tr-h3">Signals left out of the backtest, and why</h3>
+      <div class="tblwrap"><table class="tbl" id="skipped"><thead><tr><th>Stock</th><th>Signal</th><th>Why it's not backtested</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section aria-labelledby="c-h">
+      <h2 id="c-h">Read this before trusting any number above</h2>
+      <ul class="caveats">
+        <li><strong>Small samples.</strong> Per-stock results rest on a few dozen calls at most. A 60% hit rate on 30 calls can easily be luck.</li>
+        <li><strong>Overlapping windows.</strong> Checkpoints are monthly, so 1-quarter windows overlap and the real number of independent results is smaller than the count shown.</li>
+        <li><strong>Hindsight in the stock list.</strong> These 17 stocks and their signals were chosen in 2026, knowing how the companies turned out. That flatters the "vs S&amp;P" column for every lean, which is why tailwind and headwind leans can both show positive average moves.</li>
+        <li><strong>The backtest is not the live site.</strong> It uses only the signals with dated public history (listed above), conservative publication delays, and today's revised government data, not the numbers as first published.</li>
+        <li><strong>Correlation isn't causation.</strong> A lean that lined up with a price move doesn't mean the data caused it. Public data is often already priced in by the time it's published.</li>
+        <li><strong>Education only. Not financial advice.</strong> Nothing here tells anyone to buy, sell, or hold anything.</li>
+      </ul>
+      <p class="sub" id="downloads"></p>
+    </section>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><p class="fine"><strong>Not financial advice. For education only.</strong> Past results, real or backtested, don't predict future ones. Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/">Back to the signals</a> · <a href="/how">Method &amp; sources</a></p></div></footer>
+</body>
+</html>

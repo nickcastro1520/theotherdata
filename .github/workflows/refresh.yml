@@ -33,6 +33,14 @@ jobs:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
         run: node scripts/refresh.mjs
+      - name: Score the track record (daily)
+        # Scores logged leans (live log + labeled backtest) against Tiingo closing prices, once per UTC day.
+        # Never blocks the signal refresh.
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
+        run: node scripts/track-record.mjs --daily
       - name: Refresh US symbol directory (weekly)
         # Nasdaq Trader symbol files + SEC company_tickers_exchange.json -> public/data/symbols.json.
         # Skips unless the committed file is 7+ days old; never blocks the signal refresh.
