@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js)",
+      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js)",
       "headers": [
         {
           "key": "Cache-Control",

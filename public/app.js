@@ -410,7 +410,7 @@
           <div class="istep"><span class="n">3</span><div><h4>Rough magnitude band</h4><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
           <div class="istep"><span class="n">4</span><div><h4>Typical time horizon</h4><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
         </div>
-        <p class="body muted">${esc(narrative)}</p>
+        ${narrative ? `<div class="summary-box" id="summary-box"><p class="ai-tag">${d.ai?.text && narrative === d.ai.text ? "AI summary · written by Gemini from the numbers on this page, then checked for advice-sounding words" : "Summary · written from a template using the numbers on this page"}</p><p class="body muted">${esc(narrative)}</p></div>` : ""}
         <p class="fineprint">Not financial advice. Not a forecast. Nothing here tells you to buy or sell.</p>
       </div>
       <div class="pricebox"><p class="pk">Current stock price</p>${priceHtml}</div>
@@ -425,7 +425,7 @@
     const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Light pack</span> ${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
     const limited = d.pack === "light" && d.dataNote ? `<div class="${d.dataLevel === "limited" ? "warnbox limited" : "note-box"}">${d.dataLevel === "limited" ? "<strong>Limited data for this stock.</strong> " : ""}${esc(d.dataLevel === "limited" ? d.dataNote.replace(/^Limited data for this stock\.\s*/, "") : d.dataNote)}</div>` : "";
     det.innerHTML = `<div class="wrap">
-      <a class="back" href="#">← All stocks</a>
+      <div class="dtop"><a class="back" href="#">← All stocks</a><button type="button" class="help-pill" data-tour-start aria-label="How to read this page: start the guided tour"><span aria-hidden="true">?</span> How to read this page</button></div>
       ${pack}
       ${limited}
       <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
@@ -436,6 +436,7 @@
     </div>`;
     window.scrollTo(0, 0);
     if (d.pack !== "light") renderTrackLine(d.ticker);
+    document.dispatchEvent(new CustomEvent("tod:detail", { detail: { ticker: d.ticker, pack: d.pack || "deep" } }));
   }
 
   async function showTicker(tk) {
