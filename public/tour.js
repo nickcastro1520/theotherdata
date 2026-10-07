@@ -46,7 +46,7 @@
       { target: () => $("#detail .sig .srcline"), title: "Where the data comes from", body: `<p>Every card names its source with a link. The <strong>"data through"</strong> date tells you how recent the newest number is.</p><p>Some sources only publish monthly, so a number can be a few weeks old even though we check for new data every 4 hours.</p>` },
       { target: () => $("#detail .pricebox"), title: "The stock price, for context", body: `<p>This is the current share price, so you can compare. The signals don't predict it.</p>` },
       { target: () => trackLine, title: "Has this worked before?", body: `<p>We log every lean and later check what the stock did.${btPct != null ? ` In our backtest (${esc(monthName(track.backtest.from))} to ${esc(monthName(track.backtest.to))}), the stock moved the way the lean pointed over the next month <strong>${dirPct}%</strong> of the time (${bt.hits} of ${bt.calls}), and beat or lagged the S&amp;P 500 as leaned <strong>${btPct}%</strong> of the time. That's <strong>about a coin flip</strong>.` : " The track record page shows how past leans did."}</p><p>So treat a lean as a <strong>conversation starter</strong>, a reason to look closer, not a prediction.</p>` },
-      { title: "That's it!", body: `<ul class="tour-recap"><li><b class="t-up">Green</b> / <b class="t-down">red</b> = the number went up or down.</li><li>Tailwind / headwind = good or bad for the company (some signals flip).</li><li>The lean adds the signals up. Strength says how loud it is.</li><li>Past leans were about a coin flip, so use them to start a conversation.</li></ul><p class="tour-fine">Education only. Not financial advice. Nothing here tells you to buy or sell.</p><p><a href="/how-to-read">Read the full beginner's guide →</a></p>` },
+      { title: "That's it!", body: `<ul class="tour-recap"><li><b class="t-up">Green</b> / <b class="t-down">red</b> = the number went up or down.</li><li>Tailwind / headwind = good or bad for the company (some signals flip).</li><li>The lean adds the signals up. Strength says how loud it is.</li><li>Past leans were about a coin flip, so use them to start a conversation.</li></ul><p class="tour-fine">Education only. Not financial advice. Nothing here tells you to buy or sell.</p><p><a href="/how-to-read">Read the full beginner's guide →</a></p>${window.TODSubscribeForm ? `<div class="sub-tour"><p class="tour-sm"><strong>Want the strangest signals in your inbox once a week?</strong></p>${window.TODSubscribeForm.html("tour")}</div>` : ""}` },
     ];
   }
 
@@ -169,7 +169,7 @@
     else if (e.key === "ArrowRight" && !e.target.closest("input,textarea")) { e.preventDefault(); if (state.i < state.steps.length - 1) go(state.i + 1); }
     else if (e.key === "ArrowLeft" && !e.target.closest("input,textarea")) { e.preventDefault(); go(state.i - 1); }
     else if (e.key === "Tab") { // keep focus inside the dialog while touring
-      const f = [...$("#tour-dlg").querySelectorAll("button,a[href]")];
+      const f = [...$("#tour-dlg").querySelectorAll("button:not([disabled]),a[href],input:not([type=hidden]):not([tabindex='-1']):not([disabled])")];
       if (!f.length) return;
       const i = f.indexOf(document.activeElement);
       if (e.shiftKey && (i <= 0)) { e.preventDefault(); f[f.length - 1].focus(); }

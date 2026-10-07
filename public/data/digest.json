@@ -1,0 +1,137 @@
+{
+ "version": 1,
+ "issueId": "2026-W41",
+ "weekOf": "Oct 5, 2026",
+ "generatedAt": "2026-10-07T23:55:00.417Z",
+ "dataUpdatedAt": "2026-10-07T21:23:28.242Z",
+ "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
+ "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
+ "picks": [
+  {
+   "ticker": "F",
+   "company": "Ford",
+   "id": "f150-complaints",
+   "signal": "F-150 owner complaints",
+   "change": "−43%",
+   "pct": -42.7,
+   "direction": "down",
+   "basis": "vs the 3 months before",
+   "reading": "tailwind",
+   "strength": "mild",
+   "plain": "Complaints have eased versus the prior few months.",
+   "what": "Complaints F-150 owners file with the National Highway Traffic Safety Administration.",
+   "why": "The F-Series is Ford's profit machine, and Ford has led the industry in recalls.",
+   "dataThrough": "Sep 2026",
+   "source": {
+    "name": "NHTSA complaints API",
+    "url": "https://www.nhtsa.gov/vehicle/2026/FORD/F-150%20(SUPER%20CREW)%20GAS"
+   },
+   "url": "https://theotherdata.com/#/F"
+  },
+  {
+   "ticker": "TSLA",
+   "company": "Tesla",
+   "id": "modely-complaints",
+   "signal": "Model Y owner complaints",
+   "change": "+37%",
+   "pct": 36.8,
+   "direction": "up",
+   "basis": "vs the 3 months before",
+   "reading": "headwind",
+   "strength": "mild",
+   "plain": "Complaints are climbing faster than the prior few months.",
+   "what": "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator.",
+   "why": "The Model Y is Tesla's best-selling car.",
+   "dataThrough": "Sep 2026",
+   "source": {
+    "name": "NHTSA complaints API",
+    "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
+   },
+   "url": "https://theotherdata.com/#/TSLA"
+  },
+  {
+   "ticker": "LLY",
+   "company": "Eli Lilly",
+   "id": "tirzepatide-reports",
+   "signal": "Mounjaro/Zepbound usage footprint",
+   "change": "+27%",
+   "pct": 27.3,
+   "direction": "up",
+   "basis": "vs the same period last year",
+   "reading": "tailwind",
+   "strength": "mild",
+   "plain": "The drug's footprint is growing versus a year ago.",
+   "what": "Reports of side effects filed with the FDA that mention tirzepatide, Lilly's blockbuster weight-loss and diabetes drug.",
+   "why": "More patients means more reports, so the trend is a rough, unusual proxy for how fast use is growing.",
+   "dataThrough": "Jun 2026",
+   "source": {
+    "name": "openFDA (U.S. Food & Drug Administration)",
+    "url": "https://open.fda.gov/apis/drug/event/"
+   },
+   "url": "https://theotherdata.com/#/LLY"
+  },
+  {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+49%",
+   "pct": 49.1,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
+   "dataThrough": "Oct 7, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+   },
+   "url": "https://theotherdata.com/#/MSFT"
+  },
+  {
+   "ticker": "WMT",
+   "company": "Walmart",
+   "id": "egg-prices",
+   "signal": "Egg prices",
+   "change": "−40%",
+   "pct": -39.8,
+   "direction": "down",
+   "basis": "vs the same period last year",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
+   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
+   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
+   "dataThrough": "Aug 2026",
+   "source": {
+    "name": "FRED, Federal Reserve Bank of St. Louis",
+    "url": "https://fred.stlouisfed.org/series/APU0000708111"
+   },
+   "url": "https://theotherdata.com/#/WMT"
+  }
+ ],
+ "story": {
+  "ticker": "F",
+  "company": "Ford",
+  "signal": "F-150 owner complaints",
+  "title": "F-150 owner complaints fell 43% (vs the 3 months before)",
+  "paragraphs": [
+   "Complaints F-150 owners file with the National Highway Traffic Safety Administration. Complaint surges are how many recalls and investigations start.",
+   "Why it might matter for Ford: the F-Series is Ford's profit machine, and Ford has led the industry in recalls. Rising complaints can foreshadow recall and warranty costs.",
+   "What it shows now: complaints have eased versus the prior few months. We read that as a mild tailwind for Ford, which is a clue, not a forecast."
+  ],
+  "url": "https://theotherdata.com/#/F"
+ },
+ "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.5% of the time (270 of 546). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
+ "links": {
+  "site": "https://theotherdata.com",
+  "track": "https://theotherdata.com/track",
+  "guide": "https://theotherdata.com/how-to-read",
+  "sample": "https://theotherdata.com/digest",
+  "privacy": "https://theotherdata.com/privacy"
+ },
+ "disclaimer": "Education only. Not financial advice. These are clues from public data, not predictions, and nothing here tells you to buy or sell anything. Signals can be wrong, late, or already priced in."
+}

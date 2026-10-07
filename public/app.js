@@ -336,8 +336,11 @@
     const item = (a, extra = "") => `<li><a href="${esc(safeUrl(a.url))}" rel="noopener nofollow" target="_blank">${esc(a.title)}</a><div class="src">${esc(a.domain || "")}${a.seen ? ` · ${esc(ago(a.seen))}` : ""}${extra}</div></li>`;
     let body = "";
     if (n.articles?.length) {
+      // Headlines with buy/sell calls are other publishers' opinions: collapsed and labeled, never listed as news.
+      const { facts, opinions } = window.TODNews ? window.TODNews.split(n.articles) : { facts: n.articles, opinions: [] };
       body = (n.status === "stale" ? `<p class="note warnline">The news index didn't respond on the latest refresh, so these headlines are from ${esc(when(n.staleSince))}.</p>` : "") +
-        `<ul class="news">${n.articles.slice(0, 6).map((a) => item(a)).join("")}</ul>`;
+        (facts.length ? `<ul class="news">${facts.slice(0, 6).map((a) => item(a)).join("")}</ul>` : `<p class="note">No recent factual headlines; only opinion pieces (below).</p>`) +
+        (opinions.length ? `<details class="opinions"><summary>${opinions.length} third-party opinion headline${opinions.length > 1 ? "s" : ""} (buy/sell talk), hidden</summary><p class="note">These are other publishers' opinions, not ours. The Other Data never says to buy or sell.</p><ul class="news">${opinions.slice(0, 4).map((a) => item(a, ` · <span class="op-tag">Opinion</span>`)).join("")}</ul></details>` : "");
     } else if (n.status === "error") body = `<p class="note warnline">The news index didn't respond on the latest refresh (GDELT's free API rate-limits heavily). We'll try again on the next run rather than show anything made up.</p>`;
     else body = `<p class="note">No recent English-language headlines found.</p>`;
     const hn = n.hn?.length ? `<h4 class="subh">Discussed on Hacker News (last 2 weeks)</h4><ul class="news">${n.hn.slice(0, 4).map((a) => item(a, ` · ${a.points} points · <a class="disc" href="${esc(safeUrl(a.discuss))}" rel="noopener" target="_blank">discussion</a>`)).join("")}</ul>` : "";

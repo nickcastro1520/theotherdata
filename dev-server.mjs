@@ -1,5 +1,6 @@
 // Local dev server: serves public/ with the same HTML transform and security headers as production,
-// plus /api/lookup and /api/search (same handlers as Vercel).
+// plus the /api/* functions (same handlers as Vercel). For the digest signup flow locally, set
+// TOD_SUBS_FILE=/tmp/subs.json (stand-in storage) and TOD_EMAIL_OUTBOX=/tmp/outbox (emails become files).
 import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
@@ -10,8 +11,8 @@ const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; ch
 const vercel = JSON.parse(await readFile("vercel.json", "utf8"));
 const SEC_HEADERS = Object.fromEntries(vercel.headers.find((h) => h.source === "/(.*)").headers.map((h) => [h.key, h.value.replace(/;\s*upgrade-insecure-requests/, "")]));
 
-const lookup = await import("./api/lookup.js");
-const search = await import("./api/search.js");
+const API = {};
+for (const name of ["lookup", "search", "subscribe", "confirm", "unsubscribe", "digest"]) API[`/api/${name}`] = await import(`./api/${name}.js`);
 
 function toRequest(req, url, body) {
   return new Request(url.href, { method: req.method, headers: req.headers, body });
@@ -19,8 +20,9 @@ function toRequest(req, url, body) {
 
 http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
-  if (url.pathname === "/api/lookup" || url.pathname === "/api/search") {
-    const handler = url.pathname === "/api/lookup" ? lookup.GET : search.GET;
+  if (API[url.pathname]) {
+    const handler = API[url.pathname][req.method];
+    if (!handler) { res.writeHead(405, SEC_HEADERS); return res.end(); }
     try {
       const chunks = [];
       for await (const c of req) chunks.push(c);

@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js)",
+      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -83,6 +83,19 @@
           "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
+    },
+    {
+      "source": "/api/(subscribe|confirm|unsubscribe|digest)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ],
   "functions": {
@@ -93,6 +106,24 @@
     "api/search.js": {
       "maxDuration": 15,
       "includeFiles": "public/data/symbols.json"
+    },
+    "api/subscribe.js": {
+      "maxDuration": 15
+    },
+    "api/confirm.js": {
+      "maxDuration": 10
+    },
+    "api/unsubscribe.js": {
+      "maxDuration": 10
+    },
+    "api/digest.js": {
+      "maxDuration": 60
     }
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/digest",
+      "schedule": "0 14 * * *"
+    }
+  ]
 }

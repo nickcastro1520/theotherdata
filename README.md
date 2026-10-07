@@ -14,6 +14,8 @@
 - **A 10-second home page.** The hero shows one real example straight from the latest refresh: what the data is, its green/red change, which way it leans, and why it matters. `public/featured.js` picks it: Amazon cardboard box prices lead whenever that reading is live and directional, then the card rotates through the strongest offbeat moves (one per stock, no repeated series, outliers over 150% skipped). It never hardcodes a number.
 - **A track record that can be checked.** Every scheduled refresh appends each curated stock's overall lean (tailwind / headwind / mixed / quiet, with strength) and its price to an append-only log (`data/track/live.jsonl`, one line per stock per day). `scripts/track-record.mjs` scores those leans against Tiingo adjusted closes over 2 weeks, 1 month, and 1 quarter, on their own and vs the S&P 500 (SPY), and the [/track](https://theotherdata.com/track) page shows hit rates with sample sizes. A separate, clearly labeled **backtest** (`data/track/backtest.json`) rebuilds monthly leans since Jan 2023 using only signals with dated public history, conservative publication delays, and SEC numbers by first filing date. Signals that can't be backtested honestly (PyPI's 180-day window, FDA reports, NHTSA complaints, job-board snapshots) are left out and listed with the reason. The current backtest result is about a coin flip, and the page says so.
 - **Built for beginners.** Every stock page has a "How to read this page" button that opens a 12-step guided tour (`public/tour.js`, no libraries, about 16 KB unminified). It spotlights the real elements on the page: a signal card, the green/red change tag vs the tailwind/headwind reading (including signals that flip, like inventory or complaints), the lean, its strength and "weeks to a quarter" window, the AI summary, the source and "data through" date, and the track record with its coin-flip result. Steps use the live numbers on the page. It works with the keyboard (Esc, arrow keys, focus trap) and becomes a bottom sheet on phones. First-time visitors get a small, dismissible invite instead of a pop-up, and the choice is remembered in `localStorage`. [/how-to-read](https://theotherdata.com/how-to-read) is the same material as a static page, filled with live examples from Amazon's data and the backtest. Any link to `/?tour=1#/AMZN` starts the tour.
+- **A weekly "strangest signals" email.** Signup forms on the home page, every footer, the end of the guided tour, and [/subscribe](https://theotherdata.com/subscribe). Double opt-in (the confirm link opens a page with one button, so mail-app link scanners can't confirm for someone), one-click unsubscribe (RFC 8058 `List-Unsubscribe-Post` plus a footer link), and unsubscribing deletes the address. Spam protection: a honeypot field, a minimum fill time, a same-origin check, and per-connection rate limits that never store IPs. Subscribers live in a private Vercel Blob store as one JSON file per address hash. Links carry a signed hash, never the address. `lib/digest.js` builds each issue from the published data only: the 3–5 strangest live moves (same offbeat ranking as the hero, one per stock), one plain-English story, and the backtest's coin-flip result. [/digest](https://theotherdata.com/digest) previews the current issue. A daily Vercel Cron (`api/digest.js`) sends it on Mondays in chunks under Resend's free 100/day cap, never twice to the same person. It stays in dry-run mode until sending is switched on explicitly.
+- **No buy/sell calls, even borrowed ones.** Third-party headlines that make buy/sell calls ("Now Is the Perfect Time to Buy…") are moved into a collapsed, labeled "third-party opinion" group on stock pages (`public/news-filter.js`).
 - **Every signal card answers three questions:** what the data is, why it might matter for this company, and what it's showing now. The last one is written from the actual numbers.
 - **Each signal gets a reading.** It's compared with its own recent past (28 days vs the prior 28, or year over year for seasonal data), then classed as a tailwind, headwind, neutral (inside a per-signal noise band), or context (the effect cuts both ways).
 - **Context panels** on each stock page: latest news, SEC filings with plain-English 8-K labels, insider (Form 4) filing counts, and an optional price chart.
@@ -64,7 +66,7 @@ node dev-server.mjs                              # http://localhost:3000
 node --test test/*.test.js
 ```
 
-Node 20+, no `npm install` needed.
+Node 20+, then `npm install` once. To try the digest signup flow locally without real storage or email: `TOD_SUBS_FILE=/tmp/subs.json TOD_EMAIL_OUTBOX=/tmp/outbox node dev-server.mjs` (messages are written to files, nothing is sent). `node scripts/digest.mjs --preview` writes the current issue to `reports/digest-preview.html` and `.txt`.
 
 ## Optional keys (GitHub repo → Settings → Secrets and variables → Actions)
 
@@ -75,6 +77,17 @@ Node 20+, no `npm install` needed.
 | `TIINGO_API_KEY` | End-of-day price chart (1 year) | https://www.tiingo.com/account/api/token |
 
 Without them the site still works. It uses GDELT and Hacker News for news, template explanations, and links out for prices.
+
+## Weekly digest settings (Vercel → Project → Settings → Environment Variables)
+
+| Variable | What it does |
+| --- | --- |
+| `BLOB_READ_WRITE_TOKEN` | Added automatically when a private Blob store is connected to the project. Without it, signup forms show "opening soon" and save nothing. |
+| `RESEND_API_KEY` | Turns on confirmation emails (Resend free plan: 3,000/month, 100/day). Needs `theotherdata.com` verified in Resend. |
+| `CRON_SECRET` | Any long random string. Vercel Cron sends it to `/api/digest`; every other caller gets 401. |
+| `DIGEST_SEND_ENABLED` | Must be exactly `true` before any digest goes to subscribers. Until then the cron only logs a dry run. |
+| `DIGEST_TEST_TO` | Optional: with the key and secret set but sending not enabled, each new issue goes only to this address, for a first look. |
+| `DIGEST_FROM`, `DIGEST_REPLY_TO`, `DIGEST_DAILY_CAP`, `DIGEST_SEND_DAY` | Optional. Defaults: `The Other Data <digest@theotherdata.com>`, no reply-to, 90 per day, `mon`. |
 
 ## Deploy
 

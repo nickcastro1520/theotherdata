@@ -41,6 +41,10 @@ jobs:
         env:
           TIINGO_API_KEY: ${{ secrets.TIINGO_API_KEY }}
         run: node scripts/track-record.mjs --daily
+      - name: Build the weekly digest preview
+        # public/data/digest.json: this week's strangest moves, read by /digest and the weekly email (api/digest.js).
+        continue-on-error: true
+        run: node scripts/digest.mjs
       - name: Refresh US symbol directory (weekly)
         # Nasdaq Trader symbol files + SEC company_tickers_exchange.json -> public/data/symbols.json.
         # Skips unless the committed file is 7+ days old; never blocks the signal refresh.
