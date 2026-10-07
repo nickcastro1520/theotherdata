@@ -63,7 +63,7 @@
       <div class="tr-s-nums"><div><p class="k">Direction</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Vs S&amp;P 500</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
       <div class="sqs" aria-label="Monthly backtest results, oldest to newest">${sq}</div>
       ${lt ? `<p class="tr-live-line"><span class="pill live">Live</span> Latest lean ${esc(TT.day(lt.d))}: <span class="badge ${(LEAN[lt.lean] || [""])[0]}">${esc((LEAN[lt.lean] || ["", lt.lean])[1])}</span>${lt.px != null ? ` at $${esc(lt.px.toFixed(2))}` : ""}</p>` : ""}
-      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock, 1 mo</th><th>Vs S&amp;P</th><th>Played out?</th></tr></thead><tbody>${rows}</tbody></table></div></details>
+      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Hit?</th></tr></thead><tbody>${rows}</tbody></table></div></details>
     </article>`;
   }).join("");
 

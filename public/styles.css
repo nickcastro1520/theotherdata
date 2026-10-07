@@ -438,3 +438,4 @@ nav.main a{white-space:nowrap}
   nav.main a:nth-child(n+3){display:none}
 }
 .tr-hist td:first-child{white-space:nowrap}.tr-hist{min-width:0}
+.tr-hist td,.tr-hist th{padding:6px 5px}.tr-stock details .tblwrap{border:0;background:transparent}
