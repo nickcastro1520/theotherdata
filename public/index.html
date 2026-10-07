@@ -17,6 +17,7 @@
 <!--GA-->
 <!--GSC-->
 <script src="/symbol-search.js" defer></script>
+<script src="/featured.js" defer></script>
 <script src="/app.js" defer></script>
 </head>
 <body>
@@ -40,22 +41,32 @@
 <main id="main">
   <section class="hero" id="home">
     <div class="wrap hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Alternative data, explained</span>
         <h1>The hidden signals behind the stocks you know.</h1>
-        <p class="lede">Wall Street pays millions for "alternative data": airport lines, shipping boxes, what people look up online. We pull the free, public versions, compare them with the recent past, and tell you what they might mean in plain English.</p>
+        <p class="lede">Offbeat public data, like <strong>cardboard box prices</strong>, <strong>airport lines</strong>, and <strong>FDA reports</strong>, that hints where companies are heading. Explained in plain English.</p>
         <form class="picker" id="picker" role="search" autocomplete="off">
-          <label for="q" class="sr">Pick a stock</label>
-          <input id="q" type="text" inputmode="search" placeholder="Any US stock or ETF: RKLB, Lemonade, SoundHound…" aria-describedby="status-line">
-          <button class="btn" type="submit">Show signals</button>
+          <label for="q" class="picker-label">Try any stock</label>
+          <div class="picker-row">
+            <input id="q" type="text" inputmode="search" enterkeyhint="search" placeholder="Ticker or company: AMZN, Roblox, Rocket Lab…" aria-describedby="search-hint status-line">
+            <button class="btn" type="submit">Show signals</button>
+          </div>
         </form>
-        <p class="search-hint" id="search-hint">Search any US-listed stock or ETF by ticker or company name. Curated names have deep signals; everything else gets a light pack.</p>
-        <div class="chips" id="chips" aria-label="Popular tickers"></div>
+        <p class="search-hint" id="search-hint">Search about 14,000 US stocks and ETFs. Curated names get deep signals; everything else gets a light pack.</p>
+        <div class="chips-wrap"><span class="chips-k">Deep-signal picks</span><div class="chips" id="chips" aria-label="Curated tickers with deep signals"></div></div>
         <p class="status-line" id="status-line">Loading live data…</p>
       </div>
-      <aside class="spotlight" id="spotlight" aria-live="polite">
+      <aside class="spotlight feature" id="spotlight" aria-label="Featured real example from live data" aria-live="polite">
         <div class="spot-skel"></div>
       </aside>
+    </div>
+    <div class="wrap">
+      <ol class="hiw" aria-label="How it works in three steps">
+        <li><span class="hiw-n" aria-hidden="true">1</span><div><h2>Offbeat data</h2><p>We pull free public numbers most investors skip: box prices, TSA lines, FDA reports, developer downloads.</p></div></li>
+        <li><span class="hiw-n" aria-hidden="true">2</span><div><h2>Which way it leans</h2><p><b class="up">Green</b> or <b class="down">red</b> shows if the number rose or fell vs its recent past. We label that a tailwind or headwind for the company.</p></div></li>
+        <li><span class="hiw-n" aria-hidden="true">3</span><div><h2>Why it matters</h2><p>Every signal says, in plain English, how it connects to the business and the usual time frame: weeks to a quarter.</p></div></li>
+      </ol>
+      <p class="hero-fine">Education only. Not financial advice. These are clues from public data, not predictions or buy/sell calls.</p>
     </div>
   </section>
 

@@ -11,6 +11,7 @@
 ## What it does
 
 - **47 live signals across 17 stocks.** Examples: TSA checkpoint counts and jet fuel prices for Delta, PyTorch downloads and Hacker News chatter for Nvidia, NHTSA owner complaints for Tesla and Ford, openFDA adverse-event reports as an adoption proxy for Eli Lilly and Novo Nordisk, corrugated box prices and AWS toolkit installs for Amazon, egg and beef prices for McDonald's.
+- **A 10-second home page.** The hero shows one real example straight from the latest refresh: what the data is, its green/red change, which way it leans, and why it matters. `public/featured.js` picks it: Amazon cardboard box prices lead whenever that reading is live and directional, then the card rotates through the strongest offbeat moves (one per stock, no repeated series, outliers over 150% skipped). It never hardcodes a number.
 - **Every signal card answers three questions:** what the data is, why it might matter for this company, and what it's showing now. The last one is written from the actual numbers.
 - **Each signal gets a reading.** It's compared with its own recent past (28 days vs the prior 28, or year over year for seasonal data), then classed as a tailwind, headwind, neutral (inside a per-signal noise band), or context (the effect cuts both ways).
 - **Context panels** on each stock page: latest news, SEC filings with plain-English 8-K labels, insider (Form 4) filing counts, and an optional price chart.

@@ -74,25 +74,105 @@
     $("#status-line").innerHTML = `<span class="live">Live data</span> Updated ${esc(when(INDEX.generatedAt))} (${esc(ago(INDEX.generatedAt))}) · refreshes every 4 hours · ${live}/${total} signals fresh from ${srcCount} public sources`;
   }
 
-  function renderSpotlight() {
-    let best = null;
-    for (const t of INDEX.tickers) for (const s of t.signals) {
-      if (s.status !== "ok" || !(s.reading === "tailwind" || s.reading === "headwind") || s.pct == null) continue;
-      if (Math.abs(s.pct) > 200) continue;
-      if (!best || Math.abs(s.pct) > Math.abs(best.s.pct)) best = { t, s };
-    }
-    const el = $("#spotlight");
-    if (!best) { el.innerHTML = `<p class="spot-k">Signal spotlight</p><p class="spot-sub">Nothing is moving enough to spotlight right now.</p>`; return; }
-    const { t, s } = best;
-    el.classList.add("spot");
-    el.innerHTML = `<p class="spot-k">Biggest move right now</p>
-      <div class="spot-t"><h3>${esc(s.name)}</h3><span class="tk">${esc(t.ticker)}</span></div>
-      <div class="spot-big">${esc(s.display || "")}</div>
-      <p class="spot-sub"><span class="chg ${esc(dirOf(s.pct))}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))}</span> ${esc(s.basis || "")} · <span class="badge ${esc(s.reading)}">${esc(READ[s.reading])} for ${esc(t.name)}</span></p>
-      ${spark(s.series, dirOf(s.pct), { w: 320, h: 90 })}
-      <p class="txt">One of ${INDEX.tickers.reduce((a, x) => a + x.signals.length, 0)} offbeat signals we track. Every card explains what the data is and why it might matter.</p>
-      <a class="btn" href="#/${esc(t.ticker)}">See all ${esc(t.ticker)} signals →</a>`;
+  // ---------- hero: featured real example (live data only; see /featured.js for how it's chosen) ----------
+  const FEAT = { picks: [], i: 0, cache: new Map(), timer: null, paused: false, stopped: false };
+  const STRENGTH = { notable: "Notable", mild: "Mild" };
+  const loadTicker = (tk) => {
+    if (!FEAT.cache.has(tk)) FEAT.cache.set(tk, fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+    return FEAT.cache.get(tk);
+  };
+
+  function featureHtml(p, d) {
+    const F = window.TODFeatured;
+    const t = INDEX.tickers.find((x) => x.ticker === p.ticker) || { signals: [] };
+    // Prefer the full per-ticker record (same refresh run) for the text; fall back to the index entry.
+    const s = (d?.signals || []).find((x) => x.id === p.signal.id) || p.signal;
+    const name = d?.name || p.name;
+    const dir = dirOf(s.pct);
+    const vals = (s.series || []).map((x) => (typeof x === "number" ? x : x?.v));
+    const pts = (s.series || []).filter((x) => x && typeof x === "object" && x.t);
+    const range = pts.length > 1 ? `${dateOnly(pts[0].t, s.freq)} – ${dateOnly(pts[pts.length - 1].t, s.freq)}` : "";
+    const what = s.what ? F.firstSentence(s.what) : s.metric || "";
+    const read = F.plainRead(s.now);
+    const strength = STRENGTH[s.strength] ? `${STRENGTH[s.strength]} ` : "";
+    const leanLabel = `${strength}${READ[s.reading] || s.reading} for ${name}`;
+    const q = d?.market?.quote || (t.price?.price != null ? { price: t.price.price, changePct: t.price.changePct } : null);
+    const price = q && Number.isFinite(Number(q.price)) ? `<span class="f-price" title="Stock price, shown for context. The signal doesn't predict it.">$${esc(Number(q.price).toFixed(2))} <span class="chg ${esc(dirOf(q.changePct))}">${esc(pctTxt(q.changePct))}${q.eod ? " last session" : " today"}</span></span>` : "";
+    const srcName = s.source?.name || s.source || "";
+    const srcUrl = s.source?.url || s.sourceUrl;
+    const nav = FEAT.picks.length > 1 ? `<div class="f-nav">
+        <button type="button" class="f-btn" data-step="-1" aria-label="Previous example">‹</button>
+        <span class="f-dots" role="group" aria-label="Featured examples">${FEAT.picks.map((x, i) => `<button type="button" class="f-dot${i === FEAT.i ? " on" : ""}" data-go="${i}" aria-pressed="${i === FEAT.i}" aria-label="${esc(x.ticker)}: ${esc(x.signal.name)}"></button>`).join("")}</span>
+        <button type="button" class="f-btn" data-step="1" aria-label="Next example">›</button>
+      </div>` : "";
+    return `<div class="f-head"><p class="spot-k"><span class="pulse" aria-hidden="true"></span> Real example · live data</p>${nav}</div>
+      <div class="f-co"><div><span class="f-tk">${esc(p.ticker)}</span> <span class="f-name">${esc(name)}</span></div>${price}</div>
+      <div class="f-step">
+        <p class="f-lab"><span class="f-n">1</span> The offbeat data</p>
+        <h3>${esc(s.name)}</h3>
+        ${what ? `<p class="f-what">${esc(what)}</p>` : ""}
+        <div class="f-nums">
+          <div><div class="spot-big">${esc(s.display || "")}</div><span class="chg ${esc(dir)}" title="Green = the number is up vs its baseline, red = down">${esc(pctTxt(s.pct))} ${dir === "up" ? "▲" : dir === "down" ? "▼" : ""}</span> <span class="f-basis">${esc(s.basis || "")}</span></div>
+          <div class="f-chart">${spark(vals, dir, { w: 220, h: 64 })}${range ? `<div class="range">${esc(range)}</div>` : ""}</div>
+        </div>
+      </div>
+      <div class="f-step">
+        <p class="f-lab"><span class="f-n">2</span> Which way it leans</p>
+        <p class="f-lean"><span class="badge ${esc(s.reading)}">${esc(leanLabel)}</span></p>
+        ${read ? `<p class="f-read">${esc(read)}</p>` : ""}
+      </div>
+      ${s.why ? `<div class="f-step"><p class="f-lab"><span class="f-n">3</span> Why it matters</p><p class="f-why">${esc(s.why)}</p></div>` : ""}
+      <div class="f-foot">
+        <p class="f-src">Source: ${srcUrl ? `<a href="${esc(safeUrl(srcUrl))}" rel="noopener" target="_blank">${esc(srcName)}</a>` : esc(srcName)}${s.asOf ? ` · data through ${esc(dateOnly(s.asOf, s.freq))}` : ""}</p>
+        <a class="btn" href="#/${esc(p.ticker)}">See all ${t.signals.length || ""} ${esc(p.ticker)} signals →</a>
+      </div>
+      <p class="f-fine">Education only. A clue from public data, not a prediction or a buy/sell call.</p>`;
   }
+
+  async function showFeature(i, { focus = false } = {}) {
+    const el = $("#spotlight");
+    if (!FEAT.picks.length) return;
+    FEAT.i = (i + FEAT.picks.length) % FEAT.picks.length;
+    const p = FEAT.picks[FEAT.i];
+    const d = await loadTicker(p.ticker);
+    if (FEAT.picks[FEAT.i] !== p) return; // user moved on while loading
+    el.classList.add("spot");
+    el.innerHTML = featureHtml(p, d);
+    el.dataset.ticker = p.ticker;
+    el.dataset.signal = p.signal.id;
+    if (focus) el.querySelector(".f-dot.on")?.focus();
+    const next = FEAT.picks[(FEAT.i + 1) % FEAT.picks.length];
+    if (next) loadTicker(next.ticker); // warm the next one
+  }
+
+  function renderSpotlight() {
+    const el = $("#spotlight");
+    const F = window.TODFeatured;
+    FEAT.picks = F ? F.pick(INDEX, { limit: 4 }) : [];
+    if (!FEAT.picks.length) { el.classList.add("spot"); el.innerHTML = `<p class="spot-k">Real example · live data</p><p class="spot-sub">No signal is moving enough to feature right now. Pick a stock below to see every signal, including the quiet ones.</p>`; return; }
+    showFeature(0);
+    el.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-step],[data-go]");
+      if (!b) return;
+      FEAT.stopped = true; stopRotate();
+      showFeature(b.dataset.go != null ? +b.dataset.go : FEAT.i + +b.dataset.step, { focus: b.hasAttribute("data-go") });
+    });
+    el.addEventListener("keydown", (e) => {
+      if (!e.target.closest(".f-dots")) return;
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); FEAT.stopped = true; stopRotate(); showFeature(FEAT.i + (e.key === "ArrowRight" ? 1 : -1), { focus: true }); }
+    });
+    // Gentle auto-rotate: pauses on hover/focus/touch, stops after any manual pick, off for reduced motion.
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (FEAT.picks.length > 1 && !reduce) {
+      for (const ev of ["pointerenter", "focusin", "touchstart"]) el.addEventListener(ev, () => { FEAT.paused = true; }, { passive: true });
+      for (const ev of ["pointerleave", "focusout"]) el.addEventListener(ev, () => { FEAT.paused = false; });
+      FEAT.timer = setInterval(() => {
+        if (FEAT.paused || FEAT.stopped || document.hidden || $("#home").hidden) return;
+        showFeature(FEAT.i + 1);
+      }, 9000);
+    }
+  }
+  function stopRotate() { if (FEAT.timer) { clearInterval(FEAT.timer); FEAT.timer = null; } }
 
   function renderCards(filter = "") {
     const f = filter.trim().toLowerCase();
