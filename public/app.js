@@ -413,7 +413,7 @@
           <div class="istep"><span class="n">3</span><div><h4>Rough magnitude band</h4><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
           <div class="istep"><span class="n">4</span><div><h4>Typical time horizon</h4><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
         </div>
-        ${narrative ? `<div class="summary-box" id="summary-box"><p class="ai-tag">${d.ai?.text && narrative === d.ai.text ? "AI summary · written by Gemini from the numbers on this page, then checked for advice-sounding words" : "Summary · written from a template using the numbers on this page"}</p><p class="body muted">${esc(narrative)}</p></div>` : ""}
+        ${narrative ? `<div class="summary-box" id="summary-box"><p class="ai-tag">${d.ai?.text && narrative === d.ai.text ? "AI summary · written by Gemini from the numbers on this page, then checked for advice-sounding words and that it matches the lean above" : "Summary · written from a template using the numbers on this page"}</p><p class="body muted">${esc(narrative)}</p></div>` : ""}
         <p class="fineprint">Not financial advice. Not a forecast. Nothing here tells you to buy or sell.</p>
       </div>
       <div class="pricebox"><p class="pk">Current stock price</p>${priceHtml}</div>
@@ -455,8 +455,10 @@
         if (!d.summary?.impact && d.summary) {
           const lean = d.summary.lean === "leaning positive" ? "tailwind" : d.summary.lean === "leaning negative" ? "headwind" : d.summary.lean === "quiet" ? "quiet" : "mixed";
           d.summary.impact = { lean, label: IMPACT[lean][1], text: d.ai?.text || d.summary.text, source: d.ai?.text ? "ai" : "template" };
-        } else if (d.ai?.text && d.summary?.impact) {
+        } else if (d.ai?.text && d.summary?.impact && (!d.ai.lean || d.ai.lean === d.summary.impact.lean)) {
           d.summary.impact = { ...d.summary.impact, text: d.ai.text, source: "ai" };
+        } else if (d.ai?.text) {
+          d.ai = null; // written for a different lean than the page now shows: keep the template text
         }
         return renderDetail(d);
       } catch {

@@ -175,8 +175,9 @@ const results = await Promise.all(targets.map(async (t) => {
     runMarket(t, prev),
   ]);
   const summary = summarize(t.name, t.ticker, signals);
-  const ai = await aiSummary(t.name, t.ticker, signals);
-  if (ai?.text && summary.impact) summary.impact = { ...summary.impact, text: ai.text, source: "ai" };
+  // The AI summary is told the computed lean and must agree with it; otherwise we keep the template text.
+  const ai = await aiSummary(t.name, t.ticker, signals, summary);
+  if (summary.impact) summary.impact = ai?.text ? { ...summary.impact, text: ai.text, source: "ai" } : { ...summary.impact, source: "template" };
   const doc = { ticker: t.ticker, name: t.name, sector: t.sector, updatedAt: startedAt, summary, ai, signals, news, sec, market };
   await writeFile(join(OUT, "tickers", `${t.ticker}.json`), JSON.stringify(doc));
   const okCount = signals.filter((s) => s.status === "ok").length;
