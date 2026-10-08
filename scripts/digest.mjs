@@ -27,6 +27,6 @@ if (ti >= 0) {
   const to = args[ti + 1];
   if (!process.env.RESEND_API_KEY) { console.error("--send-test needs RESEND_API_KEY"); process.exit(1); }
   const { sendEmail } = await import("../lib/mailer.js");
-  await sendEmail({ to, subject: `[test] ${data.subject}`, html: renderDigestHtml(data), text: renderDigestText(data) });
-  console.log("test email sent");
+  const r = await sendEmail({ to, subject: `[test] ${data.subject}`, html: renderDigestHtml(data), text: renderDigestText(data) });
+  console.log("test email sent" + (r?.id ? ` (id ${r.id})` : ""));
 }
