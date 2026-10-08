@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W41",
  "weekOf": "Oct 5, 2026",
- "generatedAt": "2026-10-08T06:28:27.368Z",
- "dataUpdatedAt": "2026-10-08T06:20:09.556Z",
+ "generatedAt": "2026-10-08T15:57:41.319Z",
+ "dataUpdatedAt": "2026-10-08T15:43:21.375Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -92,25 +92,25 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+47%",
-   "pct": 47.4,
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+43%",
+   "pct": 43.1,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
-   "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "strength": "mild",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
    "dataThrough": "Oct 8, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
    },
-   "url": "https://theotherdata.com/#/PLTR"
+   "url": "https://theotherdata.com/#/MSFT"
   }
  ],
  "story": {
