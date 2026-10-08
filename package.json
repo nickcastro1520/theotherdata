@@ -19,7 +19,10 @@
     "scout:fast": "node scripts/correlation-scout.mjs --fast"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@vercel/blob": "^2.8.1",
+    "satori": "^0.36.0",
     "xlsx": "^0.18.5"
   }
 }

@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js)",
+      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js|card-model.js|share.js)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -81,6 +81,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/cards/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400"
         }
       ]
     },

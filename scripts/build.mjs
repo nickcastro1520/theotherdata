@@ -6,6 +6,7 @@ import { readFile, writeFile, mkdir, cp, rm, readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import "../public/subscribe-form.js";
+import { buildShareAssets } from "./cards.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -42,6 +43,8 @@ async function build() {
     const p = join(out, f);
     await writeFile(p, transformHtml(await readFile(p, "utf8"), s));
   }
+  // Shareable cards + /s/TICKER permalink pages. A card failure never blocks the deploy (pages fall back to /og.png).
+  try { await buildShareAssets(out); } catch (e) { console.warn(`share cards skipped: ${e.message}`); }
   console.log(`built dist/ (analytics: ${s.ga ? s.ga : "off"}, search console meta: ${s.gsc ? "on" : "off"})`);
 }
 

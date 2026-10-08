@@ -6,7 +6,7 @@
   const READ = { tailwind: "Tailwind", headwind: "Headwind", neutral: "Neutral", context: "Context", tracking: "Tracking", unknown: "No reading", error: "Data unavailable", stale: "Stale" };
   const LEAN = { "leaning positive": ["pos", "Leaning +"], "leaning negative": ["neg", "Leaning −"], mixed: ["", "Mixed"], quiet: ["", "Quiet"] };
   let INDEX = null;
-  const HOME_SECTIONS = ["home", "stocks", "trackrecord", "how", "ideas", "scout"];
+  const HOME_SECTIONS = ["home", "stocks", "trackrecord", "digest", "how", "ideas", "scout"];
   const NASDAQ = new Set(["AAPL", "NVDA", "MSFT", "TSLA", "AMZN", "COIN", "ABNB"]);
   const GF_EXCH = { Q: "NASDAQ", N: "NYSE", A: "NYSEAMERICAN", P: "NYSEARCA", Z: "BATS", O: "OTCMKTS" };
   const quoteUrl = (tk, xc) => `https://www.google.com/finance/quote/${encodeURIComponent(String(tk).replace(/\./g, "-"))}:${GF_EXCH[xc] || (NASDAQ.has(tk) ? "NASDAQ" : "NYSE")}`;
@@ -327,7 +327,7 @@
         <div><h4>Why it might matter for ${esc(d.ticker)}</h4><p>${esc(s.why)}</p></div>
         <div class="now"><h4>What it's showing now</h4><p>${esc(s.now)}</p></div>
       </div>
-      <p class="srcline">Source: ${s.source?.url ? `<a href="${esc(safeUrl(s.source.url))}" rel="noopener" target="_blank">${esc(s.source.name)}</a>` : esc(s.source?.name || "")}${s.asOf ? ` · data through ${esc(dateOnly(s.asOf, s.freq))}` : ""} · fetched ${esc(when(s.fetchedAt))}${s.source?.note ? ` · ${esc(s.source.note)}` : ""}</p>
+      <p class="srcline">Source: ${s.source?.url ? `<a href="${esc(safeUrl(s.source.url))}" rel="noopener" target="_blank">${esc(s.source.name)}</a>` : esc(s.source?.name || "")}${s.asOf ? ` · data through ${esc(dateOnly(s.asOf, s.freq))}` : ""} · fetched ${esc(when(s.fetchedAt))}${s.source?.note ? ` · ${esc(s.source.note)}` : ""}${d.pack !== "light" && s.status !== "error" ? ` · <button type="button" class="share-sig" data-share-signal="${esc(window.TODCard ? window.TODCard.slug(s.id) : s.id)}" aria-haspopup="dialog">Share this signal</button>` : ""}</p>
     </article>`;
   }
 
@@ -420,7 +420,21 @@
     </section>`;
   }
 
+  let CURRENT = null;
+  const PERMALINK = () => document.querySelector('meta[name="tod-ticker"]')?.content || null;
+  // Share model for the open stock (curated stocks get image cards and /s/ permalinks).
+  function shareModel(d, sigId) {
+    const C = window.TODCard;
+    if (!C || !d) return null;
+    if (d.pack !== "light") {
+      const s = sigId && (d.signals || []).find((x) => C.slug(x.id) === sigId);
+      return s ? C.signalCard(d, s) : C.stockCard(d);
+    }
+    return { kind: "stock", ticker: d.ticker, company: d.name, headline: `${d.name} hidden signals`, lean: { word: "", sub: "" }, url: `${C.SITE}/#/${encodeURIComponent(d.ticker)}`, img: null, title: `${d.ticker}: ${d.name} hidden signals | The Other Data`, shareText: `The offbeat public data behind ${d.name} ($${d.ticker}), explained in plain English:` };
+  }
+
   function renderDetail(d) {
+    CURRENT = d;
     const det = $("#detail");
     document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
@@ -428,7 +442,7 @@
     const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Light pack</span> ${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
     const limited = d.pack === "light" && d.dataNote ? `<div class="${d.dataLevel === "limited" ? "warnbox limited" : "note-box"}">${d.dataLevel === "limited" ? "<strong>Limited data for this stock.</strong> " : ""}${esc(d.dataLevel === "limited" ? d.dataNote.replace(/^Limited data for this stock\.\s*/, "") : d.dataNote)}</div>` : "";
     det.innerHTML = `<div class="wrap">
-      <div class="dtop"><a class="back" href="#">← All stocks</a><button type="button" class="help-pill" data-tour-start aria-label="How to read this page: start the guided tour"><span aria-hidden="true">?</span> How to read this page</button></div>
+      <div class="dtop"><a class="back" href="${PERMALINK() ? "/" : "#"}">← All stocks</a><div class="dtop-r"><button type="button" class="share-btn" data-share-stock aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button><button type="button" class="help-pill" data-tour-start aria-label="How to read this page: start the guided tour"><span aria-hidden="true">?</span> How to read this page</button></div></div>
       ${pack}
       ${limited}
       <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
@@ -487,8 +501,17 @@
   }
 
   function route() {
+    if (window.TODShare) window.TODShare.close();
     const m = location.hash.match(/^#\/([A-Za-z]{1,6}(?:\.[A-Za-z]{1,2})?)$/);
     if (m) showTicker(m[1].toUpperCase());
+    else if (!location.hash && PERMALINK()) {
+      // /s/AMZN or /s/AMZN/cardboard: a crawler-readable permalink page. Open the stock, then the signal.
+      const sig = document.querySelector('meta[name="tod-signal"]')?.content;
+      Promise.resolve(showTicker(PERMALINK().toUpperCase())).then(() => {
+        const el = sig && document.getElementById(`sig-${sig}`);
+        if (el) { el.classList.add("sig-focus"); el.scrollIntoView({ block: "start" }); }
+      });
+    }
     else {
       const wasDetail = !$("#detail").hidden; showHome();
       const el = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
@@ -614,6 +637,12 @@
       for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
       det.innerHTML = `<div class="wrap loading-panel">Looking that up…</div>`;
     }
+    $("#detail").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-share-stock],[data-share-signal]");
+      if (!b || !window.TODShare) return;
+      const m = shareModel(CURRENT, b.dataset.shareSignal || null);
+      if (m) window.TODShare.open(m, b);
+    });
     window.addEventListener("hashchange", route);
     route();
   }
