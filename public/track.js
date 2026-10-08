@@ -31,7 +31,7 @@
 
   // ---- backtest summary ----
   const p = bt.summary[P];
-  $("#bt-sub").textContent = `${bt.records} monthly leans across 17 stocks. ${p.calls} were tailwind or headwind calls that have a scored 1-month result; ${p.noCall} were mixed or quiet (no call).`;
+  $("#bt-sub").textContent = `${bt.records} monthly leans across ${Object.keys(doc.tickers || {}).length || "our"} stocks. ${p.calls} were tailwind or headwind calls that have a scored 1-month result; ${p.noCall} were mixed or quiet (no call).`;
   const v = TT.verdict(p);
   $("#bt-verdict").className = `tr-verdict ${v.key}`;
   $("#bt-verdict").innerHTML = `<p class="k">The honest read · 1 month</p><p>${esc(v.text)}</p>`;

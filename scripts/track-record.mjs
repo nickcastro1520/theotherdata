@@ -45,7 +45,7 @@ async function buildBacktest() {
       case "hn": return once(`hn:${p.query}`, () => L.hnWeekly(p.query, HISTORY_FROM));
       case "tsa": return once("tsa", () => L.tsaYears(Number(HISTORY_FROM.slice(0, 4))));
       case "eiaWeeklyXls": return once(`eia:${p.series}`, () => L.eiaLong(p.series));
-      case "secInventory": return once(`sec:${t.ticker}`, () => L.secInventoryFiled(t.ticker));
+      case "secInventory": return once(`sec:${t.ticker}:${p.concept || ""}`, () => L.secInventoryFiled(t.ticker, p.concept));
       default: return null;
     }
   };

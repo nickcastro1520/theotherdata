@@ -20,6 +20,8 @@
     [/curiosity$/, 2.5],       // Wikipedia page views
     [/chatter$/, 2.5],         // Hacker News mentions
     [/hiring$/, 2.5],          // job-board openings
+    [/coffee|sugar|aluminum|milk|chicken/, 2], // ingredient & packaging costs
+    [/aircraft-orders|load-factor|airfares|card-delinquencies|business-loans/, 2],
     [/inventory$/, 1.5],
     [/beef|lumber|lodging|jet-fuel/, 1.5],
   ];

@@ -47,9 +47,10 @@ function staleCopy(prev, err) {
 async function runSignal(t, sig, prevSig) {
   const base = { id: sig.id, name: sig.name, metric: sig.metric, what: sig.what, why: sig.why, unit: sig.unit, polarity: sig.polarity, threshold: sig.threshold, compare: sig.compare, scout: Boolean(sig.scout), source: { name: sig.sourceName } };
   try {
-    if (sig.source === "greenhouse") {
-      const r = await fetchOnce("greenhouse", sig.params);
-      const key = `greenhouse:${sig.params.board}`;
+    if (sig.source === "greenhouse" || sig.source === "lever") {
+      // Job boards only show today's count, so we keep our own dated snapshots in data/history.json.
+      const r = await fetchOnce(sig.source, sig.params);
+      const key = sig.source === "lever" ? `lever:${sig.params.company}` : `greenhouse:${sig.params.board}`;
       const h = (history[key] ||= []);
       const existing = h.find((p) => p.t === today);
       if (existing) existing.v = r.snapshot; else h.push({ t: today, v: r.snapshot });
@@ -57,7 +58,7 @@ async function runSignal(t, sig, prevSig) {
       mark(sig.sourceName, true);
       return { ...base, source: { name: sig.sourceName, url: r.url }, fetchedAt: startedAt, ...analyzeSnapshot(sig, history[key], t.name) };
     }
-    const params = sig.source === "secInventory" ? { ticker: t.ticker } : sig.params;
+    const params = sig.source === "secInventory" ? { ticker: t.ticker, ...(sig.params?.concept ? { concept: sig.params.concept } : {}) } : sig.params;
     const r = await fetchOnce(sig.source, params);
     const a = analyze(sig, r.series, t.name);
     mark(sig.sourceName, true);

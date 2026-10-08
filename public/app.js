@@ -382,7 +382,7 @@
   }
 
 
-  const ALIASES = { roblox: "RBLX", rblx: "RBLX", meta: "META", facebook: "META", alphabet: "GOOGL", google: "GOOGL", googl: "GOOGL", nvidia: "NVDA", microsoft: "MSFT", apple: "AAPL", amazon: "AMZN", tesla: "TSLA", netflix: "NFLX", disney: "DIS" };
+  const ALIASES = { roblox: "RBLX", rblx: "RBLX", meta: "META", facebook: "META", alphabet: "GOOGL", google: "GOOGL", googl: "GOOGL", nvidia: "NVDA", microsoft: "MSFT", apple: "AAPL", amazon: "AMZN", tesla: "TSLA", netflix: "NFLX", disney: "DIS", costco: "COST", nike: "NKE", starbucks: "SBUX", chipotle: "CMG", boeing: "BA", palantir: "PLTR", shopify: "SHOP", uber: "UBER", "coca-cola": "KO", coke: "KO", jpmorgan: "JPM", "jp morgan": "JPM", "united airlines": "UAL", "advanced micro devices": "AMD" };
   function impactPanel(d) {
     const imp = d.summary?.impact || {};
     const leanKey = imp.lean || (d.summary?.lean === "leaning positive" ? "tailwind" : d.summary?.lean === "leaning negative" ? "headwind" : d.summary?.lean === "quiet" ? "quiet" : "mixed");

@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W41",
  "weekOf": "Oct 5, 2026",
- "generatedAt": "2026-10-07T23:55:00.417Z",
- "dataUpdatedAt": "2026-10-07T21:23:28.242Z",
+ "generatedAt": "2026-10-08T01:21:27.090Z",
+ "dataUpdatedAt": "2026-10-08T01:13:43.043Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,6 +50,27 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "GOOGL",
+   "company": "Alphabet (Google)",
+   "id": "gemini-sdk",
+   "signal": "Developers building on Gemini",
+   "change": "−30%",
+   "pct": -29.6,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Gemini toolkit installs have dipped versus the prior month.",
+   "what": "Daily downloads of google-genai, Google's official Python toolkit for its Gemini AI models.",
+   "why": "Google is racing to turn Gemini into a business through its cloud.",
+   "dataThrough": "Oct 7, 2026",
+   "source": {
+    "name": "PyPI download stats (pypistats.org)",
+    "url": "https://pypistats.org/packages/google-genai"
+   },
+   "url": "https://theotherdata.com/#/GOOGL"
+  },
+  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -71,46 +92,25 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+49%",
-   "pct": 49.1,
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+47%",
+   "pct": 47.4,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
    "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
-   "dataThrough": "Oct 7, 2026",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 8, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
    },
-   "url": "https://theotherdata.com/#/MSFT"
-  },
-  {
-   "ticker": "WMT",
-   "company": "Walmart",
-   "id": "egg-prices",
-   "signal": "Egg prices",
-   "change": "−40%",
-   "pct": -39.8,
-   "direction": "down",
-   "basis": "vs the same period last year",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
-   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
-   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
-   "dataThrough": "Aug 2026",
-   "source": {
-    "name": "FRED, Federal Reserve Bank of St. Louis",
-    "url": "https://fred.stlouisfed.org/series/APU0000708111"
-   },
-   "url": "https://theotherdata.com/#/WMT"
+   "url": "https://theotherdata.com/#/PLTR"
   }
  ],
  "story": {
@@ -125,7 +125,7 @@
   ],
   "url": "https://theotherdata.com/#/F"
  },
- "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.5% of the time (270 of 546). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
+ "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 48.9% of the time (495 of 1012). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
  "links": {
   "site": "https://theotherdata.com",
   "track": "https://theotherdata.com/track",
