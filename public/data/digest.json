@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W41",
  "weekOf": "Oct 5, 2026",
- "generatedAt": "2026-10-09T21:08:11.886Z",
- "dataUpdatedAt": "2026-10-09T21:02:17.121Z",
+ "generatedAt": "2026-10-10T06:15:35.809Z",
+ "dataUpdatedAt": "2026-10-10T06:03:53.152Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,27 +50,6 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "shopify-sdk",
-   "signal": "Developers building Shopify apps",
-   "change": "+30%",
-   "pct": 29.8,
-   "direction": "up",
-   "basis": "vs the 28 days before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "More developers are building on Shopify than a month ago.",
-   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
-   "why": "Shopify grows when more merchants and app makers build on it.",
-   "dataThrough": "Oct 7, 2026",
-   "source": {
-    "name": "npm download stats (api.npmjs.org)",
-    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
-  },
-  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -92,25 +71,46 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "GOOGL",
-   "company": "Alphabet (Google)",
-   "id": "gemini-sdk",
-   "signal": "Developers building on Gemini",
-   "change": "−27%",
-   "pct": -27,
-   "direction": "down",
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "shopify-sdk",
+   "signal": "Developers building Shopify apps",
+   "change": "+25%",
+   "pct": 25.4,
+   "direction": "up",
    "basis": "vs the 28 days before",
-   "reading": "headwind",
+   "reading": "tailwind",
    "strength": "notable",
-   "plain": "Gemini toolkit installs have dipped versus the prior month.",
-   "what": "Daily downloads of google-genai, Google's official Python toolkit for its Gemini AI models.",
-   "why": "Google is racing to turn Gemini into a business through its cloud.",
+   "plain": "More developers are building on Shopify than a month ago.",
+   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
+   "why": "Shopify grows when more merchants and app makers build on it.",
    "dataThrough": "Oct 8, 2026",
    "source": {
-    "name": "PyPI download stats (pypistats.org)",
-    "url": "https://pypistats.org/packages/google-genai"
+    "name": "npm download stats (api.npmjs.org)",
+    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
    },
-   "url": "https://theotherdata.com/#/GOOGL"
+   "url": "https://theotherdata.com/#/SHOP"
+  },
+  {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+47%",
+   "pct": 47.4,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 10, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
   }
  ],
  "story": {
