@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W41",
  "weekOf": "Oct 5, 2026",
- "generatedAt": "2026-10-11T06:08:05.620Z",
- "dataUpdatedAt": "2026-10-11T06:01:28.438Z",
+ "generatedAt": "2026-10-11T15:07:40.434Z",
+ "dataUpdatedAt": "2026-10-11T14:58:09.599Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,27 +50,6 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+61%",
-   "pct": 61.1,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 11, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
-   },
-   "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -90,6 +69,27 @@
     "url": "https://open.fda.gov/apis/drug/event/"
    },
    "url": "https://theotherdata.com/#/LLY"
+  },
+  {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+47%",
+   "pct": 47.4,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 11, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
   },
   {
    "ticker": "GOOGL",
