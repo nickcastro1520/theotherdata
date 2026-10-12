@@ -1,9 +1,9 @@
 {
  "version": 1,
- "issueId": "2026-W41",
- "weekOf": "Oct 5, 2026",
- "generatedAt": "2026-10-11T20:32:36.519Z",
- "dataUpdatedAt": "2026-10-11T20:24:15.441Z",
+ "issueId": "2026-W42",
+ "weekOf": "Oct 12, 2026",
+ "generatedAt": "2026-10-12T06:21:05.646Z",
+ "dataUpdatedAt": "2026-10-12T06:12:03.875Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,27 +50,6 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+56%",
-   "pct": 56,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
-   "dataThrough": "Oct 11, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
-   },
-   "url": "https://theotherdata.com/#/MSFT"
-  },
-  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -105,12 +84,33 @@
    "plain": "The tech crowd is talking about Palantir more than usual.",
    "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
    "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 11, 2026",
+   "dataThrough": "Oct 12, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
    },
    "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−41%",
+   "pct": -41.4,
+   "direction": "down",
+   "basis": "vs the 4 weeks before",
+   "reading": "headwind",
+   "strength": "mild",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Oct 12, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
   }
  ],
  "story": {
