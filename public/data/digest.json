@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W42",
  "weekOf": "Oct 12, 2026",
- "generatedAt": "2026-10-13T19:29:59.302Z",
- "dataUpdatedAt": "2026-10-13T19:22:40.850Z",
- "subject": "This week's strangest signals: F-150 owner complaints, On curiosity, Model Y owner complaints",
+ "generatedAt": "2026-10-13T23:52:25.885Z",
+ "dataUpdatedAt": "2026-10-13T23:45:48.560Z",
+ "subject": "This week's strangest signals: F-150 owner complaints, On curiosity, Tech chatter about Palantir",
  "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -50,6 +50,27 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+78%",
+   "pct": 77.8,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 13, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -71,46 +92,25 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+68%",
-   "pct": 68.4,
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+65%",
+   "pct": 64.6,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
    "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
    "dataThrough": "Oct 13, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
    },
-   "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
-   "ticker": "LLY",
-   "company": "Eli Lilly",
-   "id": "tirzepatide-reports",
-   "signal": "Mounjaro/Zepbound usage footprint",
-   "change": "+27%",
-   "pct": 27.3,
-   "direction": "up",
-   "basis": "vs the same period last year",
-   "reading": "tailwind",
-   "strength": "mild",
-   "plain": "The drug's footprint is growing versus a year ago.",
-   "what": "Reports of side effects filed with the FDA that mention tirzepatide, Lilly's blockbuster weight-loss and diabetes drug.",
-   "why": "More patients means more reports, so the trend is a rough, unusual proxy for how fast use is growing.",
-   "dataThrough": "Jun 2026",
-   "source": {
-    "name": "openFDA (U.S. Food & Drug Administration)",
-    "url": "https://open.fda.gov/apis/drug/event/"
-   },
-   "url": "https://theotherdata.com/#/LLY"
+   "url": "https://theotherdata.com/#/MSFT"
   }
  ],
  "story": {
