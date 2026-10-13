@@ -450,6 +450,7 @@
       <p class="track-line" id="track-line" hidden></p>
       <div class="dgrid"><div class="sigs">${(d.signals || []).map((s) => sigCard(s, d)).join("") || `<p class="note">No signal cards available for this ticker yet.</p>`}</div>
       <aside class="side">${pricePanel(d)}${newsPanel(d)}${secPanel(d)}<section class="panel"><h3>Not financial advice</h3><p class="note">These signals are educational. They can be wrong, late, or already priced in. Nothing here tells you to buy or sell anything.</p></section></aside></div>
+      <p class="digest-line"><a href="/subscribe">Get the weekly digest</a>: the strangest signal moves, free, once a week.</p>
     </div>`;
     window.scrollTo(0, 0);
     if (d.pack !== "light") renderTrackLine(d.ticker);
