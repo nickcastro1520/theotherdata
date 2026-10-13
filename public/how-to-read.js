@@ -12,8 +12,8 @@
   const [amzn, idx, track] = await Promise.all([get("/data/tickers/AMZN.json"), get("/data/index.json"), get("/data/track-record.json")]);
   const fail = (sel) => { const el = $(sel); if (el) el.innerHTML = `<p class="n">Live example unavailable right now. Open <a href="/#/AMZN">Amazon's page</a> to see the real thing.</p>`; };
 
-  // 2. A signal card (prefer cardboard; fall back to the first live signal)
-  const sig = amzn && (amzn.signals.find((s) => s.id === "cardboard" && s.status === "ok") || amzn.signals.find((s) => s.status === "ok"));
+  // 2. A signal card (prefer paperboard (box volume); fall back to the first live signal)
+  const sig = amzn && (amzn.signals.find((s) => s.id === "paperboard" && s.status === "ok") || amzn.signals.find((s) => s.status === "ok"));
   if (sig) {
     const dir = dirOf(sig.pct);
     $("#g-card").innerHTML = `<article class="g-sig ${esc(sig.reading)}">

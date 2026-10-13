@@ -7,14 +7,14 @@ import "../public/featured.js";
 const F = globalThis.TODFeatured;
 const sig = (id, o = {}) => ({ id, name: id, status: "ok", reading: "tailwind", pct: 10, series: [1, 2, 3], sourceUrl: `https://x/${id}`, ...o });
 
-test("flagship (Amazon cardboard) leads when live and directional", () => {
+test("flagship (Amazon box production) leads when live and directional", () => {
   const ix = { tickers: [
     { ticker: "F", name: "Ford", signals: [sig("f150-complaints", { pct: -40 })] },
-    { ticker: "AMZN", name: "Amazon", signals: [sig("cardboard", { pct: 6 })] },
+    { ticker: "AMZN", name: "Amazon", signals: [sig("paperboard", { pct: 6 })] },
   ] };
   const picks = F.pick(ix);
   assert.equal(picks[0].ticker, "AMZN");
-  assert.equal(picks[0].signal.id, "cardboard");
+  assert.equal(picks[0].signal.id, "paperboard");
   assert.equal(picks[0].reason, "flagship");
   assert.equal(picks[1].ticker, "F");
 });

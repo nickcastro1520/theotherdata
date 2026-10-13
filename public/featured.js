@@ -5,8 +5,8 @@
   "use strict";
 
   // The flagship story leads whenever its live reading is directional (tailwind/headwind).
-  // Cardboard → Amazon is the easiest "aha" for a first-time visitor.
-  const FLAGSHIP = [["AMZN", "cardboard"], ["AMZN", "paperboard"]];
+  // Box production → Amazon is the easiest "aha" for a first-time visitor.
+  const FLAGSHIP = [["AMZN", "paperboard"]];
 
   // How "offbeat" (surprising, intuitive, not just a macro number) each kind of signal is.
   // Matched against the signal id; first match wins. Unlisted signals get 1.
