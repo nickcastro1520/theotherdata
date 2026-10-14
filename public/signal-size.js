@@ -9,7 +9,8 @@
 //         of Poisson noise, so a move smaller than that is usually just luck).
 //   Continuous data (prices, production indexes, rates) keeps its existing noise band:
 //     |% change| must be at least the signal's own threshold.
-//   Signals that fail stay on stock pages, labeled "small sample".
+//   Count signals that fail stay on stock pages, labeled "Small sample" (baseline under 20)
+//   or "Small change" (enough events, but the move is under 2 × √baseline).
 (function (root) {
   "use strict";
   const MIN_BASELINE = 20;
@@ -44,7 +45,9 @@
       const threshold = 2 * Math.sqrt(Math.max(baselineCount, 0));
       const bigBase = baselineCount >= MIN_BASELINE, bigMove = Math.abs(change) >= threshold;
       return { kind: "count", baselineCount, currentCount, change, threshold, pass: bigBase && bigMove,
-        reason: !bigBase ? `baseline under ${MIN_BASELINE}` : !bigMove ? "change under 2×√baseline" : "ok" };
+        reason: !bigBase ? `baseline under ${MIN_BASELINE}` : !bigMove ? "change under 2×√baseline" : "ok",
+        // Stock-page badge for a failing count signal: too few events vs. enough events but too small a move.
+        label: !bigBase ? "Small sample" : !bigMove ? "Small change" : null };
     }
     const band = num(s && s.threshold);
     if (!live || !Number.isFinite(pct)) return { kind: "continuous", pass: false, reason: "no live change" };

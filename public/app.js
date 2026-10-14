@@ -290,9 +290,9 @@
     const stale = s.status === "stale";
     const vals = (s.series || []).map((p) => p.v);
     const range = s.series?.length > 1 ? `${dateOnly(s.series[0].t, s.freq)} – ${dateOnly(s.series[s.series.length - 1].t, s.freq)}` : "";
-    // Rule 3 (signal-size.js): count signals with too few events keep their lean here, labeled "small sample".
+    // Rule 3 (signal-size.js): count signals with too few events keep their lean here, labeled "Small sample" or "Small change".
     const sz = window.TODSize && (s.status === "ok" || s.status === "stale") ? window.TODSize.check(s) : null;
-    const small = sz && sz.kind === "count" && !sz.pass ? ` <span class="badge small" title="${esc(`Small sample: ${sz.baselineCount} events in the baseline window; a move needs at least 20 events and a change of ${Math.ceil(sz.threshold)}+ to be featured.`)}">Small sample</span>` : "";
+    const small = sz && sz.kind === "count" && !sz.pass && sz.label ? ` <span class="badge small" title="${esc(sz.label === "Small sample" ? `Small sample: ${sz.baselineCount} events in the baseline window; a signal needs at least 20 events to be featured.` : `Small change: ${sz.baselineCount} → ${sz.currentCount} events; a change of ${Math.ceil(sz.threshold)}+ is needed to stand out from normal noise.`)}">${sz.label}</span>` : "";
     const badge = (s.status === "error" ? `<span class="badge error">Data unavailable</span>` : `<span class="badge ${esc(r)}">${esc(s.strength ? `${s.strength} ` : "")}${esc(READ[r] || r)}</span>`) + small;
     const dir = dirOf(s.pct);
     const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(window.TODSize ? window.TODSize.changeText(s) : pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;

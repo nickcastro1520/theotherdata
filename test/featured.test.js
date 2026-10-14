@@ -62,3 +62,14 @@ test("picks from the committed data are real signals with real numbers", async (
     assert.ok(Number.isFinite(p.signal.pct) && p.signal.status === "ok");
   }
 });
+
+test("rule 3 labels: small sample vs small change", () => {
+
+  const S = globalThis.TODSize;
+  const a = S.check({ unit: "stories", freq: "weekly", status: "ok", baseline: 17 / 4, current: 37 / 4 });
+  assert.equal(a.label, "Small sample");
+  const b = S.check({ unit: "roles", freq: "weekly", status: "ok", baseline: 100 / 4, current: 104 / 4 });
+  assert.equal(b.label, "Small change");
+  const c = S.check({ unit: "stories", freq: "weekly", status: "ok", baseline: 100 / 4, current: 140 / 4 });
+  assert.equal(c.pass, true); assert.equal(c.label, null);
+});
