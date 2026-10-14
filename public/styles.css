@@ -672,3 +672,10 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .tr-stock{content-visibility:auto;contain-intrinsic-size:auto 280px}
 .shell-lede{font-size:19px;line-height:1.6;color:#c3cde2;max-width:860px;margin:18px 0 0}
 .tr-explain{grid-column:1/-1;margin:0;font-size:14px;line-height:1.5;color:var(--mut)}
+.sw-steps{list-style:none;padding:0;margin:24px 0;max-width:780px}
+.sw-steps>li{margin:0 0 26px;padding-left:16px;border-left:2px solid var(--line2)}
+.sw-steps h2{margin-top:0}
+.sw-spark{width:100%;height:auto;color:var(--teal);background:var(--panel);border:1px solid var(--line2);border-radius:12px}
+.sw-note{color:var(--mut);font-size:14.5px;max-width:780px}
+.trk-btns{display:flex;flex-wrap:wrap;gap:10px}
+.built-tldr{max-width:780px;background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:14px 16px}

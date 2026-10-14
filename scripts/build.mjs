@@ -93,6 +93,14 @@ async function build() {
     const bp = join(out, "how-i-built-this.html");
     await writeFile(bp, (await readFile(bp, "utf8")).replace(/<!--STAT:(\w+)-->/g, (_, k) => String(stats[k] ?? "")));
   } catch (e) { console.warn(`built-page stats skipped: ${e.message}`); }
+  // Real numbers for /signal-walkthrough (AMZN paperboard), straight from the data snapshot.
+  try {
+    const { walkthroughStats, fillWalkthrough } = await import("../lib/signal-walkthrough.js");
+    const rd = async (...p) => JSON.parse(await readFile(join(out, "data", ...p), "utf8"));
+    const stats = walkthroughStats({ tickerDoc: await rd("tickers", "AMZN.json"), track: await rd("track", "AMZN.json"), study: await rd("signal-study.json"), summary: await rd("track-summary.json") });
+    const wp = join(out, "signal-walkthrough.html");
+    await writeFile(wp, fillWalkthrough(await readFile(wp, "utf8"), stats));
+  } catch (e) { console.warn(`signal walkthrough stats skipped: ${e.message}`); }
   // Home hook + a home share image that shows the same example. Failures fall back to /og.png and no hook.
   try {
     const index = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8"));

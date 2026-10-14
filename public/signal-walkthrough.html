@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How a Signal Is Found: Amazon and Paperboard, Start to Finish | The Other Data</title>
+<meta name="description" content="One real signal walked end to end: Federal Reserve paperboard data, pulled on a schedule, turned into a lean, and tested honestly against the market.">
+<link rel="canonical" href="https://theotherdata.com/signal-walkthrough">
+<meta property="og:site_name" content="The Other Data">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://theotherdata.com/signal-walkthrough">
+<meta property="og:title" content="How a Signal Is Found: Amazon and Paperboard, Start to Finish">
+<meta property="og:description" content="One real signal walked end to end: Federal Reserve paperboard data, pulled on a schedule, turned into a lean, and tested honestly against the market.">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How a Signal Is Found: Amazon and Paperboard, Start to Finish">
+<meta name="twitter:description" content="One real signal walked end to end: Federal Reserve paperboard data, pulled on a schedule, turned into a lean, and tested honestly against the market.">
+<meta name="twitter:image" content="https://theotherdata.com/og.png">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<!--GA-->
+<!--GSC-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="theotherdata home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough" aria-current="page">How a signal is found</a><a href="/how-i-built-this">How I built this</a></nav>
+    <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+<main id="main" class="doc built sw">
+  <div class="wrap">
+    <p class="eyebrow-k">Walkthrough</p>
+    <h1>How a signal is found</h1>
+    <p class="lede-sm">One real clue, start to finish: how much paperboard U.S. mills make, and why it might say something about Amazon. Every number on this page is read from the site&rsquo;s own data when the site is built.</p>
+
+    <ul class="stat-row" aria-label="This signal in numbers">
+      <li><b><!--SW:checkpoints--></b><span>monthly checkpoints tested</span></li>
+      <li><b><!--SW:calls--></b><span>times it made a call</span></li>
+      <li><b><!--SW:rateX--></b><span>beat the S&amp;P 500</span></li>
+      <li><b><!--SW:lagDays--> days</b><span>publication delay assumed</span></li>
+    </ul>
+
+    <ol class="sw-steps">
+      <li><h2>1. The idea</h2>
+        <p>Amazon ships a staggering number of boxes. Boxes are made from paperboard. So if U.S. mills are making more paperboard than a year ago, more goods are probably moving through warehouses. If they&rsquo;re making less, fewer packages may be in the system. It&rsquo;s a hunch, not a fact, and the rest of this page is about testing it.</p>
+        <p>Why output and not box <em>prices</em>? Prices can rise just because pulp or energy got more expensive. Output measures volume, which is closer to what we care about. Box prices still appear on the Amazon page, but only as context.</p></li>
+
+      <li><h2>2. Where the data comes from</h2>
+        <p>The Federal Reserve publishes an industrial production index for paperboard mills every month. It&rsquo;s free and public: series <a href="<!--SW:sourceUrl-->"><!--SW:series--></a> on <!--SW:sourceName-->. An index just means &ldquo;output compared with a base year,&rdquo; so 100 is the base year&rsquo;s level and the direction matters more than the number itself.</p>
+        <figure class="diagram-wrap"><!--SW:svg--><figcaption>The last <!--SW:points--> months of paperboard output, newest reading <!--SW:latest--> (<!--SW:asOf-->).</figcaption></figure></li>
+
+      <li><h2>3. How it&rsquo;s pulled on a schedule</h2>
+        <p>A GitHub Actions job runs every 4 hours. It asks FRED for the latest numbers, saves them as a small data file, and commits it. That commit redeploys the site automatically, so the page is never more than a few hours behind the source. Government data comes out slowly, which is why the newest reading is from <!--SW:asOf-->.</p></li>
+
+      <li><h2>4. How a number becomes a lean</h2>
+        <p>The site averages the last 3 months (<!--SW:current-->) and compares it with the same 3 months a year earlier (<!--SW:baseline-->). That&rsquo;s a change of <!--SW:change-->.</p>
+        <p>The rule is simple: a move bigger than <!--SW:threshold--> either way counts. Up more than <!--SW:threshold--> is a <strong>tailwind</strong> (a clue pointing up), down more than <!--SW:threshold--> is a <strong>headwind</strong>, and anything smaller is quiet. Right now this signal is <strong><!--SW:reading--></strong>. Amazon&rsquo;s overall lean blends it with its other signals, like online store sales.</p></li>
+
+      <li><h2>5. How the correlation scout fits in</h2>
+        <p>This signal started as a hand-picked idea, not a scout find. The scout is a separate monthly job that tests lots of offbeat public series against stock prices and ranks the strongest links, checking whether the data moves before the price. It&rsquo;s a brainstorming tool: with that many comparisons, some links show up by pure luck, so a scout idea still has to pass the same honest test below before anyone should trust it.</p></li>
+
+      <li><h2>6. Testing it honestly</h2>
+        <p>The site rewinds to each month from <!--SW:from--> to <!--SW:to-->, and asks what this signal would have said using only data that was public by then. It assumes a <!--SW:lagDays-->-day delay before each reading came out, so it never peeks at the future. Then it checks what Amazon&rsquo;s stock did over the next month.</p>
+        <p>Across <!--SW:checkpoints--> checkpoints the signal pointed up <!--SW:up--> times, down <!--SW:down--> times, and was quiet <!--SW:quiet--> times. Quiet months aren&rsquo;t scored, which leaves <!--SW:calls--> calls.</p></li>
+
+      <li><h2>7. The fairer test: beating the market</h2>
+        <p>In a rising market almost everything goes up, so &ldquo;the stock went up&rdquo; is too easy a test. The tougher one is whether Amazon did better than the S&amp;P 500 over the same month when the signal pointed up, or worse when it pointed down.</p>
+        <p>Paperboard called the direction right <!--SW:rate--> of the time and beat the market <!--SW:rateX--> of the time. That sounds good, but with only <!--SW:calls--> calls the honest range is roughly <!--SW:ciLo--> to <!--SW:ciHi-->, and that range includes 50%. So it <em>might</em> be real, and it might be luck. In the out-of-sample study, which only judges each year using earlier years, the signal was <!--SW:kept-->.</p>
+        <p>Zoomed out, the whole site&rsquo;s leans are much closer to a coin flip: <!--SW:allRate--> right on direction and <!--SW:allRateX--> vs the market across <!--SW:allCalls--> calls. I tried <!--SW:tried--> ways to improve that and <!--SW:candidates--> new data sources; <!--SW:admitted--> made the cut. That&rsquo;s on the <a href="/track#study">track record page</a>, in full.</p></li>
+
+      <li><h2>8. What it means for Amazon</h2>
+        <p>Amazon&rsquo;s combined lean made <!--SW:stockCalls--> scored calls in the backtest. It was right on direction <!--SW:stockRate--> of the time and beat the S&amp;P 500 <!--SW:stockRateX--> of the time. That&rsquo;s encouraging, but the sample is small, and every call so far has been a tailwind. A clue, not a forecast.</p>
+        <p>Live tracking started in October 2026, so real-time results will build up week by week on the <a href="/track">track record</a>.</p></li>
+    </ol>
+
+    <p class="sw-note"><strong>Education only.</strong> This page explains how one public data series is turned into a clue. It is not financial advice and never tells anyone what to trade.</p>
+    <p><a href="/s/AMZN">See Amazon&rsquo;s live signals →</a> · <a href="/how-i-built-this">How I built this →</a> · <a href="/how">Full method →</a></p>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/privacy">Privacy</a></p></div></footer>
+</body>
+</html>

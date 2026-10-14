@@ -51,7 +51,7 @@
       <a href="/how-to-read">How to read</a>
       <a href="/#scout">Scout</a>
       <a href="/how">How it works</a>
-      <a href="/how#sources">Sources</a><a href="/how-i-built-this">How I built this</a>
+      <a href="/how#sources">Sources</a><a href="/signal-walkthrough">How a signal is found</a><a href="/how-i-built-this">How I built this</a>
     </nav>
     <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
   </div>
@@ -65,7 +65,7 @@
         <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Alternative data, explained</span>
         <h1>The hidden signals behind the stocks you know.</h1>
         <!--HOOK-->
-        <p class="lede">Offbeat public data, like <strong>cardboard box prices</strong>, <strong>airport lines</strong>, and <strong>FDA reports</strong>, that hints where companies are heading. Explained in plain English.</p>
+        <p class="lede">Free public data most investors skip, like <strong>paperboard output</strong>, <strong>airport lines</strong>, and <strong>FDA reports</strong>, pulled every 4 hours, turned into a plain-English lean, and scored honestly against the market.</p>
         <form class="picker" id="picker" role="search" autocomplete="off">
           <label for="q" class="picker-label">Try any stock</label>
           <div class="picker-row">
@@ -93,7 +93,7 @@
     </div>
     <div class="wrap">
       <ol class="hiw" aria-label="How it works in three steps">
-        <li><span class="hiw-n" aria-hidden="true">1</span><div><h2>Offbeat data</h2><p>We pull free public numbers most investors skip: box prices, TSA lines, FDA reports, developer downloads.</p></div></li>
+        <li><span class="hiw-n" aria-hidden="true">1</span><div><h2>Offbeat data</h2><p>Free public numbers most investors skip: paperboard output, TSA lines, FDA reports, developer downloads.</p></div></li>
         <li><span class="hiw-n" aria-hidden="true">2</span><div><h2>Which way it leans</h2><p><b class="up">Green</b> or <b class="down">red</b> shows if the number rose or fell vs its recent past. We label that a tailwind or headwind for the company.</p></div></li>
         <li><span class="hiw-n" aria-hidden="true">3</span><div><h2>Why it matters</h2><p>Every signal says, in plain English, how it connects to the business and the usual time frame: weeks to a quarter.</p></div></li>
       </ol>
@@ -114,7 +114,7 @@
           <span title="The underlying number fell vs its recent baseline"><i class="dot down"></i><b>Red</b> = number is down</span>
           <span><i class="dot neutral"></i>Gray = flat / noise</span>
         </div>
-        <p class="legend-note">Green and red track whether the <em>data</em> moved up or down vs its recent baseline. Separate <strong>Tailwind</strong> / <strong>Headwind</strong> badges say whether that move looks favorable or unfavorable for the company (some signals flip — e.g. more inventory can be a headwind even when the number is up).</p>
+        <p class="legend-note">Green and red track whether the <em>data</em> moved up or down vs its recent baseline. Separate <strong>Tailwind</strong> / <strong>Headwind</strong> badges say whether that move looks favorable or unfavorable for the company (some signals flip: more inventory can be a headwind even when the number is up).</p>
       </div>
       </div>
       <div class="cards" id="cards"></div>
@@ -127,9 +127,9 @@
         <div>
           <p class="eyebrow-k">Track record</p>
           <h2>Did the leans play out?</h2>
-          <p class="sub" id="trk-line">We log every stock's lean and check what the price did 2 weeks, 1 month, and 1 quarter later, against the S&amp;P 500 too.</p>
+          <p class="sub" id="trk-line">Every lean is logged and checked against what the price did 2 weeks, 1 month, and 1 quarter later, and against the S&amp;P 500 too.</p>
         </div>
-        <a class="btn" href="/track">See the track record →</a>
+        <span class="trk-btns"><a class="btn" href="/track">See the track record →</a> <a class="btn ghost-btn" href="/signal-walkthrough">How a signal is found →</a></span>
       </div>
     </div>
   </section>
@@ -155,7 +155,7 @@
       <h2>How it works</h2>
       <div class="steps">
         <div class="step"><span class="n">1</span><h3>Collect</h3><p>A scheduled job pulls fresh numbers from public sources like the St. Louis Fed, the SEC, the FDA, the TSA, Wikipedia, and the GDELT news index. No logins, no paywalls, no scraping where it isn't allowed.</p></div>
-        <div class="step"><span class="n">2</span><h3>Compare</h3><p>Each signal is compared with its own recent past (last 28 days vs the 28 before, or this year vs last year). Small moves inside a noise band are called neutral.</p></div>
+        <div class="step"><span class="n">2</span><h3>Compare</h3><p>Each signal is compared with its own recent past (last 28 days vs the 28 before, or this year vs last year). Small moves inside a noise band are called neutral. <a href="/signal-walkthrough">See one signal, start to finish →</a></p></div>
         <div class="step"><span class="n">3</span><h3>Explain</h3><p>Every card says what the data is, why it might matter for that company, and what it's showing right now, written from the actual numbers. If a source fails, we say so instead of guessing.</p></div>
       </div>
       <p class="more"><a href="/how">Read the full method and source list →</a></p>
@@ -168,7 +168,7 @@
       <div class="band-head">
         <div>
           <h2>Scout finds</h2>
-          <p class="sub">A scheduled correlation scout scans free public series against curated stock prices (Tiingo) and ranks economically motivated pairings. Top hits below — correlation is not causation, and multiple testing is a real risk. Full method on the <a href="/how#scout">how it works</a> page.</p>
+          <p class="sub">A scheduled correlation scout scans free public series against curated stock prices (Tiingo) and ranks economically motivated pairings. Top hits are below. Correlation is not causation, and with this many comparisons some links are pure luck. Full method on the <a href="/how#scout">how it works</a> page.</p>
         </div>
         <div class="legend" aria-label="Color legend">
           <span><i class="dot up"></i><b>Green</b> = number is up</span>
@@ -176,7 +176,7 @@
           <span><i class="dot neutral"></i>Gray = flat</span>
         </div>
       </div>
-      <p class="legend-note scout-legend">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline — not a buy/sell tip.</p>
+      <p class="legend-note scout-legend">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline. It is not a buy/sell tip.</p>
       <p class="status-line scout-meta" id="scout-meta"></p>
       <div class="scout-grid" id="scout-list"><p class="note">Loading scout results…</p></div>
       <p class="sub scout-foot">Live signals from this scout also appear on the linked stock pages. Full tables live in the repo under <code>reports/correlation-scout.md</code>.</p>
@@ -186,7 +186,7 @@
   <section class="band" id="ideas">
     <div class="wrap">
       <h2>Signals we'd love to add</h2>
-      <p class="sub">Some of these started as ideas. Where we found a free, legal, frequent public source, we wired a <strong>live proxy</strong> into a curated stock (linked below). The rest stay labeled ideas — we never invent numbers.</p>
+      <p class="sub">Some of these started as ideas. Where we found a free, legal, frequent public source, we wired a <strong>live proxy</strong> into a curated stock (linked below). The rest stay labeled as ideas. We never invent numbers.</p>
       <div class="ideas" id="ideas-list"></div>
     </div>
   </section>
@@ -196,7 +196,7 @@
   <div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div>
     <p class="fine"><strong>Not financial advice. For education only.</strong> The Other Data shows public statistics and explains common ways people interpret them. Nothing here is a recommendation to buy, sell, or hold any security. Signals can be wrong, late, or unrelated to a stock's price. Do your own research or talk to a licensed professional.</p>
     <p class="fine">Data: FRED (Federal Reserve Bank of St. Louis), U.S. Census Bureau, BLS, BTS, EIA, SEC EDGAR, openFDA, NHTSA, TSA, Wikimedia, PyPI/pypistats, Hacker News (Algolia), Greenhouse job boards, The GDELT Project. Each card links to its source.</p>
-    <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/how">Method &amp; sources</a> · <a href="/track">Track record</a> · <a href="/privacy">Privacy</a></p>
+    <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/signal-walkthrough">How a signal is found</a> · <a href="/how">Method &amp; sources</a> · <a href="/track">Track record</a> · <a href="/privacy">Privacy</a></p>
   </div>
 </footer>
 </body>
