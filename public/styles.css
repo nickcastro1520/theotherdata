@@ -670,3 +670,4 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .permalink #detail{min-height:140vh}
 
 .tr-stock{content-visibility:auto;contain-intrinsic-size:auto 280px}
+.shell-lede{font-size:19px;line-height:1.6;color:#c3cde2;max-width:860px;margin:18px 0 0}

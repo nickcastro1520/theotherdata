@@ -80,7 +80,7 @@
   const FEAT = { picks: [], i: 0, cache: new Map(), timer: null, paused: false, stopped: false };
   const STRENGTH = { notable: "Notable", mild: "Mild" };
   const loadTicker = (tk) => {
-    if (!FEAT.cache.has(tk)) FEAT.cache.set(tk, fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+    if (!FEAT.cache.has(tk)) FEAT.cache.set(tk, fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "default" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
     return FEAT.cache.get(tk);
   };
 
@@ -466,7 +466,7 @@
     det.innerHTML = `<div class="wrap loading-panel">Loading ${esc(tk)}…</div>`;
     if (curated) {
       try {
-        const d = await (await fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "no-cache" })).json();
+        const d = await (await fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "default" })).json();
         // Ensure impact exists for older cached JSON
         if (!d.summary?.impact && d.summary) {
           const lean = d.summary.lean === "leaning positive" ? "tailwind" : d.summary.lean === "leaning negative" ? "headwind" : d.summary.lean === "quiet" ? "quiet" : "mixed";
@@ -511,7 +511,9 @@
     else if (!location.hash && PERMALINK()) {
       // /s/AMZN or /s/AMZN/cardboard: a crawler-readable permalink page. Open the stock, then the signal.
       const sig = document.querySelector('meta[name="tod-signal"]')?.content;
-      Promise.resolve(showTicker(PERMALINK().toUpperCase())).then(() => {
+      // Let the static stock header from the HTML paint first, then swap in the live view.
+      const afterPaint = () => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0)));
+      afterPaint().then(() => showTicker(PERMALINK().toUpperCase())).then(() => {
         const el = sig && document.getElementById(`sig-${sig}`);
         if (el) { el.classList.add("sig-focus"); el.scrollIntoView({ block: "start" }); }
       });
@@ -524,7 +526,7 @@
   }
 
   async function init() {
-    try { INDEX = await (await fetch("/data/index.json", { cache: "no-cache" })).json(); }
+    try { INDEX = await (await fetch("/data/index.json", { cache: "default" })).json(); }
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
     renderStatus(); renderChips();
     // On /s/ permalink pages the home view is hidden: build its rotating example only if the visitor goes home.

@@ -24,10 +24,10 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
     if (only && !only.has(row.ticker)) continue;
     let doc;
     try { doc = JSON.parse(await readFile(join(dataDir, "tickers", `${row.ticker}.json`), "utf8")); } catch { continue; }
-    items.push({ model: C.stockCard(doc), page: `s/${doc.ticker}.html` });
+    items.push({ model: { ...C.stockCard(doc), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
     for (const s of doc.signals || []) {
       if (!(C.live(s) || s.status === "tracking")) continue;
-      const model = C.signalCard(doc, s);
+      const model = { ...C.signalCard(doc, s), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
       items.push({ model, page: `s/${doc.ticker}/${model.id}.html` });
     }
   }
@@ -63,7 +63,17 @@ export function permalinkHtml(baseHtml, m) {
     .replace(/<meta name="description"[^>]*>\n?/, "")
     .replace(/<link rel="canonical"[^>]*>\n?/, "")
     .replace(/<meta (?:property|name)="(?:og|twitter):[^"]*"[^>]*>\n?/g, "");
-  return html.replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`).replace("<body>", '<body class="permalink">');
+  // Static first paint for the stock view (same layout as app.js renders), so the page shows instantly.
+  const shell = `<div class="wrap" data-tod-shell>
+      <div class="dtop"><a class="back" href="/">← All stocks</a></div>
+      <div class="dhead"><div><div class="tk">${esc(m.ticker)}</div><h1>${esc(m.company)}</h1><div class="meta">Loading live signals…</div></div></div>
+      <p class="shell-lede">${esc(m.narrative || m.description)}</p>
+    </div>`;
+  return html
+    .replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`)
+    .replace("<body>", '<body class="permalink">')
+    .replace(/(<link rel="preload" href="\/data\/index.json"[^>]*>)/, `$1\n<link rel="preload" href="/data/tickers/${esc(m.ticker)}.json" as="fetch" crossorigin="anonymous">`)
+    .replace('<section class="detail" id="detail" hidden></section>', `<section class="detail" id="detail">${shell}</section>`);
 }
 
 export function sitemapWithPermalinks(sitemap, items) {
