@@ -63,7 +63,7 @@ export function permalinkHtml(baseHtml, m) {
     .replace(/<meta name="description"[^>]*>\n?/, "")
     .replace(/<link rel="canonical"[^>]*>\n?/, "")
     .replace(/<meta (?:property|name)="(?:og|twitter):[^"]*"[^>]*>\n?/g, "");
-  return html.replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`);
+  return html.replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`).replace("<body>", '<body class="permalink">');
 }
 
 export function sitemapWithPermalinks(sitemap, items) {

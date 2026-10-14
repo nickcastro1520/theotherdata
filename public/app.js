@@ -408,10 +408,10 @@
       <div>
         <p class="k">Impact call · educational only</p>
         <div class="impact-steps">
-          <div class="istep"><span class="n">1</span><div><h4>What the alt-data is</h4><p>${esc(what)}</p></div></div>
-          <div class="istep"><span class="n">2</span><div><h4>Because of that, the lean</h4><div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind · confidence ${esc(conf)}</span></div><p>${esc(because)}</p></div></div>
-          <div class="istep"><span class="n">3</span><div><h4>Rough magnitude band</h4><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
-          <div class="istep"><span class="n">4</span><div><h4>Typical time horizon</h4><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
+          <div class="istep"><span class="n">1</span><div><h2 class="ih">What the alt-data is</h2><p>${esc(what)}</p></div></div>
+          <div class="istep"><span class="n">2</span><div><h2 class="ih">Because of that, the lean</h2><div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind · confidence ${esc(conf)}</span></div><p>${esc(because)}</p></div></div>
+          <div class="istep"><span class="n">3</span><div><h2 class="ih">Rough magnitude band</h2><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
+          <div class="istep"><span class="n">4</span><div><h2 class="ih">Typical time horizon</h2><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
         </div>
         ${narrative ? `<div class="summary-box" id="summary-box"><p class="ai-tag">${d.ai?.text && narrative === d.ai.text ? "AI summary · written by Gemini from the numbers on this page, then checked for advice-sounding words and that it matches the lean above" : "Summary · written from a template using the numbers on this page"}</p><p class="body muted">${esc(narrative)}</p></div>` : ""}
         <p class="fineprint">Not financial advice. Not a forecast. Nothing here tells you to buy or sell.</p>
@@ -496,6 +496,7 @@
   }
 
   function showHome() {
+    document.body.classList.remove("permalink");
     document.title = "The Other Data: Hidden Signals Behind Stocks, Explained Simply";
     $("#detail").hidden = true;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = false; }

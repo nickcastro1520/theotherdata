@@ -249,7 +249,7 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .impact-steps{display:grid;gap:12px;margin:0 0 14px}
 .istep{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
 .istep .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:rgba(94,234,212,.12);color:var(--teal);font:800 13px var(--mono)}
-.istep h4{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
+.istep h4,.istep .ih{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
 .istep p{margin:0;font-size:14.5px;color:#cfd8ea;line-height:1.45}
 .impact .body.muted{color:var(--mut);font-size:14.5px;margin:8px 0 0}
 .idea .tag.live{color:var(--up)}.idea .tag.partial{color:var(--amber)}
@@ -663,3 +663,8 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 /* Skip layout/paint of below-the-fold home sections until they scroll near (big speed win on phones). */
 #stocks,#trackrecord,#how,#scout,#ideas{content-visibility:auto;contain-intrinsic-size:auto 1100px}
 .f-head .pulse::after{background:rgba(251,191,36,.6)}
+
+/* /s/ permalink pages: hide the home sections from first paint so the stock view doesn't shift the layout. */
+.permalink #home,.permalink #stocks,.permalink #trackrecord,.permalink #digest,.permalink #how,.permalink #ideas,.permalink #scout{display:none}
+.permalink #detail[hidden]{display:block;min-height:140vh}
+.sqs{content-visibility:auto;contain-intrinsic-size:auto 600px}
