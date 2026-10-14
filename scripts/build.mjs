@@ -123,6 +123,8 @@ async function build() {
     const h = hookFor(index, docs);
     const ip = join(out, "index.html");
     let html = (await readFile(ip, "utf8")).replace("<!--HOOK-->", hookHtml(h));
+    try { const { scoreboardStripHtml } = await import("../lib/seo.js"); html = html.replace("<!--SCOREBOARD-->", scoreboardStripHtml(JSON.parse(await readFile(join(out, "data", "scoreboard.json"), "utf8")))); }
+    catch (e) { console.warn(`scoreboard strip skipped: ${e.message}`); }
     if (h?.card) {
       try {
         const { renderCard } = await import("../lib/card-render.js");
@@ -137,6 +139,13 @@ async function build() {
     if (h) console.log(`hook: ${h.line} (${h.reason})`);
   } catch (e) { console.warn(`hook skipped: ${e.message}`); }
   // Shareable cards + /s/TICKER permalink pages. A card failure never blocks the deploy (pages fall back to /og.png).
+  // Sitemap lastmod for the core pages (data snapshot time); permalinks get their own dates in cards.mjs.
+  try {
+    const { withLastmod } = await import("../lib/seo.js");
+    const gen = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8")).generatedAt;
+    const sp = join(out, "sitemap.xml");
+    await writeFile(sp, withLastmod(await readFile(sp, "utf8"), gen));
+  } catch (e) { console.warn(`sitemap lastmod skipped: ${e.message}`); }
   try { await buildShareAssets(out); } catch (e) { console.warn(`share cards skipped: ${e.message}`); }
   console.log(`built dist/ (analytics: ${s.ga ? s.ga : "off"}, search console meta: ${s.gsc ? "on" : "off"})`);
 }

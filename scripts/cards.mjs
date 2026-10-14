@@ -12,6 +12,7 @@ import { Worker, isMainThread, parentPort, workerData } from "node:worker_thread
 import { availableParallelism } from "node:os";
 import "../public/signal-size.js";
 import "../public/card-model.js";
+import { stockSeo, stockJsonLd, signalListHtml, withLastmod } from "../lib/seo.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const C = globalThis.TODCard;
@@ -25,10 +26,13 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
     if (only && !only.has(row.ticker)) continue;
     let doc;
     try { doc = JSON.parse(await readFile(join(dataDir, "tickers", `${row.ticker}.json`), "utf8")); } catch { continue; }
-    items.push({ model: { ...C.stockCard(doc), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
+    const seo = stockSeo(doc);
+    const links = (doc.signals || []).filter((s) => C.live(s) || s.status === "tracking").map((s) => ({ name: s.name, url: C.signalUrl(doc.ticker, s.id) }));
+    const sc = C.stockCard(doc);
+    items.push({ model: { ...sc, title: seo.title, description: seo.description, h1: seo.h1, jsonld: stockJsonLd(doc, sc.url), sigList: signalListHtml(links), lastmod: doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
     for (const s of doc.signals || []) {
       if (!(C.live(s) || s.status === "tracking")) continue;
-      let model = { ...C.signalCard(doc, s), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
+      let model = { ...C.signalCard(doc, s), lastmod: s.asOf || doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
       // Rule 3 (public/signal-size.js): a too-small sample never gets its own share image.
       // Its permalink unfurls with the stock card instead, which only features signals that pass.
       if (!model.featured) model = { ...model, img: C.stockCard(doc).img, imgVertical: null, noImage: true, alt: `${model.headline}. Education only, not advice.` };
@@ -67,11 +71,12 @@ export function permalinkHtml(baseHtml, m) {
     .replace(/<meta name="description"[^>]*>\n?/, "")
     .replace(/<link rel="canonical"[^>]*>\n?/, "")
     .replace(/<meta (?:property|name)="(?:og|twitter):[^"]*"[^>]*>\n?/g, "");
+  if (m.jsonld) html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => m.jsonld);
   // Static first paint for the stock view (same layout as app.js renders), so the page shows instantly.
   const shell = `<div class="wrap" data-tod-shell>
       <div class="dtop"><a class="back" href="/">← All stocks</a></div>
-      <div class="dhead"><div><div class="tk">${esc(m.ticker)}</div><h1>${esc(m.company)}</h1><div class="meta">Loading live signals…</div></div></div>
-      <p class="shell-lede">${esc(m.narrative || m.description)}</p>
+      <div class="dhead"><div><div class="tk">${esc(m.ticker)}</div><h1>${esc(m.h1 || m.company)}</h1><div class="meta">Loading live signals…</div></div></div>
+      <p class="shell-lede">${esc(m.narrative || m.description)}</p>${m.sigList || ""}
     </div>`;
   return html
     .replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`)
@@ -81,7 +86,7 @@ export function permalinkHtml(baseHtml, m) {
 }
 
 export function sitemapWithPermalinks(sitemap, items) {
-  const urls = items.map((i) => `  <url><loc>${esc(i.model.url)}</loc></url>`).join("\n");
+  const urls = items.map((i) => { const d = String(i.model.lastmod || "").slice(0, 10); return `  <url><loc>${esc(i.model.url)}</loc>${/^\d{4}-\d{2}-\d{2}$/.test(d) ? `<lastmod>${d}</lastmod>` : ""}</url>`; }).join("\n");
   return sitemap.replace("</urlset>", `${urls}\n</urlset>`);
 }
 
