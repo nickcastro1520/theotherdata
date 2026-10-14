@@ -17,7 +17,7 @@
   // ---- status: live vs backtest ----
   const lvS = live.summary?.[W[0].key] || {};
   const liveBody = lvS.calls
-    ? `<p>${live.sampled} weekly snapshots scored so far. 2-week direction right: ${ratio(lvS.hits, lvS.calls)}.</p>`
+    ? `<p>${live.sampled} weekly snapshots scored so far. 2 weeks: up/down right ${ratio(lvS.hits, lvS.calls)} · beat the market ${ratio(lvS.vsMktHits, lvS.vsMktCalls)}.</p>`
     : `<p>No live results yet. The first 2-week results land after <b>${esc(TT.day(live.firstResultsAfter))}</b>, then 1-month and 1-quarter results follow.</p>`;
   $("#tr-status").innerHTML = `
     <div class="tr-card live-card"><span class="pill live">Live</span>
@@ -36,9 +36,10 @@
   $("#bt-verdict").className = `tr-verdict ${v.key}`;
   $("#bt-verdict").innerHTML = `<p class="k">The honest read · 1 month</p><p>${esc(v.text)}</p>`;
   $("#bt-tiles").innerHTML = `
-    <div class="tr-tile"><p class="k">Direction right</p><p class="big">${TT.fmtPct(p.hits, p.calls)}</p><p class="n">${p.hits} of ${p.calls} calls · 1 month</p></div>
-    <div class="tr-tile"><p class="k">Beat or lagged the S&amp;P 500, as leaned</p><p class="big">${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</p><p class="n">${p.vsMktHits} of ${p.vsMktCalls} · a coin flip is 50%</p></div>
-    <div class="tr-tile"><p class="k">"Always guess up" on the same calls</p><p class="big">${p.upShare == null ? "n/a" : `${(p.upShare * 100).toFixed(1)}%`}</p><p class="n">How often these stocks simply rose</p></div>`;
+    <div class="tr-tile"><p class="k">Up/down right</p><p class="big">${TT.fmtPct(p.hits, p.calls)}</p><p class="n">${p.hits} of ${p.calls} calls · 1 month</p></div>
+    <div class="tr-tile"><p class="k">Beat the market</p><p class="big">${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</p><p class="n">${p.vsMktHits} of ${p.vsMktCalls} · a coin flip is 50%</p></div>
+    <div class="tr-tile"><p class="k">"Always guess up" on the same calls</p><p class="big">${p.upShare == null ? "n/a" : `${(p.upShare * 100).toFixed(1)}%`}</p><p class="n">How often these stocks simply rose</p></div>
+    <p class="tr-explain"><strong>Up/down right:</strong> did the stock move the way the lean pointed? <strong>${esc(TT.BEAT_EXPLAIN)}</strong></p>`;
   $("#bt-table tbody").innerHTML = W.map((w) => { const s = bt.summary[w.key]; return `<tr><td>${esc(w.label)}</td><td>${s.calls}</td><td>${ratio(s.hits, s.calls)}</td><td>${ratio(s.vsMktHits, s.vsMktCalls)}</td><td>${s.upShare == null ? "n/a" : `${(s.upShare * 100).toFixed(1)}%`}</td><td>${signed(s.tailwind.avgX)} <span class="n">(${s.tailwind.n})</span></td><td>${signed(s.headwind.avgX)} <span class="n">(${s.headwind.n})</span></td></tr>`; }).join("");
 
   // ---- per stock ----
@@ -48,10 +49,10 @@
     return `<article class="tr-stock" id="t-${esc(tk)}">
       <div class="tr-s-head"><div><a class="tk" href="/#/${esc(tk)}">${esc(tk)}</a> <span class="nm">${esc(t.name)}</span></div>
         <span class="n">${t.backtest.signalsUsed} of ${t.signals} signals backtested</span></div>
-      <div class="tr-s-nums"><div><p class="k">Direction</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Vs S&amp;P 500</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
+      <div class="tr-s-nums"><div><p class="k">Up/down right</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Beat the market</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
       <div class="sqs" data-tk="${esc(tk)}" aria-label="Monthly backtest results, oldest to newest"><span class="n">Loading monthly results…</span></div>
       ${lt ? `<p class="tr-live-line"><span class="pill live">Live</span> Latest lean ${esc(TT.day(lt.d))}: <span class="badge ${(LEAN[lt.lean] || [""])[0]}">${esc((LEAN[lt.lean] || ["", lt.lean])[1])}</span>${lt.px != null ? ` at $${esc(lt.px.toFixed(2))}` : ""}</p>` : ""}
-      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Hit?</th></tr></thead><tbody data-tk="${esc(tk)}"><tr><td colspan="5" class="n">Loading…</td></tr></tbody></table></div></details>
+      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Up/down right?</th><th>Beat the market?</th></tr></thead><tbody data-tk="${esc(tk)}"><tr><td colspan="6" class="n">Loading…</td></tr></tbody></table></div></details>
     </article>`;
   }).join("");
 
@@ -67,8 +68,10 @@
   const rowsHtml = (h) => h.slice().reverse().map((r) => {
     const c = r.w[P];
     const [lc, ll] = LEAN[r.lean] || ["", r.lean];
-    const res = !c ? `<span class="n">open</span>` : r.lean === "tailwind" || r.lean === "headwind" ? (c.hitX == null ? "" : c.hitX ? `<span class="ok">✓ yes</span>` : `<span class="bad">✗ no</span>`) : `<span class="n">no call</span>`;
-    return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${res}</td></tr>`;
+    const call = r.lean === "tailwind" || r.lean === "headwind";
+    const yn = (v) => (v == null ? "" : v ? `<span class="ok">✓ yes</span>` : `<span class="bad">✗ no</span>`);
+    const cell = (k) => (!c ? `<span class="n">open</span>` : call ? yn(c[k]) : `<span class="n">no call</span>`);
+    return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${cell("hit")}</td><td>${cell("hitX")}</td></tr>`;
   }).join("");
   const fail = `<span class="n">Couldn't load this stock's monthly results. Please refresh.</span>`;
   const fillSq = async (el) => { const h = await loadHist(el.dataset.tk); el.innerHTML = h ? sqHtml(h) : fail; };
@@ -82,7 +85,7 @@
     const tb = d.querySelector("tbody[data-tk]"); if (!tb || tb.dataset.done) return;
     tb.dataset.done = "1";
     const h = await loadHist(tb.dataset.tk);
-    tb.innerHTML = h ? rowsHtml(h) : `<tr><td colspan="5">${fail}</td></tr>`;
+    tb.innerHTML = h ? rowsHtml(h) : `<tr><td colspan="6">${fail}</td></tr>`;
   }, true);
 
   // ---- live table ----
@@ -93,7 +96,7 @@
     const lt = t.live.latest; if (!lt) return "";
     const [lc, ll] = LEAN[lt.lean] || ["", lt.lean];
     const s = t.live.summary[W[0].key];
-    return `<tr><td><a href="/#/${esc(tk)}">${esc(tk)}</a></td><td><span class="badge ${lc}">${esc(ll)}</span> <span class="n">${esc(lt.mag)}</span></td><td>${lt.px != null ? `$${esc(lt.px.toFixed(2))}` : "n/a"}</td><td>${esc(TT.day(lt.d))} <span class="n">(${t.live.snapshots} so far)</span></td><td>${s.calls ? ratio(s.hits, s.calls) : `<span class="n">first results after ${esc(TT.day(live.firstResultsAfter))}</span>`}</td></tr>`;
+    return `<tr><td><a href="/#/${esc(tk)}">${esc(tk)}</a></td><td><span class="badge ${lc}">${esc(ll)}</span> <span class="n">${esc(lt.mag)}</span></td><td>${lt.px != null ? `$${esc(lt.px.toFixed(2))}` : "n/a"}</td><td>${esc(TT.day(lt.d))} <span class="n">(${t.live.snapshots} so far)</span></td>${s.calls ? `<td>${ratio(s.hits, s.calls)}</td><td>${ratio(s.vsMktHits, s.vsMktCalls)}</td>` : `<td colspan="2"><span class="n">first results after ${esc(TT.day(live.firstResultsAfter))}</span></td>`}</tr>`;
   }).join("");
 
   // ---- method ----

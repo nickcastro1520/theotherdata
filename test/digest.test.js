@@ -26,6 +26,7 @@ test("digest picks 3-5 real signals and copies their numbers exactly", () => {
   }
   assert.ok(d.story.paragraphs.length >= 2);
   assert.match(d.trackLine, /coin flip|Too few|Better|Worse/);
+  assert.match(d.trackLine, /Beat the market/);
   assert.match(d.disclaimer, /Not financial advice/);
   assert.match(d.issueId, /^\d{4}-W\d{2}$/);
 });

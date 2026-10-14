@@ -50,6 +50,6 @@
   const p = track?.backtest?.summary?.[track.primary];
   if (p && TT) {
     const v = TT.verdict(p);
-    $("#g-track").innerHTML = `<div class="g-lean"><p class="n">Live from the track record</p><p>We log every lean and later check what the stock did. In the backtest (${esc(TT.month(track.backtest.from))}–${esc(TT.month(track.backtest.to))}), leans matched the stock's move vs the S&amp;P 500 over the next month <strong>${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</strong> of the time across ${p.vsMktCalls} calls.</p><p><strong>${esc(v.text)}</strong></p>${track.live?.startedOn ? `<p class="n">Live tracking started ${esc(TT.day(track.live.startedOn))}.</p>` : ""}</div>`;
+    $("#g-track").innerHTML = `<div class="g-lean"><p class="n">Live from the track record</p><p>We log every lean and later check what the stock did. In the backtest (${esc(TT.month(track.backtest.from))}–${esc(TT.month(track.backtest.to))}), leans were up/down right over the next month <strong>${TT.fmtPct(p.hits, p.calls)}</strong> of the time and beat the market (the stock did better than the S&amp;P 500 over the same time) <strong>${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</strong> of the time, across ${p.calls} calls.</p><p><strong>${esc(v.text)}</strong></p>${track.live?.startedOn ? `<p class="n">Live tracking started ${esc(TT.day(track.live.startedOn))}.</p>` : ""}</div>`;
   } else fail("#g-track");
 })();

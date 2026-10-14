@@ -137,7 +137,7 @@ const out = {
   rules: {
     entry: "Close on the first trading day after the lean date (no same-day peeking).",
     exit: "Close on the first trading day at least N calendar days after entry.",
-    hit: "Tailwind = right if the stock rose; headwind = right if it fell. 'Vs market' compares the stock's move with SPY over the same days.",
+    hit: "Tailwind = right if the stock rose; headwind = right if it fell. 'Beat the market' compares the stock's move with SPY over the same days: a tailwind counts if the stock did better than the S&P 500, a headwind if it did worse.",
     noCall: "Mixed and quiet leans aren't calls, so they aren't scored.",
     liveSampling: "Live leans are logged daily; we score the first snapshot of each week per stock so one call isn't counted seven times.",
   },

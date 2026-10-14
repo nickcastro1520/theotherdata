@@ -264,7 +264,7 @@
     if (!el || !doc || !TT) return;
     const p = doc.backtest?.summary?.[doc.primary];
     const bits = [];
-    if (p?.calls) bits.push(`Backtest (${TT.month(doc.backtest.from)}–${TT.month(doc.backtest.to)}): leans called the 1-month direction right <b>${TT.fmtPct(p.hits, p.calls)}</b> of the time and beat or lagged the S&amp;P 500 as leaned <b>${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</b>, across ${p.calls} calls. ${esc(TT.verdict(p).key === "coin" ? "About a coin flip so far." : "")}`);
+    if (p?.calls) bits.push(`Backtest (${TT.month(doc.backtest.from)}–${TT.month(doc.backtest.to)}): up/down right <b>${TT.fmtPct(p.hits, p.calls)}</b> · beat the market <b>${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</b> (did the stock do better than the S&amp;P 500 over the same month? the tougher, fairer test), across ${p.calls} calls. ${esc(TT.verdict(p).key === "coin" ? "About a coin flip so far." : "")}`);
     if (doc.live?.startedOn) bits.push(`Live tracking started ${esc(TT.day(doc.live.startedOn))}.`);
     if (bits.length) el.innerHTML = bits.join(" ");
   }

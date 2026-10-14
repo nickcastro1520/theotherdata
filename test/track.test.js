@@ -100,3 +100,37 @@ test("committed track files are well formed and keep backtest and live apart", a
   }
   assert.equal(Object.keys(out.tickers).length, TICKERS.length);
 });
+
+test("beat-the-market score: same numbers in full record, summary, per-stock files, and wording", async () => {
+  const full = JSON.parse(await readFile("public/data/track-record.json", "utf8"));
+  const sum = JSON.parse(await readFile("public/data/track-summary.json", "utf8"));
+  assert.deepEqual(sum.backtest.summary, full.backtest.summary);
+  assert.deepEqual(sum.live.summary, full.live.summary);
+  for (const [tk, t] of Object.entries(full.tickers)) {
+    assert.deepEqual(sum.tickers[tk].backtest.summary, t.backtest.summary, tk);
+    const per = JSON.parse(await readFile(`public/data/track/${tk}.json`, "utf8"));
+    assert.deepEqual(per.history, t.backtest.history, tk);
+    // Recount beat-the-market from the per-stock history: must match the published summary.
+    const calls = per.history.filter((r) => (r.lean === "tailwind" || r.lean === "headwind") && r.w[full.primary]?.hitX != null);
+    assert.equal(calls.length, t.backtest.summary[full.primary].vsMktCalls, tk);
+    assert.equal(calls.filter((r) => r.w[full.primary].hitX).length, t.backtest.summary[full.primary].vsMktHits, tk);
+  }
+  const b = TT.bothScores(full.backtest.summary[full.primary]);
+  assert.ok(b.upDown.calls > 0 && b.beat.calls > 0 && b.beat.hits <= b.beat.calls);
+  assert.equal(TT.bothScores({ calls: 0 }), null);
+  assert.match(TT.BEAT_EXPLAIN, /S&P 500/);
+  assert.ok(!/\b(buy|sell)\b/i.test(TT.BEAT_EXPLAIN));
+  const line = TT.stockLine(full, "AMZN");
+  assert.match(line, /up\/down right/i);
+  assert.match(line, /Beat the market/);
+});
+
+test("beat-the-market: headwind wins when the stock trails SPY", () => {
+  const px = [{ t: "2026-01-02", v: 100 }, { t: "2026-01-05", v: 100 }, { t: "2026-02-05", v: 102 }];
+  const spy = [{ t: "2026-01-02", v: 100 }, { t: "2026-01-05", v: 100 }, { t: "2026-02-05", v: 105 }];
+  const h = T.scoreRecord({ d: "2026-01-02", tk: "X", lean: "headwind" }, px, spy);
+  assert.equal(h.w["1m"].hit, false, "stock rose, so up/down was wrong");
+  assert.equal(h.w["1m"].hitX, true, "but it trailed the S&P 500, so the headwind beat-the-market test passes");
+  const a = T.aggregate([h]);
+  assert.deepEqual([a["1m"].hits, a["1m"].vsMktHits, a["1m"].vsMktCalls], [0, 1, 1]);
+});

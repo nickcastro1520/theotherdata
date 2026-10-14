@@ -30,15 +30,26 @@
     const lv = t.live && t.live.summary && t.live.summary[w];
     const parts = [];
     if (bt && bt.calls) {
-      parts.push(`In the backtest (${month(doc.backtest.from)}–${month(doc.backtest.to)}, ${t.backtest.signalsUsed} of ${t.signals} signals), ${tk}'s tailwind/headwind leans got the 1-month direction right ${bt.hits} of ${bt.calls} times (${fmtPct(bt.hits, bt.calls)}) and beat or lagged the S&P 500 the way they leaned ${bt.vsMktHits} of ${bt.vsMktCalls} times (${fmtPct(bt.vsMktHits, bt.vsMktCalls)}).`);
+      parts.push(`In the backtest (${month(doc.backtest.from)}–${month(doc.backtest.to)}, ${t.backtest.signalsUsed} of ${t.signals} signals), ${tk}'s tailwind/headwind leans were up/down right over 1 month ${bt.hits} of ${bt.calls} times (${fmtPct(bt.hits, bt.calls)}). Beat the market (did the stock do better than the S&P 500 over the same time, or worse for a headwind): ${bt.vsMktHits} of ${bt.vsMktCalls} times (${fmtPct(bt.vsMktHits, bt.vsMktCalls)}).`);
     } else if (t.backtest) {
       parts.push(`No backtested calls for ${tk} yet.`);
     }
-    if (lv && lv.calls) parts.push(`Live so far: ${lv.hits} of ${lv.calls} right on direction.`);
+    if (lv && lv.calls) parts.push(`Live so far: up/down right ${lv.hits} of ${lv.calls}${lv.vsMktCalls ? `, beat the market ${lv.vsMktHits} of ${lv.vsMktCalls}` : ""}.`);
     else if (live.startedOn) parts.push(`Live tracking started ${day(live.startedOn)}.`);
     return parts.join(" ");
   }
 
-  const api = { pct, fmtPct, verdict, stockLine, day, month };
+  // "Beat the market": the tougher, fairer test. A tailwind counts if the stock did better than the
+  // S&P 500 over the same days; a headwind counts if it did worse. Uses vsMktHits / vsMktCalls.
+  const BEAT_LABEL = "Beat the market";
+  const BEAT_EXPLAIN = "Beat the market: did this stock do better than the S&P 500 over the same time? (For a headwind lean, the test is whether it did worse.) This is the tougher, fairer test, because in a rising market almost every stock goes up.";
+  const UPDOWN_LABEL = "Up/down right";
+  // Both scores side by side, in plain English. Returns null when there are no calls.
+  function bothScores(s) {
+    if (!s || !s.calls) return null;
+    return { upDown: { hits: s.hits, calls: s.calls, pct: pct(s.hits, s.calls), text: fmtPct(s.hits, s.calls) },
+      beat: s.vsMktCalls ? { hits: s.vsMktHits, calls: s.vsMktCalls, pct: pct(s.vsMktHits, s.vsMktCalls), text: fmtPct(s.vsMktHits, s.vsMktCalls) } : null };
+  }
+  const api = { pct, fmtPct, verdict, stockLine, day, month, bothScores, BEAT_LABEL, BEAT_EXPLAIN, UPDOWN_LABEL };
   root.TODTrack = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
