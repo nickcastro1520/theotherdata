@@ -36,3 +36,8 @@ test("site pages read the small summary, not the full track file", async () => {
     assert.ok(!/fetch\([^)]*track-record\.json|get\("\/data\/track-record\.json"/.test(s), `${f} doesn't fetch the full file`);
   }
 });
+
+test("font stacks stay short (each missing family costs layout time on phones with many fonts)", async () => {
+  const css = await readFile("public/styles.css", "utf8");
+  for (const m of css.matchAll(/font(?:-family)?:[^;}]*?(system-ui[^;}]*|ui-monospace[^;}]*)/g)) assert.ok(m[1].split(",").length <= 3, `long font stack: ${m[0]}`);
+});
