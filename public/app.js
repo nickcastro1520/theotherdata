@@ -12,6 +12,7 @@
   const quoteUrl = (tk, xc) => `https://www.google.com/finance/quote/${encodeURIComponent(String(tk).replace(/\./g, "-"))}:${GF_EXCH[xc] || (NASDAQ.has(tk) ? "NASDAQ" : "NYSE")}`;
 
   // ---------- US symbol directory (public/data/symbols.json), loaded on first use of the search box ----------
+  let SPOT_PENDING = false;
   let DIR = null, dirLoading = null, dirCount = 0;
   const SS = () => window.TODSymbolSearch;
   function loadDir() {
@@ -497,6 +498,7 @@
 
   function showHome() {
     document.body.classList.remove("permalink");
+    if (SPOT_PENDING && INDEX) { SPOT_PENDING = false; renderSpotlight(); }
     document.title = "The Other Data: Hidden Signals Behind Stocks, Explained Simply";
     $("#detail").hidden = true;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = false; }
@@ -524,7 +526,18 @@
   async function init() {
     try { INDEX = await (await fetch("/data/index.json", { cache: "no-cache" })).json(); }
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
-    renderStatus(); renderChips(); renderSpotlight(); renderCards(); renderIdeas(); renderScout(); renderTrackTeaser();
+    renderStatus(); renderChips();
+    // On /s/ permalink pages the home view is hidden: build its rotating example only if the visitor goes home.
+    if (document.body.classList.contains("permalink")) SPOT_PENDING = true; else renderSpotlight();
+    // Below-the-fold sections render in idle slices so the first screen stays responsive on phones.
+    const idle = (fn) => new Promise((res) => { const run = () => { try { fn(); } finally { res(); } }; window.requestIdleCallback ? requestIdleCallback(run, { timeout: 1200 }) : setTimeout(run, 30); });
+    // Render each section when it's about to scroll into view (or right away if the URL points at it).
+    const lazy = [["stocks", renderCards], ["ideas", renderIdeas], ["scout", renderScout], ["trackrecord", renderTrackTeaser]];
+    if (/^#(stocks|scout|ideas|trackrecord|how)$/.test(location.hash) || !("IntersectionObserver" in window)) lazy.forEach(([, fn]) => fn());
+    else {
+      const io = new IntersectionObserver((ents) => { for (const e of ents) if (e.isIntersecting) { io.unobserve(e.target); const hit = lazy.find(([id]) => id === e.target.id); if (hit) idle(hit[1]); } }, { rootMargin: "800px 0px" });
+      for (const [id, fn] of lazy) { const el = document.getElementById(id); if (el) io.observe(el); else idle(fn); }
+    }
     const q = $("#q");
     // Suggestions dropdown
     let sug = document.getElementById("suggest");

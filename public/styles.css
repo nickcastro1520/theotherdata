@@ -666,5 +666,6 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 
 /* /s/ permalink pages: hide the home sections from first paint so the stock view doesn't shift the layout. */
 .permalink #home,.permalink #stocks,.permalink #trackrecord,.permalink #digest,.permalink #how,.permalink #ideas,.permalink #scout{display:none}
-.permalink #detail[hidden]{display:block;min-height:140vh}
+.permalink #detail[hidden]{display:block!important}
+.permalink #detail{min-height:140vh}
 .sqs{content-visibility:auto;contain-intrinsic-size:auto 600px}
