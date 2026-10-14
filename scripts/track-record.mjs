@@ -3,6 +3,7 @@
 //   node scripts/track-record.mjs              score (needs TIINGO_API_KEY); builds the backtest if missing
 //   node scripts/track-record.mjs --backtest   rebuild data/track/backtest.json from source histories
 //   node scripts/track-record.mjs --daily      skip if already scored today (used by the 4-hourly workflow)
+import { writeTrackSplit } from "../lib/track-split.js";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -153,5 +154,6 @@ const out = {
   tickers,
 };
 await writeFile(OUT, JSON.stringify(out));
+await writeTrackSplit(out, dirname(OUT)); // small summary + per-stock history for the site
 const s = out.backtest.summary[T.PRIMARY_WINDOW];
 console.log(`scored: backtest ${btScored.length} records (1m: ${s.hits}/${s.calls} direction, ${s.vsMktHits}/${s.vsMktCalls} vs SPY), live ${liveAll.length} snapshots (${liveSample.length} sampled), prices through ${lastPriceDay}`);

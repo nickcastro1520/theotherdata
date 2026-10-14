@@ -9,7 +9,7 @@
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const dateTxt = (t, freq) => { const [y, m, d] = String(t).split("-").map(Number); return freq === "monthly" ? `${MONTHS[m - 1]} ${y}` : `${MONTHS[m - 1]} ${d}, ${y}`; };
   const get = (u) => fetch(u, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-  const [amzn, idx, track] = await Promise.all([get("/data/tickers/AMZN.json"), get("/data/index.json"), get("/data/track-record.json")]);
+  const [amzn, idx, track] = await Promise.all([get("/data/tickers/AMZN.json"), get("/data/index.json"), get("/data/track-summary.json")]);
   const fail = (sel) => { const el = $(sel); if (el) el.innerHTML = `<p class="n">Live example unavailable right now. Open <a href="/#/AMZN">Amazon's page</a> to see the real thing.</p>`; };
 
   // 2. A signal card (prefer paperboard (box volume); fall back to the first live signal)

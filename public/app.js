@@ -257,7 +257,7 @@
 
   // ---------- track record (home teaser + one line per stock page) ----------
   let trackDoc = null;
-  const loadTrack = () => (trackDoc ||= fetch("/data/track-record.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  const loadTrack = () => (trackDoc ||= fetch("/data/track-summary.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
   async function renderTrackTeaser() {
     const el = $("#trk-line"), TT = window.TODTrack;
     const doc = await loadTrack();

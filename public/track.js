@@ -4,7 +4,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const TT = window.TODTrack;
   let doc;
-  try { const r = await fetch("/data/track-record.json", { cache: "no-cache" }); if (!r.ok) throw new Error(r.status); doc = await r.json(); }
+  try { const r = await fetch("/data/track-summary.json", { cache: "no-cache" }); if (!r.ok) throw new Error(r.status); doc = await r.json(); }
   catch { $("#tr-status").innerHTML = `<p class="warnbox">The track record file isn't available right now. Please try again later.</p>`; return; }
   const W = doc.windows, P = doc.primary;
   const wl = (k) => (W.find((w) => w.key === k) || {}).label || k;
@@ -44,28 +44,46 @@
   // ---- per stock ----
   $("#tr-stocks").innerHTML = Object.entries(doc.tickers).map(([tk, t]) => {
     const s = t.backtest.summary[P];
-    const sq = t.backtest.history.map((r) => {
-      const c = r.w[P];
-      const cls = !LEAN[r.lean] || r.lean === "mixed" || r.lean === "quiet" ? "none" : !c ? "open" : c.hitX == null ? "open" : c.hitX ? "hit" : "miss";
-      const tip = `${r.d}: ${LEAN[r.lean]?.[1] || r.lean}${c ? ` · stock ${signed(c.r)}${c.x != null ? `, vs S&P ${signed(c.x)}` : ""}` : cls === "open" ? " · window still open" : ""}`;
-      return `<i class="sq ${cls}" title="${esc(tip)}"></i>`;
-    }).join("");
-    const rows = t.backtest.history.slice().reverse().map((r) => {
-      const c = r.w[P];
-      const [lc, ll] = LEAN[r.lean] || ["", r.lean];
-      const res = !c ? `<span class="n">open</span>` : r.lean === "tailwind" || r.lean === "headwind" ? (c.hitX == null ? "" : c.hitX ? `<span class="ok">✓ yes</span>` : `<span class="bad">✗ no</span>`) : `<span class="n">no call</span>`;
-      return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${res}</td></tr>`;
-    }).join("");
     const lt = t.live.latest;
     return `<article class="tr-stock" id="t-${esc(tk)}">
       <div class="tr-s-head"><div><a class="tk" href="/#/${esc(tk)}">${esc(tk)}</a> <span class="nm">${esc(t.name)}</span></div>
         <span class="n">${t.backtest.signalsUsed} of ${t.signals} signals backtested</span></div>
       <div class="tr-s-nums"><div><p class="k">Direction</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Vs S&amp;P 500</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
-      <div class="sqs" aria-label="Monthly backtest results, oldest to newest">${sq}</div>
+      <div class="sqs" data-tk="${esc(tk)}" aria-label="Monthly backtest results, oldest to newest"><span class="n">Loading monthly results…</span></div>
       ${lt ? `<p class="tr-live-line"><span class="pill live">Live</span> Latest lean ${esc(TT.day(lt.d))}: <span class="badge ${(LEAN[lt.lean] || [""])[0]}">${esc((LEAN[lt.lean] || ["", lt.lean])[1])}</span>${lt.px != null ? ` at $${esc(lt.px.toFixed(2))}` : ""}</p>` : ""}
-      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Hit?</th></tr></thead><tbody>${rows}</tbody></table></div></details>
+      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Hit?</th></tr></thead><tbody data-tk="${esc(tk)}"><tr><td colspan="5" class="n">Loading…</td></tr></tbody></table></div></details>
     </article>`;
   }).join("");
+
+  // ---- per stock, lazy: monthly squares load as each stock scrolls into view; the full table only when opened ----
+  const hist = new Map();
+  const loadHist = (tk) => { if (!hist.has(tk)) hist.set(tk, fetch(`/data/track/${encodeURIComponent(tk)}.json`, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).then((j) => j?.history || null).catch(() => null)); return hist.get(tk); };
+  const sqHtml = (h) => h.map((r) => {
+    const c = r.w[P];
+    const cls = !LEAN[r.lean] || r.lean === "mixed" || r.lean === "quiet" ? "none" : !c ? "open" : c.hitX == null ? "open" : c.hitX ? "hit" : "miss";
+    const tip = `${r.d}: ${LEAN[r.lean]?.[1] || r.lean}${c ? ` · stock ${signed(c.r)}${c.x != null ? `, vs S&P ${signed(c.x)}` : ""}` : cls === "open" ? " · window still open" : ""}`;
+    return `<i class="sq ${cls}" title="${esc(tip)}"></i>`;
+  }).join("");
+  const rowsHtml = (h) => h.slice().reverse().map((r) => {
+    const c = r.w[P];
+    const [lc, ll] = LEAN[r.lean] || ["", r.lean];
+    const res = !c ? `<span class="n">open</span>` : r.lean === "tailwind" || r.lean === "headwind" ? (c.hitX == null ? "" : c.hitX ? `<span class="ok">✓ yes</span>` : `<span class="bad">✗ no</span>`) : `<span class="n">no call</span>`;
+    return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${res}</td></tr>`;
+  }).join("");
+  const fail = `<span class="n">Couldn't load this stock's monthly results. Please refresh.</span>`;
+  const fillSq = async (el) => { const h = await loadHist(el.dataset.tk); el.innerHTML = h ? sqHtml(h) : fail; };
+  const sqEls = [...document.querySelectorAll(".sqs[data-tk]")];
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((ents) => { for (const e of ents) if (e.isIntersecting) { io.unobserve(e.target); fillSq(e.target); } }, { rootMargin: "600px 0px" });
+    sqEls.forEach((el) => io.observe(el));
+  } else sqEls.forEach(fillSq);
+  $("#tr-stocks").addEventListener("toggle", async (e) => {
+    const d = e.target; if (!d.open) return;
+    const tb = d.querySelector("tbody[data-tk]"); if (!tb || tb.dataset.done) return;
+    tb.dataset.done = "1";
+    const h = await loadHist(tb.dataset.tk);
+    tb.innerHTML = h ? rowsHtml(h) : `<tr><td colspan="5">${fail}</td></tr>`;
+  }, true);
 
   // ---- live table ----
   $("#live-sub").textContent = live.startedOn

@@ -14,7 +14,7 @@
 
   const monthName = (d) => { const m = /^(\d{4})-(\d{2})/.exec(d || ""); return m ? new Date(Date.UTC(+m[1], +m[2] - 1, 15)).toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" }) : ""; };
   let track = null, trackP = null;
-  const loadTrack = () => (trackP ||= fetch("/data/track-record.json", { cache: "default" }).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((j) => (track = j)));
+  const loadTrack = () => (trackP ||= fetch("/data/track-summary.json", { cache: "default" }).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((j) => (track = j)));
 
   // ---------- steps ----------
   function buildSteps(ctx) {

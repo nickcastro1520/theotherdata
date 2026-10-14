@@ -77,6 +77,9 @@ async function build() {
   for (const f of await readdir(out)) if (/\.(js|css)$/.test(f)) ver[f] = createHash("sha1").update(await readFile(join(out, f))).digest("hex").slice(0, 10);
   const bust = (html) => html.replace(/(src|href)="\/([\w.-]+\.(?:js|css))"/g, (m, a, f) => (ver[f] ? `${a}="/${f}?v=${ver[f]}"` : m));
   for (const f of await readdir(out)) if (f.endsWith(".html")) { const p = join(out, f); await writeFile(p, bust(await readFile(p, "utf8"))); }
+  // Track record split (also written by the refresh workflow; regenerated here so it always matches the full file).
+  try { const { writeTrackSplit } = await import("../lib/track-split.js"); await writeTrackSplit(JSON.parse(await readFile(join(out, "data", "track-record.json"), "utf8")), join(out, "data")); }
+  catch (e) { console.warn(`track split skipped: ${e.message}`); }
   // Real numbers for /how-i-built-this, read from the data snapshot and the test suite at build time.
   try {
     const index = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8"));

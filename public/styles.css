@@ -407,7 +407,7 @@ h2 .pill{vertical-align:middle;margin-left:8px;font-size:12px;letter-spacing:.04
 .tr-s-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 10px}
 .tr-s-nums p{margin:0;font-size:14px}
 .tr-s-nums b{font-family:var(--mono);font-size:16px}
-.sqs{display:flex;flex-wrap:wrap;gap:3px;margin:4px 0 8px}
+.sqs{display:flex;flex-wrap:wrap;gap:3px;margin:4px 0 8px;min-height:25px}
 .sq{display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--line2);vertical-align:middle}
 .sq.hit{background:var(--up)}.sq.miss{background:var(--down)}.sq.none{background:#2a3858}.sq.open{background:transparent;border:1px dashed var(--dim)}
 .sub .sq{margin:0 2px}
@@ -668,4 +668,5 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .permalink #home,.permalink #stocks,.permalink #trackrecord,.permalink #digest,.permalink #how,.permalink #ideas,.permalink #scout{display:none}
 .permalink #detail[hidden]{display:block!important}
 .permalink #detail{min-height:140vh}
-.sqs{content-visibility:auto;contain-intrinsic-size:auto 600px}
+
+.tr-stock{content-visibility:auto;contain-intrinsic-size:auto 280px}
