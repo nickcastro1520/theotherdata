@@ -682,7 +682,7 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 /* scoreboard */
 .sb-counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:0 0 18px}
 .sb-count{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
-.sb-count h3{margin:0 0 8px;font-size:15px}
+.sb-count h2{margin:0 0 8px;font-size:15px}
 .sb-count ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .sb-count li{display:flex;justify-content:space-between;gap:8px}
 .sb-count b{font-family:var(--mono)}

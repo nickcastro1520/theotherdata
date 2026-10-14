@@ -12,7 +12,7 @@
   const lab = (k) => `<span class="sbl ${esc(k === "unproven" ? "" : k)}">${esc(LBL[k])}</span>`;
   const cell = (x) => (!x.calls ? `<span class="n">no calls</span>` : `<span class="pc">${x.pct.toFixed(1).replace(/\.0$/, "")}%</span> <span class="n">${x.hits} of ${x.calls}</span><span class="ci">95% range ${x.ci[0]}–${x.ci[1]}%</span>${lab(x.label)}`);
   const S = b.signals, c = b.counts, n = b.totals.withCalls;
-  const box = (title, k) => `<div class="sb-count"><h3>${esc(title)}</h3><ul>
+  const box = (title, k) => `<div class="sb-count"><h2>${esc(title)}</h2><ul>
     <li><span>${lab("unproven")}</span><b>${c[k].unproven}</b></li><li><span>${lab("up")}</span><b>${c[k].up}</b></li><li><span>${lab("down")}</span><b>${c[k].down}</b></li></ul></div>`;
   $("#sb-summary").innerHTML = `<p class="sub">${n} of ${b.totals.signals} signals made at least one call in the backtest (${esc(month(b.backtest.from))} – ${esc(month(b.backtest.to))}, ${esc(b.windowLabel)} window). The other ${b.totals.signals - n} come from sources without dated history, so they're tracked live only.</p>
     <div class="sb-counts">${box("Up/down right", "dir")}${box("Beat the market (S&P 500)", "mkt")}${box("Beat its sector", "sec")}</div>`;
