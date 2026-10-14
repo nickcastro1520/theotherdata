@@ -193,7 +193,7 @@ for (const t of TICKERS) {
   all.push({
     ticker: d.ticker, name: d.name, sector: d.sector, updatedAt: d.updatedAt, summary: d.summary,
     price: d.market?.quote ? { price: d.market.quote.price, changePct: d.market.quote.changePct } : null,
-    signals: d.signals.map((s) => ({ id: s.id, name: s.name, source: s.source?.name || null, sourceUrl: s.source?.url || null, asOf: s.asOf || null, reading: s.reading || null, pct: s.pct ?? null, status: s.status, display: s.display || null, basis: s.basis || null, series: (s.series || []).slice(-40).map((p) => p.v) })),
+    signals: d.signals.map((s) => ({ id: s.id, name: s.name, source: s.source?.name || null, sourceUrl: s.source?.url || null, asOf: s.asOf || null, reading: s.reading || null, pct: s.pct ?? null, status: s.status, display: s.display || null, basis: s.basis || null, unit: s.unit || null, compare: s.compare || null, freq: s.freq || null, current: s.current ?? null, baseline: s.baseline ?? null, threshold: s.threshold ?? null, series: (s.series || []).slice(-40).map((p) => p.v) })),
     headline: (() => { const a = d.news?.articles?.[0] || d.news?.hn?.[0]; return a ? { title: a.title, domain: a.domain, url: a.url } : null; })(),
   });
 }

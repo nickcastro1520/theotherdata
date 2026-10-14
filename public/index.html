@@ -28,6 +28,7 @@
 <!--GA-->
 <!--GSC-->
 <script src="/symbol-search.js" defer></script>
+<script src="/signal-size.js" defer></script>
 <script src="/featured.js" defer></script>
 <script src="/news-filter.js" defer></script>
 <script src="/subscribe-form.js" defer></script>
@@ -73,7 +74,7 @@
             <button class="btn" type="submit">Show signals</button>
           </div>
         </form>
-        <p class="search-hint" id="search-hint">Search about 14,000 US stocks and ETFs. Curated names get deep signals; everything else gets a light pack.</p>
+        <p class="search-hint" id="search-hint">Search about 14,000 US stocks and ETFs. Curated names get deep signals; everything else gets basic info.</p>
         <div class="chips-wrap"><span class="chips-k">Deep-signal picks</span><div class="chips" id="chips" aria-label="Curated tickers with deep signals"></div></div>
         <div class="home-share" aria-label="Share The Other Data">
           <span class="home-share-k">Share this site</span>
@@ -179,7 +180,7 @@
       <p class="legend-note scout-legend">Same rule as the rest of the site: green/red track whether the <em>public number</em> moved up or down vs its recent baseline. It is not a buy/sell tip.</p>
       <p class="status-line scout-meta" id="scout-meta"></p>
       <div class="scout-grid" id="scout-list"><p class="note">Loading scout results…</p></div>
-      <p class="sub scout-foot">Live signals from this scout also appear on the linked stock pages. Full tables live in the repo under <code>reports/correlation-scout.md</code>.</p>
+      <p class="sub scout-foot">Live signals from this scout also appear on the linked stock pages.</p>
     </div>
   </section>
 
@@ -193,7 +194,7 @@
 </main>
 
 <footer class="foot">
-  <div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div>
+  <div class="wrap">
     <p class="fine"><strong>Not financial advice. For education only.</strong> The Other Data shows public statistics and explains common ways people interpret them. Nothing here is a recommendation to buy, sell, or hold any security. Signals can be wrong, late, or unrelated to a stock's price. Do your own research or talk to a licensed professional.</p>
     <p class="fine">Data: FRED (Federal Reserve Bank of St. Louis), U.S. Census Bureau, BLS, BTS, EIA, SEC EDGAR, openFDA, NHTSA, TSA, Wikimedia, PyPI/pypistats, Hacker News (Algolia), Greenhouse job boards, The GDELT Project. Each card links to its source.</p>
     <p class="fine">Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/signal-walkthrough">How a signal is found</a> · <a href="/how">Method &amp; sources</a> · <a href="/track">Track record</a> · <a href="/privacy">Privacy</a></p>

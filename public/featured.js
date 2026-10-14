@@ -32,6 +32,8 @@
   // reporting artifacts (e.g. a backlog of FDA reports), so they don't headline the page.
   function qualifies(s, { maxAbsPct = 150, minAbsPct = 2 } = {}) {
     if (!s || s.status !== "ok" || !DIRECTIONAL.has(s.reading)) return false;
+    // Rule 3 (public/signal-size.js): too-small samples never headline the hero, digest or share images.
+    if (root.TODSize && !root.TODSize.passes(s)) return false;
     const p = Number(s.pct);
     if (!Number.isFinite(p)) return false;
     const a = Math.abs(p);
@@ -89,12 +91,18 @@ const firstSentence = (s) => { const t = String(s || "").trim(); const m = t.mat
     if (top) return { ...top, reason: "score" };
     const tickers = (index && index.tickers) || [];
     const find = (ok) => { for (const [tk, id] of HOOK_FALLBACK) { const t = tickers.find((x) => x.ticker === tk); const s = t && (t.signals || []).find((x) => x.id === id || String(x.id).startsWith(id)); if (s && ok(s)) return { ticker: t.ticker, name: t.name, signal: s, reason: "fallback" }; } return null; };
-    return find((s) => s.status === "ok" && DIRECTIONAL.has(s.reading)) || find((s) => s.status === "ok") || null;
+    const big = (s) => !root.TODSize || root.TODSize.passes(s);
+    const fb = find((s) => s.status === "ok" && DIRECTIONAL.has(s.reading) && big(s)) || find((s) => s.status === "ok" && big(s));
+    if (fb) return fb;
+    // Last resort: any live signal anywhere that clears the minimum-size rule.
+    for (const t of tickers) for (const s of t.signals || []) if (s.status === "ok" && big(s)) return { ticker: t.ticker, name: t.name, signal: s, reason: "fallback" };
+    return null;
   }
   // "F-150 owner complaints down 43% → Ford"
   function hookLine(p) {
     const s = p.signal, v = Number(s.pct);
-    const mv = Number.isFinite(v) ? (Math.abs(v) < 0.5 ? " about flat" : ` ${v > 0 ? "up" : "down"} ${Math.round(Math.abs(v))}%`) : "";
+    const ba = root.TODSize && root.TODSize.beforeAfter(s);
+    const mv = Number.isFinite(v) ? (Math.abs(v) < 0.5 ? " about flat" : ` ${v > 0 ? "up" : "down"} ${Math.round(Math.abs(v))}%${ba ? ` (${ba.text})` : ""}`) : "";
     return `${s.name}${mv} → ${p.name}`;
   }
 

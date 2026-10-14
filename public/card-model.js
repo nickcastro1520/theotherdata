@@ -47,14 +47,24 @@
     return "";
   }
 
-  // The headline signal for a stock: agrees with the overall lean when there is one, notable before mild, then biggest move.
+  const Z = () => root.TODSize;
+  const big = (s) => !Z() || Z().passes(s);
+  const daysWord = (s) => (Z() ? Z().windowWords(s) : "");
+  const windowName = (s) => { const w = daysWord(s); return !w ? "Snapshots" : w === "a quarter" ? "Quarter vs quarter" : `${w.replace(/^(\d+) (\w+?)s$/, "$1-$2")} windows`; };
+
+  // The headline signal for a stock: only signals that clear the minimum-size rule (signal-size.js),
+  // notable before mild, then biggest move. Share images describe what the data did, never a lean.
   function topSignal(doc) {
-    const lean = doc.summary?.impact?.lean;
-    const sigs = (doc.signals || []).filter(live);
-    const rank = (s) => (s.strength === "notable" ? 2 : s.strength === "mild" ? 1 : 0) * 1000 + Math.min(Math.abs(s.pct || 0), 999);
-    const pick = (arr) => arr.slice().sort((a, b) => rank(b) - rank(a))[0];
-    if (lean === "tailwind" || lean === "headwind") { const s = pick(sigs.filter((x) => x.reading === lean)); if (s) return s; }
-    return pick(sigs.filter(directional)) || pick(sigs) || null;
+    const sigs = (doc.signals || []).filter((s) => live(s) && big(s));
+    const rank = (s) => (directional(s) ? 2000 : 0) + (s.strength === "notable" ? 2 : s.strength === "mild" ? 1 : 0) * 1000 + Math.min(Math.abs(s.pct || 0), 999);
+    return sigs.slice().sort((a, b) => rank(b) - rank(a))[0] || null;
+  }
+
+  // The "what the data did" box on a card: "+46%" and "52 → 76 stories in 4 weeks".
+  function dataBox(s) {
+    if (!s || s.pct == null || !isFinite(s.pct)) return null;
+    const ba = Z() && Z().beforeAfter(s);
+    return { pct: pctTxt(s.pct), raw: ba ? ba.long : "", basis: s.basis || "" };
   }
 
   const stockUrl = (ticker) => `${SITE}/s/${encodeURIComponent(ticker)}`;
@@ -63,49 +73,47 @@
   const signalImg = (ticker, id, vertical) => `/cards/${ticker}/${slug(id)}${vertical ? "-vertical" : ""}.png`;
 
   function stockCard(doc) {
-    const imp = doc.summary?.impact || {};
-    const leanKey = LEAN[imp.lean] ? imp.lean : "mixed";
     const top = topSignal(doc);
-    const others = (doc.signals || []).filter((s) => live(s) && s !== top).slice(0, 3);
-    const tw = doc.summary?.tailwinds ?? 0, hw = doc.summary?.headwinds ?? 0;
+    const others = (doc.signals || []).filter((s) => live(s) && big(s) && s !== top).slice(0, 3);
+    const n = (doc.signals || []).filter(live).length;
     return {
       kind: "stock",
       ticker: doc.ticker, company: doc.name,
       headline: top ? `${top.name} → ${doc.name}` : `Offbeat public data → ${doc.name}`,
-      line: top ? plainLine(top) : "",
+      line: top && Z() ? Z().describe(top) : "",
       topAsOf: top ? fmtDay(top.asOf, top.freq) : "",
-      lean: { key: leanKey, ...LEAN[leanKey] },
-      leanDetail: leanKey === "quiet" ? "Nothing outside its normal range" : `${tw} favorable · ${hw} unfavorable`,
-      strength: imp.magnitude && imp.magnitude !== "unclear" ? cap(imp.magnitude) : "Unclear",
-      window: cap(imp.horizon || WINDOW),
+      box: dataBox(top),
+      facts: [["SIGNALS TRACKED", String(n)], ["COMPARED", top ? windowName(top) : "—"], ["UPDATED", fmtDay(doc.updatedAt)]],
       dataDate: fmtDay(doc.updatedAt),
-      rows: others.map((s) => ({ name: s.name, tone: (SIG_LEAN[s.reading] || SIG_LEAN.neutral).tone, word: (SIG_LEAN[s.reading] || SIG_LEAN.neutral).word })),
+      rows: others.map((s) => ({ name: s.name, change: Z() ? Z().changeText(s) : pctTxt(s.pct) })),
       url: stockUrl(doc.ticker), img: stockImg(doc.ticker), imgVertical: stockImg(doc.ticker, true),
       title: `${doc.name} (${doc.ticker}) Hidden Signals${top ? `: ${top.name}` : ""} | The Other Data`,
-      description: (() => { const n = (doc.signals || []).filter(live).length; return `${LEAN[leanKey].word} (${LEAN[leanKey].sub}) from ${n} offbeat public signal${n === 1 ? "" : "s"} for ${doc.name}${top ? `, led by “${top.name}”` : ""}. Explained in plain English. Education only, not advice.`; })(),
+      description: `${top && Z() ? `${Z().describe(top)} ` : ""}${n} offbeat public signal${n === 1 ? "" : "s"} for ${doc.name}, explained in plain English. Education only, not advice.`,
+      alt: `${top ? `${top.name} → ${doc.name}. ${Z() ? Z().describe(top) : ""}` : `Offbeat public data → ${doc.name}.`} Education only, not advice.`.replace(/\s+/g, " ").trim(),
       shareText: top ? `What “${top.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:` : `The offbeat public data behind ${doc.name} ($${doc.ticker}), explained in plain English:`,
     };
   }
 
   function signalCard(doc, s) {
-    const key = s.status === "tracking" ? "tracking" : SIG_LEAN[s.reading] ? s.reading : "neutral";
+    const line = Z() ? Z().describe(s) : plainLine(s);
     return {
       kind: "signal", id: slug(s.id),
       ticker: doc.ticker, company: doc.name,
       headline: `${s.name} → ${doc.name}`,
-      line: plainLine(s),
+      line: line || plainLine(s),
       big: s.display ? String(s.display) : "",
       bigLabel: s.currentLabel || "",
-      change: s.pct != null ? `${pctTxt(s.pct)} ${s.basis || ""}`.trim() : "",
-      lean: { key, ...SIG_LEAN[key] },
-      leanDetail: s.strength && (key === "tailwind" || key === "headwind") ? `${cap(s.strength)} reading` : SIG_LEAN[key].sub,
-      strength: s.strength && (key === "tailwind" || key === "headwind") ? cap(s.strength) : "—",
-      window: (key === "tailwind" || key === "headwind") ? cap(WINDOW) : "—",
+      change: s.pct != null ? `${Z() ? Z().changeText(s) : pctTxt(s.pct)} ${s.basis || ""}`.trim() : "",
+      box: dataBox(s),
+      facts: [["CURRENT", s.display ? String(s.display) : "—"], ["WINDOW", s.currentLabel ? cap(s.currentLabel) : "—"], ["DATA DATE", s.asOf ? `through ${fmtDay(s.asOf, s.freq)}` : (s.fetchedAt ? `fetched ${fmtDay(s.fetchedAt)}` : "—")]],
+      featured: big(s),
       dataDate: s.asOf ? `Data through ${fmtDay(s.asOf, s.freq)}` : (s.fetchedAt ? `Fetched ${fmtDay(s.fetchedAt)}` : ""),
       source: s.source?.name || "",
-      url: signalUrl(doc.ticker, s.id), img: signalImg(doc.ticker, s.id), imgVertical: signalImg(doc.ticker, s.id, true),
+      // Small samples (rule 3) get no image card of their own.
+      url: signalUrl(doc.ticker, s.id), img: big(s) ? signalImg(doc.ticker, s.id) : null, imgVertical: big(s) ? signalImg(doc.ticker, s.id, true) : null,
       title: `${s.name} → ${doc.name} (${doc.ticker}) | The Other Data`,
-      description: `${plainLine(s)} ${SIG_LEAN[key].word} for ${doc.name}. Free public data explained in plain English. Education only, not advice.`.replace(/\s+/g, " ").trim(),
+      description: `${line || plainLine(s)} Free public data explained in plain English. Education only, not advice.`.replace(/\s+/g, " ").trim(),
+      alt: `${s.name} → ${doc.name}. ${line || ""} Education only, not advice.`.replace(/\s+/g, " ").trim(),
       shareText: `What “${s.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:`,
     };
   }

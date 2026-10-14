@@ -35,7 +35,7 @@
     pop.setAttribute("aria-label", m.kind === "signal" ? "Share this signal" : "Share this stock");
     pop.innerHTML = `
       <div class="share-head"><strong>${m.kind === "signal" ? "Share this signal" : `Share ${esc(m.ticker)}`}</strong><button type="button" class="share-x" aria-label="Close">×</button></div>
-      ${m.img ? `<img class="share-prev" src="${esc(m.img)}" alt="${esc(`Share card: ${m.headline}, ${m.lean.word}`)}" width="1200" height="630" loading="lazy">` : ""}
+      ${m.img ? `<img class="share-prev" src="${esc(m.img)}" alt="${esc(`Share card: ${m.headline}`)}" width="1200" height="630" loading="lazy">` : ""}
       <label class="share-l" for="share-url">Link</label>
       <div class="share-row"><input id="share-url" class="share-url" type="text" readonly value="${esc(m.url)}"><button type="button" class="btn share-copy">Copy link</button></div>
       <div class="share-btns">
@@ -49,7 +49,7 @@
       <div class="share-btns">
         <a class="share-b dl" href="${esc(m.img)}" download="${esc(file(false))}" data-m="download_wide">Image for posts (1200×630)</a>
         <a class="share-b dl" href="${esc(m.imgVertical)}" download="${esc(file(true))}" data-m="download_vertical">TikTok / IG Stories (1080×1920)</a>
-      </div>` : `<p class="share-note">Image cards are made for the curated stocks on the home page.</p>`}
+      </div>` : `<p class="share-note">${m.kind === "signal" ? "This signal is a small sample, so it doesn't get an image card. The link still works." : "Image cards are made for the curated stocks on the home page."}</p>`}
       <p class="share-fine">Education only, not advice.</p>
       <p class="share-msg" role="status" aria-live="polite"></p>`;
     document.body.appendChild(pop);

@@ -10,6 +10,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Worker, isMainThread, parentPort, workerData } from "node:worker_threads";
 import { availableParallelism } from "node:os";
+import "../public/signal-size.js";
 import "../public/card-model.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -27,7 +28,10 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
     items.push({ model: { ...C.stockCard(doc), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
     for (const s of doc.signals || []) {
       if (!(C.live(s) || s.status === "tracking")) continue;
-      const model = { ...C.signalCard(doc, s), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
+      let model = { ...C.signalCard(doc, s), narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
+      // Rule 3 (public/signal-size.js): a too-small sample never gets its own share image.
+      // Its permalink unfurls with the stock card instead, which only features signals that pass.
+      if (!model.featured) model = { ...model, img: C.stockCard(doc).img, imgVertical: null, noImage: true, alt: `${model.headline}. Education only, not advice.` };
       items.push({ model, page: `s/${doc.ticker}/${model.id}.html` });
     }
   }
@@ -50,7 +54,7 @@ export function permalinkHtml(baseHtml, m) {
     `<meta property="og:image" content="${esc(img)}">`,
     `<meta property="og:image:width" content="1200">`,
     `<meta property="og:image:height" content="630">`,
-    `<meta property="og:image:alt" content="${esc(`${m.headline}: ${m.lean.word} (${m.lean.sub}). Education only, not advice.`)}">`,
+    `<meta property="og:image:alt" content="${esc(m.alt || `${m.headline}. Education only, not advice.`)}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${esc(m.title.replace(/ \| The Other Data$/, ""))}">`,
     `<meta name="twitter:description" content="${esc(m.description)}">`,
@@ -97,7 +101,7 @@ export async function buildShareAssets(out, { only = null, pagesOnly = false, lo
   const items = await plan(join(ROOT, "public", "data"), only);
   let r = { ok: 0, failed: 0, errors: [], failedFiles: [] };
   if (!pagesOnly) {
-    const jobs = items.flatMap((it) => [{ model: it.model, size: "wide", file: it.model.img }, { model: it.model, size: "vertical", file: it.model.imgVertical }]);
+    const jobs = items.filter((it) => !it.model.noImage).flatMap((it) => [{ model: it.model, size: "wide", file: it.model.img }, { model: it.model, size: "vertical", file: it.model.imgVertical }]);
     r = await renderAll(out, jobs);
   }
   const failed = new Set(r.failedFiles);

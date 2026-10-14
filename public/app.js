@@ -78,7 +78,6 @@
 
   // ---------- hero: featured real example (live data only; see /featured.js for how it's chosen) ----------
   const FEAT = { picks: [], i: 0, cache: new Map(), timer: null, paused: false, stopped: false };
-  const STRENGTH = { notable: "Notable", mild: "Mild" };
   const loadTicker = (tk) => {
     if (!FEAT.cache.has(tk)) FEAT.cache.set(tk, fetch(`/data/tickers/${encodeURIComponent(tk)}.json`, { cache: "default" }).then((r) => (r.ok ? r.json() : null)).catch(() => null));
     return FEAT.cache.get(tk);
@@ -95,9 +94,9 @@
     const pts = (s.series || []).filter((x) => x && typeof x === "object" && x.t);
     const range = pts.length > 1 ? `${dateOnly(pts[0].t, s.freq)} – ${dateOnly(pts[pts.length - 1].t, s.freq)}` : "";
     const what = s.what ? F.firstSentence(s.what) : s.metric || "";
-    const read = F.plainRead(s.now);
-    const strength = STRENGTH[s.strength] ? `${STRENGTH[s.strength]} ` : "";
-    const leanLabel = `${strength}${READ[s.reading] || s.reading} for ${name}`;
+        // The hero describes what the data did; up/down leans for the stock live on its own page.
+    const Z = window.TODSize;
+    const did = Z ? Z.describe(s) : "";
     const q = d?.market?.quote || (t.price?.price != null ? { price: t.price.price, changePct: t.price.changePct } : null);
     const price = q && Number.isFinite(Number(q.price)) ? `<span class="f-price" title="Stock price, shown for context. The signal doesn't predict it.">$${esc(Number(q.price).toFixed(2))} <span class="chg ${esc(dirOf(q.changePct))}">${esc(pctTxt(q.changePct))}${q.eod ? " last session" : " today"}</span></span>` : "";
     const srcName = s.source?.name || s.source || "";
@@ -114,14 +113,13 @@
         <h2 class="f-h">${esc(s.name)}</h2>
         ${what ? `<p class="f-what">${esc(what)}</p>` : ""}
         <div class="f-nums">
-          <div><div class="spot-big">${esc(s.display || "")}</div><span class="chg ${esc(dir)}" title="Green = the number is up vs its baseline, red = down">${esc(pctTxt(s.pct))} ${dir === "up" ? "▲" : dir === "down" ? "▼" : ""}</span> <span class="f-basis">${esc(s.basis || "")}</span></div>
+          <div><div class="spot-big">${esc(s.display || "")}</div><span class="chg ${esc(dir)}" title="Green = the number is up vs its baseline, red = down">${esc(Z ? Z.changeText(s) : pctTxt(s.pct))}</span> <span class="f-basis">${esc(s.basis || "")}</span></div>
           <div class="f-chart">${spark(vals, dir, { w: 220, h: 64 })}${range ? `<div class="range">${esc(range)}</div>` : ""}</div>
         </div>
       </div>
       <div class="f-step">
-        <p class="f-lab"><span class="f-n">2</span> Which way it leans</p>
-        <p class="f-lean"><span class="badge ${esc(s.reading)}">${esc(leanLabel)}</span></p>
-        ${read ? `<p class="f-read">${esc(read)}</p>` : ""}
+        <p class="f-lab"><span class="f-n">2</span> What the data did</p>
+        ${did ? `<p class="f-read">${esc(did)}</p>` : ""}
       </div>
       ${s.why ? `<div class="f-step"><p class="f-lab"><span class="f-n">3</span> Why it matters</p><p class="f-why">${esc(s.why)}</p></div>` : ""}
       <div class="f-foot">
@@ -184,7 +182,7 @@
       const [cls, txt] = LEAN[t.summary.lean] || ["", t.summary.lean];
       return `<a class="tcard${hide ? " dimmed" : ""}" href="#/${esc(t.ticker)}" data-t="${esc(t.ticker)}">
         <div class="row1"><div><div class="tk">${esc(t.ticker)}</div><div class="nm">${esc(t.name)} · ${esc(t.sector)}</div></div><span class="lean ${cls}">${esc(txt)}</span></div>
-        <ul>${t.signals.map((s) => { const r = readingOf(s); const dir = dirOf(s.pct); return `<li><i class="dot ${r}" title="${esc(READ[r] || r)}"></i><span class="nm2">${esc(s.name)}</span><span class="pc ${dir}" title="Green = up vs baseline, red = down">${s.status === "error" ? "n/a" : esc(pctTxt(s.pct))}</span><span class="mini">${spark(s.series || [], dir, { w: 56, h: 18 })}</span></li>`; }).join("")}</ul>
+        <ul>${t.signals.map((s) => { const r = readingOf(s); const dir = dirOf(s.pct); return `<li><i class="dot ${r}" title="${esc(READ[r] || r)}"></i><span class="nm2">${esc(s.name)}</span><span class="pc ${dir}" title="${esc(`Green = up vs baseline, red = down${window.TODSize?.beforeAfter(s) ? `. ${window.TODSize.beforeAfter(s).text}` : ""}`)}">${s.status === "error" ? "n/a" : esc(pctTxt(s.pct))}</span><span class="mini">${spark(s.series || [], dir, { w: 56, h: 18 })}</span></li>`; }).join("")}</ul>
         ${t.headline ? `<p class="hl">📰 ${esc(t.headline.title)}</p>` : ""}
       </a>`;
     }).join("");
@@ -292,9 +290,12 @@
     const stale = s.status === "stale";
     const vals = (s.series || []).map((p) => p.v);
     const range = s.series?.length > 1 ? `${dateOnly(s.series[0].t, s.freq)} – ${dateOnly(s.series[s.series.length - 1].t, s.freq)}` : "";
-    const badge = s.status === "error" ? `<span class="badge error">Data unavailable</span>` : `<span class="badge ${esc(r)}">${esc(s.strength ? `${s.strength} ` : "")}${esc(READ[r] || r)}</span>`;
+    // Rule 3 (signal-size.js): count signals with too few events keep their lean here, labeled "small sample".
+    const sz = window.TODSize && (s.status === "ok" || s.status === "stale") ? window.TODSize.check(s) : null;
+    const small = sz && sz.kind === "count" && !sz.pass ? ` <span class="badge small" title="${esc(`Small sample: ${sz.baselineCount} events in the baseline window; a move needs at least 20 events and a change of ${Math.ceil(sz.threshold)}+ to be featured.`)}">Small sample</span>` : "";
+    const badge = (s.status === "error" ? `<span class="badge error">Data unavailable</span>` : `<span class="badge ${esc(r)}">${esc(s.strength ? `${s.strength} ` : "")}${esc(READ[r] || r)}</span>`) + small;
     const dir = dirOf(s.pct);
-    const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
+    const nums = s.status === "error" ? "" : `<div class="nums"><div><div class="big">${esc(s.display || "")}</div><div class="lab">${esc(s.currentLabel || "")}</div>${s.pct != null ? `<span class="chg ${esc(dir)}" title="Green = up vs baseline, red = down">${esc(window.TODSize ? window.TODSize.changeText(s) : pctTxt(s.pct))} ${esc(s.basis || "")}</span>` : ""}</div><div>${spark(vals, dir, { h: 84 })}<div class="range">${esc(range)}</div></div></div>`;
     let scoutBox = "";
     if (s.scout) {
       // Prefer current reading; if still in the noise band, hint from polarity × series direction
@@ -440,7 +441,7 @@
     document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
-    const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Light pack</span> ${esc(d.packNote || "Light signal pack for this ticker. Curated names on the home page have richer custom signals.")}</div>` : "";
+    const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Basic info</span> ${esc(`Deep signals are available for our ${INDEX?.tickers?.length || 35} curated stocks. This stock gets basic public data only.`)}</div>` : "";
     const limited = d.pack === "light" && d.dataNote ? `<div class="${d.dataLevel === "limited" ? "warnbox limited" : "note-box"}">${d.dataLevel === "limited" ? "<strong>Limited data for this stock.</strong> " : ""}${esc(d.dataLevel === "limited" ? d.dataNote.replace(/^Limited data for this stock\.\s*/, "") : d.dataNote)}</div>` : "";
     det.innerHTML = `<div class="wrap">
       <div class="dtop"><a class="back" href="${PERMALINK() ? "/" : "#"}">← All stocks</a><div class="dtop-r"><button type="button" class="share-btn" data-share-stock aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button><button type="button" class="help-pill" data-tour-start aria-label="How to read this page: start the guided tour"><span aria-hidden="true">?</span> How to read this page</button></div></div>
@@ -558,7 +559,7 @@
     const closeSug = () => { sug.classList.remove("open"); sug.innerHTML = ""; sugItems = []; sugIdx = -1; };
     const openTicker = (sym) => { closeSug(); location.hash = `#/${String(sym).toUpperCase()}`; };
     const cur = curatedSet();
-    const badge = (it) => (it.curated || cur.has(it.symbol) ? `<span class="pill deep">Deep signals</span>` : `<span class="pill light">Light pack</span>`);
+    const badge = (it) => (it.curated || cur.has(it.symbol) ? `<span class="pill deep">Deep signals</span>` : `<span class="pill light">Basic info</span>`);
     const renderSug = (items) => {
       sugItems = items || [];
       sugIdx = -1;
@@ -598,7 +599,7 @@
     };
     const warm = () => { const p = loadDir(); if (p) p.then(() => { updateHint(); if (q.value.trim() && document.activeElement === q) suggest(); }); };
     const hint = $("#search-hint");
-    const updateHint = () => { if (hint && dirCount) hint.textContent = `Search all ${dirCount.toLocaleString()} US-listed stocks and ETFs by ticker or company name. Curated names have deep signals; everything else gets a light pack.`; };
+    const updateHint = () => { if (hint && dirCount) hint.textContent = `Search all ${dirCount.toLocaleString()} US-listed stocks and ETFs by ticker or company name. Curated names have deep signals; everything else gets basic info.`; };
     q.addEventListener("focus", warm, { once: true });
     q.addEventListener("pointerenter", warm, { once: true });
     q.addEventListener("input", () => {

@@ -8,6 +8,7 @@ import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import "../public/subscribe-form.js";
 import { buildShareAssets } from "./cards.mjs";
+import "../public/signal-size.js";
 import "../public/featured.js";
 import "../public/card-model.js";
 
@@ -16,14 +17,14 @@ const escH = (x) => String(x ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", 
 // The above-the-fold "hook": one striking live example, rendered into the HTML at build time
 // (data refreshes redeploy every 4 hours), so it shows instantly with no layout shift.
 export function hookFor(index, docs = {}) {
-  const F = globalThis.TODFeatured, C = globalThis.TODCard;
+  const F = globalThis.TODFeatured, C = globalThis.TODCard, Z = globalThis.TODSize;
   const p = F.hook(index);
   if (!p) return null;
   const doc = docs[p.ticker];
-  const s = (doc?.signals || []).find((x) => x.id === p.signal.id) || p.signal;
-  const lean = s.reading === "tailwind" ? { tone: "up", word: `Leans up for ${p.name}` } : s.reading === "headwind" ? { tone: "down", word: `Leans down for ${p.name}` } : { tone: "flat", word: `No clear lean for ${p.name}` };
+  const s = { ...p.signal, ...((doc?.signals || []).find((x) => x.id === p.signal.id) || {}) };
   const card = doc ? C.signalCard(doc, s) : null;
-  return { ...p, signal: s, line: F.hookLine({ ...p, signal: s }), lean, num: s.display || "", basis: s.basis || "", read: F.plainRead(s.now) || "", url: C.signalUrl(p.ticker, s.id), card };
+  // What the data did, never which way the stock "leans" (leans live on stock pages only).
+  return { ...p, signal: s, line: Z.describe(s), change: Z.changeText(s), num: s.display || "", basis: s.basis || "", read: F.plainRead(s.now) || "", url: C.signalUrl(p.ticker, s.id), card };
 }
 
 export function hookHtml(h) {
@@ -31,8 +32,8 @@ export function hookHtml(h) {
   return `<a class="hook" href="${escH(h.url.replace("https://theotherdata.com", ""))}" data-ticker="${escH(h.ticker)}">
           <span class="hook-k"><span class="pulse" aria-hidden="true"></span> Today's hidden signal · live data</span>
           <span class="hook-line">${escH(h.line)}</span>
-          <span class="hook-row"><span class="hook-lean ${h.lean.tone}">${h.lean.tone === "up" ? "▲" : h.lean.tone === "down" ? "▼" : "–"} ${escH(h.lean.word)}</span>${h.num ? `<span class="hook-num">${escH(h.num)}${h.basis ? ` <small>· ${escH(h.basis.replace(/^vs /, "vs "))}</small>` : ""}</span>` : ""}</span>
-          <span class="hook-why">See why →</span>
+          <span class="hook-row"><span class="hook-co">${escH(h.ticker)} · ${escH(h.name)}</span>${h.change ? `<span class="hook-num">${escH(h.change)}${h.basis ? ` <small>· ${escH(h.basis)}</small>` : ""}</span>` : ""}</span>
+          <span class="hook-why">See the data →</span>
         </a>`;
 }
 
@@ -113,10 +114,10 @@ async function build() {
       try {
         const { renderCard } = await import("../lib/card-render.js");
         await mkdir(join(out, "cards"), { recursive: true });
-        await writeFile(join(out, "cards", "home.png"), await renderCard({ ...h.card, headline: h.line }, "wide"));
+        await writeFile(join(out, "cards", "home.png"), await renderCard(h.card, "wide"));
         const img = "https://theotherdata.com/cards/home.png";
         html = html.replace(/(<meta (?:property="og:image"|name="twitter:image") content=")[^"]*"/g, `$1${img}"`)
-          .replace(/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${escH(`${h.line}: ${h.lean.word}. The Other Data, education only.`)}">`);
+          .replace(/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${escH(`${h.line} The Other Data, education only.`)}">`);
       } catch (e) { console.warn(`home card skipped: ${e.message}`); }
     }
     await writeFile(ip, html);
