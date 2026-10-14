@@ -4,6 +4,7 @@
 // Env vars win; otherwise site.config.json is used. Both are empty by default.
 import { readFile, writeFile, mkdir, cp, rm, readdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import "../public/subscribe-form.js";
 import { buildShareAssets } from "./cards.mjs";
@@ -71,6 +72,24 @@ async function build() {
     const p = join(out, f);
     await writeFile(p, transformHtml(await readFile(p, "utf8"), s));
   }
+  // Cache-bust local JS/CSS with a content hash so they can be cached for a week (vercel.json) yet update instantly.
+  const ver = {};
+  for (const f of await readdir(out)) if (/\.(js|css)$/.test(f)) ver[f] = createHash("sha1").update(await readFile(join(out, f))).digest("hex").slice(0, 10);
+  const bust = (html) => html.replace(/(src|href)="\/([\w.-]+\.(?:js|css))"/g, (m, a, f) => (ver[f] ? `${a}="/${f}?v=${ver[f]}"` : m));
+  for (const f of await readdir(out)) if (f.endsWith(".html")) { const p = join(out, f); await writeFile(p, bust(await readFile(p, "utf8"))); }
+  // Real numbers for /how-i-built-this, read from the data snapshot and the test suite at build time.
+  try {
+    const index = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8"));
+    const tr = JSON.parse(await readFile(join(out, "data", "track-record.json"), "utf8"));
+    const sigs = index.tickers.flatMap((t) => t.signals || []);
+    const srcs = new Set(sigs.map((x) => x.source).filter(Boolean));
+    const bt = tr.backtest?.summary?.["1m"] || {};
+    let tests = 0;
+    for (const f of await readdir(join(ROOT, "test"))) if (f.endsWith(".test.js")) tests += ((await readFile(join(ROOT, "test", f), "utf8")).match(/^test\(/gm) || []).length;
+    const stats = { stocks: index.tickers.length, signals: sigs.length, sources: srcs.size + 2, calls: (bt.calls || 0).toLocaleString("en-US"), hit: bt.calls ? `${Math.round((bt.hits / bt.calls) * 100)}%` : "n/a", tests };
+    const bp = join(out, "how-i-built-this.html");
+    await writeFile(bp, (await readFile(bp, "utf8")).replace(/<!--STAT:(\w+)-->/g, (_, k) => String(stats[k] ?? "")));
+  } catch (e) { console.warn(`built-page stats skipped: ${e.message}`); }
   // Home hook + a home share image that shows the same example. Failures fall back to /og.png and no hook.
   try {
     const index = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8"));

@@ -110,7 +110,7 @@
       <div class="f-co"><div><span class="f-tk">${esc(p.ticker)}</span> <span class="f-name">${esc(name)}</span></div>${price}</div>
       <div class="f-step">
         <p class="f-lab"><span class="f-n">1</span> The offbeat data</p>
-        <h3>${esc(s.name)}</h3>
+        <h2 class="f-h">${esc(s.name)}</h2>
         ${what ? `<p class="f-what">${esc(what)}</p>` : ""}
         <div class="f-nums">
           <div><div class="spot-big">${esc(s.display || "")}</div><span class="chg ${esc(dir)}" title="Green = the number is up vs its baseline, red = down">${esc(pctTxt(s.pct))} ${dir === "up" ? "▲" : dir === "down" ? "▼" : ""}</span> <span class="f-basis">${esc(s.basis || "")}</span></div>
@@ -496,7 +496,7 @@
   }
 
   function showHome() {
-    document.title = "The Other Data: hidden market signals, explained in plain English";
+    document.title = "The Other Data: Hidden Signals Behind Stocks, Explained Simply";
     $("#detail").hidden = true;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = false; }
   }
@@ -622,13 +622,13 @@
           const res = await fetch(`/api/lookup?q=${encodeURIComponent(v)}`);
           const d = await res.json();
           if (!res.ok) {
-            $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">${esc(d.message || "No match.")}</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+            $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">${esc(d.message || `We couldn't find a US stock matching “${v}”.`)}</p><p class="note">Try a ticker like AMZN or a company name like Roblox.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
             return;
           }
           history.replaceState(null, "", `#/${d.ticker}`);
           renderDetail(d);
         } catch {
-          $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">Lookup failed. Please try again.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
+          $("#detail").innerHTML = `<div class="wrap"><p class="warnbox">The lookup service didn't respond. Please try again in a moment.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
         }
       })();
     });

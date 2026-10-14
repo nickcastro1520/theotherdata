@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How I Built This: An Automated Alt-Data Pipeline | The Other Data</title>
+<meta name="description" content="How I built The Other Data: a scheduled pipeline that pulls free public data every 4 hours, scores leans, writes guarded AI summaries, and publishes for free.">
+<link rel="canonical" href="https://theotherdata.com/how-i-built-this">
+<meta property="og:site_name" content="The Other Data">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://theotherdata.com/how-i-built-this">
+<meta property="og:title" content="How I Built This: An Automated Alt-Data Pipeline">
+<meta property="og:description" content="How I built The Other Data: a scheduled pipeline that pulls free public data every 4 hours, scores leans, writes guarded AI summaries, and publishes for free.">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How I Built This: An Automated Alt-Data Pipeline">
+<meta name="twitter:description" content="How I built The Other Data: a scheduled pipeline that pulls free public data every 4 hours, scores leans, writes guarded AI summaries, and publishes for free.">
+<meta name="twitter:image" content="https://theotherdata.com/og.png">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<!--GA-->
+<!--GSC-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="theotherdata home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/how-i-built-this" aria-current="page">How I built this</a></nav>
+    <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+<main id="main" class="doc built">
+  <div class="wrap">
+    <p class="eyebrow-k">Case study</p>
+    <h1>How I built this</h1>
+    <p class="lede-sm">I'm Nick Castro. The Other Data is a fully automated pipeline I designed and shipped, working with AI assistants, that turns free public data into plain-English stock signals. Here's the problem, how it works, and the tradeoffs I made.</p>
+
+    <ul class="stat-row" aria-label="Real numbers from the live site">
+      <li><b><!--STAT:stocks--></b><span>curated stocks</span></li>
+      <li><b><!--STAT:signals--></b><span>live signals</span></li>
+      <li><b><!--STAT:sources--></b><span>data sources</span></li>
+      <li><b>4h</b><span>refresh cadence</span></li>
+      <li><b><!--STAT:calls--></b><span>backtested calls</span></li>
+      <li><b><!--STAT:hit--></b><span>1-month hit rate (honest)</span></li>
+      <li><b><!--STAT:tests--></b><span>automated tests</span></li>
+    </ul>
+
+    <h2>The problem</h2>
+    <p>Alternative data (airport traffic, shipping, app installs, job postings) is powerful, but it's opaque and expensive. Funds pay big money for it, and regular people rarely see it explained.</p>
+
+    <h2>Who it's for</h2>
+    <p>Curious retail investors and learners who want to understand <em>why</em> a number might matter to a company, in plain English, without hype.</p>
+
+    <h2>How it works</h2>
+    <figure class="diagram-wrap"><svg class="diagram" viewBox="0 0 960 330" role="img" aria-labelledby="dg-title dg-desc">
+<title id="dg-title">Pipeline diagram</title>
+<desc id="dg-desc">Free public data sources feed a GitHub Actions job every 4 hours. It computes leans, writes guarded AI summaries, and commits static data. Vercel builds the site and share cards. A weekly digest goes out through Resend, and a monthly correlation scout proposes new signals.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="dg-ah"/></marker></defs>
+<g class="dg-n src"><rect x="10" y="30" width="200" height="56" rx="10"/><text x="110.0" y="54" text-anchor="middle" class="dg-t">Free public sources</text><text x="110.0" y="73" text-anchor="middle" class="dg-s">FRED · EIA · SEC · TSA · FDA</text></g>
+<g class="dg-n src"><rect x="10" y="110" width="200" height="56" rx="10"/><text x="110.0" y="134" text-anchor="middle" class="dg-t">Developer &amp; web data</text><text x="110.0" y="153" text-anchor="middle" class="dg-s">Wikipedia · PyPI · npm · jobs</text></g>
+<g class="dg-n src"><rect x="10" y="190" width="200" height="56" rx="10"/><text x="110.0" y="214" text-anchor="middle" class="dg-t">Market data</text><text x="110.0" y="233" text-anchor="middle" class="dg-s">Finnhub news · Tiingo prices</text></g>
+<g class="dg-n core"><rect x="280" y="110" width="190" height="56" rx="10"/><text x="375.0" y="134" text-anchor="middle" class="dg-t">GitHub Actions</text><text x="375.0" y="153" text-anchor="middle" class="dg-s">every 4 hours</text></g>
+<g class="dg-n core"><rect x="540" y="30" width="190" height="56" rx="10"/><text x="635.0" y="54" text-anchor="middle" class="dg-t">Compute leans</text><text x="635.0" y="73" text-anchor="middle" class="dg-s">vs recent past / last year</text></g>
+<g class="dg-n core"><rect x="540" y="110" width="190" height="56" rx="10"/><text x="635.0" y="134" text-anchor="middle" class="dg-t">AI summaries</text><text x="635.0" y="153" text-anchor="middle" class="dg-s">advice filter + lean check</text></g>
+<g class="dg-n core"><rect x="540" y="190" width="190" height="56" rx="10"/><text x="635.0" y="214" text-anchor="middle" class="dg-t">Track record</text><text x="635.0" y="233" text-anchor="middle" class="dg-s">backtest + live scoring</text></g>
+<g class="dg-n out"><rect x="790" y="70" width="160" height="56" rx="10"/><text x="870.0" y="94" text-anchor="middle" class="dg-t">Vercel build</text><text x="870.0" y="113" text-anchor="middle" class="dg-s">site + share cards</text></g>
+<g class="dg-n out"><rect x="790" y="170" width="160" height="56" rx="10"/><text x="870.0" y="194" text-anchor="middle" class="dg-t">Weekly digest</text><text x="870.0" y="213" text-anchor="middle" class="dg-s">Resend · double opt-in</text></g>
+<g class="dg-n core"><rect x="280" y="250" width="190" height="56" rx="10"/><text x="375.0" y="274" text-anchor="middle" class="dg-t">Correlation scout</text><text x="375.0" y="293" text-anchor="middle" class="dg-s">monthly, finds new ideas</text></g>
+<g class="dg-l" marker-end="url(#ar)">
+<path d="M210 58 L280 125"/><path d="M210 138 L280 138"/><path d="M210 218 L280 150"/>
+<path d="M470 125 L540 58"/><path d="M470 138 L540 138"/><path d="M470 150 L540 218"/>
+<path d="M730 58 L790 92"/><path d="M730 138 L790 104"/><path d="M730 218 L790 198"/>
+<path d="M375 166 L375 250"/>
+</g>
+</svg><figcaption>The whole pipeline runs on free tiers. No servers to babysit.</figcaption></figure>
+    <ul class="built-list">
+      <li><strong>Scheduled pipeline.</strong> A GitHub Actions workflow runs every 4 hours. It pulls FRED, EIA, SEC EDGAR, TSA, openFDA, NHTSA, Wikipedia pageviews, pypistats and npm downloads, Hacker News, and public job boards, plus Finnhub news and Tiingo prices. Then it commits the results as static JSON.</li>
+      <li><strong>Leans.</strong> Each signal is compared with its own recent past or last year. Big enough moves become a tailwind or headwind, and the signals roll up into one lean per stock.</li>
+      <li><strong>AI summaries with guardrails.</strong> Gemini writes a short plain-English summary from the numbers on the page. An advice filter rejects buy/sell language, and a consistency validator rejects any summary that disagrees with the page's lean.</li>
+      <li><strong>Correlation scout.</strong> A monthly job tests offbeat public series against stock prices and writes up the most promising ideas, with clear caveats.</li>
+      <li><strong>Share cards.</strong> At build time, every stock and signal gets its own 1200×630 social card and its own link, so shares unfurl nicely on X, LinkedIn, and Facebook.</li>
+      <li><strong>Weekly digest.</strong> A Vercel cron job builds a weekly email and sends it through Resend to confirmed subscribers only (double opt-in, one-click unsubscribe).</li>
+      <li><strong>Hosting.</strong> Static site plus a few serverless functions on Vercel. Every data commit redeploys automatically.</li>
+    </ul>
+
+    <h2>Key decisions and tradeoffs</h2>
+    <ul class="built-list">
+      <li><strong>Leans, not buy/sell.</strong> The site explains which way a clue points. It never tells anyone what to trade. It's education only.</li>
+      <li><strong>Publish the honest backtest.</strong> Across past checkpoints the leans called the 1-month direction right about as often as a coin flip. I show that openly instead of cherry-picking winners.</li>
+      <li><strong>Drop Wikipedia bot spikes.</strong> One day, "Roblox" got about 4.8 million views versus roughly 7,000 normally. Isolated one-day bursts are now ignored so bots can't fake a surge.</li>
+      <li><strong>Prices vs volume.</strong> Cardboard box <em>prices</em> can rise because costs rose, not because more boxes shipped. So Amazon now leans on Federal Reserve paperboard <em>output</em>, and box prices are shown only as context.</li>
+      <li><strong>Static and free.</strong> Precomputed JSON, build-time images, and free API tiers keep it fast, cheap, and hard to break.</li>
+    </ul>
+    <p><a href="/how">Full method and source list →</a> · <a href="/track">See the track record →</a></p>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/privacy">Privacy</a></p></div></footer>
+</body>
+</html>

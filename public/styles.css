@@ -1,6 +1,6 @@
 :root{
   --bg:#070b16;--bg2:#0b1020;--panel:#0f1629;--panel2:#131c33;--line:#1f2a44;--line2:#2a3858;
-  --ink:#e8edf7;--mut:#9aa8c3;--dim:#6b7a99;
+  --ink:#e8edf7;--mut:#9aa8c3;--dim:#8d9bb8;
   --teal:#5eead4;--teal2:#2dd4bf;--amber:#fbbf24;--violet:#a78bfa;
   --up:#34d399;--upbg:rgba(52,211,153,.12);--down:#f87171;--downbg:rgba(248,113,113,.12);--flat:#94a3b8;--flatbg:rgba(148,163,184,.12);
   --warn:#fbbf24;--warnbg:rgba(251,191,36,.12);
@@ -32,8 +32,9 @@ nav.main a{color:var(--mut);text-decoration:none;font-size:15px}nav.main a:hover
 .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,#000 0,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 0,transparent 85%);pointer-events:none}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:44px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--teal);background:rgba(94,234,212,.08);border:1px solid rgba(94,234,212,.25);padding:5px 12px;border-radius:999px;font-weight:600;letter-spacing:.01em}
-.pulse{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(94,234,212,.7);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(94,234,212,0)}100%{box-shadow:0 0 0 0 rgba(94,234,212,0)}}
+.pulse{position:relative;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(94,234,212,.6);animation:pulse 2s infinite;will-change:transform,opacity}
+@keyframes pulse{0%{transform:scale(1);opacity:.7}70%{transform:scale(3.2);opacity:0}100%{transform:scale(3.2);opacity:0}}
 .hero h1{font-size:clamp(34px,5.4vw,60px);line-height:1.04;letter-spacing:-.035em;margin:18px 0 16px;background:linear-gradient(180deg,#fff 30%,#b9c6e2);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{font-size:18.5px;color:var(--mut);max-width:620px;margin:0 0 26px}
 .picker{display:block;max-width:600px;margin:0}
@@ -306,7 +307,7 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .f-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--line2);background:var(--panel);color:var(--mut);font:700 17px/1 system-ui,sans-serif;cursor:pointer;display:grid;place-items:center;padding:0}
 .f-btn:hover{color:#fff;border-color:var(--teal)}
 .f-dots{display:flex;gap:2px;padding:0 2px}
-.f-dot{width:18px;height:28px;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center}
+.f-dot{width:24px;height:28px;border:0;background:transparent;cursor:pointer;padding:0;display:grid;place-items:center}
 .f-dot::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--line2);transition:all .2s}
 .f-dot.on::after{width:16px;border-radius:4px;background:var(--teal)}
 .f-co{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:0 0 12px;border-bottom:1px solid var(--line);margin:0 0 4px}
@@ -318,7 +319,7 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
 .f-step:last-of-type{border-bottom:0}
 .f-lab{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
 .f-n{width:19px;height:19px;border-radius:50%;display:inline-grid;place-items:center;background:rgba(94,234,212,.12);color:var(--teal);font:800 11px var(--mono);letter-spacing:0}
-.f-step h3{margin:0 0 4px;font-size:21px;letter-spacing:-.01em}
+.f-step h3,.f-step .f-h{margin:0 0 4px;font-size:21px;letter-spacing:-.01em}
 .f-what,.f-why,.f-read{margin:0;color:var(--mut);font-size:14.5px;line-height:1.5}
 .f-read{color:var(--ink);font-size:15.5px;margin-top:8px}
 .f-nums{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:end;margin-top:10px}
@@ -365,7 +366,7 @@ section.band h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.025em;line-hei
   .spotlight.feature{padding:16px 16px 14px;margin-top:22px}
   .f-btn{display:none}
   .f-head .spot-k{font-size:11px;letter-spacing:.1em}
-  .f-step h3{font-size:19px}
+  .f-step h3,.f-step .f-h{font-size:19px}
   .f-nums{grid-template-columns:1fr;gap:6px}
   .f-foot .btn{width:100%;text-align:center}
   .hiw li{padding:14px}
@@ -644,3 +645,21 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .hs-b:hover{border-color:var(--teal);color:#fff}
 .hs-msg{font-size:13px;color:var(--teal)}
 @media (max-width:560px){.hook{padding:14px;margin-bottom:16px}.hook-line{font-size:22px}}
+
+/* How I built this */
+.stat-row{list-style:none;padding:0;margin:26px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;max-width:980px}
+.stat-row li{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:14px 16px;max-width:none}
+.stat-row b{display:block;font-size:26px;color:var(--teal);letter-spacing:-.02em}
+.stat-row span{font-size:13.5px;color:var(--mut)}
+.diagram-wrap{margin:18px 0 20px;max-width:980px}
+.diagram{width:100%;height:auto;background:var(--panel);border:1px solid var(--line2);border-radius:var(--r)}
+.diagram-wrap figcaption{font-size:13.5px;color:var(--mut);margin-top:8px}
+.dg-n rect{fill:#131c33;stroke:#2a3858;stroke-width:1.5}
+.dg-n.core rect{stroke:#5eead4}.dg-n.out rect{stroke:#fbbf24}
+.dg-t{fill:#e8edf7;font:600 15px system-ui,sans-serif}.dg-s{fill:#9aa8c3;font:12px system-ui,sans-serif}
+.dg-l path{stroke:#6b7a99;stroke-width:1.6;fill:none}.dg-ah{fill:#6b7a99}
+.built-list li{margin:0 0 10px}
+
+/* Skip layout/paint of below-the-fold home sections until they scroll near (big speed win on phones). */
+#stocks,#trackrecord,#how,#scout,#ideas{content-visibility:auto;contain-intrinsic-size:auto 1100px}
+.f-head .pulse::after{background:rgba(251,191,36,.6)}

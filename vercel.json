@@ -67,11 +67,11 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js|card-model.js|share.js)",
+      "source": "/(app.js|how.js|ga.js|styles.css|symbol-search.js|featured.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js|card-model.js|share.js)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=300, stale-while-revalidate=86400"
+          "value": "public, max-age=604800, stale-while-revalidate=2592000"
         }
       ]
     },
