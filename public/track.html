@@ -27,6 +27,7 @@
 <script src="/subscribe-form.js" defer></script>
 <script src="/track-text.js" defer></script>
 <script src="/track.js" defer></script>
+<script src="/signal-study.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -67,6 +68,12 @@
       <h2 id="live-h">Live log <span class="pill live">Live</span></h2>
       <p class="sub" id="live-sub"></p>
       <div class="tblwrap"><table class="tbl" id="live-table"><thead><tr><th>Stock</th><th>Latest logged lean</th><th>Price when logged</th><th>Logged</th><th>Live results</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section aria-labelledby="st-h" id="study">
+      <h2 id="st-h">Can we beat a coin flip? <span class="pill bt">Out-of-sample test</span></h2>
+      <p class="sub">We tried to make the leans smarter: score every signal on its own against the S&amp;P 500, keep the ones that helped, mute the ones that didn't, only lean when enough kept signals agree, and add new free data. Every choice for a year was made using only earlier years, then tested on that year.</p>
+      <div id="study-body"><p class="n">Loading…</p></div>
     </section>
 
     <section aria-labelledby="m-h">

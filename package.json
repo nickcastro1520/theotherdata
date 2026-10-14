@@ -16,6 +16,7 @@
     "scout": "node scripts/correlation-scout.mjs",
     "track": "node scripts/track-record.mjs",
     "track:backtest": "node scripts/track-record.mjs --backtest",
+    "study": "node scripts/model-study.mjs",
     "scout:fast": "node scripts/correlation-scout.mjs --fast"
   },
   "dependencies": {
