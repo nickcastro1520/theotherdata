@@ -329,7 +329,7 @@
         <div><h4>Why it might matter for ${esc(d.ticker)}</h4><p>${esc(s.why)}</p></div>
         <div class="now"><h4>What it's showing now</h4><p>${esc(s.now)}</p></div>
       </div>
-      <p class="srcline">Source: ${s.source?.url ? `<a href="${esc(safeUrl(s.source.url))}" rel="noopener" target="_blank">${esc(s.source.name)}</a>` : esc(s.source?.name || "")}${s.asOf ? ` · data through ${esc(dateOnly(s.asOf, s.freq))}` : ""} · fetched ${esc(when(s.fetchedAt))}${s.source?.note ? ` · ${esc(s.source.note)}` : ""}${d.pack !== "light" && s.status !== "error" ? ` · <button type="button" class="share-sig" data-share-signal="${esc(window.TODCard ? window.TODCard.slug(s.id) : s.id)}" aria-haspopup="dialog">Share this signal</button>` : ""}</p>
+      <p class="srcline">Source: ${s.source?.url ? `<a href="${esc(safeUrl(s.source.url))}" rel="noopener" target="_blank">${esc(s.source.name)}</a>` : esc(s.source?.name || "")}${s.asOf ? ` · data through ${esc(dateOnly(s.asOf, s.freq))}` : ""} · fetched ${esc(when(s.fetchedAt))}${s.source?.note ? ` · ${esc(s.source.note)}` : ""}${s.version ? ` · <a class="sig-ver" href="/scoreboard#s-${esc(d.ticker)}-${esc(s.id)}" title="Rules frozen: any change to this signal's logic or thresholds starts a new version with its own track record">v${esc(s.version.v)} since ${esc(dateOnly(s.version.since, "daily"))}</a>` : ""}${d.pack !== "light" && s.status !== "error" ? ` · <button type="button" class="share-sig" data-share-signal="${esc(window.TODCard ? window.TODCard.slug(s.id) : s.id)}" aria-haspopup="dialog">Share this signal</button>` : ""}</p>
     </article>`;
   }
 

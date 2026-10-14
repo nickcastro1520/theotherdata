@@ -1,0 +1,145 @@
+{
+ "generatedAt": "2026-10-14T19:29:06.134Z",
+ "lagOnly": {
+  "records": 1576,
+  "summary": {
+   "2w": {
+    "calls": 1040,
+    "hits": 522,
+    "vsMktCalls": 1032,
+    "vsMktHits": 515,
+    "vsSecCalls": 1032,
+    "vsSecHits": 529,
+    "upShare": 0.5683,
+    "tailwind": {
+     "n": 593,
+     "hits": 333,
+     "avgX": 0.0069,
+     "avgR": 0.0158
+    },
+    "headwind": {
+     "n": 447,
+     "hits": 189,
+     "avgX": 0.012,
+     "avgR": 0.0213
+    },
+    "noCall": 501
+   },
+   "1m": {
+    "calls": 1040,
+    "hits": 511,
+    "vsMktCalls": 1032,
+    "vsMktHits": 499,
+    "vsSecCalls": 1032,
+    "vsSecHits": 530,
+    "upShare": 0.5558,
+    "tailwind": {
+     "n": 593,
+     "hits": 321,
+     "avgX": 0.0104,
+     "avgR": 0.0258
+    },
+    "headwind": {
+     "n": 447,
+     "hits": 190,
+     "avgX": 0.0152,
+     "avgR": 0.0312
+    },
+    "noCall": 501
+   },
+   "1q": {
+    "calls": 999,
+    "hits": 496,
+    "vsMktCalls": 991,
+    "vsMktHits": 471,
+    "vsSecCalls": 991,
+    "vsSecHits": 494,
+    "upShare": 0.6066,
+    "tailwind": {
+     "n": 571,
+     "hits": 337,
+     "avgX": 0.0151,
+     "avgR": 0.0634
+    },
+    "headwind": {
+     "n": 428,
+     "hits": 159,
+     "avgX": 0.0452,
+     "avgR": 0.0988
+    },
+    "noCall": 472
+   }
+  }
+ },
+ "alfred": {
+  "records": 1576,
+  "summary": {
+   "2w": {
+    "calls": 1058,
+    "hits": 537,
+    "vsMktCalls": 1050,
+    "vsMktHits": 527,
+    "vsSecCalls": 1050,
+    "vsSecHits": 542,
+    "upShare": 0.5652,
+    "tailwind": {
+     "n": 605,
+     "hits": 341,
+     "avgX": 0.0058,
+     "avgR": 0.0144
+    },
+    "headwind": {
+     "n": 453,
+     "hits": 196,
+     "avgX": 0.0104,
+     "avgR": 0.0196
+    },
+    "noCall": 483
+   },
+   "1m": {
+    "calls": 1058,
+    "hits": 522,
+    "vsMktCalls": 1050,
+    "vsMktHits": 515,
+    "vsSecCalls": 1050,
+    "vsSecHits": 542,
+    "upShare": 0.5548,
+    "tailwind": {
+     "n": 605,
+     "hits": 328,
+     "avgX": 0.0086,
+     "avgR": 0.0241
+    },
+    "headwind": {
+     "n": 453,
+     "hits": 194,
+     "avgX": 0.0138,
+     "avgR": 0.0299
+    },
+    "noCall": 483
+   },
+   "1q": {
+    "calls": 1018,
+    "hits": 508,
+    "vsMktCalls": 1010,
+    "vsMktHits": 481,
+    "vsSecCalls": 1010,
+    "vsSecHits": 500,
+    "upShare": 0.6031,
+    "tailwind": {
+     "n": 584,
+     "hits": 344,
+     "avgX": 0.0138,
+     "avgR": 0.0613
+    },
+    "headwind": {
+     "n": 434,
+     "hits": 164,
+     "avgX": 0.0406,
+     "avgR": 0.0935
+    },
+    "noCall": 453
+   }
+  }
+ }
+}

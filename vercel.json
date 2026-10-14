@@ -67,7 +67,7 @@
       ]
     },
     {
-      "source": "/(app.js|how.js|ga.js|styles.css|symbol-search.js|featured.js|signal-size.js|track.js|track-text.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js|card-model.js|share.js)",
+      "source": "/(app.js|how.js|ga.js|styles.css|symbol-search.js|featured.js|signal-size.js|track.js|track-text.js|scoreboard.js|tour.js|how-to-read.js|subscribe-form.js|news-filter.js|digest.js|card-model.js|share.js)",
       "headers": [
         {
           "key": "Cache-Control",

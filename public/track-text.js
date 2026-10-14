@@ -30,7 +30,7 @@
     const lv = t.live && t.live.summary && t.live.summary[w];
     const parts = [];
     if (bt && bt.calls) {
-      parts.push(`In the backtest (${month(doc.backtest.from)}–${month(doc.backtest.to)}, ${t.backtest.signalsUsed} of ${t.signals} signals), ${tk}'s tailwind/headwind leans were up/down right over 1 month ${bt.hits} of ${bt.calls} times (${fmtPct(bt.hits, bt.calls)}). Beat the market (did the stock do better than the S&P 500 over the same time, or worse for a headwind): ${bt.vsMktHits} of ${bt.vsMktCalls} times (${fmtPct(bt.vsMktHits, bt.vsMktCalls)}).`);
+      parts.push(`In the backtest (${month(doc.backtest.from)}–${month(doc.backtest.to)}, ${t.backtest.signalsUsed} of ${t.signals} signals), ${tk}'s tailwind/headwind leans were up/down right over 1 month ${bt.hits} of ${bt.calls} times (${fmtPct(bt.hits, bt.calls)}). Beat the market (did the stock do better than the S&P 500 over the same time, or worse for a headwind): ${bt.vsMktHits} of ${bt.vsMktCalls} times (${fmtPct(bt.vsMktHits, bt.vsMktCalls)}).${bt.vsSecCalls ? ` Beat its sector (${t.sectorEtf || "sector ETF"}): ${bt.vsSecHits} of ${bt.vsSecCalls} times (${fmtPct(bt.vsSecHits, bt.vsSecCalls)}).` : ""}`);
     } else if (t.backtest) {
       parts.push(`No backtested calls for ${tk} yet.`);
     }
@@ -44,12 +44,13 @@
   const BEAT_LABEL = "Beat the market";
   const BEAT_EXPLAIN = "Beat the market: did this stock do better than the S&P 500 over the same time? (For a headwind lean, the test is whether it did worse.) This is the tougher, fairer test, because in a rising market almost every stock goes up.";
   const UPDOWN_LABEL = "Up/down right";
+  const SECTOR_EXPLAIN = "Beat its sector: the same test against the company's sector fund (for example XLK for tech stocks), so a chip maker is judged against other tech stocks, not the whole market.";
   // Both scores side by side, in plain English. Returns null when there are no calls.
   function bothScores(s) {
     if (!s || !s.calls) return null;
     return { upDown: { hits: s.hits, calls: s.calls, pct: pct(s.hits, s.calls), text: fmtPct(s.hits, s.calls) },
       beat: s.vsMktCalls ? { hits: s.vsMktHits, calls: s.vsMktCalls, pct: pct(s.vsMktHits, s.vsMktCalls), text: fmtPct(s.vsMktHits, s.vsMktCalls) } : null };
   }
-  const api = { pct, fmtPct, verdict, stockLine, day, month, bothScores, BEAT_LABEL, BEAT_EXPLAIN, UPDOWN_LABEL };
+  const api = { pct, fmtPct, verdict, stockLine, day, month, bothScores, BEAT_LABEL, BEAT_EXPLAIN, UPDOWN_LABEL, SECTOR_EXPLAIN };
   root.TODTrack = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);

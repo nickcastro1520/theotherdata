@@ -78,6 +78,19 @@ async function build() {
   for (const f of await readdir(out)) if (/\.(js|css)$/.test(f)) ver[f] = createHash("sha1").update(await readFile(join(out, f))).digest("hex").slice(0, 10);
   const bust = (html) => html.replace(/(src|href)="\/([\w.-]+\.(?:js|css))"/g, (m, a, f) => (ver[f] ? `${a}="/${f}?v=${ver[f]}"` : m));
   for (const f of await readdir(out)) if (f.endsWith(".html")) { const p = join(out, f); await writeFile(p, bust(await readFile(p, "utf8"))); }
+  // Signal versions ("v1 since DATE" on each card), straight from the frozen-rules registry.
+  try {
+    const { TICKERS } = await import("../lib/catalog.js");
+    const { loadRegistry, versionsFor } = await import("../lib/signal-versions.js");
+    const reg = loadRegistry();
+    for (const t of TICKERS) {
+      const p = join(out, "data", "tickers", `${t.ticker}.json`);
+      let doc; try { doc = JSON.parse(await readFile(p, "utf8")); } catch { continue; }
+      const v = versionsFor(reg, t);
+      for (const sg of doc.signals || []) if (v[sg.id]) sg.version = v[sg.id];
+      await writeFile(p, JSON.stringify(doc));
+    }
+  } catch (e) { console.warn(`signal versions skipped: ${e.message}`); }
   // Track record split (also written by the refresh workflow; regenerated here so it always matches the full file).
   try { const { writeTrackSplit } = await import("../lib/track-split.js"); await writeTrackSplit(JSON.parse(await readFile(join(out, "data", "track-record.json"), "utf8")), join(out, "data")); }
   catch (e) { console.warn(`track split skipped: ${e.message}`); }

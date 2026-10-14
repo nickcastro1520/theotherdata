@@ -38,9 +38,10 @@
   $("#bt-tiles").innerHTML = `
     <div class="tr-tile"><p class="k">Up/down right</p><p class="big">${TT.fmtPct(p.hits, p.calls)}</p><p class="n">${p.hits} of ${p.calls} calls · 1 month</p></div>
     <div class="tr-tile"><p class="k">Beat the market</p><p class="big">${TT.fmtPct(p.vsMktHits, p.vsMktCalls)}</p><p class="n">${p.vsMktHits} of ${p.vsMktCalls} · a coin flip is 50%</p></div>
+    <div class="tr-tile"><p class="k">Beat its sector</p><p class="big">${TT.fmtPct(p.vsSecHits, p.vsSecCalls)}</p><p class="n">${p.vsSecHits ?? 0} of ${p.vsSecCalls ?? 0} · vs the stock's sector ETF</p></div>
     <div class="tr-tile"><p class="k">"Always guess up" on the same calls</p><p class="big">${p.upShare == null ? "n/a" : `${(p.upShare * 100).toFixed(1)}%`}</p><p class="n">How often these stocks simply rose</p></div>
-    <p class="tr-explain"><strong>Up/down right:</strong> did the stock move the way the lean pointed? <strong>${esc(TT.BEAT_EXPLAIN)}</strong></p>`;
-  $("#bt-table tbody").innerHTML = W.map((w) => { const s = bt.summary[w.key]; return `<tr><td>${esc(w.label)}</td><td>${s.calls}</td><td>${ratio(s.hits, s.calls)}</td><td>${ratio(s.vsMktHits, s.vsMktCalls)}</td><td>${s.upShare == null ? "n/a" : `${(s.upShare * 100).toFixed(1)}%`}</td><td>${signed(s.tailwind.avgX)} <span class="n">(${s.tailwind.n})</span></td><td>${signed(s.headwind.avgX)} <span class="n">(${s.headwind.n})</span></td></tr>`; }).join("");
+    <p class="tr-explain"><strong>Up/down right:</strong> did the stock move the way the lean pointed? <strong>${esc(TT.BEAT_EXPLAIN)}</strong> ${esc(TT.SECTOR_EXPLAIN)} <a href="/scoreboard">See every signal on the scoreboard →</a></p>`;
+  $("#bt-table tbody").innerHTML = W.map((w) => { const s = bt.summary[w.key]; return `<tr><td>${esc(w.label)}</td><td>${s.calls}</td><td>${ratio(s.hits, s.calls)}</td><td>${ratio(s.vsMktHits, s.vsMktCalls)}</td><td>${ratio(s.vsSecHits || 0, s.vsSecCalls || 0)}</td><td>${s.upShare == null ? "n/a" : `${(s.upShare * 100).toFixed(1)}%`}</td><td>${signed(s.tailwind.avgX)} <span class="n">(${s.tailwind.n})</span></td><td>${signed(s.headwind.avgX)} <span class="n">(${s.headwind.n})</span></td></tr>`; }).join("");
 
   // ---- per stock ----
   $("#tr-stocks").innerHTML = Object.entries(doc.tickers).map(([tk, t]) => {
@@ -49,10 +50,10 @@
     return `<article class="tr-stock" id="t-${esc(tk)}">
       <div class="tr-s-head"><div><a class="tk" href="/#/${esc(tk)}">${esc(tk)}</a> <span class="nm">${esc(t.name)}</span></div>
         <span class="n">${t.backtest.signalsUsed} of ${t.signals} signals backtested</span></div>
-      <div class="tr-s-nums"><div><p class="k">Up/down right</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Beat the market</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
+      <div class="tr-s-nums"><div><p class="k">Up/down right</p><p>${ratio(s.hits, s.calls)}</p></div><div><p class="k">Beat the market</p><p>${ratio(s.vsMktHits, s.vsMktCalls)}</p></div><div><p class="k">Beat its sector${t.sectorEtf ? ` (${esc(t.sectorEtf)})` : ""}</p><p>${ratio(s.vsSecHits || 0, s.vsSecCalls || 0)}</p></div><div><p class="k">Tail / head calls</p><p><b>${s.tailwind.n}</b> <span class="n">/</span> <b>${s.headwind.n}</b></p></div></div>
       <div class="sqs" data-tk="${esc(tk)}" aria-label="Monthly backtest results, oldest to newest"><span class="n">Loading monthly results…</span></div>
       ${lt ? `<p class="tr-live-line"><span class="pill live">Live</span> Latest lean ${esc(TT.day(lt.d))}: <span class="badge ${(LEAN[lt.lean] || [""])[0]}">${esc((LEAN[lt.lean] || ["", lt.lean])[1])}</span>${lt.px != null ? ` at $${esc(lt.px.toFixed(2))}` : ""}</p>` : ""}
-      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Up/down right?</th><th>Beat the market?</th></tr></thead><tbody data-tk="${esc(tk)}"><tr><td colspan="6" class="n">Loading…</td></tr></tbody></table></div></details>
+      <details><summary>Every checkpoint (hover a lean to see its signals)</summary><div class="tblwrap"><table class="tbl tr-hist"><thead><tr><th>Date</th><th>Lean</th><th>Stock</th><th>Vs S&amp;P</th><th>Up/down right?</th><th>Beat the market?</th><th>Beat its sector?</th></tr></thead><tbody data-tk="${esc(tk)}"><tr><td colspan="7" class="n">Loading…</td></tr></tbody></table></div></details>
     </article>`;
   }).join("");
 
@@ -71,7 +72,7 @@
     const call = r.lean === "tailwind" || r.lean === "headwind";
     const yn = (v) => (v == null ? "" : v ? `<span class="ok">✓ yes</span>` : `<span class="bad">✗ no</span>`);
     const cell = (k) => (!c ? `<span class="n">open</span>` : call ? yn(c[k]) : `<span class="n">no call</span>`);
-    return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${cell("hit")}</td><td>${cell("hitX")}</td></tr>`;
+    return `<tr><td>${esc(r.d)}</td><td><span class="badge ${lc}" title="${esc(sigTip(r.sig))}">${esc(ll)}</span></td><td>${c ? signed(c.r) : "n/a"}</td><td>${c && c.x != null ? signed(c.x) : "n/a"}</td><td>${cell("hit")}</td><td>${cell("hitX")}</td><td>${cell("hitS")}</td></tr>`;
   }).join("");
   const fail = `<span class="n">Couldn't load this stock's monthly results. Please refresh.</span>`;
   const fillSq = async (el) => { const h = await loadHist(el.dataset.tk); el.innerHTML = h ? sqHtml(h) : fail; };
@@ -85,7 +86,7 @@
     const tb = d.querySelector("tbody[data-tk]"); if (!tb || tb.dataset.done) return;
     tb.dataset.done = "1";
     const h = await loadHist(tb.dataset.tk);
-    tb.innerHTML = h ? rowsHtml(h) : `<tr><td colspan="6">${fail}</td></tr>`;
+    tb.innerHTML = h ? rowsHtml(h) : `<tr><td colspan="7">${fail}</td></tr>`;
   }, true);
 
   // ---- live table ----
@@ -105,7 +106,9 @@
   for (const [tk, c] of Object.entries(bt.coverage)) for (const u of c.used) lagRows.push([tk, u]);
   $("#bt-method").innerHTML = `<li>${esc(bt.note)}</li>
     <li>Every checkpoint runs the <strong>same code</strong> the live site uses to turn a series into a tailwind, headwind, or neutral reading and to combine readings into an overall lean.</li>
-    <li>Publication delays we assume: daily market data 1 to 8 days, weekly data 1 to 7 days, monthly government data 35 to 90 days after the month starts, SEC inventory from the date it was first filed (using the number as first reported).</li>
+    ${bt.pointInTime ? `<li><strong>Numbers as published at the time.</strong> Federal Reserve (FRED) series come from <a href="https://alfred.stlouisfed.org/" rel="noopener" target="_blank">ALFRED</a>, the St. Louis Fed's archive of past releases: each checkpoint sees exactly what had been released by the day before, so real release dates and no later revisions. ${esc(bt.pointInTime.checkpoints)} series-dates use a vintage${bt.pointInTime.fallback ? `; ${esc(bt.pointInTime.fallback)} fall back to a conservative delay` : ""}.</li>` : ""}
+    <li>Delays we assume for other sources: Wikipedia and TSA 1 day, Hacker News only closed weeks, EIA weekly 6 days, SEC inventory from the date it was first filed (using the number as first reported).</li>
+    <li><strong>Frozen rules.</strong> Every signal has a version (all are v1 now). Changing a signal's logic or thresholds starts a new version with its own track record, and an automated test fails if the logic changes without a new version.</li>
     <li>Wikipedia pages with a baseline under ${esc(bt.minWikiBaseline)} views a day are ignored, so a page being created doesn't look like a surge of interest.</li>
     <li>A signal only counts on dates where it has enough history; for example the junk-bond spread history available for free starts in late 2023.</li>`;
   $("#skipped tbody").innerHTML = Object.entries(bt.coverage).flatMap(([tk, c]) => c.skipped.map((s) => `<tr><td>${esc(tk)}</td><td>${esc(s.name)}</td><td>${esc(s.why)}</td></tr>`)).join("") || `<tr><td colspan="3">None</td></tr>`;

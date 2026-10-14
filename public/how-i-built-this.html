@@ -32,7 +32,7 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
       <span>the<b>other</b>data</span>
     </a>
-    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough">How a signal is found</a><a href="/how-i-built-this" aria-current="page">How I built this</a></nav>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/scoreboard">Scoreboard</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough">How a signal is found</a><a href="/how-i-built-this" aria-current="page">How I built this</a></nav>
     <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
   </div>
 </header>
@@ -97,6 +97,7 @@
       <li><strong>Leans, not buy/sell.</strong> The site explains which way a clue points. It never tells anyone what to trade. It's education only.</li>
       <li><strong>Publish the honest backtest.</strong> Across past checkpoints the leans called the 1-month direction right about as often as a coin flip, and beat the S&amp;P 500 slightly less often. I show that up front instead of cherry-picking winners. Rigor is the product.</li>
       <li><strong>Test improvements out of sample, and say when they fail.</strong> I tried weighting the signals that had worked, muting the ones that hadn&rsquo;t, a conviction threshold, and five new free data sources, choosing everything for each year using only earlier years. None beat a coin flip by more than chance, so the live method stayed the same and the full test is on the <a href="/track#study">track record page</a>.</li>
+      <li><strong>Hold every signal to a standard, in public.</strong> The <a href="/scoreboard">signal scoreboard</a> scores each signal on its own with a 95% confidence range and labels it &ldquo;Not proven yet&rdquo; until the range clears 50%. The backtest uses Federal Reserve data exactly as first published at the time (ALFRED vintages), compares each stock with its sector fund as well as the S&amp;P 500, and every signal&rsquo;s rules are versioned, with a test that fails if the logic changes without a new version.</li>
       <li><strong>Drop Wikipedia bot spikes.</strong> One day, "Roblox" got about 4.8 million views versus roughly 7,000 normally. Isolated one-day bursts are now ignored so bots can't fake a surge.</li>
       <li><strong>Prices vs volume.</strong> Cardboard box <em>prices</em> can rise because costs rose, not because more boxes shipped. So Amazon now leans on Federal Reserve paperboard <em>output</em>, and box prices are shown only as context.</li>
       <li><strong>Static and free.</strong> Precomputed JSON, build-time images, and free API tiers keep it fast, cheap, and hard to break.</li>
@@ -107,7 +108,7 @@
       <li><strong>Honest measurement.</strong> Every claim on the site is scored, with confidence ranges, and changes only ship if they hold up on data they weren&rsquo;t tuned on.</li>
       <li><strong>Built to last.</strong> <!--STAT:tests--> automated tests, static output, and free tiers mean it keeps working without me touching it.</li>
     </ul>
-    <p><a href="/signal-walkthrough">How a signal is found →</a> · <a href="/how">Full method and source list →</a> · <a href="/track">See the track record →</a></p>
+    <p><a href="/signal-walkthrough">How a signal is found →</a> · <a href="/how">Full method and source list →</a> · <a href="/track">See the track record →</a> · <a href="/scoreboard">Signal scoreboard →</a></p>
   </div>
 </main>
 <footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/privacy">Privacy</a></p></div></footer>

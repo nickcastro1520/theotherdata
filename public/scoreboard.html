@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Signal Scoreboard: Which Signals Are Proven? | The Other Data</title>
+<meta name="description" content="Every offbeat signal scored on its own: hit rate, number of calls, and a 95% confidence range, vs the S&amp;P 500 and the stock's sector. Most are not proven yet. Education only.">
+<link rel="canonical" href="https://theotherdata.com/scoreboard">
+<meta property="og:site_name" content="The Other Data">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theotherdata.com/scoreboard">
+<meta property="og:title" content="Signal Scoreboard: Which Signals Are Proven?">
+<meta property="og:description" content="Every offbeat signal scored on its own: hit rate, number of calls, and a 95% confidence range, vs the S&amp;P 500 and the stock's sector. Most are not proven yet. Education only.">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Signal Scoreboard: Which Signals Are Proven?">
+<meta name="twitter:description" content="Every offbeat signal scored on its own: hit rate, number of calls, and a 95% confidence range, vs the S&amp;P 500 and the stock's sector. Most are not proven yet. Education only.">
+<meta name="twitter:image" content="https://theotherdata.com/og.png">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/styles.css">
+<!--GA-->
+<!--GSC-->
+<script src="/subscribe-form.js" defer></script>
+<script src="/scoreboard.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="theotherdata home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/scoreboard" aria-current="page">Scoreboard</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough">How a signal is found</a><a href="/how-i-built-this">How I built this</a></nav>
+    <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Past results, real or backtested, don't predict future ones.</div></div>
+<main id="main" class="doc track">
+  <div class="wrap">
+    <p class="eyebrow-k">Signal scoreboard</p>
+    <h1>Which signals have actually worked?</h1>
+    <p class="lede-sm">Every one of our curated signals, scored <strong>on its own</strong> in the backtest. Each time a signal read <b class="tw">tailwind</b> or <b class="hw">headwind</b> on a monthly checkpoint, that's one call; we then check what the stock did over the next month, three ways: <strong>up/down right</strong>, <strong>beat the market</strong> (vs the S&amp;P 500), and <strong>beat its sector</strong> (vs the company's sector fund).</p>
+    <div class="tr-verdict" id="sb-explain">
+      <p class="k">How to read the ranges</p>
+      <p>A hit rate on 25 calls is a rough guess. The <strong>95% range</strong> shows where the true hit rate plausibly sits given how few calls there are (a Wilson score interval). If the range includes 50%, the signal is <span class="sbl">Not proven yet</span>: it could be a coin flip. Only a range entirely above 50% earns <span class="sbl up">Holding up</span>; entirely below 50% is <span class="sbl down">Worse than a coin flip</span>. With a few dozen calls per signal, most signals honestly land in the middle.</p>
+    </div>
+    <div id="sb-summary"><div class="spot-skel"></div></div>
+    <section aria-labelledby="sb-top-h">
+      <h2 id="sb-top-h">Closest to proven</h2>
+      <p class="sub">Ranked by the low end of the beat-the-market range, the most cautious read.</p>
+      <ol id="sb-top"></ol>
+    </section>
+    <section aria-labelledby="sb-all-h">
+      <h2 id="sb-all-h">Every signal</h2>
+      <div class="sb-tools"><label for="sb-sort">Sort by</label> <select id="sb-sort"><option value="stock">Stock</option><option value="mkt">Beat the market (cautious)</option><option value="dir">Up/down right (cautious)</option><option value="calls">Most calls</option></select></div>
+      <div class="tblwrap"><table class="tbl sb-tbl" id="sb-table"><caption class="sr-only">Every curated signal's backtest record, 1-month window</caption><thead><tr><th scope="col">Stock</th><th scope="col">Signal</th><th scope="col">Calls</th><th scope="col">Up/down right</th><th scope="col">Beat the market</th><th scope="col">Beat its sector</th></tr></thead><tbody><tr><td colspan="6" class="n">Loading…</td></tr></tbody></table></div>
+    </section>
+    <section aria-labelledby="sb-m-h">
+      <h2 id="sb-m-h">Method</h2>
+      <ul id="sb-method"></ul>
+    </section>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Past results, real or backtested, don't predict future ones. Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/how">Method &amp; sources</a> · <a href="/privacy">Privacy</a></p></div></footer>
+</body>
+</html>
