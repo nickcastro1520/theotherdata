@@ -1,0 +1,22 @@
+name: IndexNow ping
+
+# Once a day, tells IndexNow search engines (Bing, Yandex, etc.) about every URL in the live sitemap.
+on:
+  schedule:
+    - cron: "47 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node --test test/indexnow.test.js
+      - run: node scripts/indexnow.mjs
