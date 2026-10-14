@@ -2,11 +2,32 @@
  "version": 1,
  "issueId": "2026-W42",
  "weekOf": "Oct 12, 2026",
- "generatedAt": "2026-10-13T23:52:25.885Z",
- "dataUpdatedAt": "2026-10-13T23:45:48.560Z",
- "subject": "This week's strangest signals: F-150 owner complaints, On curiosity, Tech chatter about Palantir",
- "preheader": "F-150 owner complaints for Ford: −43% vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
+ "generatedAt": "2026-10-14T05:13:38.014Z",
+ "dataUpdatedAt": "2026-10-14T05:04:27.268Z",
+ "subject": "This week's strangest signals: Tech chatter about Palantir, F-150 owner complaints, On curiosity",
+ "preheader": "Tech chatter about Palantir for Palantir: +100% vs the 4 weeks before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
+  {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+100%",
+   "pct": 100,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 14, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
+  },
   {
    "ticker": "F",
    "company": "Ford",
@@ -33,8 +54,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "+91%",
-   "pct": 91.2,
+   "change": "+92%",
+   "pct": 91.8,
    "direction": "up",
    "basis": "vs the 28 days before",
    "reading": "tailwind",
@@ -42,33 +63,12 @@
    "plain": "More people are looking up On than in recent weeks.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 12, 2026",
+   "dataThrough": "Oct 13, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
    },
    "url": "https://theotherdata.com/#/ONON"
-  },
-  {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+78%",
-   "pct": 77.8,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 13, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
-   },
-   "url": "https://theotherdata.com/#/PLTR"
   },
   {
    "ticker": "TSLA",
@@ -92,38 +92,38 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+65%",
-   "pct": 64.6,
+   "ticker": "LLY",
+   "company": "Eli Lilly",
+   "id": "tirzepatide-reports",
+   "signal": "Mounjaro/Zepbound usage footprint",
+   "change": "+27%",
+   "pct": 27.3,
    "direction": "up",
-   "basis": "vs the 4 weeks before",
+   "basis": "vs the same period last year",
    "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
-   "dataThrough": "Oct 13, 2026",
+   "strength": "mild",
+   "plain": "The drug's footprint is growing versus a year ago.",
+   "what": "Reports of side effects filed with the FDA that mention tirzepatide, Lilly's blockbuster weight-loss and diabetes drug.",
+   "why": "More patients means more reports, so the trend is a rough, unusual proxy for how fast use is growing.",
+   "dataThrough": "Jun 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+    "name": "openFDA (U.S. Food & Drug Administration)",
+    "url": "https://open.fda.gov/apis/drug/event/"
    },
-   "url": "https://theotherdata.com/#/MSFT"
+   "url": "https://theotherdata.com/#/LLY"
   }
  ],
  "story": {
-  "ticker": "F",
-  "company": "Ford",
-  "signal": "F-150 owner complaints",
-  "title": "F-150 owner complaints fell 43% (vs the 3 months before)",
+  "ticker": "PLTR",
+  "company": "Palantir",
+  "signal": "Tech chatter about Palantir",
+  "title": "Tech chatter about Palantir rose 100% (vs the 4 weeks before)",
   "paragraphs": [
-   "Complaints F-150 owners file with the National Highway Traffic Safety Administration. Complaint surges are how many recalls and investigations start.",
-   "Why it might matter for Ford: the F-Series is Ford's profit machine, and Ford has led the industry in recalls. Rising complaints can foreshadow recall and warranty costs.",
-   "What it shows now: complaints have eased versus the prior few months. We read that as a mild tailwind for Ford, which is a clue, not a forecast."
+   "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read. It is a rough gauge of developer chatter.",
+   "Why it might matter for Palantir: palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation. Note: chatter includes criticism too.",
+   "What it shows now: the tech crowd is talking about Palantir more than usual. We read that as a notable tailwind for Palantir, which is a clue, not a forecast."
   ],
-  "url": "https://theotherdata.com/#/F"
+  "url": "https://theotherdata.com/#/PLTR"
  },
  "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.1% of the time (516 of 1051). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
  "links": {
