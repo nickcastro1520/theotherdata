@@ -40,7 +40,9 @@
       <div class="share-row"><input id="share-url" class="share-url" type="text" readonly value="${esc(m.url)}"><button type="button" class="btn share-copy">Copy link</button></div>
       <div class="share-btns">
         <a class="share-b x" href="${esc(links.x)}" target="_blank" rel="noopener" data-m="x">Post on X</a>
-        <a class="share-b li" href="${esc(links.linkedin)}" target="_blank" rel="noopener" data-m="linkedin">Share on LinkedIn</a>
+        <a class="share-b fb" href="${esc(links.facebook)}" target="_blank" rel="noopener" data-m="facebook">Facebook</a>
+        <a class="share-b li" href="${esc(links.linkedin)}" target="_blank" rel="noopener" data-m="linkedin">LinkedIn</a>
+        <a class="share-b wa" href="${esc(links.whatsapp)}" target="_blank" rel="noopener" data-m="whatsapp">WhatsApp</a>
         ${navigator.share ? `<button type="button" class="share-b more" data-m="native">More…</button>` : ""}
       </div>
       ${m.img ? `<p class="share-l">Download the card</p>
@@ -74,6 +76,31 @@
     setTimeout(() => document.addEventListener("pointerdown", onOutside, true), 0);
     pop.querySelector(".share-copy").focus();
   }
+
+  // Home-page share row (static links in the HTML; this only wires copy + native share).
+  function initHome() {
+    const row = document.querySelector(".home-share");
+    if (!row) return;
+    const url = "https://theotherdata.com/", text = "The hidden signals behind the stocks you know, explained in plain English:";
+    const msg = row.querySelector(".hs-msg");
+    const nat = row.querySelector('[data-home-share="native"]');
+    if (nat && navigator.share) nat.hidden = false;
+    row.addEventListener("click", async (e) => {
+      const b = e.target.closest("[data-home-share]");
+      if (!b) return;
+      const m = { kind: "site", ticker: "home" };
+      const k = b.dataset.homeShare;
+      if (k === "copy") {
+        let ok = false;
+        try { await navigator.clipboard.writeText(url); ok = true; } catch {}
+        msg.textContent = ok ? "Link copied." : url;
+        if (ok) track("copy_link", m);
+      } else if (k === "native") {
+        try { await navigator.share({ title: "The Other Data", text, url }); track("native", m); } catch {}
+      } else track(k, m);
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initHome); else initHome();
 
   window.TODShare = { open, close };
 })();

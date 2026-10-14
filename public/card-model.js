@@ -81,7 +81,7 @@
       dataDate: fmtDay(doc.updatedAt),
       rows: others.map((s) => ({ name: s.name, tone: (SIG_LEAN[s.reading] || SIG_LEAN.neutral).tone, word: (SIG_LEAN[s.reading] || SIG_LEAN.neutral).word })),
       url: stockUrl(doc.ticker), img: stockImg(doc.ticker), imgVertical: stockImg(doc.ticker, true),
-      title: `${doc.ticker}: ${top ? `${top.name} → ${doc.name}` : `${doc.name} hidden signals`} | The Other Data`,
+      title: `${doc.name} (${doc.ticker}) Hidden Signals${top ? `: ${top.name}` : ""} | The Other Data`,
       description: (() => { const n = (doc.signals || []).filter(live).length; return `${LEAN[leanKey].word} (${LEAN[leanKey].sub}) from ${n} offbeat public signal${n === 1 ? "" : "s"} for ${doc.name}${top ? `, led by “${top.name}”` : ""}. Explained in plain English. Education only, not advice.`; })(),
       shareText: top ? `What “${top.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:` : `The offbeat public data behind ${doc.name} ($${doc.ticker}), explained in plain English:`,
     };
@@ -113,6 +113,8 @@
   const shareLinks = (url, text) => ({
     x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`,
   });
 
   const api = { SITE, LEAN, SIG_LEAN, slug, plainLine, topSignal, stockCard, signalCard, shareLinks, stockUrl, signalUrl, live };

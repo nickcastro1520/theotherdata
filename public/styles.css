@@ -626,3 +626,21 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 @media (max-width:640px){.share-pop{left:16px;right:16px;top:auto;bottom:16px;width:auto}}
 .digest-line{margin:18px 0 0;font-size:.85rem;color:var(--muted,#8a8f98);text-align:center}
 .digest-line a{color:inherit;text-decoration:underline;font-weight:600}
+
+/* Above-the-fold hook: one live example, rendered at build time (no layout shift). */
+.hook{display:block;text-decoration:none;color:var(--ink);background:linear-gradient(135deg,rgba(94,234,212,.10),rgba(15,22,41,.9));border:1px solid rgba(94,234,212,.45);border-radius:var(--r);padding:16px 18px;margin:0 0 20px;max-width:620px;transition:border-color .15s,transform .15s}
+.hook:hover{color:var(--ink);border-color:var(--teal);transform:translateY(-1px)}
+.hook-k{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.hook-line{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:8px 0 10px}
+.hook-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.hook-lean{font-weight:700;font-size:15px;padding:4px 10px;border-radius:999px}
+.hook-lean.up{color:var(--up);background:var(--upbg)}.hook-lean.down{color:var(--down);background:var(--downbg)}.hook-lean.flat{color:var(--flat);background:var(--flatbg)}
+.hook-num{font-family:var(--mono);font-size:15px;color:var(--ink)}.hook-num small{font-family:inherit;color:var(--mut);font-size:13px}
+.hook-why{display:inline-block;margin-top:10px;color:var(--teal);font-weight:600}
+/* Home share row */
+.home-share{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 4px}
+.home-share-k{font-size:13px;color:var(--mut);margin-right:4px}
+.hs-b{font:inherit;font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line2);background:var(--panel);color:var(--ink);text-decoration:none;cursor:pointer}
+.hs-b:hover{border-color:var(--teal);color:#fff}
+.hs-msg{font-size:13px;color:var(--teal)}
+@media (max-width:560px){.hook{padding:14px;margin-bottom:16px}.hook-line{font-size:22px}}

@@ -79,6 +79,25 @@
 // and a capital after it).
 const firstSentence = (s) => { const t = String(s || "").trim(); const m = t.match(/^(.+?[a-z0-9)\u201d"%][.!?])(?=\s+["\u201cA-Z]|$)/s); return m ? m[1] : t; };
 
-  const api = { pick, qualifies, score, offbeatWeight, plainRead, firstSentence, FLAGSHIP };
+
+  // The one above-the-fold "hook" example. Rule: the highest-scoring live signal with a real lean
+  // (offbeat weight × size of move, believable range). If nothing qualifies, walk a curated fallback
+  // order and take the first signal there that is live and directional, then any live one at all.
+  const HOOK_FALLBACK = [["AMZN", "paperboard"], ["DAL", "tsa-dal"], ["UAL", "tsa-ual"], ["F", "f150-complaints"], ["TSLA", "modely-complaints"], ["NVDA", "pytorch-installs"], ["SBUX", "coffee"], ["MCD", "eggs"]];
+  function hook(index) {
+    const top = pick(index, { limit: 1, flagship: [] })[0];
+    if (top) return { ...top, reason: "score" };
+    const tickers = (index && index.tickers) || [];
+    const find = (ok) => { for (const [tk, id] of HOOK_FALLBACK) { const t = tickers.find((x) => x.ticker === tk); const s = t && (t.signals || []).find((x) => x.id === id || String(x.id).startsWith(id)); if (s && ok(s)) return { ticker: t.ticker, name: t.name, signal: s, reason: "fallback" }; } return null; };
+    return find((s) => s.status === "ok" && DIRECTIONAL.has(s.reading)) || find((s) => s.status === "ok") || null;
+  }
+  // "F-150 owner complaints down 43% → Ford"
+  function hookLine(p) {
+    const s = p.signal, v = Number(s.pct);
+    const mv = Number.isFinite(v) ? (Math.abs(v) < 0.5 ? " about flat" : ` ${v > 0 ? "up" : "down"} ${Math.round(Math.abs(v))}%`) : "";
+    return `${s.name}${mv} → ${p.name}`;
+  }
+
+  const api = { hook, hookLine, HOOK_FALLBACK, pick, qualifies, score, offbeatWeight, plainRead, firstSentence, FLAGSHIP };
   root.TODFeatured = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);

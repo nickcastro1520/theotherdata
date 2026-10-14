@@ -7,6 +7,34 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import "../public/subscribe-form.js";
 import { buildShareAssets } from "./cards.mjs";
+import "../public/featured.js";
+import "../public/card-model.js";
+
+const escH = (x) => String(x ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+// The above-the-fold "hook": one striking live example, rendered into the HTML at build time
+// (data refreshes redeploy every 4 hours), so it shows instantly with no layout shift.
+export function hookFor(index, docs = {}) {
+  const F = globalThis.TODFeatured, C = globalThis.TODCard;
+  const p = F.hook(index);
+  if (!p) return null;
+  const doc = docs[p.ticker];
+  const s = (doc?.signals || []).find((x) => x.id === p.signal.id) || p.signal;
+  const lean = s.reading === "tailwind" ? { tone: "up", word: `Leans up for ${p.name}` } : s.reading === "headwind" ? { tone: "down", word: `Leans down for ${p.name}` } : { tone: "flat", word: `No clear lean for ${p.name}` };
+  const card = doc ? C.signalCard(doc, s) : null;
+  return { ...p, signal: s, line: F.hookLine({ ...p, signal: s }), lean, num: s.display || "", basis: s.basis || "", read: F.plainRead(s.now) || "", url: C.signalUrl(p.ticker, s.id), card };
+}
+
+export function hookHtml(h) {
+  if (!h) return "";
+  return `<a class="hook" href="${escH(h.url.replace("https://theotherdata.com", ""))}" data-ticker="${escH(h.ticker)}">
+          <span class="hook-k"><span class="pulse" aria-hidden="true"></span> Today's hidden signal · live data</span>
+          <span class="hook-line">${escH(h.line)}</span>
+          <span class="hook-row"><span class="hook-lean ${h.lean.tone}">${h.lean.tone === "up" ? "▲" : h.lean.tone === "down" ? "▼" : "–"} ${escH(h.lean.word)}</span>${h.num ? `<span class="hook-num">${escH(h.num)}${h.basis ? ` <small>· ${escH(h.basis.replace(/^vs /, "vs "))}</small>` : ""}</span>` : ""}</span>
+          <span class="hook-why">See why →</span>
+        </a>`;
+}
+
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -43,6 +71,27 @@ async function build() {
     const p = join(out, f);
     await writeFile(p, transformHtml(await readFile(p, "utf8"), s));
   }
+  // Home hook + a home share image that shows the same example. Failures fall back to /og.png and no hook.
+  try {
+    const index = JSON.parse(await readFile(join(out, "data", "index.json"), "utf8"));
+    const tk = globalThis.TODFeatured.hook(index)?.ticker;
+    const docs = tk ? { [tk]: JSON.parse(await readFile(join(out, "data", "tickers", `${tk}.json`), "utf8")) } : {};
+    const h = hookFor(index, docs);
+    const ip = join(out, "index.html");
+    let html = (await readFile(ip, "utf8")).replace("<!--HOOK-->", hookHtml(h));
+    if (h?.card) {
+      try {
+        const { renderCard } = await import("../lib/card-render.js");
+        await mkdir(join(out, "cards"), { recursive: true });
+        await writeFile(join(out, "cards", "home.png"), await renderCard({ ...h.card, headline: h.line }, "wide"));
+        const img = "https://theotherdata.com/cards/home.png";
+        html = html.replace(/(<meta (?:property="og:image"|name="twitter:image") content=")[^"]*"/g, `$1${img}"`)
+          .replace(/<meta property="og:image:alt" content="[^"]*">/, `<meta property="og:image:alt" content="${escH(`${h.line}: ${h.lean.word}. The Other Data, education only.`)}">`);
+      } catch (e) { console.warn(`home card skipped: ${e.message}`); }
+    }
+    await writeFile(ip, html);
+    if (h) console.log(`hook: ${h.line} (${h.reason})`);
+  } catch (e) { console.warn(`hook skipped: ${e.message}`); }
   // Shareable cards + /s/TICKER permalink pages. A card failure never blocks the deploy (pages fall back to /og.png).
   try { await buildShareAssets(out); } catch (e) { console.warn(`share cards skipped: ${e.message}`); }
   console.log(`built dist/ (analytics: ${s.ga ? s.ga : "off"}, search console meta: ${s.gsc ? "on" : "off"})`);
