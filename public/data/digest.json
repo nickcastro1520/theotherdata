@@ -2,31 +2,31 @@
  "version": 1,
  "issueId": "2026-W42",
  "weekOf": "Oct 12, 2026",
- "generatedAt": "2026-10-14T23:26:02.731Z",
- "dataUpdatedAt": "2026-10-14T23:19:22.265Z",
- "subject": "This week's strangest signals: Developer chatter about Copilot, F-150 owner complaints",
- "preheader": "Developer chatter about Copilot for Microsoft: +107% (43 → 89) vs the 4 weeks before. Plus 4 more offbeat moves, explained in plain English.",
+ "generatedAt": "2026-10-15T05:03:44.748Z",
+ "dataUpdatedAt": "2026-10-15T04:53:35.652Z",
+ "subject": "This week's strangest signals: On curiosity, F-150 owner complaints, Model Y owner complaints",
+ "preheader": "On curiosity for On Holding: +93% (39,084 → 75,465) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+107% (43 → 89)",
-   "pct": 107,
+   "ticker": "ONON",
+   "company": "On Holding",
+   "id": "on-curiosity",
+   "signal": "On curiosity",
+   "change": "+93% (39,084 → 75,465)",
+   "pct": 93.1,
    "direction": "up",
-   "basis": "vs the 4 weeks before",
+   "basis": "vs the 28 days before",
    "reading": "tailwind",
    "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
+   "plain": "More people are looking up On than in recent weeks.",
+   "what": "How many people look up “On (company)” on Wikipedia each day.",
+   "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
    "dataThrough": "Oct 14, 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
    },
-   "url": "https://theotherdata.com/#/MSFT"
+   "url": "https://theotherdata.com/#/ONON"
   },
   {
    "ticker": "F",
@@ -50,27 +50,6 @@
    "url": "https://theotherdata.com/#/F"
   },
   {
-   "ticker": "ONON",
-   "company": "On Holding",
-   "id": "on-curiosity",
-   "signal": "On curiosity",
-   "change": "+92% (39,305 → 75,401)",
-   "pct": 91.8,
-   "direction": "up",
-   "basis": "vs the 28 days before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "More people are looking up On than in recent weeks.",
-   "what": "How many people look up “On (company)” on Wikipedia each day.",
-   "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 13, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
-   },
-   "url": "https://theotherdata.com/#/ONON"
-  },
-  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -90,6 +69,27 @@
     "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
    },
    "url": "https://theotherdata.com/#/TSLA"
+  },
+  {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+59% (51 → 81)",
+   "pct": 58.8,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
+   "dataThrough": "Oct 15, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+   },
+   "url": "https://theotherdata.com/#/MSFT"
   },
   {
    "ticker": "LLY",
@@ -114,16 +114,16 @@
   }
  ],
  "story": {
-  "ticker": "MSFT",
-  "company": "Microsoft",
-  "signal": "Developer chatter about Copilot",
-  "title": "Developer chatter about Copilot rose 107% (43 → 89) (vs the 4 weeks before)",
+  "ticker": "ONON",
+  "company": "On Holding",
+  "signal": "On curiosity",
+  "title": "On curiosity rose 93% (39,084 → 75,465) (vs the 28 days before)",
   "paragraphs": [
-   "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read. It is a rough gauge of developer chatter.",
-   "Why it might matter for Microsoft: gitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools. Engineers discussing it is a sign it stays relevant in a crowded field.",
-   "What it shows now: developers are discussing Copilot more than usual. We read that as a notable tailwind for Microsoft, which is a clue, not a forecast."
+   "How many people look up “On (company)” on Wikipedia each day. It is a free, public stand-in for search interest: when curiosity spikes, pageviews usually spike too.",
+   "Why it might matter for On Holding: on is a fast-growing brand, and its growth depends on more people discovering its shoes. Rising curiosity is an early hint of new customers; a fade suggests the buzz is cooling.",
+   "What it shows now: more people are looking up On than in recent weeks. We read that as a notable tailwind for On Holding, which is a clue, not a forecast."
   ],
-  "url": "https://theotherdata.com/#/MSFT"
+  "url": "https://theotherdata.com/#/ONON"
  },
  "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.3% of the time (522 of 1058). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49% (515 of 1050). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
  "links": {
