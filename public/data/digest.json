@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W42",
  "weekOf": "Oct 12, 2026",
- "generatedAt": "2026-10-15T13:43:10.652Z",
- "dataUpdatedAt": "2026-10-15T13:33:03.827Z",
- "subject": "This week's strangest signals: On curiosity, F-150 owner complaints, Model Y owner complaints",
+ "generatedAt": "2026-10-15T20:03:25.495Z",
+ "dataUpdatedAt": "2026-10-15T19:56:50.308Z",
+ "subject": "This week's strangest signals: On curiosity, F-150 owner complaints",
  "preheader": "On curiosity for On Holding: +93% (39,084 → 75,465) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -50,6 +50,27 @@
    "url": "https://theotherdata.com/#/F"
   },
   {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+81% (47 → 85)",
+   "pct": 80.9,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
+   "dataThrough": "Oct 15, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+   },
+   "url": "https://theotherdata.com/#/MSFT"
+  },
+  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -69,27 +90,6 @@
     "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
    },
    "url": "https://theotherdata.com/#/TSLA"
-  },
-  {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+63% (51 → 83)",
-   "pct": 62.7,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
-   "dataThrough": "Oct 15, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
-   },
-   "url": "https://theotherdata.com/#/MSFT"
   },
   {
    "ticker": "LLY",
