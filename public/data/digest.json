@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W42",
  "weekOf": "Oct 12, 2026",
- "generatedAt": "2026-10-16T23:02:49.958Z",
- "dataUpdatedAt": "2026-10-16T22:54:06.511Z",
+ "generatedAt": "2026-10-17T04:48:44.743Z",
+ "dataUpdatedAt": "2026-10-17T04:42:03.804Z",
  "subject": "This week's strangest signals: On curiosity, F-150 owner complaints, Model Y owner complaints",
  "preheader": "On curiosity for On Holding: +94% (38,941 → 75,637) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -84,7 +84,7 @@
    "plain": "The tech crowd is talking about Palantir more than usual.",
    "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
    "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 16, 2026",
+   "dataThrough": "Oct 17, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
