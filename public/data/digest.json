@@ -2,32 +2,11 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-19T05:02:03.888Z",
- "dataUpdatedAt": "2026-10-19T04:56:12.734Z",
- "subject": "This week's strangest signals: On curiosity, F-150 owner complaints, Model Y owner complaints",
- "preheader": "On curiosity for On Holding: +94% (38,941 → 75,637) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
+ "generatedAt": "2026-10-19T15:52:44.470Z",
+ "dataUpdatedAt": "2026-10-19T15:44:34.338Z",
+ "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
+ "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
-  {
-   "ticker": "ONON",
-   "company": "On Holding",
-   "id": "on-curiosity",
-   "signal": "On curiosity",
-   "change": "+94% (38,941 → 75,637)",
-   "pct": 94.2,
-   "direction": "up",
-   "basis": "vs the 28 days before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "More people are looking up On than in recent weeks.",
-   "what": "How many people look up “On (company)” on Wikipedia each day.",
-   "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 15, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
-   },
-   "url": "https://theotherdata.com/#/ONON"
-  },
   {
    "ticker": "F",
    "company": "Ford",
@@ -71,6 +50,27 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "MSFT",
+   "company": "Microsoft",
+   "id": "copilot-chatter",
+   "signal": "Developer chatter about Copilot",
+   "change": "+60% (47 → 75)",
+   "pct": 59.6,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Developers are discussing Copilot more than usual.",
+   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
+   "dataThrough": "Oct 19, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
+   },
+   "url": "https://theotherdata.com/#/MSFT"
+  },
+  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -96,8 +96,8 @@
    "company": "Apple",
    "id": "iphone-curiosity",
    "signal": "iPhone curiosity",
-   "change": "−42% (165.14K → 95,344)",
-   "pct": -42.3,
+   "change": "−47% (166.69K → 88,242)",
+   "pct": -47.1,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -105,7 +105,7 @@
    "plain": "Interest in iPhones is cooling off compared with recent weeks.",
    "what": "How many people look up “iPhone” on Wikipedia each day.",
    "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 15, 2026",
+   "dataThrough": "Oct 18, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
@@ -114,16 +114,16 @@
   }
  ],
  "story": {
-  "ticker": "ONON",
-  "company": "On Holding",
-  "signal": "On curiosity",
-  "title": "On curiosity rose 94% (38,941 → 75,637) (vs the 28 days before)",
+  "ticker": "F",
+  "company": "Ford",
+  "signal": "F-150 owner complaints",
+  "title": "F-150 owner complaints fell 43% (89 → 51) (vs the 3 months before)",
   "paragraphs": [
-   "How many people look up “On (company)” on Wikipedia each day. It is a free, public stand-in for search interest: when curiosity spikes, pageviews usually spike too.",
-   "Why it might matter for On Holding: on is a fast-growing brand, and its growth depends on more people discovering its shoes. Rising curiosity is an early hint of new customers; a fade suggests the buzz is cooling.",
-   "What it shows now: more people are looking up On than in recent weeks. We read that as a notable tailwind for On Holding, which is a clue, not a forecast."
+   "Complaints F-150 owners file with the National Highway Traffic Safety Administration. Complaint surges are how many recalls and investigations start.",
+   "Why it might matter for Ford: the F-Series is Ford's profit machine, and Ford has led the industry in recalls. Rising complaints can foreshadow recall and warranty costs.",
+   "What it shows now: complaints have eased versus the prior few months. We read that as a mild tailwind for Ford, which is a clue, not a forecast."
   ],
-  "url": "https://theotherdata.com/#/ONON"
+  "url": "https://theotherdata.com/#/F"
  },
  "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.3% of the time (522 of 1058). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49% (515 of 1050). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
  "links": {
