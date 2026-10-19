@@ -55,7 +55,7 @@ export async function loadSettings(env = process.env) {
 
 export function transformHtml(html, { ga, gsc }) {
   return html
-    .replace(/<!--SUBSCRIBE:(full|compact)-->/g, (_, v) => globalThis.TODSubscribeForm.html(v))
+    .replace(/<!--SUBSCRIBE:(full|compact|hero)-->/g, (_, v) => globalThis.TODSubscribeForm.html(v))
     .replace("<!--GA-->", ga ? `<script src="/ga.js" data-ga="${ga}" defer></script>` : "")
     .replace("<!--GSC-->", gsc ? `<meta name="google-site-verification" content="${gsc}">` : "");
 }

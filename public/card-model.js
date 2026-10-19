@@ -90,7 +90,7 @@
       title: `${doc.name} (${doc.ticker}) Hidden Signals${top ? `: ${top.name}` : ""} | The Other Data`,
       description: `${top && Z() ? `${Z().describe(top)} ` : ""}${n} offbeat public signal${n === 1 ? "" : "s"} for ${doc.name}, explained in plain English. Education only, not advice.`,
       alt: `${top ? `${top.name} → ${doc.name}. ${Z() ? Z().describe(top) : ""}` : `Offbeat public data → ${doc.name}.`} Education only, not advice.`.replace(/\s+/g, " ").trim(),
-      shareText: top ? `What “${top.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:` : `The offbeat public data behind ${doc.name} ($${doc.ticker}), explained in plain English:`,
+      shareText: top ? `What “${top.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:` : `The offbeat public data behind ${doc.name} ($${doc.ticker}), explained in plain English. Free weekly email: theotherdata.com/subscribe`,
     };
   }
 
@@ -114,7 +114,7 @@
       title: `${s.name} → ${doc.name} (${doc.ticker}) | The Other Data`,
       description: `${line || plainLine(s)} Free public data explained in plain English. Education only, not advice.`.replace(/\s+/g, " ").trim(),
       alt: `${s.name} → ${doc.name}. ${line || ""} Education only, not advice.`.replace(/\s+/g, " ").trim(),
-      shareText: `What “${s.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English:`,
+      shareText: `What “${s.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English. Free weekly email: theotherdata.com/subscribe`,
     };
   }
 

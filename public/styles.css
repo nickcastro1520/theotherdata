@@ -702,3 +702,9 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .sb-strip-go{color:#8fb8ff;font-weight:600;white-space:nowrap}
 .shell-sigs{margin:12px 0 0;padding-left:20px;color:#c8d2e6}
 .shell-sigs a{color:#8fb8ff}
+
+.hero-sub{margin:14px 0 4px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(94,234,212,.05)}
+.hero-sub-k{margin:0 0 8px;font-size:14px;color:#cfd8ea}
+.sub-hero .sub-consent{font-size:12.5px}
+.sub-hero .sub-fine{font-size:12px}
+.email-cta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0 14px;font-size:14px;color:var(--mut)}

@@ -448,6 +448,7 @@
       ${pack}
       ${limited}
       <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
+      <p class="email-cta"><a class="btn ghost-btn" href="/subscribe">Get the free weekly email</a> <span>The strangest signal moves, once a week. Free.</span></p>
       ${impactPanel(d)}
       <p class="track-line" id="track-line" hidden></p>
       <div class="dgrid"><div class="sigs">${(d.signals || []).map((s) => sigCard(s, d)).join("") || `<p class="note">No signal cards available for this ticker yet.</p>`}</div>

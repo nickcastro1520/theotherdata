@@ -9,9 +9,9 @@
     const compact = variant !== "full";
     return `<form class="sub-form sub-${variant}" method="post" action="/api/subscribe" data-sub>
   <label class="sub-l${compact ? " sr" : ""}" for="${id}">Your email</label>
-  <div class="sub-row"><input id="${id}" type="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com"><button class="btn" type="submit">Get the weekly digest</button></div>
+  <div class="sub-row"><input id="${id}" type="email" name="email" required maxlength="254" autocomplete="email" inputmode="email" placeholder="you@example.com"><button class="btn" type="submit">${variant === "hero" ? "Get the free weekly email" : "Get the weekly digest"}</button></div>
   <label class="sub-consent"><input type="checkbox" name="consent" value="on" required> <span>${CONSENT}</span></label>
-  <p class="sub-fine">We email a confirmation link first, and use your address only for this digest. <a href="/privacy">Privacy</a> · <a href="/digest">See this week's issue</a> · Education only, not financial advice.</p>
+  ${variant === "hero" ? `<p class="sub-fine">Free, every Monday. Confirm link first. <a href="/privacy">Privacy</a> · <a href="/digest">Preview</a></p>` : `<p class="sub-fine">We email a confirmation link first, and use your address only for this digest. <a href="/privacy">Privacy</a> · <a href="/digest">See this week's issue</a> · Education only, not financial advice.</p>`}
   <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
   <input type="hidden" name="t" value=""><input type="hidden" name="page" value="">
   <p class="sub-msg" role="status" aria-live="polite"></p>
