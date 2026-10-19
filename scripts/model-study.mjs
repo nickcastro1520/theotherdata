@@ -46,7 +46,7 @@ const variants = {
 };
 const modelRuns = Object.fromEntries(Object.entries(variants).map(([k, v]) => [k, { what: v.what, ...walkForward(scored, v.rules) }]));
 
-// ---- 2) candidate new free data (only these 5 FRED groups plus the 2 Rhine rules and 2 box office rules below were tried) ----
+// ---- 2) candidate new free data (only these 5 FRED groups plus the 2 Rhine rules 2 box office rules and 2 snow rules below were tried) ----
 const cand = (series, tk, id, name, polarity, lag, sourceUrl) => ({ tk, lag, name, series, url: sourceUrl || `https://fred.stlouisfed.org/series/${series}`, sig: { source: "fred", params: { series }, id, name, unit: "index", compare: "yoy", threshold: series === "GASDESW" ? 5 : 2, polarity } });
 const groups = {
   "Diesel prices (EIA via FRED)": [cand("GASDESW", "UNP", "diesel", "Diesel price", -1, 7), cand("GASDESW", "AMZN", "diesel", "Diesel price", -1, 7)],
@@ -111,6 +111,39 @@ const boxRuns = Object.entries(boxRules).map(([name, thr]) => {
   return { name, thr, all: scoreAll(recs), own, wfOwn: walkForward(own) };
 });
 
+// Snow signals for two stocks that are not in the backtest (each monthly checkpoint gets a new record whose only
+// signal is the snow). Rules fixed before scoring; readings use data through the day before each checkpoint.
+// (a) MTN (Vail Resorts): SNOTEL snow water equivalent summed over Vail Mountain, Thaynes Canyon (Park City) and
+//     Echo Peak (Tahoe) vs the summed 1991-2020 median. Nov-Apr checkpoints only. >=110% tailwind, <=90% headwind.
+// (b) CMP (Compass Minerals, road salt): season-to-date snowfall (from Oct 1) summed over 6 Midwest/Northeast airports
+//     vs the average of the same date in up to 10 earlier seasons (at least 5). Nov-Mar only. >=120% tailwind, <=80% headwind.
+// Only one winter per year, so these samples are small.
+const SNOTEL = JSON.parse(await readFile("data/snotel-vail-basket.json", "utf8"));
+const GHCN = JSON.parse(await readFile("data/ghcn-snow-cities.json", "utf8"));
+for (const tk of ["MTN", "CMP"]) if (!prices[tk]) prices[tk] = await src.tiingoPrices({ ticker: tk, days: 1450 });
+await writeFile(CACHE, JSON.stringify(prices));
+const prevDay = (d) => new Date(Date.parse(d) - 864e5).toISOString().slice(0, 10);
+const snotelReading = (d) => {
+  const m = +d.slice(5, 7); if (!(m >= 11 || m <= 4)) return null;
+  const pt = SNOTEL.points.filter((p) => p.t <= prevDay(d)).at(-1); if (!pt || pt.m < 1) return null;
+  const r = pt.v / pt.m; return r >= 1.1 ? "+" : r <= 0.9 ? "-" : "0";
+};
+const snowDaily = Object.fromEntries(GHCN.points.map((p) => [p.t, p.v]));
+const seasonToDate = (end) => { const y = +end.slice(0, 4) - (+end.slice(5, 7) < 10 ? 1 : 0); let t = 0; for (let x = Date.parse(`${y}-10-01`); x <= Date.parse(end); x += 864e5) t += snowDaily[new Date(x).toISOString().slice(0, 10)] || 0; return t; };
+const ghcnReading = (d) => {
+  const m = +d.slice(5, 7); if (!(m >= 11 || m <= 3)) return null;
+  const end = prevDay(d), cur = seasonToDate(end), past = [];
+  for (let k = 1; k <= 10; k++) { const e = `${+end.slice(0, 4) - k}${end.slice(4)}`; if (e >= "2005-10-02") past.push(seasonToDate(e)); }
+  if (past.length < 5) return null; const avg = past.reduce((a, b) => a + b, 0) / past.length; if (avg <= 0) return null;
+  const r = cur / avg; return r >= 1.2 ? "+" : r <= 0.8 ? "-" : "0";
+};
+const snowRules = { "Ski-country snowpack (SNOTEL) for Vail Resorts": ["MTN", "snotel", snotelReading, SNOTEL.url], "Midwest/Northeast snowfall (NOAA GHCN) for Compass Minerals": ["CMP", "ghcn-snow", ghcnReading, GHCN.url] };
+const snowRuns = Object.entries(snowRules).map(([name, [tk, id, fn, url]]) => {
+  const extra = [...new Set(bt.records.map((r) => r.d))].map((d) => { const v = fn(d); return { d, tk, lean: v === "+" ? "tailwind" : v === "-" ? "headwind" : "neutral", mag: "mild", tw: v === "+" ? 1 : 0, hw: v === "-" ? 1 : 0, n: v ? 1 : 0, sig: v ? `${id}:${v}` : "" }; });
+  const own = scoreAll(extra);
+  return { name, tk, id, url, all: scoreAll([...bt.records, ...extra]), own, wfOwn: walkForward(own) };
+});
+
 const base = modelRuns.primary.v2;
 const candidates = Object.entries(groups).map(([name, cs]) => {
   const sc = scoreAll(augment(cs));
@@ -135,6 +168,13 @@ for (const r of boxRuns) {
     perStock: [{ tk: "DIS", n: o.n || 0, rate: pctOf(o.hits || 0, o.n || 0), rateX: pctOf(o.hitsX || 0, o.n || 0), ciX: ci(o.hitsX || 0, o.n || 0) }],
     ownOos: r.wfOwn.v1, admitted: gain >= 1 });
 }
+for (const r of snowRuns) {
+  const wf = walkForward(r.all).v2, st = M.signalStats(r.all);
+  const gain = wf.rateX - base.rateX, o = st[M.sigKey(r.tk, r.id)] || {};
+  candidates.push({ name: r.name, for: [r.tk], series: r.id.toUpperCase(), url: r.url, oos: wf, changeVsBase: Math.round(gain * 10) / 10,
+    perStock: [{ tk: r.tk, n: o.n || 0, rate: pctOf(o.hits || 0, o.n || 0), rateX: pctOf(o.hitsX || 0, o.n || 0), ciX: ci(o.hitsX || 0, o.n || 0) }],
+    ownOos: r.wfOwn.v1, newStocks: true, note: "One winter per year, so the sample is small.", admitted: gain >= 1 });
+}
 
 // ---- 3) per-signal transparency (all backtest checkpoints with a known 1-month result) ----
 const nameOf = {}; for (const t of TICKERS) for (const s of t.signals) nameOf[M.sigKey(t.ticker, s.id)] = s.name;
@@ -150,7 +190,7 @@ const improved = p.v2.ciX && p.v2.rateX - p.v1.rateX >= 1 && p.v2.ciX[0] > 50;
 const doc = {
   generatedAt: new Date().toISOString(), window: "1 month", testYears: YEARS, benchmark: "SPY",
   design: "Walk-forward: for each test year, signals were scored and kept or muted using only checkpoints whose 1-month result was already known before that year began. Nothing was flipped.",
-  configurationsTried: Object.keys(variants).length + Object.keys(groups).length + Object.keys(rhineRules).length + Object.keys(boxRules).length,
+  configurationsTried: Object.keys(variants).length + Object.keys(groups).length + Object.keys(rhineRules).length + Object.keys(boxRules).length + Object.keys(snowRules).length,
   thresholdOptions: M.MODEL_RULES.thresholds,
   models: modelRuns, candidates, signals,
   verdict: { improved, liveModel: improved ? "v2" : "v1",
