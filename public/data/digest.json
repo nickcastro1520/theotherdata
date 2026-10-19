@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-19T15:52:44.470Z",
- "dataUpdatedAt": "2026-10-19T15:44:34.338Z",
+ "generatedAt": "2026-10-19T21:25:22.674Z",
+ "dataUpdatedAt": "2026-10-19T21:10:04.658Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,27 +50,6 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "MSFT",
-   "company": "Microsoft",
-   "id": "copilot-chatter",
-   "signal": "Developer chatter about Copilot",
-   "change": "+60% (47 → 75)",
-   "pct": 59.6,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Developers are discussing Copilot more than usual.",
-   "what": "How often “copilot” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "GitHub Copilot, owned by Microsoft, is one of the most-used AI coding tools.",
-   "dataThrough": "Oct 19, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=copilot&type=story"
-   },
-   "url": "https://theotherdata.com/#/MSFT"
-  },
-  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -111,6 +90,27 @@
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
    },
    "url": "https://theotherdata.com/#/AAPL"
+  },
+  {
+   "ticker": "WMT",
+   "company": "Walmart",
+   "id": "egg-prices",
+   "signal": "Egg prices",
+   "change": "−37% ($3.56/dozen → $2.24/dozen)",
+   "pct": -36.9,
+   "direction": "down",
+   "basis": "vs the same period last year",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
+   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
+   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
+   "dataThrough": "Sep 2026",
+   "source": {
+    "name": "FRED, Federal Reserve Bank of St. Louis",
+    "url": "https://fred.stlouisfed.org/series/APU0000708111"
+   },
+   "url": "https://theotherdata.com/#/WMT"
   }
  ],
  "story": {
