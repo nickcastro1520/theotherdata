@@ -46,7 +46,7 @@ const variants = {
 };
 const modelRuns = Object.fromEntries(Object.entries(variants).map(([k, v]) => [k, { what: v.what, ...walkForward(scored, v.rules) }]));
 
-// ---- 2) candidate new free data (only these 5 groups were tried) ----
+// ---- 2) candidate new free data (only these 5 FRED groups plus the 2 Rhine rules below were tried) ----
 const cand = (series, tk, id, name, polarity, lag, sourceUrl) => ({ tk, lag, name, series, url: sourceUrl || `https://fred.stlouisfed.org/series/${series}`, sig: { source: "fred", params: { series }, id, name, unit: "index", compare: "yoy", threshold: series === "GASDESW" ? 5 : 2, polarity } });
 const groups = {
   "Diesel prices (EIA via FRED)": [cand("GASDESW", "UNP", "diesel", "Diesel price", -1, 7), cand("GASDESW", "AMZN", "diesel", "Diesel price", -1, 7)],
@@ -64,6 +64,36 @@ const readingAt = (c, d) => {
   return a.status !== "ok" ? null : a.reading === "tailwind" ? "+" : a.reading === "headwind" ? "-" : "0";
 };
 const augment = (cs) => bt.records.map((r) => { const ex = cs.filter((c) => c.tk === r.tk).map((c) => { const v = readingAt(c, r.d); return v ? `${c.sig.id}:${v}` : null; }).filter(Boolean); return ex.length ? { ...r, sig: [r.sig, ...ex].filter(Boolean).join(",") } : r; });
+// Rhine water level at Kaub (WSV PEGELONLINE raw daily means, data/rhine-kaub-daily.json) for BASF and Dow.
+// Neither stock is in the backtest, so each monthly checkpoint gets a new record whose only signal is the river.
+// Both rules were fixed before scoring: (a) 28-day average vs the same 28 days last year, 15% noise band, higher
+// water = tailwind (barges load fully, cheaper freight); (b) low water only: headwind when the 28-day average is
+// under 100 cm, otherwise no call. Readings use data through the day before each checkpoint.
+const RHINE = JSON.parse(await readFile("data/rhine-kaub-daily.json", "utf8"));
+const RHINE_TK = ["BASFY", "DOW"];
+for (const tk of RHINE_TK) if (!prices[tk]) prices[tk] = await src.tiingoPrices({ ticker: tk, days: 1450 });
+await writeFile(CACHE, JSON.stringify(prices));
+const rhineSig = { source: "pegelonline", params: { station: "KAUB" }, id: "rhine-kaub", name: "Rhine water level at Kaub", unit: "cm", compare: "yoy", threshold: 15, polarity: 1 };
+const rhineReading = (rule, d) => {
+  const pts = RHINE.points.filter((p) => Date.parse(p.t) + 864e5 <= Date.parse(d));
+  if (pts.length < 400) return null;
+  if (rule === "low") { const last = pts.slice(-28); return last.reduce((a, p) => a + p.v, 0) / last.length < 100 ? "-" : null; }
+  const a = analyze(rhineSig, pts, "DOW");
+  return a.status !== "ok" ? null : a.reading === "tailwind" ? "+" : a.reading === "headwind" ? "-" : "0";
+};
+const rhineRecords = (rule) => [...new Set(bt.records.map((r) => r.d))].flatMap((d) => RHINE_TK.map((tk) => {
+  const v = rhineReading(rule, d);
+  const lean = v === "+" ? "tailwind" : v === "-" ? "headwind" : "neutral";
+  return { d, tk, lean, mag: "mild", tw: v === "+" ? 1 : 0, hw: v === "-" ? 1 : 0, n: v ? 1 : 0, sig: v ? `rhine-kaub:${v}` : "" };
+}));
+const rhineRules = { "Rhine water level at Kaub (vs last year)": "yoy", "Rhine low water at Kaub (under 100 cm)": "low" };
+const rhineRuns = Object.entries(rhineRules).map(([name, rule]) => {
+  const extra = rhineRecords(rule);
+  const all = scoreAll([...bt.records, ...extra]);
+  const own = scoreAll(extra);
+  return { name, rule, all, own, wfOwn: walkForward(own) };
+});
+
 const base = modelRuns.primary.v2;
 const candidates = Object.entries(groups).map(([name, cs]) => {
   const sc = scoreAll(augment(cs));
@@ -74,6 +104,13 @@ const candidates = Object.entries(groups).map(([name, cs]) => {
     // Admission rule (fixed up front): must raise the out-of-sample vs-market hit rate by at least 1 point.
     admitted: gain >= 1 };
 });
+for (const r of rhineRuns) {
+  const wf = walkForward(r.all).v2, st = M.signalStats(r.all);
+  const gain = wf.rateX - base.rateX;
+  candidates.push({ name: r.name, for: RHINE_TK, series: "KAUB", url: RHINE.url, oos: wf, changeVsBase: Math.round(gain * 10) / 10,
+    perStock: RHINE_TK.map((tk) => { const o = st[M.sigKey(tk, "rhine-kaub")] || {}; return { tk, n: o.n || 0, rate: pctOf(o.hits || 0, o.n || 0), rateX: pctOf(o.hitsX || 0, o.n || 0), ciX: ci(o.hitsX || 0, o.n || 0) }; }),
+    ownOos: r.wfOwn.v1, newStocks: true, admitted: gain >= 1 });
+}
 
 // ---- 3) per-signal transparency (all backtest checkpoints with a known 1-month result) ----
 const nameOf = {}; for (const t of TICKERS) for (const s of t.signals) nameOf[M.sigKey(t.ticker, s.id)] = s.name;
@@ -89,7 +126,7 @@ const improved = p.v2.ciX && p.v2.rateX - p.v1.rateX >= 1 && p.v2.ciX[0] > 50;
 const doc = {
   generatedAt: new Date().toISOString(), window: "1 month", testYears: YEARS, benchmark: "SPY",
   design: "Walk-forward: for each test year, signals were scored and kept or muted using only checkpoints whose 1-month result was already known before that year began. Nothing was flipped.",
-  configurationsTried: Object.keys(variants).length + Object.keys(groups).length,
+  configurationsTried: Object.keys(variants).length + Object.keys(groups).length + Object.keys(rhineRules).length,
   thresholdOptions: M.MODEL_RULES.thresholds,
   models: modelRuns, candidates, signals,
   verdict: { improved, liveModel: improved ? "v2" : "v1",
@@ -97,4 +134,4 @@ const doc = {
       : "No version beat a coin flip by more than chance. The live leans stay on the original method, and this study is published so you can see what was tried." },
 };
 await writeFile(OUT, JSON.stringify(doc));
-console.log(JSON.stringify({ primary: { v1: p.v1, v2: p.v2 }, stricter: modelRuns.stricter.v2, noThreshold: modelRuns.noThreshold.v2, candidates: candidates.map((c) => [c.name, c.oos.rateX, c.changeVsBase, c.admitted]), kept: signals.filter((s) => s.wouldKeep).length, of: signals.length, verdict: doc.verdict }, null, 1));
+console.log(JSON.stringify({ primary: { v1: p.v1, v2: p.v2 }, stricter: modelRuns.stricter.v2, noThreshold: modelRuns.noThreshold.v2, candidates: candidates.map((c) => [c.name, c.oos.rateX, c.changeVsBase, c.admitted]), rhine: candidates.filter((c) => c.newStocks).map((c) => ({ name: c.name, perStock: c.perStock, own: c.ownOos })), kept: signals.filter((s) => s.wouldKeep).length, of: signals.length, verdict: doc.verdict }, null, 1));
