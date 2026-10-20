@@ -1,7 +1,7 @@
 {
  "generatedAt": "2026-10-20",
  "lateFilings": {
-  "status": "Under review, not yet a pass",
+  "status": "Passed (3 months): Late filers lagged similar-sized stocks by about 4% on average over the following 3 months (2012\u20132026). 1 month: not proven. Historical pattern only. Mostly small, hard-to-trade stocks. Not a prediction for any single company. Education only.",
   "threeWays": {
    "none|21|SPY": {
     "raw": 12530,
@@ -880,6 +880,57 @@
       "nwT": -14.54,
       "months": 176
      }
+    }
+   }
+  },
+  "statusByHorizon": {
+   "21": "Not proven",
+   "63": "Passed: beats size-matched stocks"
+  },
+  "caveats": [
+   "Survivorship: prices exist only for companies with a current ticker; 26,162 notices from delisted or never-listed companies could not be classified and are left out (counting them at 0% is shown only as a bound).",
+   "Mostly small, illiquid stocks: real trades would be hard to fill at these prices.",
+   "Trading costs and short-selling limits (borrow fees, unavailable shares) are not included and could erase the gap.",
+   "This is a known effect in academic research on late filings, not a new discovery.",
+   "Small companies broadly lagged in 2021\u20132026; the matched control is meant to remove that, and the gap shows up in both 2012\u20132020 and 2021\u20132026."
+  ],
+  "split3m": {
+   "2012-2020": {
+    "events": 2872,
+    "meanVsControl": -3.9,
+    "meanCI": [
+     -5.42,
+     -2.37
+    ],
+    "laggedControl": 61.4,
+    "ci": [
+     59.6,
+     63.2
+    ],
+    "placebo": 55.8,
+    "calendar": {
+     "meanMonthly": -1.21,
+     "nwT": -2.88,
+     "months": 110
+    }
+   },
+   "2021-2026": {
+    "events": 3881,
+    "meanVsControl": -4.16,
+    "meanCI": [
+     -5.55,
+     -2.78
+    ],
+    "laggedControl": 60.3,
+    "ci": [
+     58.8,
+     61.8
+    ],
+    "placebo": 55.5,
+    "calendar": {
+     "meanMonthly": -1.55,
+     "nwT": -4.11,
+     "months": 68
     }
    }
   }
