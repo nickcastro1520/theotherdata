@@ -1,0 +1,454 @@
+{
+ "generatedAt": "2026-10-20T21:04:56.876748+00:00",
+ "rules": "Per-stock test. Baseline = better of always-up and always-down vs SPY over the same months the signal made calls. Monthly calls in a row in the same direction count as one independent event (summed excess return). Pass = event hit rate above the event baseline with the 95% Wilson lower bound above it too. Window: checkpoint (1st of month) to the 1st of the next month, adjusted closes (Tiingo), vs SPY.",
+ "signals": [
+  {
+   "name": "US box office -> Disney",
+   "ticker": "DIS",
+   "source": "Box Office Mojo weekly domestic gross",
+   "from": "1996-04-01",
+   "to": "2026-09-01",
+   "rawCalls": 199,
+   "rawHitVsSpy": 50.3,
+   "rawCI": [
+    43.4,
+    57.1
+   ],
+   "rawBaseline": 53.8,
+   "rawFlipped": 49.7,
+   "meanExcessPerCall": -0.31,
+   "events": 109,
+   "eventHitVsSpy": 46.8,
+   "eventCI": [
+    37.7,
+    56.1
+   ],
+   "eventBaseline": 52.3,
+   "eventFlipped": 53.2,
+   "eventFlippedCI": [
+    43.9,
+    62.3
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "1996-04-01",
+     "call": "+",
+     "detail": "last 4 weeks to 1996-03-28: $73.6M/wk vs $58.7M a year earlier (1.25x; bars 1.10x/0.90x)",
+     "from": "1996-04-01",
+     "to": "1996-05-01",
+     "stock": -4.26,
+     "spy": 0.14,
+     "right": false,
+     "excess": -4.4
+    },
+    {
+     "d": "2013-09-01",
+     "call": "+",
+     "detail": "last 4 weeks to 2013-08-22: $233.4M/wk vs $203.4M a year earlier (1.15x; bars 1.10x/0.90x)",
+     "from": "2013-09-03",
+     "to": "2013-10-01",
+     "stock": 6.4,
+     "spy": 3.52,
+     "right": true,
+     "excess": 2.88
+    },
+    {
+     "d": "2026-09-01",
+     "call": "+",
+     "detail": "last 4 weeks to 2026-08-27: $336.5M/wk vs $154.0M a year earlier (2.18x; bars 1.10x/0.90x)",
+     "from": "2026-09-01",
+     "to": "2026-10-01",
+     "stock": -4.6,
+     "spy": 0.54,
+     "right": false,
+     "excess": -5.14
+    }
+   ]
+  },
+  {
+   "name": "Ski-country snowpack -> Vail Resorts",
+   "ticker": "MTN",
+   "source": "USDA NRCS SNOTEL",
+   "from": "1997-03-01",
+   "to": "2026-04-01",
+   "rawCalls": 143,
+   "rawHitVsSpy": 51.7,
+   "rawCI": [
+    43.6,
+    59.8
+   ],
+   "rawBaseline": 53.1,
+   "rawFlipped": 48.3,
+   "meanExcessPerCall": 0.11,
+   "events": 63,
+   "eventHitVsSpy": 47.6,
+   "eventCI": [
+    35.8,
+    59.7
+   ],
+   "eventBaseline": 52.4,
+   "eventFlipped": 52.4,
+   "eventFlippedCI": [
+    40.3,
+    64.2
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "1997-03-01",
+     "call": "+",
+     "detail": "1997-02-28: 107.5 in SWE vs 67.8 in median (159%; bars 110%/90%)",
+     "from": "1997-03-03",
+     "to": "1997-04-01",
+     "stock": -13.2,
+     "spy": -4.44,
+     "right": false,
+     "excess": -8.75
+    },
+    {
+     "d": "2012-04-01",
+     "call": "-",
+     "detail": "2012-03-31: 44.4 in SWE vs 75.6 in median (59%; bars 110%/90%)",
+     "from": "2012-04-02",
+     "to": "2012-05-01",
+     "stock": -5.45,
+     "spy": -0.78,
+     "right": true,
+     "excess": -4.68
+    },
+    {
+     "d": "2026-04-01",
+     "call": "-",
+     "detail": "2026-03-31: 9.5 in SWE vs 75.2 in median (13%; bars 110%/90%)",
+     "from": "2026-04-01",
+     "to": "2026-05-01",
+     "stock": -1.82,
+     "spy": 9.98,
+     "right": true,
+     "excess": -11.8
+    }
+   ]
+  },
+  {
+   "name": "Midwest/Northeast snowfall -> Compass Minerals",
+   "ticker": "CMP",
+   "source": "NOAA GHCN-Daily",
+   "from": "2004-01-01",
+   "to": "2026-03-01",
+   "rawCalls": 86,
+   "rawHitVsSpy": 51.2,
+   "rawCI": [
+    40.8,
+    61.4
+   ],
+   "rawBaseline": 50.0,
+   "rawFlipped": 48.8,
+   "meanExcessPerCall": 1.72,
+   "events": 46,
+   "eventHitVsSpy": 52.2,
+   "eventCI": [
+    38.1,
+    65.9
+   ],
+   "eventBaseline": 52.2,
+   "eventFlipped": 47.8,
+   "eventFlippedCI": [
+    34.1,
+    61.9
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "2004-01-01",
+     "call": "+",
+     "detail": "season to 2003-12-31: 1991 mm vs 1565 mm avg of 10 earlier seasons (127%; bars 120%/80%)",
+     "from": "2004-01-02",
+     "to": "2004-02-02",
+     "stock": 7.85,
+     "spy": 2.46,
+     "right": true,
+     "excess": 5.38
+    },
+    {
+     "d": "2015-11-01",
+     "call": "-",
+     "detail": "season to 2015-10-31: 3 mm vs 23 mm avg of 10 earlier seasons (13%; bars 120%/80%)",
+     "from": "2015-11-02",
+     "to": "2015-12-01",
+     "stock": 2.54,
+     "spy": 0.14,
+     "right": false,
+     "excess": 2.4
+    },
+    {
+     "d": "2026-03-01",
+     "call": "+",
+     "detail": "season to 2026-02-28: 6671 mm vs 4400 mm avg of 10 earlier seasons (152%; bars 120%/80%)",
+     "from": "2026-03-02",
+     "to": "2026-04-01",
+     "stock": -7.52,
+     "spy": -4.27,
+     "right": false,
+     "excess": -3.24
+    }
+   ]
+  },
+  {
+   "name": "Bird flu in egg flocks -> Cal-Maine",
+   "ticker": "CALM",
+   "source": "USDA APHIS via CDC",
+   "from": "2022-03-01",
+   "to": "2025-06-01",
+   "rawCalls": 28,
+   "rawHitVsSpy": 60.7,
+   "rawCI": [
+    42.4,
+    76.4
+   ],
+   "rawBaseline": 53.6,
+   "rawFlipped": 39.3,
+   "meanExcessPerCall": 2.02,
+   "events": 9,
+   "eventHitVsSpy": 66.7,
+   "eventCI": [
+    35.4,
+    87.9
+   ],
+   "eventBaseline": 55.6,
+   "eventFlipped": 33.3,
+   "eventFlippedCI": [
+    12.1,
+    64.6
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "2022-03-01",
+     "call": "+",
+     "detail": "1,046,900 egg-laying birds in 28 days; 1 egg flocks in 90 days (good at >=1M; bad at 0 flocks)",
+     "from": "2022-03-01",
+     "to": "2022-04-01",
+     "stock": 32.54,
+     "spy": 5.66,
+     "right": true,
+     "excess": 26.88
+    },
+    {
+     "d": "2023-10-01",
+     "call": "-",
+     "detail": "0 egg-laying birds in 28 days; 0 egg flocks in 90 days (good at >=1M; bad at 0 flocks)",
+     "from": "2023-10-02",
+     "to": "2023-11-01",
+     "stock": 0.64,
+     "spy": -1.09,
+     "right": false,
+     "excess": 1.73
+    },
+    {
+     "d": "2025-06-01",
+     "call": "+",
+     "detail": "5,164,300 egg-laying birds in 28 days; 9 egg flocks in 90 days (good at >=1M; bad at 0 flocks)",
+     "from": "2025-06-02",
+     "to": "2025-07-01",
+     "stock": 5.13,
+     "spy": 4.52,
+     "right": true,
+     "excess": 0.61
+    }
+   ]
+  },
+  {
+   "name": "Cattle on Feed -> Tyson",
+   "ticker": "TSN",
+   "source": "USDA NASS Cattle on Feed",
+   "from": "1997-02-01",
+   "to": "2026-09-01",
+   "rawCalls": 249,
+   "rawHitVsSpy": 49.8,
+   "rawCI": [
+    43.6,
+    56.0
+   ],
+   "rawBaseline": 51.4,
+   "rawFlipped": 50.2,
+   "meanExcessPerCall": -0.38,
+   "events": 43,
+   "eventHitVsSpy": 44.2,
+   "eventCI": [
+    30.4,
+    58.9
+   ],
+   "eventBaseline": 55.8,
+   "eventFlipped": 55.8,
+   "eventFlippedCI": [
+    41.1,
+    69.6
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "1997-02-01",
+     "call": "+",
+     "detail": "released 1997-01-24: 10.56M head on January 1, 1997, +2% vs a year earlier (bars +/-2%)",
+     "from": "1997-02-03",
+     "to": "1997-03-03",
+     "stock": -10.19,
+     "spy": 1.33,
+     "right": false,
+     "excess": -11.53
+    },
+    {
+     "d": "2009-08-01",
+     "call": "-",
+     "detail": "released 2009-07-24: 9.8M head on July 1, 2009, -5% vs a year earlier (bars +/-2%)",
+     "from": "2009-08-03",
+     "to": "2009-09-01",
+     "stock": 4.67,
+     "spy": -0.24,
+     "right": false,
+     "excess": 4.91
+    },
+    {
+     "d": "2026-09-01",
+     "call": "+",
+     "detail": "released 2026-08-21: 11.1M head on August 1, 2026, +2% vs a year earlier (bars +/-2%)",
+     "from": "2026-09-01",
+     "to": "2026-10-01",
+     "stock": -8.34,
+     "spy": 0.54,
+     "right": false,
+     "excess": -8.88
+    }
+   ]
+  },
+  {
+   "name": "Major power outages -> Generac",
+   "ticker": "GNRC",
+   "source": "DOE OE-417 (published after year end)",
+   "from": "2010-06-01",
+   "to": "2025-12-01",
+   "rawCalls": 138,
+   "rawHitVsSpy": 55.1,
+   "rawCI": [
+    46.7,
+    63.1
+   ],
+   "rawBaseline": 52.2,
+   "rawFlipped": 44.9,
+   "meanExcessPerCall": 1.67,
+   "events": 39,
+   "eventHitVsSpy": 64.1,
+   "eventCI": [
+    48.4,
+    77.3
+   ],
+   "eventBaseline": 53.8,
+   "eventFlipped": 35.9,
+   "eventFlippedCI": [
+    22.7,
+    51.6
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "2010-06-01",
+     "call": "+",
+     "detail": "1,583,650 customers affected in 90 days vs 946,573 a year earlier (1.67x; bars 1.5x/0.67x)",
+     "from": "2010-06-01",
+     "to": "2010-07-01",
+     "stock": 34.08,
+     "spy": -3.98,
+     "right": true,
+     "excess": 38.07
+    },
+    {
+     "d": "2018-08-01",
+     "call": "+",
+     "detail": "6,461,383 customers affected in 90 days vs 2,001,636 a year earlier (3.23x; bars 1.5x/0.67x)",
+     "from": "2018-08-01",
+     "to": "2018-09-04",
+     "stock": 0.86,
+     "spy": 3.19,
+     "right": false,
+     "excess": -2.32
+    },
+    {
+     "d": "2025-12-01",
+     "call": "-",
+     "detail": "1,467,331 customers affected in 90 days vs 2,686,254 a year earlier (0.55x; bars 1.5x/0.67x)",
+     "from": "2025-12-01",
+     "to": "2026-01-02",
+     "stock": -5.44,
+     "spy": 0.72,
+     "right": true,
+     "excess": -6.16
+    }
+   ]
+  },
+  {
+   "name": "Suez Canal transits -> ZIM",
+   "ticker": "ZIM",
+   "source": "IMF PortWatch",
+   "from": "2021-07-01",
+   "to": "2026-03-01",
+   "rawCalls": 31,
+   "rawHitVsSpy": 45.2,
+   "rawCI": [
+    29.2,
+    62.2
+   ],
+   "rawBaseline": 51.6,
+   "rawFlipped": 54.8,
+   "meanExcessPerCall": 2.59,
+   "events": 8,
+   "eventHitVsSpy": 62.5,
+   "eventCI": [
+    30.6,
+    86.3
+   ],
+   "eventBaseline": 50.0,
+   "eventFlipped": 37.5,
+   "eventFlippedCI": [
+    13.7,
+    69.4
+   ],
+   "pass": false,
+   "samples": [
+    {
+     "d": "2021-07-01",
+     "call": "-",
+     "detail": "56.1 transits/day vs 46.4 a year earlier (1.21x; good at <=0.85x, bad at >=1.15x)",
+     "from": "2021-07-01",
+     "to": "2021-08-02",
+     "stock": -5.35,
+     "spy": 1.66,
+     "right": true,
+     "excess": -7.01
+    },
+    {
+     "d": "2024-02-01",
+     "call": "+",
+     "detail": "47.5 transits/day vs 70.9 a year earlier (0.67x; good at <=0.85x, bad at >=1.15x)",
+     "from": "2024-02-01",
+     "to": "2024-03-01",
+     "stock": -9.43,
+     "spy": 4.83,
+     "right": false,
+     "excess": -14.26
+    },
+    {
+     "d": "2026-03-01",
+     "call": "-",
+     "detail": "41.4 transits/day vs 34.4 a year earlier (1.20x; good at <=0.85x, bad at >=1.15x)",
+     "from": "2026-03-02",
+     "to": "2026-04-01",
+     "stock": -6.93,
+     "spy": -4.27,
+     "right": true,
+     "excess": -2.66
+    }
+   ]
+  }
+ ]
+}

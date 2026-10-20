@@ -1,0 +1,333 @@
+{
+ "method": "Event study. Entry = close of the first trading day after the EDGAR filing date (point in time even for after-hours filings); exit 21 or 63 trading days later; return minus SPY over the same days (adjusted closes, Yahoo Finance chart data). Baseline = better of always-up and always-down vs SPY over every non-overlapping 21/63-day window of the same stocks in the same years. Independent events = per ticker, a new event only if more than 63 trading days after its last counted one. Pass = independent hit rate's 95% Wilson lower bound above the baseline. Data hygiene (applied to events and baseline alike, decided after seeing absurd adjusted prices in the first run): skip windows starting under $1 adjusted or moving more than 500%.",
+ "tests": [
+  {
+   "id": "form4-buys",
+   "name": "Insider open-market buying (Form 4, code P, officers/directors) in current S&P 500 stocks",
+   "direction": "up",
+   "source": "SEC EDGAR Insider Transactions Data Sets (Forms 3/4/5), 2012 Q1 - 2026 Q1",
+   "sourceUrl": "https://www.sec.gov/data-research/sec-markets-data/insider-transactions-data-sets",
+   "bias": "Survivorship: uses today's S&P 500 list, so companies that left the index are missing. Filing date only (no acceptance time), so entry is the next trading day.",
+   "results": {
+    "21d": {
+     "raw": {
+      "n": 6491,
+      "hitVsSpy": 50.1,
+      "ci": [
+       48.9,
+       51.4
+      ],
+      "meanExcess": 0.51,
+      "meanExcessCI": [
+       0.28,
+       0.73
+      ],
+      "flippedHit": 49.9,
+      "flippedMeanExcess": -0.51,
+      "medianExcess": 0.02
+     },
+     "independent": {
+      "n": 3340,
+      "hitVsSpy": 49.0,
+      "ci": [
+       47.3,
+       50.7
+      ],
+      "meanExcess": 0.03,
+      "meanExcessCI": [
+       -0.22,
+       0.29
+      ],
+      "flippedHit": 51.0,
+      "flippedMeanExcess": -0.03,
+      "medianExcess": -0.13
+     },
+     "baseline": 50.3,
+     "baselineWindows": 80073,
+     "passes": false,
+     "years": [
+      "2012",
+      "2026"
+     ],
+     "tickers": 475,
+     "samples": [
+      {
+       "ticker": "ITW",
+       "filed": "2017-10-26",
+       "link": "https://www.sec.gov/Archives/edgar/data/49826/000157706417000007/",
+       "entry": "2017-10-27",
+       "exit": "2017-11-28",
+       "stock": 3.41,
+       "spy": 2.0,
+       "excess": 1.41,
+       "right": true
+      },
+      {
+       "ticker": "FCX",
+       "filed": "2014-10-30",
+       "link": "https://www.sec.gov/Archives/edgar/data/831259/000124636014004227/",
+       "entry": "2014-10-31",
+       "exit": "2014-12-02",
+       "stock": -9.23,
+       "spy": 2.69,
+       "excess": -11.92,
+       "right": false
+      },
+      {
+       "ticker": "HIG",
+       "filed": "2018-12-13",
+       "link": "https://www.sec.gov/Archives/edgar/data/874766/000122520818016585/",
+       "entry": "2018-12-14",
+       "exit": "2019-01-16",
+       "stock": 9.84,
+       "spy": 0.78,
+       "excess": 9.06,
+       "right": true
+      }
+     ]
+    },
+    "63d": {
+     "raw": {
+      "n": 6491,
+      "hitVsSpy": 52.5,
+      "ci": [
+       51.3,
+       53.7
+      ],
+      "meanExcess": 1.89,
+      "meanExcessCI": [
+       1.47,
+       2.32
+      ],
+      "flippedHit": 47.5,
+      "flippedMeanExcess": -1.89,
+      "medianExcess": 0.69
+     },
+     "independent": {
+      "n": 3340,
+      "hitVsSpy": 51.2,
+      "ci": [
+       49.5,
+       52.9
+      ],
+      "meanExcess": 1.05,
+      "meanExcessCI": [
+       0.54,
+       1.57
+      ],
+      "flippedHit": 48.8,
+      "flippedMeanExcess": -1.05,
+      "medianExcess": 0.31
+     },
+     "baseline": 50.7,
+     "baselineWindows": 26391,
+     "passes": false,
+     "years": [
+      "2012",
+      "2026"
+     ],
+     "tickers": 475,
+     "samples": [
+      {
+       "ticker": "ITW",
+       "filed": "2017-10-26",
+       "link": "https://www.sec.gov/Archives/edgar/data/49826/000157706417000007/",
+       "entry": "2017-10-27",
+       "exit": "2018-01-30",
+       "stock": 10.66,
+       "spy": 9.89,
+       "excess": 0.77,
+       "right": true
+      },
+      {
+       "ticker": "FCX",
+       "filed": "2014-10-30",
+       "link": "https://www.sec.gov/Archives/edgar/data/831259/000124636014004227/",
+       "entry": "2014-10-31",
+       "exit": "2015-02-03",
+       "stock": -32.49,
+       "spy": 2.14,
+       "excess": -34.63,
+       "right": false
+      },
+      {
+       "ticker": "HIG",
+       "filed": "2018-12-13",
+       "link": "https://www.sec.gov/Archives/edgar/data/874766/000122520818016585/",
+       "entry": "2018-12-14",
+       "exit": "2019-03-19",
+       "stock": 19.97,
+       "spy": 9.53,
+       "excess": 10.44,
+       "right": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "nt-late-filing",
+   "name": "Late-filing notices (Form 12b-25: NT 10-K / NT 10-Q) in US-listed stocks",
+   "direction": "down",
+   "source": "SEC EDGAR full-index form.idx, 2012 Q1 - 2026 Q3, mapped to tickers with SEC company_tickers_exchange.json",
+   "sourceUrl": "https://www.sec.gov/Archives/edgar/full-index/",
+   "bias": "Survivorship: only companies still listed today map to a ticker, so many late filers that later delisted (often the worst outcomes) are missing. Mostly small, illiquid stocks; real-world costs and shorting limits would eat into this.",
+   "results": {
+    "21d": {
+     "raw": {
+      "n": 8384,
+      "hitVsSpy": 62.7,
+      "ci": [
+       61.7,
+       63.8
+      ],
+      "meanExcess": -1.36,
+      "meanExcessCI": [
+       -2.33,
+       -0.4
+      ],
+      "flippedHit": 37.3,
+      "flippedMeanExcess": 1.36,
+      "medianExcess": -3.9
+     },
+     "independent": {
+      "n": 6067,
+      "hitVsSpy": 62.4,
+      "ci": [
+       61.2,
+       63.6
+      ],
+      "meanExcess": -2.05,
+      "meanExcessCI": [
+       -3.05,
+       -1.06
+      ],
+      "flippedHit": 37.6,
+      "flippedMeanExcess": 2.05,
+      "medianExcess": -3.75
+     },
+     "baseline": 58.4,
+     "baselineWindows": 198407,
+     "passes": true,
+     "years": [
+      "2012",
+      "2026"
+     ],
+     "tickers": 1823,
+     "samples": [
+      {
+       "ticker": "BRT",
+       "filed": "2020-03-16",
+       "link": "https://www.sec.gov/Archives/edgar/data/14846/0001213900-20-006529.txt",
+       "entry": "2020-03-17",
+       "exit": "2020-04-16",
+       "stock": -12.29,
+       "spy": 11.05,
+       "excess": -23.34,
+       "right": true
+      },
+      {
+       "ticker": "ACNT",
+       "filed": "2016-03-15",
+       "link": "https://www.sec.gov/Archives/edgar/data/95953/0000095953-16-000159.txt",
+       "entry": "2016-03-16",
+       "exit": "2016-04-15",
+       "stock": -6.74,
+       "spy": 2.71,
+       "excess": -9.45,
+       "right": true
+      },
+      {
+       "ticker": "WLY",
+       "filed": "2021-06-30",
+       "link": "https://www.sec.gov/Archives/edgar/data/107140/0001140361-21-022843.txt",
+       "entry": "2021-07-01",
+       "exit": "2021-08-02",
+       "stock": -2.07,
+       "spy": 1.66,
+       "excess": -3.73,
+       "right": true
+      }
+     ]
+    },
+    "63d": {
+     "raw": {
+      "n": 8218,
+      "hitVsSpy": 69.4,
+      "ci": [
+       68.4,
+       70.3
+      ],
+      "meanExcess": -8.16,
+      "meanExcessCI": [
+       -9.45,
+       -6.87
+      ],
+      "flippedHit": 30.6,
+      "flippedMeanExcess": 8.16,
+      "medianExcess": -11.33
+     },
+     "independent": {
+      "n": 5971,
+      "hitVsSpy": 68.9,
+      "ci": [
+       67.7,
+       70.1
+      ],
+      "meanExcess": -8.16,
+      "meanExcessCI": [
+       -9.57,
+       -6.74
+      ],
+      "flippedHit": 31.1,
+      "flippedMeanExcess": 8.16,
+      "medianExcess": -10.94
+     },
+     "baseline": 61.7,
+     "baselineWindows": 65256,
+     "passes": true,
+     "years": [
+      "2012",
+      "2026"
+     ],
+     "tickers": 1799,
+     "samples": [
+      {
+       "ticker": "MFIN",
+       "filed": "2020-03-17",
+       "link": "https://www.sec.gov/Archives/edgar/data/1000209/0001193125-20-075487.txt",
+       "entry": "2020-03-18",
+       "exit": "2020-06-17",
+       "stock": -11.36,
+       "spy": 30.62,
+       "excess": -41.98,
+       "right": true
+      },
+      {
+       "ticker": "NWBO",
+       "filed": "2016-03-15",
+       "link": "https://www.sec.gov/Archives/edgar/data/1072379/0001144204-16-088241.txt",
+       "entry": "2016-03-16",
+       "exit": "2016-06-15",
+       "stock": -52.94,
+       "spy": 2.7,
+       "excess": -55.64,
+       "right": true
+      },
+      {
+       "ticker": "TCRT",
+       "filed": "2021-08-09",
+       "link": "https://www.sec.gov/Archives/edgar/data/1107421/0001193125-21-240604.txt",
+       "entry": "2021-08-10",
+       "exit": "2021-11-08",
+       "stock": -15.1,
+       "spy": 6.27,
+       "excess": -21.37,
+       "right": true
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

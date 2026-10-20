@@ -28,6 +28,7 @@
 <script src="/track-text.js" defer></script>
 <script src="/track.js" defer></script>
 <script src="/signal-study.js" defer></script>
+<script src="/rules-v2.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -69,6 +70,12 @@
       <h2 id="live-h">Live log <span class="pill live">Live</span></h2>
       <p class="sub" id="live-sub"></p>
       <div class="tblwrap"><table class="tbl" id="live-table"><thead><tr><th>Stock</th><th>Latest logged lean</th><th>Price when logged</th><th>Logged</th><th>Up/down right (2 wk)</th><th>Beat the market (2 wk)</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section aria-labelledby="v2-h" id="per-stock">
+      <h2 id="v2-h">Tougher tests, one stock at a time <span class="pill bt">New rules, Oct 2026</span></h2>
+      <p class="sub">Each idea is now judged on its own stock(s). To pass, it has to beat the better of "always guess up" and "always guess down" against the S&amp;P 500 over the same months, and the bottom of its 95% range has to clear that bar too. Monthly calls in a row in the same direction (one winter, one crisis) count as <strong>one</strong> independent event. Education only, not advice: a passed test is a pattern in past data, not a prediction.</p>
+      <div id="v2-body"><p class="n">Loading…</p></div>
     </section>
 
     <section aria-labelledby="w-h" id="watching">
