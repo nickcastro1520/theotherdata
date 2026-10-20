@@ -46,7 +46,7 @@ const variants = {
 };
 const modelRuns = Object.fromEntries(Object.entries(variants).map(([k, v]) => [k, { what: v.what, ...walkForward(scored, v.rules) }]));
 
-// ---- 2) candidate new free data (only these 5 FRED groups plus the 2 Rhine rules 2 box office rules and 2 snow rules below were tried) ----
+// ---- 2) candidate new free data (only these 5 FRED groups plus the 2 Rhine rules 2 box office rules, 2 snow rules and 4 single-stock rules below were tried) ----
 const cand = (series, tk, id, name, polarity, lag, sourceUrl) => ({ tk, lag, name, series, url: sourceUrl || `https://fred.stlouisfed.org/series/${series}`, sig: { source: "fred", params: { series }, id, name, unit: "index", compare: "yoy", threshold: series === "GASDESW" ? 5 : 2, polarity } });
 const groups = {
   "Diesel prices (EIA via FRED)": [cand("GASDESW", "UNP", "diesel", "Diesel price", -1, 7), cand("GASDESW", "AMZN", "diesel", "Diesel price", -1, 7)],
@@ -97,12 +97,14 @@ const rhineRuns = Object.entries(rhineRules).map(([name, rule]) => {
 // Weekly US/Canada box office (Box Office Mojo, data/boxoffice-weekly.json) for DIS, which is already in the backtest.
 // Rules fixed before scoring: last 4 weeks of total domestic gross vs the same 4 weeks last year, higher = tailwind,
 // with (a) a 10% noise band or (b) a 25% band (big swings only). A week counts only 4 days after it ends (reports land Monday).
+globalThis.DETB = new Map();
 const BOX = JSON.parse(await readFile("data/boxoffice-weekly.json", "utf8"));
 const boxRules = { "US box office, last 4 weeks vs last year (10% band)": 10, "US box office, last 4 weeks vs last year (25% band)": 25 };
 const boxReading = (thr, d) => {
   const pts = BOX.points.filter((p) => Date.parse(p.t) + 4 * 864e5 <= Date.parse(d));
   if (pts.length < 60) return null;
   const a = analyze({ source: "boxofficemojo", id: "boxoffice", name: "US box office", unit: "$M", compare: "yoy", threshold: thr, polarity: 1 }, pts, "DIS");
+  if (thr === 10 && a.status === "ok" && globalThis.DETB) globalThis.DETB.set(`boxoffice|${d}`, { asOf: pts.at(-1).t, value: `${(+a.current).toFixed(1)} vs ${(+a.baseline).toFixed(1)} ($M, last 4 weeks vs same weeks last year)`, ratio: a.current && a.baseline ? a.current / a.baseline : null, rule: "tailwind at >=+10%, headwind at <=-10%" });
   return a.status !== "ok" ? null : a.reading === "tailwind" ? "+" : a.reading === "headwind" ? "-" : "0";
 };
 const boxRuns = Object.entries(boxRules).map(([name, thr]) => {
@@ -122,11 +124,12 @@ const SNOTEL = JSON.parse(await readFile("data/snotel-vail-basket.json", "utf8")
 const GHCN = JSON.parse(await readFile("data/ghcn-snow-cities.json", "utf8"));
 for (const tk of ["MTN", "CMP"]) if (!prices[tk]) prices[tk] = await src.tiingoPrices({ ticker: tk, days: 1450 });
 await writeFile(CACHE, JSON.stringify(prices));
+const DET = new Map();
 const prevDay = (d) => new Date(Date.parse(d) - 864e5).toISOString().slice(0, 10);
 const snotelReading = (d) => {
   const m = +d.slice(5, 7); if (!(m >= 11 || m <= 4)) return null;
   const pt = SNOTEL.points.filter((p) => p.t <= prevDay(d)).at(-1); if (!pt || pt.m < 1) return null;
-  const r = pt.v / pt.m; return r >= 1.1 ? "+" : r <= 0.9 ? "-" : "0";
+  const r = pt.v / pt.m; DET.set(`snotel|${d}`, { asOf: pt.t, value: `${pt.v} in vs ${pt.m} in median`, ratio: r, rule: "tailwind at >=110%, headwind at <=90%" }); return r >= 1.1 ? "+" : r <= 0.9 ? "-" : "0";
 };
 const snowDaily = Object.fromEntries(GHCN.points.map((p) => [p.t, p.v]));
 const seasonToDate = (end) => { const y = +end.slice(0, 4) - (+end.slice(5, 7) < 10 ? 1 : 0); let t = 0; for (let x = Date.parse(`${y}-10-01`); x <= Date.parse(end); x += 864e5) t += snowDaily[new Date(x).toISOString().slice(0, 10)] || 0; return t; };
@@ -135,9 +138,60 @@ const ghcnReading = (d) => {
   const end = prevDay(d), cur = seasonToDate(end), past = [];
   for (let k = 1; k <= 10; k++) { const e = `${+end.slice(0, 4) - k}${end.slice(4)}`; if (e >= "2005-10-02") past.push(seasonToDate(e)); }
   if (past.length < 5) return null; const avg = past.reduce((a, b) => a + b, 0) / past.length; if (avg <= 0) return null;
-  const r = cur / avg; return r >= 1.2 ? "+" : r <= 0.8 ? "-" : "0";
+  const r = cur / avg; DET.set(`ghcn-snow|${d}`, { asOf: end, value: `${Math.round(cur)} mm season to date vs ${Math.round(avg)} mm avg of ${past.length} earlier seasons`, ratio: r, rule: "tailwind at >=120%, headwind at <=80%" }); return r >= 1.2 ? "+" : r <= 0.8 ? "-" : "0";
 };
 const snowRules = { "Ski-country snowpack (SNOTEL) for Vail Resorts": ["MTN", "snotel", snotelReading, SNOTEL.url], "Midwest/Northeast snowfall (NOAA GHCN) for Compass Minerals": ["CMP", "ghcn-snow", ghcnReading, GHCN.url] };
+// Four more single-stock tests (each stock added to the study only). Rules fixed before scoring:
+// (c) CALM (Cal-Maine, eggs): USDA APHIS HPAI detections (CDC republished CSV, Feb 2022 - Jun 2025). Tailwind when commercial
+//     table-egg flocks with >=1,000,000 birds in total were confirmed in the 28 days before the checkpoint; headwind when no
+//     table-egg flock was confirmed in the prior 90 days; otherwise no call. No calls after the data ends.
+// (d) TSN (Tyson): USDA NASS Cattle on Feed, latest release before the checkpoint. On-feed inventory vs a year earlier:
+//     >= +2% tailwind (more cattle, cheaper inputs), <= -2% headwind.
+// (e) GNRC (Generac): DOE OE-417 customers affected by reported disturbances, 90 days before the checkpoint vs the same 90 days
+//     a year earlier: >=1.5x tailwind, <=0.67x headwind. OE-417 annual files are published after the fact, so this tests the
+//     link, not what was knowable in real time. No calls after 2025.
+// (f) ZIM (ZIM Integrated Shipping): IMF PortWatch Suez Canal daily transits, 28-day average vs the same 28 days last year:
+//     <=0.85x tailwind (diversions around Africa tighten capacity and lift rates), >=1.15x headwind.
+const HPAI = JSON.parse(await readFile("data/hpai-flocks.json", "utf8"));
+const COF = JSON.parse(await readFile("data/cattle-on-feed.json", "utf8"));
+const OE = JSON.parse(await readFile("data/oe417-events.json", "utf8")); OE.events = OE.events.filter((e) => /^\d{4}-/.test(e.t));
+const SUEZ = JSON.parse(await readFile("data/portwatch-suez.json", "utf8"));
+for (const tk of ["CALM", "TSN", "GNRC", "ZIM"]) if (!prices[tk]) prices[tk] = await src.tiingoPrices({ ticker: tk, days: 1450 });
+await writeFile(CACHE, JSON.stringify(prices));
+const dayMs = 864e5, inWin = (t, d, days) => Date.parse(t) < Date.parse(d) && Date.parse(t) >= Date.parse(d) - days * dayMs;
+const hpaiReading = (d) => {
+  if (d > "2025-06-12") return null;
+  const egg = HPAI.events.filter((e) => /Table Egg/.test(e.type));
+  const b28 = egg.filter((e) => inWin(e.t, d, 28)).reduce((a, e) => a + e.birds, 0), n90 = egg.filter((e) => inWin(e.t, d, 90)).length;
+  const v = b28 >= 1e6 ? "+" : n90 === 0 ? "-" : "0";
+  DET.set(`hpai-egg|${d}`, { asOf: prevDay(d), value: `${b28.toLocaleString("en-US")} table-egg birds in 28 days; ${n90} table-egg flocks in 90 days`, ratio: null, rule: "tailwind at >=1,000,000 birds in 28 days; headwind at 0 flocks in 90 days" });
+  return v;
+};
+const cofReading = (d) => {
+  const p = COF.points.filter((x) => x.t < d).at(-1); if (!p) return null;
+  DET.set(`cattle-on-feed|${d}`, { asOf: p.t, value: `${p.head}M head on ${p.asOf}, ${p.yoy >= 0 ? "+" : ""}${p.yoy}% vs a year earlier`, ratio: null, rule: "tailwind at >=+2%, headwind at <=-2%" });
+  return p.yoy >= 2 ? "+" : p.yoy <= -2 ? "-" : "0";
+};
+const oeReading = (d) => {
+  if (d > "2026-01-01" || d < "2017-01-01") return null;
+  const ly = new Date(Date.parse(d) - 365 * dayMs).toISOString().slice(0, 10);
+  const sum = (end) => OE.events.filter((e) => inWin(e.t, end, 90)).reduce((a, e) => a + (e.customers || 0), 0);
+  const cur = sum(d), prev = sum(ly); if (!prev) return null; const r = cur / prev;
+  DET.set(`oe417|${d}`, { asOf: prevDay(d), value: `${cur.toLocaleString("en-US")} customers affected in 90 days vs ${prev.toLocaleString("en-US")} a year earlier`, ratio: r, rule: "tailwind at >=1.5x, headwind at <=0.67x" });
+  return r >= 1.5 ? "+" : r <= 0.67 ? "-" : "0";
+};
+const suezReading = (d) => {
+  const avg = (end) => { const x = SUEZ.points.filter((p) => inWin(p.t, end, 28)); return x.length >= 20 ? x.reduce((a, p) => a + p.v, 0) / x.length : null; };
+  const ly = new Date(Date.parse(d) - 364 * dayMs).toISOString().slice(0, 10);
+  const cur = avg(d), prev = avg(ly); if (!cur || !prev) return null; const r = cur / prev;
+  DET.set(`suez|${d}`, { asOf: prevDay(d), value: `${cur.toFixed(1)} transits/day vs ${prev.toFixed(1)} a year earlier (28-day avg)`, ratio: r, rule: "tailwind at <=0.85x, headwind at >=1.15x" });
+  return r <= 0.85 ? "+" : r >= 1.15 ? "-" : "0";
+};
+snowRules["Bird flu in egg-laying flocks (USDA APHIS) for Cal-Maine"] = ["CALM", "hpai-egg", hpaiReading, HPAI.url];
+snowRules["Cattle on Feed (USDA NASS) for Tyson"] = ["TSN", "cattle-on-feed", cofReading, COF.url];
+snowRules["Major power outages (DOE OE-417) for Generac"] = ["GNRC", "oe417", oeReading, OE.url];
+snowRules["Suez Canal transits (IMF PortWatch) for ZIM"] = ["ZIM", "suez", suezReading, SUEZ.url];
+
 const snowRuns = Object.entries(snowRules).map(([name, [tk, id, fn, url]]) => {
   const extra = [...new Set(bt.records.map((r) => r.d))].map((d) => { const v = fn(d); return { d, tk, lean: v === "+" ? "tailwind" : v === "-" ? "headwind" : "neutral", mag: "mild", tw: v === "+" ? 1 : 0, hw: v === "-" ? 1 : 0, n: v ? 1 : 0, sig: v ? `${id}:${v}` : "" }; });
   const own = scoreAll(extra);
@@ -173,8 +227,26 @@ for (const r of snowRuns) {
   const gain = wf.rateX - base.rateX, o = st[M.sigKey(r.tk, r.id)] || {};
   candidates.push({ name: r.name, for: [r.tk], series: r.id.toUpperCase(), url: r.url, oos: wf, changeVsBase: Math.round(gain * 10) / 10,
     perStock: [{ tk: r.tk, n: o.n || 0, rate: pctOf(o.hits || 0, o.n || 0), rateX: pctOf(o.hitsX || 0, o.n || 0), ciX: ci(o.hitsX || 0, o.n || 0) }],
-    ownOos: r.wfOwn.v1, newStocks: true, note: "One winter per year, so the sample is small.", admitted: gain >= 1 });
+    ownOos: r.wfOwn.v1, newStocks: true, note: r.tk === "CMP" ? "1 new data point per year" : r.tk === "MTN" ? "One winter per year, so the sample is small." : undefined, admitted: gain >= 1 });
 }
+
+// ---- audit of the 7 single-signal tests: base rates, flip test, sample calls (all checkpoints with a known 1-month result;
+// checkpoints are monthly and the window is 1 month, so calls do not overlap) ----
+const auditOf = (name, tk, id, own) => {
+  const known = own.filter((r) => r.w["1m"]?.x != null), calls = known.filter((r) => r.lean === "tailwind" || r.lean === "headwind");
+  const k = (f) => calls.filter(f).length, n = calls.length;
+  const hit = k((r) => r.w["1m"].hit), hitX = k((r) => r.w["1m"].hitX);
+  const fl = k((r) => r.w["1m"].r * (r.lean === "tailwind" ? -1 : 1) > 0), flX = k((r) => r.w["1m"].x * (r.lean === "tailwind" ? -1 : 1) > 0);
+  const det = (r) => (id === "boxoffice" ? globalThis.DETB : DET).get(`${id}|${r.d}`) || {};
+  const pick = n ? [...new Set([0, Math.floor(n / 2), n - 1])].map((i) => calls[i]) : [];
+  return { name, tk, checkpoints: known.length, from: known[0]?.d, to: known.at(-1)?.d, calls: n, tailwinds: k((r) => r.lean === "tailwind"), headwinds: k((r) => r.lean === "headwind"),
+    upDown: pctOf(hit, n), upDownCI: ci(hit, n), vsSpy: pctOf(hitX, n), vsSpyCI: ci(hitX, n),
+    flipUpDown: pctOf(fl, n), flipVsSpy: pctOf(flX, n),
+    baseRose: pctOf(known.filter((r) => r.w["1m"].r > 0).length, known.length), baseBeatSpy: pctOf(known.filter((r) => r.w["1m"].x > 0).length, known.length),
+    samples: pick.map((r) => { const dd = det(r); return { checkpoint: r.d, dataAsOf: dd.asOf, reading: dd.value, ratio: dd.ratio != null ? Math.round(dd.ratio * 1000) / 1000 : null, rule: dd.rule, call: r.lean,
+      window: `${r.w["1m"].from} to ${r.w["1m"].to}`, stock: Math.round(r.w["1m"].r * 1000) / 10, spy: Math.round((r.w["1m"].r - r.w["1m"].x) * 1000) / 10, rightUpDown: r.w["1m"].hit, rightVsSpy: r.w["1m"].hitX }; }) };
+};
+const audit = [auditOf(boxRuns[0].name, "DIS", "boxoffice", boxRuns[0].own), ...snowRuns.map((r) => auditOf(r.name, r.tk, r.id, r.own))];
 
 // ---- 3) per-signal transparency (all backtest checkpoints with a known 1-month result) ----
 const nameOf = {}; for (const t of TICKERS) for (const s of t.signals) nameOf[M.sigKey(t.ticker, s.id)] = s.name;
@@ -192,10 +264,10 @@ const doc = {
   design: "Walk-forward: for each test year, signals were scored and kept or muted using only checkpoints whose 1-month result was already known before that year began. Nothing was flipped.",
   configurationsTried: Object.keys(variants).length + Object.keys(groups).length + Object.keys(rhineRules).length + Object.keys(boxRules).length + Object.keys(snowRules).length,
   thresholdOptions: M.MODEL_RULES.thresholds,
-  models: modelRuns, candidates, signals,
+  models: modelRuns, candidates, signals, audit,
   verdict: { improved, liveModel: improved ? "v2" : "v1",
     text: improved ? "The weighted model beat the old one out of sample by a margin outside the noise, so it now drives the live leans."
       : "No version beat a coin flip by more than chance. The live leans stay on the original method, and this study is published so you can see what was tried." },
 };
 await writeFile(OUT, JSON.stringify(doc));
-console.log(JSON.stringify({ primary: { v1: p.v1, v2: p.v2 }, stricter: modelRuns.stricter.v2, noThreshold: modelRuns.noThreshold.v2, candidates: candidates.map((c) => [c.name, c.oos.rateX, c.changeVsBase, c.admitted]), extra: candidates.filter((c) => c.perStock).map((c) => ({ name: c.name, perStock: c.perStock, own: c.ownOos })), kept: signals.filter((s) => s.wouldKeep).length, of: signals.length, verdict: doc.verdict }, null, 1));
+console.log(JSON.stringify({ primary: { v1: p.v1, v2: p.v2 }, stricter: modelRuns.stricter.v2, noThreshold: modelRuns.noThreshold.v2, candidates: candidates.map((c) => [c.name, c.oos.rateX, c.changeVsBase, c.admitted]), extra: candidates.filter((c) => c.perStock).map((c) => ({ name: c.name, perStock: c.perStock, own: c.ownOos })), audit, kept: signals.filter((s) => s.wouldKeep).length, of: signals.length, verdict: doc.verdict }, null, 1));

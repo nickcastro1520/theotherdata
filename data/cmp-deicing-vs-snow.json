@@ -1,0 +1,247 @@
+{
+ "what": "Compass Minerals highway deicing sales volumes (thousands of tons, as reported in each quarterly earnings release, SEC 8-K Exhibit 99.1) vs total snowfall at the 6 GHCN-Daily airports in the same calendar quarter",
+ "snowSource": "NOAA NCEI GHCN-Daily SNOW (mm), data/ghcn-snow-cities.json",
+ "note": "Apr-Jun 2026 omitted: the Aug 5, 2026 release on EDGAR did not include a parseable volume table. Fiscal year switched from December to September in 2021; quarters here are calendar quarters.",
+ "results": {
+  "allQuarters": {
+   "n": 35,
+   "pearson": 0.899,
+   "pearsonP": 0.0,
+   "spearman": 0.794,
+   "spearmanP": 0.0
+  },
+  "winterQuartersOnly": {
+   "n": 18,
+   "pearson": 0.792,
+   "pearsonP": 0.0001,
+   "spearman": 0.833,
+   "spearmanP": 0.0
+  },
+  "OctDecOnly": {
+   "n": 9,
+   "pearson": 0.251,
+   "pearsonP": 0.5148,
+   "spearman": 0.383,
+   "spearmanP": 0.3085
+  },
+  "JanMarOnly": {
+   "n": 9,
+   "pearson": 0.502,
+   "pearsonP": 0.1685,
+   "spearman": 0.5,
+   "spearmanP": 0.1705
+  }
+ },
+ "quarters": [
+  {
+   "quarter": "2017-07 to 2017-09",
+   "deicingKt": 1157,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765417000219/cmp3q2017earnings.htm"
+  },
+  {
+   "quarter": "2017-10 to 2017-12",
+   "deicingKt": 2969,
+   "snowMm": 1781,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765418000024/q42017earnings.htm"
+  },
+  {
+   "quarter": "2018-01 to 2018-03",
+   "deicingKt": 4262,
+   "snowMm": 5531,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765418000095/cmp1q2018earnings.htm"
+  },
+  {
+   "quarter": "2018-04 to 2018-06",
+   "deicingKt": 1201,
+   "snowMm": 1065,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765418000144/cmp2q2018earnings.htm"
+  },
+  {
+   "quarter": "2018-07 to 2018-09",
+   "deicingKt": 1302,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765418000202/cmp3q2018earnings.htm"
+  },
+  {
+   "quarter": "2018-10 to 2018-12",
+   "deicingKt": 2832,
+   "snowMm": 1181,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765419000031/q42018earnings.htm"
+  },
+  {
+   "quarter": "2019-01 to 2019-03",
+   "deicingKt": 3543,
+   "snowMm": 4512,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765419000106/cmp1q2019earnings.htm"
+  },
+  {
+   "quarter": "2019-04 to 2019-06",
+   "deicingKt": 865,
+   "snowMm": 450,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765419000174/cmp2q2019earnings.htm"
+  },
+  {
+   "quarter": "2019-07 to 2019-09",
+   "deicingKt": 1403,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765419000229/cmp3q2019earnings.htm"
+  },
+  {
+   "quarter": "2019-10 to 2019-12",
+   "deicingKt": 2937,
+   "snowMm": 1808,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765420000039/q42019earnings.htm"
+  },
+  {
+   "quarter": "2020-01 to 2020-03",
+   "deicingKt": 3104,
+   "snowMm": 2332,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765420000101/cmp1q2020earnings.htm"
+  },
+  {
+   "quarter": "2020-04 to 2020-06",
+   "deicingKt": 1021,
+   "snowMm": 556,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765420000163/cmp2q2020earnings.htm"
+  },
+  {
+   "quarter": "2020-07 to 2020-09",
+   "deicingKt": 1205,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765420000196/cmp3q2020earnings.htm"
+  },
+  {
+   "quarter": "2020-10 to 2020-12",
+   "deicingKt": 2204,
+   "snowMm": 2517,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765421000032/cmp-q42020earningsreleasex.htm"
+  },
+  {
+   "quarter": "2021-01 to 2021-03",
+   "deicingKt": 4550,
+   "snowMm": 4060,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765421000093/cmp-q12021earningsreleasex.htm"
+  },
+  {
+   "quarter": "2021-04 to 2021-06",
+   "deicingKt": 1212,
+   "snowMm": 329,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765421000209/cmpq22021earningsreleaseex.htm"
+  },
+  {
+   "quarter": "2021-07 to 2021-09",
+   "deicingKt": 1329,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765421000286/cmp-ye2021earningsreleasex.htm"
+  },
+  {
+   "quarter": "2021-10 to 2021-12",
+   "deicingKt": 2807,
+   "snowMm": 1024,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765422000034/cmpq12022earningsreleaseex.htm"
+  },
+  {
+   "quarter": "2022-01 to 2022-03",
+   "deicingKt": 4815,
+   "snowMm": 5239,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765422000122/cmp-q22022earningsreleasee.htm"
+  },
+  {
+   "quarter": "2022-04 to 2022-06",
+   "deicingKt": 1232,
+   "snowMm": 223,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765422000225/cmp-q32022earningsreleasee.htm"
+  },
+  {
+   "quarter": "2022-07 to 2022-09",
+   "deicingKt": 1581,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765422000325/cmp-q42022earningsreleasex.htm"
+  },
+  {
+   "quarter": "2022-10 to 2022-12",
+   "deicingKt": 2901,
+   "snowMm": 1338,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765423000020/cmp-q12023earningsreleasee.htm"
+  },
+  {
+   "quarter": "2023-01 to 2023-03",
+   "deicingKt": 3915,
+   "snowMm": 3259,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765423000112/cmp-q22023earningsreleasee.htm"
+  },
+  {
+   "quarter": "2023-04 to 2023-06",
+   "deicingKt": 1070,
+   "snowMm": 112,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765423000162/cmp-q32023earningsreleasee.htm"
+  },
+  {
+   "quarter": "2023-07 to 2023-09",
+   "deicingKt": 1435,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765423000213/cmp-q42023earningsreleasex.htm"
+  },
+  {
+   "quarter": "2023-10 to 2023-12",
+   "deicingKt": 2266,
+   "snowMm": 478,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765424000034/cmp-q12024earningsreleasee.htm"
+  },
+  {
+   "quarter": "2024-01 to 2024-03",
+   "deicingKt": 3045,
+   "snowMm": 2528,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765424000101/cmp-q22024earningsreleasee.htm"
+  },
+  {
+   "quarter": "2024-04 to 2024-06",
+   "deicingKt": 1090,
+   "snowMm": 3,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765424000213/cmp-q32024earningsreleasee.htm"
+  },
+  {
+   "quarter": "2024-07 to 2024-09",
+   "deicingKt": 1061,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765424000228/cmp-q42024earningsreleasex.htm"
+  },
+  {
+   "quarter": "2024-10 to 2024-12",
+   "deicingKt": 1987,
+   "snowMm": 899,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765425000032/cmp-q12025earningsreleasee.htm"
+  },
+  {
+   "quarter": "2025-01 to 2025-03",
+   "deicingKt": 4583,
+   "snowMm": 2855,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765425000088/cmp-q22025earningsreleasee.htm"
+  },
+  {
+   "quarter": "2025-04 to 2025-06",
+   "deicingKt": 1144,
+   "snowMm": 104,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765425000145/cmp-q32025earningsreleasee.htm"
+  },
+  {
+   "quarter": "2025-07 to 2025-09",
+   "deicingKt": 1271,
+   "snowMm": 0,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765425000196/cmp-q42025earningsreleasex.htm"
+  },
+  {
+   "quarter": "2025-10 to 2025-12",
+   "deicingKt": 2851,
+   "snowMm": 2362,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765426000008/cmp-q12026earningsreleasee.htm"
+  },
+  {
+   "quarter": "2026-01 to 2026-03",
+   "deicingKt": 3593,
+   "snowMm": 4743,
+   "source": "https://www.sec.gov/Archives/edgar/data/1227654/000122765426000023/cmp-q22026earningsreleasee.htm"
+  }
+ ]
+}
