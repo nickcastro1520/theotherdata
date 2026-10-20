@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-19T21:25:22.674Z",
- "dataUpdatedAt": "2026-10-19T21:10:04.658Z",
+ "generatedAt": "2026-10-20T05:08:53.398Z",
+ "dataUpdatedAt": "2026-10-20T05:01:52.726Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -50,6 +50,27 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+65% (20 → 33)",
+   "pct": 65,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 20, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -75,8 +96,8 @@
    "company": "Apple",
    "id": "iphone-curiosity",
    "signal": "iPhone curiosity",
-   "change": "−47% (166.69K → 88,242)",
-   "pct": -47.1,
+   "change": "−48% (166.68K → 86,251)",
+   "pct": -48.3,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -84,33 +105,12 @@
    "plain": "Interest in iPhones is cooling off compared with recent weeks.",
    "what": "How many people look up “iPhone” on Wikipedia each day.",
    "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 18, 2026",
+   "dataThrough": "Oct 19, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
    },
    "url": "https://theotherdata.com/#/AAPL"
-  },
-  {
-   "ticker": "WMT",
-   "company": "Walmart",
-   "id": "egg-prices",
-   "signal": "Egg prices",
-   "change": "−37% ($3.56/dozen → $2.24/dozen)",
-   "pct": -36.9,
-   "direction": "down",
-   "basis": "vs the same period last year",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
-   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
-   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
-   "dataThrough": "Sep 2026",
-   "source": {
-    "name": "FRED, Federal Reserve Bank of St. Louis",
-    "url": "https://fred.stlouisfed.org/series/APU0000708111"
-   },
-   "url": "https://theotherdata.com/#/WMT"
   }
  ],
  "story": {
