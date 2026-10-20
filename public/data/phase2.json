@@ -1293,7 +1293,8 @@
      "excess": -14.38,
      "right": true
     }
-   ]
+   ],
+   "status": "Not confirmed"
   },
   "8-K 4.01 auditor change": {
    "rule": {
@@ -1510,7 +1511,8 @@
      "excess": -61.64,
      "right": true
     }
-   ]
+   ],
+   "status": "Under review, same small-company problem"
   },
   "8-K 3.01 delisting notice": {
    "rule": {
@@ -1727,7 +1729,8 @@
      "excess": -26.52,
      "right": false
     }
-   ]
+   ],
+   "status": "Not confirmed"
   },
   "8-K 5.02 officer/director change": {
    "rule": {
@@ -1944,7 +1947,8 @@
      "excess": -52.13,
      "right": false
     }
-   ]
+   ],
+   "status": "Not confirmed"
   },
   "8-K 5.02 CFO departure": {
    "rule": {
@@ -2161,7 +2165,8 @@
      "excess": -43.24,
      "right": false
     }
-   ]
+   ],
+   "status": "Not confirmed"
   },
   "Schedule 13D": {
    "rule": {
@@ -2378,7 +2383,8 @@
      "excess": 4.69,
      "right": true
     }
-   ]
+   ],
+   "status": "Not confirmed"
   }
  },
  "caveats": [
