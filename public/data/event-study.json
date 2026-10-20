@@ -327,7 +327,9 @@
       }
      ]
     }
-   }
+   },
+   "status": "review",
+   "statusNote": "Under review, not yet a pass (Oct 20 2026): rechecking survivorship, benchmarks, outliers and calendar-time returns."
   }
  ]
 }

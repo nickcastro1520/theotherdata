@@ -435,18 +435,6 @@
     return { kind: "stock", ticker: d.ticker, company: d.name, headline: `${d.name} hidden signals`, lean: { word: "", sub: "" }, url: `${C.SITE}/#/${encodeURIComponent(d.ticker)}`, img: null, title: `${d.ticker}: ${d.name} hidden signals | The Other Data`, shareText: `The offbeat public data behind ${d.name} ($${d.ticker}), explained in plain English:` };
   }
 
-  // Badge when this stock filed a late-filing notice (SEC Form 12b-25) in the last 30 days. Education only.
-  let LATE = null;
-  async function lateBadge(tk) {
-    try {
-      LATE = LATE || (await (await fetch("/data/late-filers.json")).json());
-      const hits = (LATE.items || []).filter((r) => r.ticker === tk);
-      const el = document.getElementById("lf-badge");
-      if (!el || !hits.length) return;
-      const h = hits[0];
-      el.innerHTML = `<p class="note-box"><span class="pill light">Late filing notice</span> ${esc(tk)} filed a ${esc(h.form)} on ${esc(h.filed)} (<a href="${esc(h.link)}" rel="noopener" target="_blank">EDGAR ↗</a>), saying a report would be late. In our 2012–2026 test, stocks trailed the S&amp;P 500 more often than usual after these notices. <a href="/late-filers">What that means and its limits →</a> Education only, not advice.</p>`;
-    } catch {}
-  }
   function renderDetail(d) {
     CURRENT = d;
     const det = $("#detail");
@@ -459,7 +447,7 @@
       <div class="dtop"><a class="back" href="${PERMALINK() ? "/" : "#"}">← All stocks</a><div class="dtop-r"><button type="button" class="share-btn" data-share-stock aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button><button type="button" class="help-pill" data-tour-start aria-label="How to read this page: start the guided tour"><span aria-hidden="true">?</span> How to read this page</button></div></div>
       ${pack}
       ${limited}
-      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div><div id="lf-badge"></div>
+      <div class="dhead"><div><div class="tk">${esc(d.ticker)}</div><h1>${esc(d.name)}</h1><div class="meta">${esc(d.sector)}${d.exchange ? ` · ${esc(d.exchange)}` : ""} · updated ${esc(when(d.updatedAt))} (${esc(ago(d.updatedAt))}) · <a href="${esc(quoteUrl(d.ticker, d.exchangeCode))}" rel="noopener" target="_blank">See the stock price ↗</a></div></div>${meter(d.summary)}</div>
       <p class="email-cta"><a class="btn ghost-btn" href="/subscribe">Get the free weekly email</a> <span>The strangest signal moves, once a week. Free.</span></p>
       ${impactPanel(d)}
       <p class="track-line" id="track-line" hidden></p>
@@ -490,7 +478,7 @@
         } else if (d.ai?.text) {
           d.ai = null; // written for a different lean than the page now shows: keep the template text
         }
-        { const r = renderDetail(d); lateBadge(d.ticker); return r; }
+        return renderDetail(d);
       } catch {
         det.innerHTML = `<div class="wrap"><p class="warnbox">Couldn't load data for ${esc(tk)}. Please refresh.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
         return;
@@ -504,7 +492,7 @@
         det.innerHTML = `<div class="wrap"><p class="warnbox">${esc(d.message || `No data for ${tk}.`)}</p><p class="note">Try a curated ticker from the home page, or another US common stock symbol.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
         return;
       }
-      { const r = renderDetail(d); lateBadge(d.ticker); return r; }
+      return renderDetail(d);
     } catch {
       det.innerHTML = `<div class="wrap"><p class="warnbox">Lookup failed for ${esc(tk)}. Please try again in a moment.</p><p><a class="back" href="#">← All stocks</a></p></div>`;
     }
