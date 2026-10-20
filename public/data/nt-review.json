@@ -1,0 +1,1505 @@
+{
+ "status": "Under review, not yet a pass",
+ "checks": {
+  "returns3ways": {
+   "none|21|SPY": {
+    "raw": {
+     "n": 12530,
+     "hit": 61.1,
+     "ci": [
+      60.3,
+      62.0
+     ],
+     "meanExcess": 25840404.17,
+     "meanCI": [
+      -9799197.4,
+      61480005.74
+     ],
+     "flippedHit": 38.9,
+     "flippedMean": -25840404.17
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 61.6,
+     "ci": [
+      60.7,
+      62.5
+     ],
+     "meanExcess": 14330371.79,
+     "meanCI": [
+      -13622296.2,
+      42283039.78
+     ],
+     "flippedHit": 38.4,
+     "flippedMean": -14330371.79
+    },
+    "baseline": 58.2,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "none|21|IWM": {
+    "raw": {
+     "n": 12530,
+     "hit": 60.0,
+     "ci": [
+      59.1,
+      60.9
+     ],
+     "meanExcess": 25840404.21,
+     "meanCI": [
+      -9799197.36,
+      61480005.78
+     ],
+     "flippedHit": 40.0,
+     "flippedMean": -25840404.21
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 59.9,
+     "ci": [
+      59.0,
+      60.8
+     ],
+     "meanExcess": 14330371.94,
+     "meanCI": [
+      -13622296.05,
+      42283039.93
+     ],
+     "flippedHit": 40.1,
+     "flippedMean": -14330371.94
+    },
+    "baseline": 56.5,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "none|21|IWC": {
+    "raw": {
+     "n": 12530,
+     "hit": 60.5,
+     "ci": [
+      59.7,
+      61.4
+     ],
+     "meanExcess": 25840403.71,
+     "meanCI": [
+      -9799197.85,
+      61480005.28
+     ],
+     "flippedHit": 39.5,
+     "flippedMean": -25840403.71
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 60.5,
+     "ci": [
+      59.6,
+      61.4
+     ],
+     "meanExcess": 14330371.55,
+     "meanCI": [
+      -13622296.44,
+      42283039.54
+     ],
+     "flippedHit": 39.5,
+     "flippedMean": -14330371.55
+    },
+    "baseline": 56.5,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "none|63|SPY": {
+    "raw": {
+     "n": 12262,
+     "hit": 67.0,
+     "ci": [
+      66.2,
+      67.8
+     ],
+     "meanExcess": 26319551.9,
+     "meanCI": [
+      -10098603.29,
+      62737707.09
+     ],
+     "flippedHit": 33.0,
+     "flippedMean": -26319551.9
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 67.0,
+     "ci": [
+      66.0,
+      68.0
+     ],
+     "meanExcess": 18414687.89,
+     "meanCI": [
+      -17620698.94,
+      54450074.72
+     ],
+     "flippedHit": 33.0,
+     "flippedMean": -18414687.89
+    },
+    "baseline": 60.2,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "none|63|IWM": {
+    "raw": {
+     "n": 12262,
+     "hit": 64.9,
+     "ci": [
+      64.1,
+      65.7
+     ],
+     "meanExcess": 26319552.42,
+     "meanCI": [
+      -10098602.77,
+      62737707.61
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": -26319552.42
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 64.9,
+     "ci": [
+      63.9,
+      65.9
+     ],
+     "meanExcess": 18414688.38,
+     "meanCI": [
+      -17620698.45,
+      54450075.21
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": -18414688.38
+    },
+    "baseline": 58.3,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "none|63|IWC": {
+    "raw": {
+     "n": 12262,
+     "hit": 64.9,
+     "ci": [
+      64.0,
+      65.7
+     ],
+     "meanExcess": 26319551.74,
+     "meanCI": [
+      -10098603.45,
+      62737706.93
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": -26319551.74
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 64.7,
+     "ci": [
+      63.7,
+      65.7
+     ],
+     "meanExcess": 18414687.63,
+     "meanCI": [
+      -17620699.19,
+      54450074.46
+     ],
+     "flippedHit": 35.3,
+     "flippedMean": -18414687.63
+    },
+    "baseline": 58.3,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|21|SPY": {
+    "raw": {
+     "n": 8384,
+     "hit": 62.7,
+     "ci": [
+      61.7,
+      63.8
+     ],
+     "meanExcess": -1.36,
+     "meanCI": [
+      -2.33,
+      -0.4
+     ],
+     "flippedHit": 37.3,
+     "flippedMean": 1.36
+    },
+    "independent": {
+     "n": 7466,
+     "hit": 62.9,
+     "ci": [
+      61.8,
+      64.0
+     ],
+     "meanExcess": -2.14,
+     "meanCI": [
+      -3.05,
+      -1.24
+     ],
+     "flippedHit": 37.1,
+     "flippedMean": 2.14
+    },
+    "baseline": 58.0,
+    "baselineWindows": 183839,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|21|IWM": {
+    "raw": {
+     "n": 8384,
+     "hit": 61.9,
+     "ci": [
+      60.8,
+      62.9
+     ],
+     "meanExcess": -1.25,
+     "meanCI": [
+      -2.21,
+      -0.29
+     ],
+     "flippedHit": 38.1,
+     "flippedMean": 1.25
+    },
+    "independent": {
+     "n": 7466,
+     "hit": 61.6,
+     "ci": [
+      60.5,
+      62.7
+     ],
+     "meanExcess": -1.97,
+     "meanCI": [
+      -2.87,
+      -1.07
+     ],
+     "flippedHit": 38.4,
+     "flippedMean": 1.97
+    },
+    "baseline": 56.5,
+    "baselineWindows": 183839,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|21|IWC": {
+    "raw": {
+     "n": 8384,
+     "hit": 62.3,
+     "ci": [
+      61.3,
+      63.3
+     ],
+     "meanExcess": -1.65,
+     "meanCI": [
+      -2.61,
+      -0.69
+     ],
+     "flippedHit": 37.7,
+     "flippedMean": 1.65
+    },
+    "independent": {
+     "n": 7466,
+     "hit": 62.1,
+     "ci": [
+      61.0,
+      63.2
+     ],
+     "meanExcess": -2.32,
+     "meanCI": [
+      -3.22,
+      -1.42
+     ],
+     "flippedHit": 37.9,
+     "flippedMean": 2.32
+    },
+    "baseline": 56.5,
+    "baselineWindows": 183839,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|63|SPY": {
+    "raw": {
+     "n": 8218,
+     "hit": 69.4,
+     "ci": [
+      68.4,
+      70.3
+     ],
+     "meanExcess": -8.16,
+     "meanCI": [
+      -9.45,
+      -6.87
+     ],
+     "flippedHit": 30.6,
+     "flippedMean": 8.16
+    },
+    "independent": {
+     "n": 5971,
+     "hit": 68.9,
+     "ci": [
+      67.7,
+      70.1
+     ],
+     "meanExcess": -8.16,
+     "meanCI": [
+      -9.57,
+      -6.74
+     ],
+     "flippedHit": 31.1,
+     "flippedMean": 8.16
+    },
+    "baseline": 60.4,
+    "baselineWindows": 54295,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|63|IWM": {
+    "raw": {
+     "n": 8218,
+     "hit": 67.1,
+     "ci": [
+      66.1,
+      68.1
+     ],
+     "meanExcess": -7.57,
+     "meanCI": [
+      -8.85,
+      -6.28
+     ],
+     "flippedHit": 32.9,
+     "flippedMean": 7.57
+    },
+    "independent": {
+     "n": 5971,
+     "hit": 66.6,
+     "ci": [
+      65.4,
+      67.8
+     ],
+     "meanExcess": -7.55,
+     "meanCI": [
+      -8.97,
+      -6.13
+     ],
+     "flippedHit": 33.4,
+     "flippedMean": 7.55
+    },
+    "baseline": 58.5,
+    "baselineWindows": 54295,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "oldfilter|63|IWC": {
+    "raw": {
+     "n": 8218,
+     "hit": 66.9,
+     "ci": [
+      65.9,
+      67.9
+     ],
+     "meanExcess": -8.08,
+     "meanCI": [
+      -9.37,
+      -6.79
+     ],
+     "flippedHit": 33.1,
+     "flippedMean": 8.08
+    },
+    "independent": {
+     "n": 5971,
+     "hit": 66.5,
+     "ci": [
+      65.3,
+      67.7
+     ],
+     "meanExcess": -8.18,
+     "meanCI": [
+      -9.6,
+      -6.76
+     ],
+     "flippedHit": 33.5,
+     "flippedMean": 8.18
+    },
+    "baseline": 58.5,
+    "baselineWindows": 54295,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|21|SPY": {
+    "raw": {
+     "n": 12530,
+     "hit": 61.1,
+     "ci": [
+      60.3,
+      62.0
+     ],
+     "meanExcess": -1.63,
+     "meanCI": [
+      -2.25,
+      -1.02
+     ],
+     "flippedHit": 38.9,
+     "flippedMean": 1.63
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 61.6,
+     "ci": [
+      60.7,
+      62.5
+     ],
+     "meanExcess": -1.95,
+     "meanCI": [
+      -2.57,
+      -1.33
+     ],
+     "flippedHit": 38.4,
+     "flippedMean": 1.95
+    },
+    "baseline": 58.2,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|21|IWM": {
+    "raw": {
+     "n": 12530,
+     "hit": 60.0,
+     "ci": [
+      59.1,
+      60.9
+     ],
+     "meanExcess": -1.59,
+     "meanCI": [
+      -2.2,
+      -0.97
+     ],
+     "flippedHit": 40.0,
+     "flippedMean": 1.59
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 59.9,
+     "ci": [
+      59.0,
+      60.8
+     ],
+     "meanExcess": -1.8,
+     "meanCI": [
+      -2.42,
+      -1.18
+     ],
+     "flippedHit": 40.1,
+     "flippedMean": 1.8
+    },
+    "baseline": 56.5,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|21|IWC": {
+    "raw": {
+     "n": 12530,
+     "hit": 60.5,
+     "ci": [
+      59.7,
+      61.4
+     ],
+     "meanExcess": -2.09,
+     "meanCI": [
+      -2.7,
+      -1.47
+     ],
+     "flippedHit": 39.5,
+     "flippedMean": 2.09
+    },
+    "independent": {
+     "n": 11297,
+     "hit": 60.5,
+     "ci": [
+      59.6,
+      61.4
+     ],
+     "meanExcess": -2.19,
+     "meanCI": [
+      -2.81,
+      -1.57
+     ],
+     "flippedHit": 39.5,
+     "flippedMean": 2.19
+    },
+    "baseline": 56.5,
+    "baselineWindows": 228711,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|63|SPY": {
+    "raw": {
+     "n": 12262,
+     "hit": 67.0,
+     "ci": [
+      66.2,
+      67.8
+     ],
+     "meanExcess": -8.91,
+     "meanCI": [
+      -9.72,
+      -8.1
+     ],
+     "flippedHit": 33.0,
+     "flippedMean": 8.91
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 67.0,
+     "ci": [
+      66.0,
+      68.0
+     ],
+     "meanExcess": -8.76,
+     "meanCI": [
+      -9.7,
+      -7.82
+     ],
+     "flippedHit": 33.0,
+     "flippedMean": 8.76
+    },
+    "baseline": 60.2,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|63|IWM": {
+    "raw": {
+     "n": 12262,
+     "hit": 64.9,
+     "ci": [
+      64.1,
+      65.7
+     ],
+     "meanExcess": -8.39,
+     "meanCI": [
+      -9.2,
+      -7.58
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": 8.39
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 64.9,
+     "ci": [
+      63.9,
+      65.9
+     ],
+     "meanExcess": -8.27,
+     "meanCI": [
+      -9.2,
+      -7.33
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": 8.27
+    },
+    "baseline": 58.3,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "cap|63|IWC": {
+    "raw": {
+     "n": 12262,
+     "hit": 64.9,
+     "ci": [
+      64.0,
+      65.7
+     ],
+     "meanExcess": -9.07,
+     "meanCI": [
+      -9.88,
+      -8.26
+     ],
+     "flippedHit": 35.1,
+     "flippedMean": 9.07
+    },
+    "independent": {
+     "n": 8763,
+     "hit": 64.7,
+     "ci": [
+      63.7,
+      65.7
+     ],
+     "meanExcess": -9.01,
+     "meanCI": [
+      -9.95,
+      -8.08
+     ],
+     "flippedHit": 35.3,
+     "flippedMean": 9.01
+    },
+    "baseline": 58.3,
+    "baselineWindows": 66096,
+    "beatsBaseline": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   }
+  },
+  "calendarTime": {
+   "months": 176,
+   "avgStocks": 172.3,
+   "SPY": {
+    "meanMonthly": -1.75,
+    "nwT": -3.56,
+    "months": 176
+   },
+   "IWM": {
+    "meanMonthly": -1.5,
+    "nwT": -3.44,
+    "months": 176
+   },
+   "IWC": {
+    "meanMonthly": -1.56,
+    "nwT": -3.61,
+    "months": 176
+   }
+  },
+  "survivorship": {
+   "counts": {
+    "failed": 3739,
+    "acquired": 537,
+    "unknown": 26162,
+    "nosubs": 0
+   },
+   "noPrice": 30438,
+   "allNotices": 43141,
+   "runs": {
+    "0|21|SPY": {
+     "raw": {
+      "n": 16265,
+      "hit": 61.7,
+      "ci": [
+       60.9,
+       62.4
+      ],
+      "meanExcess": -1.45,
+      "meanCI": [
+       -1.93,
+       -0.98
+      ],
+      "flippedHit": 38.3,
+      "flippedMean": 1.45
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 62.1,
+      "ci": [
+       61.3,
+       62.9
+      ],
+      "meanExcess": -1.68,
+      "meanCI": [
+       -2.14,
+       -1.21
+      ],
+      "flippedHit": 37.9,
+      "flippedMean": 1.68
+     },
+     "baseline": 58.2,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|21|IWM": {
+     "raw": {
+      "n": 16265,
+      "hit": 58.6,
+      "ci": [
+       57.9,
+       59.4
+      ],
+      "meanExcess": -1.33,
+      "meanCI": [
+       -1.81,
+       -0.86
+      ],
+      "flippedHit": 41.4,
+      "flippedMean": 1.33
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 58.5,
+      "ci": [
+       57.7,
+       59.3
+      ],
+      "meanExcess": -1.47,
+      "meanCI": [
+       -1.94,
+       -1.0
+      ],
+      "flippedHit": 41.5,
+      "flippedMean": 1.47
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|21|IWC": {
+     "raw": {
+      "n": 16265,
+      "hit": 59.4,
+      "ci": [
+       58.6,
+       60.1
+      ],
+      "meanExcess": -1.78,
+      "meanCI": [
+       -2.26,
+       -1.31
+      ],
+      "flippedHit": 40.6,
+      "flippedMean": 1.78
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 59.3,
+      "ci": [
+       58.5,
+       60.0
+      ],
+      "meanExcess": -1.84,
+      "meanCI": [
+       -2.3,
+       -1.37
+      ],
+      "flippedHit": 40.7,
+      "flippedMean": 1.84
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|63|SPY": {
+     "raw": {
+      "n": 15267,
+      "hit": 69.2,
+      "ci": [
+       68.4,
+       69.9
+      ],
+      "meanExcess": -7.89,
+      "meanCI": [
+       -8.54,
+       -7.23
+      ],
+      "flippedHit": 30.8,
+      "flippedMean": 7.89
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 69.8,
+      "ci": [
+       69.0,
+       70.6
+      ],
+      "meanExcess": -7.48,
+      "meanCI": [
+       -8.18,
+       -6.78
+      ],
+      "flippedHit": 30.2,
+      "flippedMean": 7.48
+     },
+     "baseline": 60.2,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|63|IWM": {
+     "raw": {
+      "n": 15267,
+      "hit": 64.8,
+      "ci": [
+       64.0,
+       65.5
+      ],
+      "meanExcess": -7.24,
+      "meanCI": [
+       -7.89,
+       -6.58
+      ],
+      "flippedHit": 35.2,
+      "flippedMean": 7.24
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 64.8,
+      "ci": [
+       63.9,
+       65.6
+      ],
+      "meanExcess": -6.81,
+      "meanCI": [
+       -7.51,
+       -6.1
+      ],
+      "flippedHit": 35.2,
+      "flippedMean": 6.81
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|63|IWC": {
+     "raw": {
+      "n": 15267,
+      "hit": 64.6,
+      "ci": [
+       63.9,
+       65.4
+      ],
+      "meanExcess": -7.83,
+      "meanCI": [
+       -8.49,
+       -7.18
+      ],
+      "flippedHit": 35.4,
+      "flippedMean": 7.83
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 64.5,
+      "ci": [
+       63.6,
+       65.3
+      ],
+      "meanExcess": -7.43,
+      "meanCI": [
+       -8.13,
+       -6.72
+      ],
+      "flippedHit": 35.5,
+      "flippedMean": 7.43
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "0|calendar": {
+     "months": 176,
+     "avgStocks": 193.5,
+     "SPY": {
+      "meanMonthly": -1.6,
+      "nwT": -3.45,
+      "months": 176
+     },
+     "IWM": {
+      "meanMonthly": -1.35,
+      "nwT": -3.27,
+      "months": 176
+     },
+     "IWC": {
+      "meanMonthly": -1.41,
+      "nwT": -3.41,
+      "months": 176
+     }
+    },
+    "-0.3|21|SPY": {
+     "raw": {
+      "n": 16265,
+      "hit": 70.1,
+      "ci": [
+       69.4,
+       70.8
+      ],
+      "meanExcess": -8.34,
+      "meanCI": [
+       -8.85,
+       -7.83
+      ],
+      "flippedHit": 29.9,
+      "flippedMean": 8.34
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 71.1,
+      "ci": [
+       70.4,
+       71.9
+      ],
+      "meanExcess": -9.13,
+      "meanCI": [
+       -9.63,
+       -8.62
+      ],
+      "flippedHit": 28.9,
+      "flippedMean": 9.13
+     },
+     "baseline": 58.2,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|21|IWM": {
+     "raw": {
+      "n": 16265,
+      "hit": 69.2,
+      "ci": [
+       68.4,
+       69.9
+      ],
+      "meanExcess": -8.22,
+      "meanCI": [
+       -8.73,
+       -7.71
+      ],
+      "flippedHit": 30.8,
+      "flippedMean": 8.22
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 69.9,
+      "ci": [
+       69.1,
+       70.6
+      ],
+      "meanExcess": -8.93,
+      "meanCI": [
+       -9.43,
+       -8.42
+      ],
+      "flippedHit": 30.1,
+      "flippedMean": 8.93
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|21|IWC": {
+     "raw": {
+      "n": 16265,
+      "hit": 69.6,
+      "ci": [
+       68.9,
+       70.3
+      ],
+      "meanExcess": -8.67,
+      "meanCI": [
+       -9.18,
+       -8.16
+      ],
+      "flippedHit": 30.4,
+      "flippedMean": 8.67
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 70.3,
+      "ci": [
+       69.5,
+       71.0
+      ],
+      "meanExcess": -9.29,
+      "meanCI": [
+       -9.8,
+       -8.78
+      ],
+      "flippedHit": 29.7,
+      "flippedMean": 9.29
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|63|SPY": {
+     "raw": {
+      "n": 15267,
+      "hit": 73.5,
+      "ci": [
+       72.8,
+       74.2
+      ],
+      "meanExcess": -13.79,
+      "meanCI": [
+       -14.47,
+       -13.12
+      ],
+      "flippedHit": 26.5,
+      "flippedMean": 13.79
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 75.4,
+      "ci": [
+       74.6,
+       76.2
+      ],
+      "meanExcess": -15.14,
+      "meanCI": [
+       -15.86,
+       -14.41
+      ],
+      "flippedHit": 24.6,
+      "flippedMean": 15.14
+     },
+     "baseline": 60.2,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|63|IWM": {
+     "raw": {
+      "n": 15267,
+      "hit": 71.8,
+      "ci": [
+       71.1,
+       72.5
+      ],
+      "meanExcess": -13.14,
+      "meanCI": [
+       -13.82,
+       -12.47
+      ],
+      "flippedHit": 28.2,
+      "flippedMean": 13.14
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 73.9,
+      "ci": [
+       73.1,
+       74.6
+      ],
+      "meanExcess": -14.47,
+      "meanCI": [
+       -15.19,
+       -13.74
+      ],
+      "flippedHit": 26.1,
+      "flippedMean": 14.47
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|63|IWC": {
+     "raw": {
+      "n": 15267,
+      "hit": 71.7,
+      "ci": [
+       71.0,
+       72.5
+      ],
+      "meanExcess": -13.74,
+      "meanCI": [
+       -14.41,
+       -13.07
+      ],
+      "flippedHit": 28.3,
+      "flippedMean": 13.74
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 73.7,
+      "ci": [
+       72.9,
+       74.5
+      ],
+      "meanExcess": -15.09,
+      "meanCI": [
+       -15.81,
+       -14.36
+      ],
+      "flippedHit": 26.3,
+      "flippedMean": 15.09
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-0.3|calendar": {
+     "months": 176,
+     "avgStocks": 193.5,
+     "SPY": {
+      "meanMonthly": -4.84,
+      "nwT": -9.28,
+      "months": 176
+     },
+     "IWM": {
+      "meanMonthly": -4.59,
+      "nwT": -9.95,
+      "months": 176
+     },
+     "IWC": {
+      "meanMonthly": -4.65,
+      "nwT": -10.32,
+      "months": 176
+     }
+    },
+    "-1.0|21|SPY": {
+     "raw": {
+      "n": 16265,
+      "hit": 70.1,
+      "ci": [
+       69.4,
+       70.8
+      ],
+      "meanExcess": -24.41,
+      "meanCI": [
+       -25.21,
+       -23.62
+      ],
+      "flippedHit": 29.9,
+      "flippedMean": 24.41
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 71.1,
+      "ci": [
+       70.4,
+       71.9
+      ],
+      "meanExcess": -26.52,
+      "meanCI": [
+       -27.35,
+       -25.7
+      ],
+      "flippedHit": 28.9,
+      "flippedMean": 26.52
+     },
+     "baseline": 58.2,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|21|IWM": {
+     "raw": {
+      "n": 16265,
+      "hit": 69.2,
+      "ci": [
+       68.5,
+       69.9
+      ],
+      "meanExcess": -24.29,
+      "meanCI": [
+       -25.09,
+       -23.5
+      ],
+      "flippedHit": 30.8,
+      "flippedMean": 24.29
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 69.9,
+      "ci": [
+       69.2,
+       70.6
+      ],
+      "meanExcess": -26.32,
+      "meanCI": [
+       -27.14,
+       -25.49
+      ],
+      "flippedHit": 30.1,
+      "flippedMean": 26.32
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|21|IWC": {
+     "raw": {
+      "n": 16265,
+      "hit": 69.6,
+      "ci": [
+       68.9,
+       70.3
+      ],
+      "meanExcess": -24.75,
+      "meanCI": [
+       -25.54,
+       -23.95
+      ],
+      "flippedHit": 30.4,
+      "flippedMean": 24.75
+     },
+     "independent": {
+      "n": 15032,
+      "hit": 70.3,
+      "ci": [
+       69.6,
+       71.0
+      ],
+      "meanExcess": -26.68,
+      "meanCI": [
+       -27.51,
+       -25.86
+      ],
+      "flippedHit": 29.7,
+      "flippedMean": 26.68
+     },
+     "baseline": 56.5,
+     "baselineWindows": 228711,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|63|SPY": {
+     "raw": {
+      "n": 15267,
+      "hit": 73.5,
+      "ci": [
+       72.8,
+       74.2
+      ],
+      "meanExcess": -27.57,
+      "meanCI": [
+       -28.46,
+       -26.69
+      ],
+      "flippedHit": 26.5,
+      "flippedMean": 27.57
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 75.4,
+      "ci": [
+       74.6,
+       76.2
+      ],
+      "meanExcess": -33.01,
+      "meanCI": [
+       -34.04,
+       -31.99
+      ],
+      "flippedHit": 24.6,
+      "flippedMean": 33.01
+     },
+     "baseline": 60.2,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|63|IWM": {
+     "raw": {
+      "n": 15267,
+      "hit": 71.8,
+      "ci": [
+       71.1,
+       72.5
+      ],
+      "meanExcess": -26.92,
+      "meanCI": [
+       -27.81,
+       -26.04
+      ],
+      "flippedHit": 28.2,
+      "flippedMean": 26.92
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 73.9,
+      "ci": [
+       73.1,
+       74.7
+      ],
+      "meanExcess": -32.34,
+      "meanCI": [
+       -33.36,
+       -31.32
+      ],
+      "flippedHit": 26.1,
+      "flippedMean": 32.34
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|63|IWC": {
+     "raw": {
+      "n": 15267,
+      "hit": 71.8,
+      "ci": [
+       71.0,
+       72.5
+      ],
+      "meanExcess": -27.51,
+      "meanCI": [
+       -28.4,
+       -26.63
+      ],
+      "flippedHit": 28.2,
+      "flippedMean": 27.51
+     },
+     "independent": {
+      "n": 11768,
+      "hit": 73.8,
+      "ci": [
+       72.9,
+       74.5
+      ],
+      "meanExcess": -32.96,
+      "meanCI": [
+       -33.98,
+       -31.94
+      ],
+      "flippedHit": 26.2,
+      "flippedMean": 32.96
+     },
+     "baseline": 58.3,
+     "baselineWindows": 66096,
+     "beatsBaseline": true,
+     "years": [
+      "2012",
+      "2026"
+     ]
+    },
+    "-1.0|calendar": {
+     "months": 176,
+     "avgStocks": 193.5,
+     "SPY": {
+      "meanMonthly": -12.4,
+      "nwT": -13.6,
+      "months": 176
+     },
+     "IWM": {
+      "meanMonthly": -12.15,
+      "nwT": -14.11,
+      "months": 176
+     },
+     "IWC": {
+      "meanMonthly": -12.21,
+      "nwT": -14.54,
+      "months": 176
+     }
+    }
+   }
+  }
+ },
+ "notes": [
+  "Baseline = the same stocks in non-event windows (non-overlapping windows that do not overlap any event window), better of always-up/always-down vs the benchmark.",
+  "Independent events: per ticker, a new event only when more than one window length after its last counted event.",
+  "Calendar-time: each month, equal-weight all stocks with a notice in the prior 3 months (returns capped at +/-100%); Newey-West t-stat with 3 lags.",
+  "Survivorship: notices without prices classified from the company's own EDGAR filings (Form 25/15 within 400 days; 8-K Item 2.01 in the 120 days before = acquired). Acquired and unknown are left out; failed added at 0%, -30%, -100%. Delisting return in calendar time is booked once, in the month after the notice."
+ ]
+}
