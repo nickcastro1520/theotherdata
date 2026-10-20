@@ -71,6 +71,17 @@
       <div class="tblwrap"><table class="tbl" id="live-table"><thead><tr><th>Stock</th><th>Latest logged lean</th><th>Price when logged</th><th>Logged</th><th>Up/down right (2 wk)</th><th>Beat the market (2 wk)</th></tr></thead><tbody></tbody></table></div>
     </section>
 
+    <section aria-labelledby="w-h" id="watching">
+      <h2 id="w-h">Worth watching, not proven <span class="pill bt">Not signals</span></h2>
+      <p class="note-box"><strong>These are not signals and not advice.</strong> Both failed our admission test (they had to lift the out-of-sample beat-the-market rate by at least 1 point), so they don't affect any lean on this site. They're here because the story is real and the early numbers are interesting.</p>
+      <h3 class="tr-h3">Generac and power outages</h3>
+      <p>When more homes lose power, more people think about buying a backup generator, and Generac is the biggest maker. We counted customers hit by major outages in the U.S. Department of Energy's <a href="https://doe417.pnnl.gov/" rel="noopener">OE-417 reports</a> over the past 90 days and compared that with the same 90 days a year earlier. When outages were far above last year, we called it good for Generac; far below, bad.</p>
+      <p>Across 29 monthly calls (Jan 2023 to Dec 2025), Generac beat the S&amp;P 500 the next month <strong>69% of the time</strong>. The 95% range is 50.8% to 82.7%, which only just clears a coin flip. <strong>The big catch:</strong> the DOE publishes these yearly files after the year ends, so nobody could have used this data in real time. This shows the link exists, not that you could have traded on it.</p>
+      <h3 class="tr-h3">Compass Minerals and snowfall</h3>
+      <p>Compass sells road salt to cities and states, so a snowy winter should mean more salt sold. That part is clearly true: snowfall at six big Midwest and Northeast airports (<a href="https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily" rel="noopener">NOAA daily weather data</a>) lines up with the highway deicing tons Compass reports each quarter (correlation <strong>0.79</strong> across 18 winter quarters, 2017 to 2026).</p>
+      <p>The stock is a different story. Calling Compass from season-to-date snow beat the S&amp;P 500 <strong>62.5% of the time, but on only 16 calls</strong>, and the range still includes a coin flip. Winter only comes once a year, so this test gets <strong>1 new data point per year</strong>. It will take many winters to know.</p>
+    </section>
+
     <section aria-labelledby="st-h" id="study">
       <h2 id="st-h">Can we beat a coin flip? <span class="pill bt">Out-of-sample test</span></h2>
       <p class="sub">We tried to make the leans smarter: score every signal on its own against the S&amp;P 500, keep the ones that helped, mute the ones that didn't, only lean when enough kept signals agree, and add new free data. Every choice for a year was made using only earlier years, then tested on that year.</p>
