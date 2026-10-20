@@ -7,7 +7,7 @@
 # single-stock returns are skewed). Calendar time: each month, equal-weight event stocks (filing in the prior 1 or 3 months),
 # minus their decile's no-event average (or the whole universe), Newey-West t (lag 3).
 import json,os,sys,math,numpy as np; sys.path.insert(0,"."); from lib import px,wilson,mci,nw_t,ym_add
-caps=json.load(open("caps.json")); months=sorted(caps)
+caps=json.load(open("caps2.json")); months=sorted(caps)
 spy=px("SPY"); D=[d for d,_ in spy]; DI={d:i for i,d in enumerate(D)}
 T=sorted({t for v in caps.values() for t in v}); TI={t:i for i,t in enumerate(T)}
 P=np.full((len(T),len(D)),np.nan,dtype=np.float64)

@@ -885,25 +885,26 @@
   }
  },
  "insiderBuys": {
-  "universe": "Top 500 by point-in-time market cap each month (XBRL shares outstanding, counted 90 days after the period end, x last close). Only companies with a current SEC ticker and price history can be ranked.",
-  "events": 6670,
+  "universe": "Top 500 US-listed companies by market cap at the start of each month, using only data public at the time: the latest share count from a 10-K or 10-Q filed before that month, times the as-traded price at the prior month end. Only companies with a current ticker and price history can be ranked (survivorship). Alphabet (2015-2024) and Berkshire (after 2015) report share counts only per share class and are missing.",
+  "fix": "An earlier version of this test (Oct 20) showed insider buys lagging by about 1.6% a month. That came from a bug in the size ranking: it multiplied old share counts by split- and dividend-adjusted prices, which shrank companies that later split (Apple by 28x) and let the wrong companies into the top 500. It also missed Exxon's filings under its old SEC number. After the fix, Apple, Microsoft, JPMorgan, Exxon and Johnson & Johnson are in the top 500 every month from 2012 to 2026.",
+  "events": 6985,
   "runs": {
    "cap|21|SPY": {
-    "raw": 6670,
-    "indep": 4044,
-    "hit": 46.2,
+    "raw": 6985,
+    "indep": 4561,
+    "hit": 49.5,
     "ci": [
-     44.7,
-     47.8
+     48.1,
+     51.0
     ],
-    "base": 54.9,
-    "mean": -0.97,
+    "base": 50.6,
+    "mean": -0.15,
     "meanCI": [
-     -1.41,
-     -0.52
+     -0.36,
+     0.07
     ],
-    "flip": 53.8,
-    "flipMean": 0.97,
+    "flip": 50.5,
+    "flipMean": 0.15,
     "beats": false,
     "years": [
      "2012",
@@ -911,21 +912,21 @@
     ]
    },
    "cap|21|IWM": {
-    "raw": 6670,
-    "indep": 4044,
-    "hit": 45.9,
+    "raw": 6985,
+    "indep": 4561,
+    "hit": 48.9,
     "ci": [
-     44.3,
-     47.4
+     47.4,
+     50.3
     ],
-    "base": 54.0,
-    "mean": -0.86,
+    "base": 50.6,
+    "mean": -0.02,
     "meanCI": [
-     -1.3,
-     -0.42
+     -0.24,
+     0.19
     ],
-    "flip": 54.1,
-    "flipMean": 0.86,
+    "flip": 51.1,
+    "flipMean": 0.02,
     "beats": false,
     "years": [
      "2012",
@@ -933,21 +934,21 @@
     ]
    },
    "cap|21|IWC": {
-    "raw": 6670,
-    "indep": 4044,
-    "hit": 45.0,
+    "raw": 6985,
+    "indep": 4561,
+    "hit": 48.3,
     "ci": [
-     43.5,
-     46.6
+     46.8,
+     49.7
     ],
-    "base": 54.2,
-    "mean": -1.02,
+    "base": 50.2,
+    "mean": -0.18,
     "meanCI": [
-     -1.46,
-     -0.57
+     -0.4,
+     0.05
     ],
-    "flip": 55.0,
-    "flipMean": 1.02,
+    "flip": 51.7,
+    "flipMean": 0.18,
     "beats": false,
     "years": [
      "2012",
@@ -955,21 +956,21 @@
     ]
    },
    "cap|63|SPY": {
-    "raw": 6670,
-    "indep": 3276,
-    "hit": 43.1,
+    "raw": 6985,
+    "indep": 3730,
+    "hit": 49.2,
     "ci": [
-     41.4,
-     44.8
+     47.6,
+     50.9
     ],
-    "base": 57.1,
-    "mean": -4.12,
+    "base": 50.5,
+    "mean": -0.14,
     "meanCI": [
-     -4.92,
-     -3.31
+     -0.59,
+     0.31
     ],
-    "flip": 56.9,
-    "flipMean": 4.12,
+    "flip": 50.8,
+    "flipMean": 0.14,
     "beats": false,
     "years": [
      "2012",
@@ -977,21 +978,21 @@
     ]
    },
    "cap|63|IWM": {
-    "raw": 6670,
-    "indep": 3276,
-    "hit": 44.6,
+    "raw": 6985,
+    "indep": 3730,
+    "hit": 50.8,
     "ci": [
-     42.9,
-     46.3
+     49.1,
+     52.4
     ],
-    "base": 54.7,
-    "mean": -3.66,
+    "base": 52.3,
+    "mean": 0.35,
     "meanCI": [
-     -4.46,
-     -2.85
+     -0.1,
+     0.81
     ],
-    "flip": 55.4,
-    "flipMean": 3.66,
+    "flip": 49.2,
+    "flipMean": -0.35,
     "beats": false,
     "years": [
      "2012",
@@ -999,21 +1000,21 @@
     ]
    },
    "cap|63|IWC": {
-    "raw": 6670,
-    "indep": 3276,
-    "hit": 44.5,
+    "raw": 6985,
+    "indep": 3730,
+    "hit": 50.2,
     "ci": [
-     42.8,
-     46.2
+     48.6,
+     51.8
     ],
-    "base": 54.6,
-    "mean": -3.82,
+    "base": 52.3,
+    "mean": 0.16,
     "meanCI": [
-     -4.63,
-     -3.02
+     -0.32,
+     0.64
     ],
-    "flip": 55.5,
-    "flipMean": 3.82,
+    "flip": 49.8,
+    "flipMean": -0.16,
     "beats": false,
     "years": [
      "2012",
@@ -1023,56 +1024,93 @@
   },
   "calendar": {
    "months": 173,
-   "avgStocks": 65.2,
+   "avgStocks": 73.9,
    "SPY": {
-    "meanMonthly": -1.61,
-    "nwT": -5.1,
+    "meanMonthly": -0.05,
+    "nwT": -0.32,
     "months": 173
    },
    "IWM": {
-    "meanMonthly": -1.41,
-    "nwT": -5.36,
+    "meanMonthly": 0.15,
+    "nwT": 0.8,
     "months": 173
    },
    "IWC": {
-    "meanMonthly": -1.47,
-    "nwT": -5.34,
+    "meanMonthly": 0.09,
+    "nwT": 0.33,
     "months": 173
    }
   },
-  "samples": [
+  "walkthrough": [
    {
-    "ticker": "RTX",
-    "filed": "2016-12-09",
-    "link": "https://www.sec.gov/Archives/edgar/data/101829/000122520816042968/",
-    "entry": "2016-12-12",
-    "exit": "2017-03-15",
-    "stock": 3.05,
-    "bench": 6.24,
-    "excess": -3.19,
-    "right": false
+    "ticker": "HD",
+    "trade": "2015-03-27",
+    "filed": "2015-03-31",
+    "value": 39788,
+    "link": "https://www.sec.gov/Archives/edgar/data/354950/000120919115030486/",
+    "entry": "2015-04-01",
+    "entryPx": 85.98,
+    "exit": "2015-07-01",
+    "exitPx": 85.63,
+    "stock": -0.41,
+    "spy": 1.37,
+    "excess": -1.78
    },
    {
-    "ticker": "REGN",
-    "filed": "2014-05-23",
-    "link": "https://www.sec.gov/Archives/edgar/data/872589/000123789914000048/",
-    "entry": "2014-05-27",
-    "exit": "2014-08-25",
-    "stock": 12.98,
-    "bench": 5.03,
-    "excess": 7.95,
-    "right": true
+    "ticker": "F",
+    "trade": "2017-03-24",
+    "filed": "2017-03-28",
+    "value": 1999993,
+    "link": "https://www.sec.gov/Archives/edgar/data/37996/000120919117023138/",
+    "entry": "2017-03-29",
+    "entryPx": 7.09,
+    "exit": "2017-06-28",
+    "exitPx": 6.82,
+    "stock": -3.77,
+    "spy": 3.88,
+    "excess": -7.65
    },
    {
-    "ticker": "BALL",
-    "filed": "2018-02-28",
-    "link": "https://www.sec.gov/Archives/edgar/data/9389/000112760218009044/",
-    "entry": "2018-03-01",
-    "exit": "2018-05-31",
-    "stock": -6.21,
-    "bench": 1.62,
-    "excess": -7.82,
-    "right": false
+    "ticker": "JNJ",
+    "trade": "2020-03-13",
+    "filed": "2020-03-17",
+    "value": 63845,
+    "link": "https://www.sec.gov/Archives/edgar/data/200406/000122520820005275/",
+    "entry": "2020-03-18",
+    "entryPx": 112.9,
+    "exit": "2020-06-17",
+    "exitPx": 121.32,
+    "stock": 7.45,
+    "spy": 30.62,
+    "excess": -23.17
+   },
+   {
+    "ticker": "AAPL",
+    "trade": "2012-11-19",
+    "filed": "2012-11-20",
+    "value": 1002768,
+    "link": "https://www.sec.gov/Archives/edgar/data/320193/000112760212031755/",
+    "entry": "2012-11-21",
+    "entryPx": 16.95,
+    "exit": "2013-02-25",
+    "exitPx": 13.44,
+    "stock": -20.71,
+    "spy": 7.61,
+    "excess": -28.31
+   },
+   {
+    "ticker": "KO",
+    "trade": "2012-02-22",
+    "filed": "2012-02-24",
+    "value": 207810,
+    "link": "https://www.sec.gov/Archives/edgar/data/21344/000112760212007739/",
+    "entry": "2012-02-27",
+    "entryPx": 21.9,
+    "exit": "2012-05-25",
+    "exitPx": 24.12,
+    "stock": 10.1,
+    "spy": -3.27,
+    "excess": 13.37
    }
   ],
   "result": "Fail"
@@ -2391,5 +2429,1014 @@
   "Every 2021-2026 test, even 'any officer or director change' (about 1,460 stocks a month), trailed SPY, IWM and IWC. Part of what these tests pick up is that small listed companies lagged badly in 2021-2026, not only the filing itself.",
   "The CFO-departure filter (8-K Item 5.02 filings whose text mentions the CFO and a departure word, via EDGAR full-text search) matched more than half of all 5.02 filings, so it is a loose proxy, not a clean CFO-departure list.",
   "Universe: companies with a current exchange ticker and Yahoo price history, so delisted firms are missing (survivorship)."
- ]
+ ],
+ "control": {
+  "Late-filing notices|21": {
+   "events": 8630,
+   "noSizeOrPrice": 4195,
+   "vsControl": {
+    "n": 8630,
+    "hitDown": 58.8,
+    "ci": [
+     57.7,
+     59.8
+    ],
+    "meanExcess": -1.33,
+    "meanCI": [
+     -2.0,
+     -0.66
+    ],
+    "beatsPlacebo": true
+   },
+   "vsEW": {
+    "n": 8630,
+    "hitDown": 59.4,
+    "ci": [
+     58.4,
+     60.4
+    ],
+    "meanExcess": -1.44,
+    "meanCI": [
+     -2.11,
+     -0.76
+    ]
+   },
+   "placeboHitDown": 56.4,
+   "calendar": {
+    "control": {
+     "meanMonthly": -0.25,
+     "nwT": -0.43,
+     "months": 176
+    },
+    "ew": {
+     "meanMonthly": 0.07,
+     "nwT": 0.11,
+     "months": 176
+    },
+    "avgStocks": 50.1
+   },
+   "samples": [
+    {
+     "ticker": "AAME",
+     "filed": "2023-05-22",
+     "link": "https://www.sec.gov/Archives/edgar/data/8177/0001140361-23-025901.txt",
+     "entry": "2023-05-23",
+     "exit": "2023-06-23",
+     "decile": 2,
+     "stock": -1.86,
+     "control": -2.0,
+     "controlN": 330,
+     "ew": 1.76,
+     "vsControl": 0.14,
+     "vsEW": -3.62
+    },
+    {
+     "ticker": "SNTW",
+     "filed": "2018-12-17",
+     "link": "https://www.sec.gov/Archives/edgar/data/1619096/0001091818-18-000243.txt",
+     "entry": "2018-12-18",
+     "exit": "2019-01-18",
+     "decile": 1,
+     "stock": -13.37,
+     "control": 10.95,
+     "controlN": 268,
+     "ew": 8.34,
+     "vsControl": -24.31,
+     "vsEW": -21.71
+    },
+    {
+     "ticker": "AXIM",
+     "filed": "2024-08-13",
+     "link": "https://www.sec.gov/Archives/edgar/data/1514946/0001096906-24-001686.txt",
+     "entry": "2024-08-14",
+     "exit": "2024-09-13",
+     "decile": 1,
+     "stock": -36.36,
+     "control": 0.02,
+     "controlN": 319,
+     "ew": 4.57,
+     "vsControl": -36.39,
+     "vsEW": -40.93
+    }
+   ]
+  },
+  "Late-filing notices|63": {
+   "events": 6746,
+   "noSizeOrPrice": 4198,
+   "vsControl": {
+    "n": 6746,
+    "hitDown": 60.8,
+    "ci": [
+     59.7,
+     62.0
+    ],
+    "meanExcess": -4.07,
+    "meanCI": [
+     -5.09,
+     -3.04
+    ],
+    "beatsPlacebo": true
+   },
+   "vsEW": {
+    "n": 6746,
+    "hitDown": 63.3,
+    "ci": [
+     62.1,
+     64.4
+    ],
+    "meanExcess": -5.96,
+    "meanCI": [
+     -6.99,
+     -4.93
+    ]
+   },
+   "placeboHitDown": 55.7,
+   "calendar": {
+    "control": {
+     "meanMonthly": -1.34,
+     "nwT": -5.13,
+     "months": 176
+    },
+    "ew": {
+     "meanMonthly": -0.97,
+     "nwT": -2.71,
+     "months": 176
+    },
+    "avgStocks": 139.2
+   },
+   "samples": [
+    {
+     "ticker": "TOON",
+     "filed": "2020-05-15",
+     "link": "https://www.sec.gov/Archives/edgar/data/1355848/0001683168-20-001621.txt",
+     "entry": "2020-05-18",
+     "exit": "2020-08-17",
+     "decile": 1,
+     "stock": 12.32,
+     "control": 31.33,
+     "controlN": 258,
+     "ew": 21.03,
+     "vsControl": -19.01,
+     "vsEW": -8.71
+    },
+    {
+     "ticker": "LBSR",
+     "filed": "2016-12-15",
+     "link": "https://www.sec.gov/Archives/edgar/data/1172178/0001493152-16-015933.txt",
+     "entry": "2016-12-16",
+     "exit": "2017-03-21",
+     "decile": 1,
+     "stock": 13.33,
+     "control": 13.68,
+     "controlN": 240,
+     "ew": 2.59,
+     "vsControl": -0.34,
+     "vsEW": 10.75
+    },
+    {
+     "ticker": "AXON",
+     "filed": "2021-11-04",
+     "link": "https://www.sec.gov/Archives/edgar/data/1069183/0001558370-21-014598.txt",
+     "entry": "2021-11-05",
+     "exit": "2022-02-07",
+     "decile": 9,
+     "stock": -20.9,
+     "control": -9.31,
+     "controlN": 342,
+     "ew": -14.81,
+     "vsControl": -11.6,
+     "vsEW": -6.09
+    }
+   ]
+  },
+  "8-K 4.01 auditor change|21": {
+   "events": 2530,
+   "noSizeOrPrice": 850,
+   "vsControl": {
+    "n": 2530,
+    "hitDown": 55.9,
+    "ci": [
+     53.9,
+     57.8
+    ],
+    "meanExcess": -0.51,
+    "meanCI": [
+     -1.38,
+     0.36
+    ],
+    "beatsPlacebo": false
+   },
+   "vsEW": {
+    "n": 2530,
+    "hitDown": 57.2,
+    "ci": [
+     55.2,
+     59.1
+    ],
+    "meanExcess": -0.83,
+    "meanCI": [
+     -1.7,
+     0.05
+    ]
+   },
+   "placeboHitDown": 54.2,
+   "calendar": {
+    "control": {
+     "meanMonthly": -0.83,
+     "nwT": -1.62,
+     "months": 176
+    },
+    "ew": {
+     "meanMonthly": -0.89,
+     "nwT": -1.7,
+     "months": 176
+    },
+    "avgStocks": 14.9
+   },
+   "samples": [
+    {
+     "ticker": "PALI",
+     "filed": "2022-09-26",
+     "link": "https://www.sec.gov/Archives/edgar/data/1357459/000149315222026761/",
+     "entry": "2022-09-27",
+     "exit": "2022-10-26",
+     "decile": 1,
+     "stock": -9.09,
+     "control": -2.36,
+     "controlN": 365,
+     "ew": 5.31,
+     "vsControl": -6.73,
+     "vsEW": -14.4
+    },
+    {
+     "ticker": "EXLS",
+     "filed": "2018-02-06",
+     "link": "https://www.sec.gov/Archives/edgar/data/1297989/000114420418005796/",
+     "entry": "2018-02-07",
+     "exit": "2018-03-09",
+     "decile": 7,
+     "stock": 0.31,
+     "control": 4.99,
+     "controlN": 262,
+     "ew": 4.03,
+     "vsControl": -4.68,
+     "vsEW": -3.72
+    },
+    {
+     "ticker": "METC",
+     "filed": "2023-11-06",
+     "link": "https://www.sec.gov/Archives/edgar/data/1687187/000110465923114761/",
+     "entry": "2023-11-07",
+     "exit": "2023-12-07",
+     "decile": 5,
+     "stock": 50.88,
+     "control": 7.94,
+     "controlN": 388,
+     "ew": 6.61,
+     "vsControl": 42.93,
+     "vsEW": 44.26
+    }
+   ]
+  },
+  "8-K 4.01 auditor change|63": {
+   "events": 2388,
+   "noSizeOrPrice": 851,
+   "vsControl": {
+    "n": 2388,
+    "hitDown": 56.6,
+    "ci": [
+     54.6,
+     58.6
+    ],
+    "meanExcess": -1.47,
+    "meanCI": [
+     -2.74,
+     -0.21
+    ],
+    "beatsPlacebo": true
+   },
+   "vsEW": {
+    "n": 2388,
+    "hitDown": 57.5,
+    "ci": [
+     55.5,
+     59.5
+    ],
+    "meanExcess": -2.14,
+    "meanCI": [
+     -3.42,
+     -0.85
+    ]
+   },
+   "placeboHitDown": 54.2,
+   "calendar": {
+    "control": {
+     "meanMonthly": -0.28,
+     "nwT": -1.05,
+     "months": 176
+    },
+    "ew": {
+     "meanMonthly": -0.31,
+     "nwT": -1.1,
+     "months": 176
+    },
+    "avgStocks": 43.7
+   },
+   "samples": [
+    {
+     "ticker": "EBF",
+     "filed": "2022-12-14",
+     "link": "https://www.sec.gov/Archives/edgar/data/33002/000095017022026548/",
+     "entry": "2022-12-15",
+     "exit": "2023-03-20",
+     "decile": 5,
+     "stock": -4.36,
+     "control": -5.67,
+     "controlN": 376,
+     "ew": -1.01,
+     "vsControl": 1.31,
+     "vsEW": -3.35
+    },
+    {
+     "ticker": "SMBK",
+     "filed": "2018-03-27",
+     "link": "https://www.sec.gov/Archives/edgar/data/1038773/000103877318000012/",
+     "entry": "2018-03-28",
+     "exit": "2018-06-27",
+     "decile": 3,
+     "stock": 10.15,
+     "control": 8.99,
+     "controlN": 259,
+     "ew": 6.87,
+     "vsControl": 1.17,
+     "vsEW": 3.29
+    },
+    {
+     "ticker": "ZCSH",
+     "filed": "2024-03-06",
+     "link": "https://www.sec.gov/Archives/edgar/data/1720265/000095017024027135/",
+     "entry": "2024-03-07",
+     "exit": "2024-06-06",
+     "decile": 2,
+     "stock": -19.4,
+     "control": -1.63,
+     "controlN": 393,
+     "ew": -1.66,
+     "vsControl": -17.77,
+     "vsEW": -17.75
+    }
+   ]
+  },
+  "8-K 4.01 auditor change|63|2012-2020": {
+   "events": 985,
+   "noSizeOrPrice": 448,
+   "vsControl": {
+    "n": 985,
+    "hitDown": 54.0,
+    "ci": [
+     50.9,
+     57.1
+    ],
+    "meanExcess": 0.52,
+    "meanCI": [
+     -1.16,
+     2.2
+    ],
+    "beatsPlacebo": false
+   },
+   "vsEW": {
+    "n": 985,
+    "hitDown": 55.4,
+    "ci": [
+     52.3,
+     58.5
+    ],
+    "meanExcess": 0.54,
+    "meanCI": [
+     -1.15,
+     2.22
+    ]
+   },
+   "placeboHitDown": 53.7,
+   "calendar": {
+    "control": {
+     "meanMonthly": 0.03,
+     "nwT": 0.07,
+     "months": 110
+    },
+    "ew": {
+     "meanMonthly": 0.18,
+     "nwT": 0.45,
+     "months": 110
+    },
+    "avgStocks": 28.7
+   },
+   "samples": [
+    {
+     "ticker": "AWX",
+     "filed": "2015-07-08",
+     "link": "https://www.sec.gov/Archives/edgar/data/1061069/000143774915013421/",
+     "entry": "2015-07-09",
+     "exit": "2015-10-07",
+     "decile": 1,
+     "stock": -22.65,
+     "control": -3.58,
+     "controlN": 230,
+     "ew": -4.88,
+     "vsControl": -19.07,
+     "vsEW": -17.77
+    },
+    {
+     "ticker": "IRD",
+     "filed": "2020-11-06",
+     "link": "https://www.sec.gov/Archives/edgar/data/1228627/000114036120024749/",
+     "entry": "2020-11-09",
+     "exit": "2021-02-10",
+     "decile": 1,
+     "stock": 100,
+     "control": 68.78,
+     "controlN": 299,
+     "ew": 36.45,
+     "vsControl": 31.22,
+     "vsEW": 63.55
+    },
+    {
+     "ticker": "IA",
+     "filed": "2014-01-08",
+     "link": "https://www.sec.gov/Archives/edgar/data/836690/000110465914001199/",
+     "entry": "2014-01-09",
+     "exit": "2014-04-10",
+     "decile": 3,
+     "stock": 7.28,
+     "control": 1.34,
+     "controlN": 209,
+     "ew": 2.83,
+     "vsControl": 5.94,
+     "vsEW": 4.45
+    }
+   ]
+  },
+  "8-K 4.01 auditor change|63|2021-2026": {
+   "events": 1404,
+   "noSizeOrPrice": 403,
+   "vsControl": {
+    "n": 1404,
+    "hitDown": 58.3,
+    "ci": [
+     55.7,
+     60.9
+    ],
+    "meanExcess": -2.86,
+    "meanCI": [
+     -4.67,
+     -1.05
+    ],
+    "beatsPlacebo": true
+   },
+   "vsEW": {
+    "n": 1404,
+    "hitDown": 58.9,
+    "ci": [
+     56.3,
+     61.4
+    ],
+    "meanExcess": -4.0,
+    "meanCI": [
+     -5.83,
+     -2.18
+    ]
+   },
+   "placeboHitDown": 54.6,
+   "calendar": {
+    "control": {
+     "meanMonthly": -0.7,
+     "nwT": -2.58,
+     "months": 68
+    },
+    "ew": {
+     "meanMonthly": -0.99,
+     "nwT": -3.75,
+     "months": 68
+    },
+    "avgStocks": 66.8
+   },
+   "samples": [
+    {
+     "ticker": "ARLO",
+     "filed": "2024-04-01",
+     "link": "https://www.sec.gov/Archives/edgar/data/1736946/000173694624000017/",
+     "entry": "2024-04-02",
+     "exit": "2024-07-02",
+     "decile": 6,
+     "stock": 7.89,
+     "control": -4.37,
+     "controlN": 394,
+     "ew": -5.08,
+     "vsControl": 12.25,
+     "vsEW": 12.97
+    },
+    {
+     "ticker": "FTLF",
+     "filed": "2022-10-07",
+     "link": "https://www.sec.gov/Archives/edgar/data/1374328/000185173422000597/",
+     "entry": "2022-10-10",
+     "exit": "2023-01-10",
+     "decile": 3,
+     "stock": -0.93,
+     "control": 5.14,
+     "controlN": 367,
+     "ew": 5.89,
+     "vsControl": -6.07,
+     "vsEW": -6.82
+    },
+    {
+     "ticker": "CIIT",
+     "filed": "2024-09-13",
+     "link": "https://www.sec.gov/Archives/edgar/data/1557798/000168316824006360/",
+     "entry": "2024-09-16",
+     "exit": "2024-12-13",
+     "decile": 2,
+     "stock": -12.76,
+     "control": 1.79,
+     "controlN": 402,
+     "ew": 5.51,
+     "vsControl": -14.55,
+     "vsEW": -18.27
+    }
+   ]
+  }
+ },
+ "survivorshipUnknownAtZero": {
+  "unknownDetail": {
+   "noCurrentTicker": 26020,
+   "tickerButNoPrices": 142,
+   "companies": 4666,
+   "21": {
+    "independentWindows": 26110,
+    "insideAnEarlierWindowSameCompany": 47,
+    "windowNotFinished": 5
+   },
+   "63": {
+    "independentWindows": 20068,
+    "insideAnEarlierWindowSameCompany": 6052,
+    "windowNotFinished": 42
+   }
+  },
+  "runs": {
+   "0|21|SPY": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 66.0,
+    "ci": [
+     65.5,
+     66.4
+    ],
+    "base": 58.2,
+    "mean": -1.31,
+    "meanCI": [
+     -1.48,
+     -1.14
+    ],
+    "flip": 34.0,
+    "flipMean": 1.31,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|21|IWM": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 60.8,
+    "ci": [
+     60.3,
+     61.2
+    ],
+    "base": 56.5,
+    "mean": -1.17,
+    "meanCI": [
+     -1.34,
+     -0.99
+    ],
+    "flip": 39.2,
+    "flipMean": 1.17,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|21|IWC": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 61.7,
+    "ci": [
+     61.2,
+     62.2
+    ],
+    "base": 56.5,
+    "mean": -1.45,
+    "meanCI": [
+     -1.62,
+     -1.27
+    ],
+    "flip": 38.3,
+    "flipMean": 1.45,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|63|SPY": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 74.1,
+    "ci": [
+     73.6,
+     74.6
+    ],
+    "base": 60.2,
+    "mean": -4.82,
+    "meanCI": [
+     -5.09,
+     -4.56
+    ],
+    "flip": 25.9,
+    "flipMean": 4.82,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|63|IWM": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 67.8,
+    "ci": [
+     67.3,
+     68.3
+    ],
+    "base": 58.3,
+    "mean": -4.32,
+    "meanCI": [
+     -4.59,
+     -4.05
+    ],
+    "flip": 32.2,
+    "flipMean": 4.32,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|63|IWC": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 65.6,
+    "ci": [
+     65.0,
+     66.1
+    ],
+    "base": 58.3,
+    "mean": -4.76,
+    "meanCI": [
+     -5.04,
+     -4.49
+    ],
+    "flip": 34.4,
+    "flipMean": 4.76,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "0|calendar": {
+    "months": 176,
+    "avgStocks": 342.1,
+    "SPY": {
+     "meanMonthly": -1.48,
+     "nwT": -4.26,
+     "months": 176
+    },
+    "IWM": {
+     "meanMonthly": -1.22,
+     "nwT": -3.67,
+     "months": 176
+    },
+    "IWC": {
+     "meanMonthly": -1.29,
+     "nwT": -3.59,
+     "months": 176
+    }
+   },
+   "-0.3|21|SPY": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 69.3,
+    "ci": [
+     68.8,
+     69.7
+    ],
+    "base": 58.2,
+    "mean": -4.03,
+    "meanCI": [
+     -4.23,
+     -3.84
+    ],
+    "flip": 30.7,
+    "flipMean": 4.03,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|21|IWM": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 64.9,
+    "ci": [
+     64.5,
+     65.4
+    ],
+    "base": 56.5,
+    "mean": -3.89,
+    "meanCI": [
+     -4.08,
+     -3.7
+    ],
+    "flip": 35.1,
+    "flipMean": 3.89,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|21|IWC": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 65.7,
+    "ci": [
+     65.3,
+     66.2
+    ],
+    "base": 56.5,
+    "mean": -4.17,
+    "meanCI": [
+     -4.36,
+     -3.98
+    ],
+    "flip": 34.3,
+    "flipMean": 4.17,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|63|SPY": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 76.2,
+    "ci": [
+     75.7,
+     76.6
+    ],
+    "base": 60.2,
+    "mean": -7.66,
+    "meanCI": [
+     -7.94,
+     -7.38
+    ],
+    "flip": 23.8,
+    "flipMean": 7.66,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|63|IWM": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 71.1,
+    "ci": [
+     70.6,
+     71.6
+    ],
+    "base": 58.3,
+    "mean": -7.15,
+    "meanCI": [
+     -7.43,
+     -6.86
+    ],
+    "flip": 28.9,
+    "flipMean": 7.15,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|63|IWC": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 69.0,
+    "ci": [
+     68.5,
+     69.5
+    ],
+    "base": 58.3,
+    "mean": -7.59,
+    "meanCI": [
+     -7.88,
+     -7.3
+    ],
+    "flip": 31.0,
+    "flipMean": 7.59,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-0.3|calendar": {
+    "months": 176,
+    "avgStocks": 342.1,
+    "SPY": {
+     "meanMonthly": -2.97,
+     "nwT": -8.03,
+     "months": 176
+    },
+    "IWM": {
+     "meanMonthly": -2.72,
+     "nwT": -7.9,
+     "months": 176
+    },
+    "IWC": {
+     "meanMonthly": -2.78,
+     "nwT": -7.75,
+     "months": 176
+    }
+   },
+   "-1.0|21|SPY": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 69.3,
+    "ci": [
+     68.8,
+     69.7
+    ],
+    "base": 58.2,
+    "mean": -10.39,
+    "meanCI": [
+     -10.71,
+     -10.06
+    ],
+    "flip": 30.7,
+    "flipMean": 10.39,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|21|IWM": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 64.9,
+    "ci": [
+     64.5,
+     65.4
+    ],
+    "base": 56.5,
+    "mean": -10.24,
+    "meanCI": [
+     -10.57,
+     -9.92
+    ],
+    "flip": 35.1,
+    "flipMean": 10.24,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|21|IWC": {
+    "raw": 42375,
+    "indep": 41142,
+    "hit": 65.7,
+    "ci": [
+     65.3,
+     66.2
+    ],
+    "base": 56.5,
+    "mean": -10.52,
+    "meanCI": [
+     -10.85,
+     -10.2
+    ],
+    "flip": 34.3,
+    "flipMean": 10.52,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|63|SPY": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 76.2,
+    "ci": [
+     75.7,
+     76.6
+    ],
+    "base": 60.2,
+    "mean": -14.26,
+    "meanCI": [
+     -14.68,
+     -13.85
+    ],
+    "flip": 23.8,
+    "flipMean": 14.26,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|63|IWM": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 71.2,
+    "ci": [
+     70.7,
+     71.7
+    ],
+    "base": 58.3,
+    "mean": -13.76,
+    "meanCI": [
+     -14.17,
+     -13.34
+    ],
+    "flip": 28.8,
+    "flipMean": 13.76,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|63|IWC": {
+    "raw": 35335,
+    "indep": 31836,
+    "hit": 69.0,
+    "ci": [
+     68.5,
+     69.5
+    ],
+    "base": 58.3,
+    "mean": -14.2,
+    "meanCI": [
+     -14.62,
+     -13.78
+    ],
+    "flip": 31.0,
+    "flipMean": 14.2,
+    "beats": true,
+    "years": [
+     "2012",
+     "2026"
+    ]
+   },
+   "-1.0|calendar": {
+    "months": 176,
+    "avgStocks": 342.1,
+    "SPY": {
+     "meanMonthly": -6.45,
+     "nwT": -12.98,
+     "months": 176
+    },
+    "IWM": {
+     "meanMonthly": -6.2,
+     "nwT": -13.67,
+     "months": 176
+    },
+    "IWC": {
+     "meanMonthly": -6.27,
+     "nwT": -13.98,
+     "months": 176
+    }
+   }
+  }
+ },
+ "eventCountNote": "The first late-filing test (Oct 20) counted 6,067 events at 1 month and 5,971 at 3 months. It dropped windows that started under $1 or moved more than 500% (about 4,150 windows), and it counted a company again only after a 63-trading-day gap for both horizons. The stress tests keep every window and cap returns at plus or minus 100% instead (12,530 and 12,262 windows), and use a gap equal to the holding period (21 days for 1 month, 63 for 3 months), giving 11,297 and 8,763. With the old filter and the 63-day gap, the stress-test code gives back exactly 5,971."
 }
