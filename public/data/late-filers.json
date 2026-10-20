@@ -1,0 +1,299 @@
+{
+ "generatedAt": "2026-10-20T21:16:32.626Z",
+ "windowDays": 30,
+ "indexDaysRead": 20,
+ "count": 36,
+ "unmappedFilings": 5,
+ "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
+ "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
+ "items": [
+  {
+   "ticker": "CBIH",
+   "company": "Cannabis Bioscience International Holdings, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-16",
+   "link": "https://www.sec.gov/Archives/edgar/data/1411057/000168316826007933/0001683168-26-007933-index.htm"
+  },
+  {
+   "ticker": "HSTA",
+   "company": "Hestia Insight Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-16",
+   "link": "https://www.sec.gov/Archives/edgar/data/1813603/000168316826007912/0001683168-26-007912-index.htm"
+  },
+  {
+   "ticker": "AITX",
+   "company": "Artificial Intelligence Technology Solutions Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-15",
+   "link": "https://www.sec.gov/Archives/edgar/data/1498148/000149315226047276/0001493152-26-047276-index.htm"
+  },
+  {
+   "ticker": "AUSI",
+   "company": "AURA SYSTEMS INC",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-15",
+   "link": "https://www.sec.gov/Archives/edgar/data/826253/000121390026109913/0001213900-26-109913-index.htm"
+  },
+  {
+   "ticker": "KARX",
+   "company": "Karbon-X Corp.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-15",
+   "link": "https://www.sec.gov/Archives/edgar/data/1729637/000147793226006230/0001477932-26-006230-index.htm"
+  },
+  {
+   "ticker": "TMGI",
+   "company": "Transglobal Management Group, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-15",
+   "link": "https://www.sec.gov/Archives/edgar/data/1434601/000168316826007887/0001683168-26-007887-index.htm"
+  },
+  {
+   "ticker": "UPYY",
+   "company": "UPAY",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-15",
+   "link": "https://www.sec.gov/Archives/edgar/data/1677897/000157587226000703/0001575872-26-000703-index.htm"
+  },
+  {
+   "ticker": "RMCF",
+   "company": "Rocky Mountain Chocolate Factory, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-10-14",
+   "link": "https://www.sec.gov/Archives/edgar/data/1616262/000121390026109441/0001213900-26-109441-index.htm"
+  },
+  {
+   "ticker": "ECXJ",
+   "company": "CXJ GROUP CO., Ltd",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-10-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1823635/000149315226046735/0001493152-26-046735-index.htm"
+  },
+  {
+   "ticker": "AWCA",
+   "company": "Awaysis Capital, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1021917/000149315226044681/0001493152-26-044681-index.htm"
+  },
+  {
+   "ticker": "CBLO",
+   "company": "C2 Blockchain, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1882781/000188278126000044/0001882781-26-000044-index.htm"
+  },
+  {
+   "ticker": "GTLL",
+   "company": "GLOBAL TECHNOLOGIES LTD",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/932021/000149315226044925/0001493152-26-044925-index.htm"
+  },
+  {
+   "ticker": "HSCT",
+   "company": "HOOPS SCOUTING USA",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1721056/000147793226005903/0001477932-26-005903-index.htm"
+  },
+  {
+   "ticker": "LNAI",
+   "company": "Lunai Bioworks Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1527728/000173112226001299/0001731122-26-001299-index.htm"
+  },
+  {
+   "ticker": "NVA",
+   "company": "Nova Minerals Corp",
+   "exchange": "NYSE",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1852551/000149315226044708/0001493152-26-044708-index.htm"
+  },
+  {
+   "ticker": "SGLY",
+   "company": "Singularity Future Technology Ltd.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1422892/000121390026104272/0001213900-26-104272-index.htm"
+  },
+  {
+   "ticker": "VIPZ",
+   "company": "VIP Play, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1832161/000149315226044847/0001493152-26-044847-index.htm"
+  },
+  {
+   "ticker": "VISM",
+   "company": "VISIUM TECHNOLOGIES, INC.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1082733/000165495426008617/0001654954-26-008617-index.htm"
+  },
+  {
+   "ticker": "ADVB",
+   "company": "Advanced Biomed Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1941029/000121390026104071/0001213900-26-104071-index.htm"
+  },
+  {
+   "ticker": "ALDS",
+   "company": "APPlife Digital Solutions Inc",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1755101/000109690626001457/0001096906-26-001457-index.htm"
+  },
+  {
+   "ticker": "BNET",
+   "company": "BION ENVIRONMENTAL TECHNOLOGIES INC",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/875729/000107997326001291/0001079973-26-001291-index.htm"
+  },
+  {
+   "ticker": "CVAT",
+   "company": "Cavitation Technologies, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1376793/000168316826007449/0001683168-26-007449-index.htm"
+  },
+  {
+   "ticker": "ESMC",
+   "company": "ESCALON MEDICAL CORP",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/862668/000121390026104085/0001213900-26-104085-index.htm"
+  },
+  {
+   "ticker": "GHST",
+   "company": "GHST World Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1121795/000107997326001290/0001079973-26-001290-index.htm"
+  },
+  {
+   "ticker": "IPW",
+   "company": "iPower Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1830072/000168316826007458/0001683168-26-007458-index.htm"
+  },
+  {
+   "ticker": "LDDD",
+   "company": "Longduoduo Co Ltd",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1892316/000121390026103959/0001213900-26-103959-index.htm"
+  },
+  {
+   "ticker": "MWAI",
+   "company": "MedWellAI, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1520118/000147793226005825/0001477932-26-005825-index.htm"
+  },
+  {
+   "ticker": "NGTF",
+   "company": "NightFood Holdings, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1593001/000149315226044557/0001493152-26-044557-index.htm"
+  },
+  {
+   "ticker": "OKMN",
+   "company": "OKMIN RESOURCES, INC.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1848334/000107997326001294/0001079973-26-001294-index.htm"
+  },
+  {
+   "ticker": "OZVN",
+   "company": "OZ VISION INC.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1751707/000149315226044562/0001493152-26-044562-index.htm"
+  },
+  {
+   "ticker": "SAGU",
+   "company": "Shreya Acquisition Group",
+   "exchange": "NYSE",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/2083452/000182912626010487/0001829126-26-010487-index.htm"
+  },
+  {
+   "ticker": "TGL",
+   "company": "TREASURE GLOBAL INC",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1905956/000121390026104122/0001213900-26-104122-index.htm"
+  },
+  {
+   "ticker": "TRXA",
+   "company": "T-REX Acquisition Corp.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1437750/000147793226005821/0001477932-26-005821-index.htm"
+  },
+  {
+   "ticker": "ZEOX",
+   "company": "Zeo ScientifiX, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1557376/000182912626010483/0001829126-26-010483-index.htm"
+  },
+  {
+   "ticker": "AAGH",
+   "company": "America Great Health",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-25",
+   "link": "https://www.sec.gov/Archives/edgar/data/1098009/000118518526004340/0001185185-26-004340-index.htm"
+  },
+  {
+   "ticker": "VIVC",
+   "company": "VIVIC CORP.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-09-25",
+   "link": "https://www.sec.gov/Archives/edgar/data/1703073/000149315226044272/0001493152-26-044272-index.htm"
+  }
+ ]
+}

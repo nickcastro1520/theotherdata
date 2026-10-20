@@ -1,0 +1,36 @@
+name: Late filers
+
+# Once a day, pulls new SEC Form 12b-25 late-filing notices (NT 10-K / NT 10-Q) from the EDGAR daily index
+# and writes public/data/late-filers.json (last ~30 days). The commit redeploys the site on Vercel.
+# EDGAR fair access: scripts/late-filers.mjs sends a User-Agent with a contact email and stays far under 10 requests/second.
+on:
+  schedule:
+    - cron: "17 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: late-filers
+  cancel-in-progress: false
+
+jobs:
+  late-filers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/late-filers.mjs --days=30
+      - name: Commit if changed
+        run: |
+          git config user.name "nick castro"
+          git config user.email "nickcastro1520@gmail.com"
+          git add public/data/late-filers.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "data: late filers $(date -u +%Y-%m-%d)"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

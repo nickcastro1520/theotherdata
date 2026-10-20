@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recent Late Filers: Companies That Missed an SEC Deadline | The Other Data</title>
+<meta name="description" content="A daily list of US companies that filed a late-filing notice (SEC Form 12b-25: NT 10-K or NT 10-Q), with what our 2012–2026 test found. Education only.">
+<link rel="canonical" href="https://theotherdata.com/late-filers">
+<meta property="og:site_name" content="The Other Data">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theotherdata.com/late-filers">
+<meta property="og:title" content="Recent late filers: companies that missed an SEC deadline">
+<meta property="og:description" content="A daily list of US companies that filed a late-filing notice (SEC Form 12b-25: NT 10-K or NT 10-Q), with what our 2012–2026 test found. Education only.">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recent late filers: companies that missed an SEC deadline">
+<meta name="twitter:description" content="A daily list of US companies that filed a late-filing notice (SEC Form 12b-25: NT 10-K or NT 10-Q), with what our 2012–2026 test found. Education only.">
+<meta name="twitter:image" content="https://theotherdata.com/og.png">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Recent late filers (SEC Form 12b-25)","description":"US companies that filed NT 10-K or NT 10-Q late-filing notices in the last 30 days, from the SEC EDGAR daily index, updated daily.","url":"https://theotherdata.com/late-filers","isAccessibleForFree":true,"creator":{"@type":"Person","name":"Nick Castro"},"distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://theotherdata.com/data/late-filers.json"}}</script>
+<script src="/late-filers.js" defer></script>
+<!--GA-->
+<!--GSC-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="theotherdata home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/scoreboard">Scoreboard</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough" aria-current="page">How a signal is found</a><a href="/how-i-built-this">How I built this</a></nav>
+    <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+<main id="main" class="doc built">
+  <div class="wrap">
+    <p class="eyebrow-k">Filing watch · updated daily</p>
+    <h1>Recent late filers</h1>
+    <p class="note-box"><strong>Education only. Not advice.</strong> Being on this list is not a prediction for any one company, and nothing here says what to buy or sell.</p>
+    <p class="lede-sm">When a US public company can't file its annual report (10-K) or quarterly report (10-Q) on time, it has to tell the SEC with a short notice called <strong>Form 12b-25</strong>, listed on EDGAR as <strong>NT 10-K</strong> or <strong>NT 10-Q</strong>. Common reasons: the auditors need more time, the books are being restated, or the company is short on cash or staff.</p>
+
+    <h2>What we found when we tested it</h2>
+    <p>We took every late-filing notice from 2012 to 2026 that maps to a stock still listed today and checked how the stock did against the S&amp;P 500 afterward, starting the trading day after the notice was filed. To pass, late filers had to trail the S&amp;P 500 more often than a baseline: the better of always guessing "beats the S&amp;P 500" or always guessing "trails it" for the same stocks in the same years. The low end of the 95% range also had to clear that bar.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>After the notice</th><th>Trailed the S&amp;P 500</th><th>Baseline</th><th>Average vs S&amp;P 500</th><th>Independent events</th></tr></thead><tbody>
+      <tr><td>1 month</td><td><strong>62.4%</strong> (61.2–63.6%)</td><td>58.4%</td><td>−2.05%</td><td>6,067</td></tr>
+      <tr><td>3 months</td><td><strong>68.9%</strong> (67.7–70.1%)</td><td>61.7%</td><td>−8.16%</td><td>5,971</td></tr>
+    </tbody></table></div>
+    <p>It passed at both lengths. Full numbers, sample events and the method are on the <a href="/track#per-stock">track record</a>.</p>
+
+    <h2>Read this before reading the list</h2>
+    <ul class="caveats">
+      <li><strong>This is a known effect.</strong> Finance researchers have documented weak returns after late-filing notices for years. It is not a new discovery, and well-known patterns tend to fade.</li>
+      <li><strong>Survivorship bias.</strong> Only companies still listed today could be matched to a ticker, so many late filers that later delisted, often the worst outcomes, are missing from the test.</li>
+      <li><strong>Mostly small, thinly traded stocks.</strong> Many are tiny or trade over the counter, where prices can jump on little volume.</li>
+      <li><strong>Costs and limits.</strong> Trading costs, wide spreads and limits on short selling would eat into an average like this. A pattern on paper is not a strategy.</li>
+      <li><strong>One notice is not a verdict.</strong> Some companies file late for dull reasons and catch up within days.</li>
+    </ul>
+
+    <h2>Notices in the last 30 days</h2>
+    <p class="n" id="lf-meta">Loading…</p>
+    <div class="tblwrap"><table class="tbl" id="lf-table"><thead><tr><th>Ticker</th><th>Company</th><th>Form</th><th>Filed</th><th>EDGAR</th></tr></thead><tbody></tbody></table></div>
+    <p class="n">Source: <a href="https://www.sec.gov/Archives/edgar/daily-index/" rel="noopener">SEC EDGAR daily index</a>, matched to tickers with the SEC's company list. Filings from companies without a listed ticker are left out. Refreshed once a day.</p>
+    <p><a href="/track">Track record →</a> · <a href="/how">How it works →</a></p>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/privacy">Privacy</a></p></div></footer>
+</body>
+</html>

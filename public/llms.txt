@@ -1,0 +1,18 @@
+# The Other Data
+
+> theotherdata.com explains "alternative data": free public data sets (Federal Reserve series, government safety reports, river levels, filings) that may say something about well-known stocks. Every clue is shown in plain English with an honest, out-of-sample track record. Education only, not financial advice; the site never says what to buy or sell.
+
+## Main pages
+- [Home: stocks and their hidden signals](https://theotherdata.com/): search ~14,000 US stocks; 35 curated stocks get deep signals.
+- [Track record](https://theotherdata.com/track): every lean checked against what the stock did next, vs the S&P 500, plus the tougher per-stock tests and what failed.
+- [Scoreboard](https://theotherdata.com/scoreboard): each signal's hit rate with 95% ranges.
+- [Recent late filers](https://theotherdata.com/late-filers): daily list of SEC Form 12b-25 late-filing notices (NT 10-K / NT 10-Q) with the tested 2012–2026 result and its caveats.
+- [How a signal is found](https://theotherdata.com/signal-walkthrough): one signal walked end to end.
+- [How it works](https://theotherdata.com/how) and [How to read the site](https://theotherdata.com/how-to-read).
+- [How I built this](https://theotherdata.com/how-i-built-this).
+
+## Data files (JSON)
+- [Late filers, last 30 days](https://theotherdata.com/data/late-filers.json)
+- [Per-stock tests](https://theotherdata.com/data/single-stock-study.json)
+- [Filing event studies](https://theotherdata.com/data/event-study.json)
+- [Out-of-sample signal study](https://theotherdata.com/data/signal-study.json)
