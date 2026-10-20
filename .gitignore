@@ -6,3 +6,4 @@ screenshots/*.tmp.png
 screenshots/
 reports/digest-preview.*
 data/track/.alfred-cache/
+__pycache__/
