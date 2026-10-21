@@ -69,7 +69,8 @@
       <tr><th>Scored after 3 months</th><td>${s.scored.toLocaleString()}${s.pending ? ` (${s.pending.toLocaleString()} still waiting)` : ""}</td></tr>
       <tr><th>Average gap vs matched stocks</th><td>${s.scored ? `${sg(s.avgGap)}%${s.avgGapCI ? ` (95% range ${s.avgGapCI[0]} to ${s.avgGapCI[1]}%)` : ""}` : "–"}</td></tr>
       <tr><th>Lagged their matched stocks</th><td>${s.scored ? `${s.lagged}%${s.laggedCI ? ` (${s.laggedCI[0]}–${s.laggedCI[1]}%)` : ""} vs placebo ${s.placebo}%` : "–"}</td></tr>
-      <tr><th>Month-by-month t-stat</th><td>${t}</td></tr></tbody></table></div>
+      <tr><th>Month-by-month t-stat</th><td>${t}</td></tr>
+      <tr><th>Days with no run</th><td>${(s.gaps || []).length ? s.gaps.map((d) => `no run on ${d}`).join(", ") : "None so far"}</td></tr></tbody></table></div>
       <p class="n">Backtest for comparison (2012–2026): about −4% vs matched stocks, lagged 60.8% vs placebo 55.7%. Updated ${new Date(s.updatedAt).toLocaleDateString("en-US", { timeZone: "America/Chicago" })}.</p>`;
   } catch { el.innerHTML = '<p class="n">Live results are not available yet.</p>'; }
 })();

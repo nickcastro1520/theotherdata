@@ -1,5 +1,5 @@
 """CI guard: the live late-filing log and score files are append-only.
-Fails if any line that existed at the base commit was changed, removed or reordered, or if any hash chain is broken.
+Fails if an accession number appears twice, if any line that existed at the base commit was changed, removed or reordered, or if any hash chain is broken.
   python3 scripts/live/check_append_only.py <base-commit>
 """
 import subprocess, sys, os
@@ -7,7 +7,11 @@ sys.path.insert(0, os.path.dirname(__file__)); from common import read_chain, LO
 base = sys.argv[1] if len(sys.argv) > 1 else "HEAD~1"
 bad = False
 for p in (LOG, SCORES):
-    read_chain(p)  # raises on a broken chain
+    rows, _ = read_chain(p)  # raises on a broken chain
+    key = "accession"
+    ids = [r[key] for r in rows if r.get("type", "filing") == "filing"] if p == LOG else [r[key] for r in rows]
+    if len(ids) != len(set(ids)):
+        print(f"FAIL: {p} has a duplicate accession number"); bad = True
     try: old = subprocess.run(["git", "show", f"{base}:{p}"], capture_output=True, check=True).stdout.decode()
     except subprocess.CalledProcessError: old = ""
     new = open(p, encoding="utf-8").read() if os.path.exists(p) else ""

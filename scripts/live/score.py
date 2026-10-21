@@ -9,8 +9,10 @@ import json, os, sys, math, datetime as dt
 from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.dirname(__file__)); from common import yahoo_daily, read_chain, append, LOG, SCORES, SUMMARY, H
 log, _ = read_chain(LOG)
+gap_days = [e["date"] for e in log if e.get("type") == "gap"]
 scores, prev = read_chain(SCORES)
 done = {s["accession"] for s in scores}
+log = [e for e in log if e.get("type", "filing") == "filing"]
 todo = [e for e in log if e["scorable"] and e["accession"] not in done]
 new = []
 if todo:
@@ -62,6 +64,6 @@ summ = {"since": "2026-10-20", "updatedAt": dt.datetime.now(dt.timezone.utc).iso
         "lagged": round(100 * sum(s["lagged"] for s in ok) / n, 1) if n else None, "laggedCI": wilson(sum(s["lagged"] for s in ok), n),
         "placebo": round(100 * sum(s["placeboBelow"] for s in ok) / n, 1) if n else None,
         "months": len(monthly), "monthlyT": nw_t(monthly) if len(monthly) >= 24 else None,
-        "monthlyTNote": "Newey-West t of the average gap by filing month; shown only once there are 24+ months" }
+        "gaps": gap_days, "monthlyTNote": "Newey-West t of the average gap by filing month; shown only once there are 24+ months" }
 json.dump(summ, open(SUMMARY, "w"), indent=1)
 print(f"scores: {len(new)} new, {n} scored in total; summary written")
