@@ -10,6 +10,8 @@ import { buildDigestData, loadDigestInputs, renderDigestHtml, renderDigestText }
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
+import { buildSignalStatus } from "./signal-status.mjs";
+try { await buildSignalStatus(ROOT); } catch (e) { console.warn(`signal status skipped: ${e.message}`); }
 const data = buildDigestData(await loadDigestInputs(join(ROOT, "public", "data")));
 if (!data) { console.error("digest: no qualifying signals; digest.json left unchanged"); process.exit(0); }
 await writeFile(join(ROOT, "public", "data", "digest.json"), JSON.stringify(data, null, 1));

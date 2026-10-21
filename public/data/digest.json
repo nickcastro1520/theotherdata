@@ -2,7 +2,7 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-20T23:27:04.909Z",
+ "generatedAt": "2026-10-21T00:34:14.742Z",
  "dataUpdatedAt": "2026-10-20T23:14:38.811Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
@@ -26,6 +26,11 @@
     "name": "NHTSA complaints API",
     "url": "https://www.nhtsa.gov/vehicle/2026/FORD/F-150%20(SUPER%20CREW)%20GAS"
    },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-F-f150-complaints"
+   },
    "url": "https://theotherdata.com/#/F"
   },
   {
@@ -46,6 +51,11 @@
    "source": {
     "name": "NHTSA complaints API",
     "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
+   },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
    },
    "url": "https://theotherdata.com/#/TSLA"
   },
@@ -68,6 +78,11 @@
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
    },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
+   },
    "url": "https://theotherdata.com/#/PLTR"
   },
   {
@@ -88,6 +103,11 @@
    "source": {
     "name": "openFDA (U.S. Food & Drug Administration)",
     "url": "https://open.fda.gov/apis/drug/event/"
+   },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-LLY-tirzepatide-reports"
    },
    "url": "https://theotherdata.com/#/LLY"
   },
@@ -110,6 +130,11 @@
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
    },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
+   },
    "url": "https://theotherdata.com/#/AAPL"
   }
  ],
@@ -121,7 +146,8 @@
   "paragraphs": [
    "Complaints F-150 owners file with the National Highway Traffic Safety Administration. Complaint surges are how many recalls and investigations start.",
    "Why it might matter for Ford: the F-Series is Ford's profit machine, and Ford has led the industry in recalls. Rising complaints can foreshadow recall and warranty costs.",
-   "What it shows now: complaints have eased versus the prior few months. We read that as a mild tailwind for Ford, which is a clue, not a forecast."
+   "What it shows now: complaints have eased versus the prior few months.",
+   "Test status: Not tested yet."
   ],
   "url": "https://theotherdata.com/#/F"
  },

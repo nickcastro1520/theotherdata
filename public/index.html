@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Other Data: Hidden Signals Behind Stocks, Explained Simply</title>
-<meta name="description" content="Box production, airport lines, FDA reports: free public data hinting how 35 big companies are doing, in plain English with green/red leans. Education only.">
+<meta name="description" content="Box production, airport lines, FDA reports: free public data hinting how 35 big companies are doing, in plain English, with each signal's test result shown. Education only.">
 <link rel="canonical" href="https://theotherdata.com/">
 <meta name="theme-color" content="#0b1020">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -36,6 +36,7 @@
 <script src="/tour.js" defer></script>
 <script src="/card-model.js" defer></script>
 <script src="/share.js" defer></script>
+<script src="/test-status.js" defer></script>
 <script src="/app.js" defer></script>
 </head>
 <body>
@@ -66,7 +67,7 @@
         <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> Alternative data, explained</span>
         <h1>The hidden signals behind the stocks you know.</h1>
         <!--HOOK-->
-        <p class="lede">Free public data most investors skip, like <strong>paperboard output</strong>, <strong>airport lines</strong>, and <strong>FDA reports</strong>, pulled every 4 hours, turned into a plain-English lean, and scored honestly against the market.</p>
+        <p class="lede">Free public data most investors skip, like <strong>paperboard output</strong>, <strong>airport lines</strong>, and <strong>FDA reports</strong>, pulled every 4 hours, explained in plain English, and scored honestly against the market.</p>
         <form class="picker" id="picker" role="search" autocomplete="off">
           <label for="q" class="picker-label">Try any stock</label>
           <div class="picker-row">
@@ -98,7 +99,7 @@
     <div class="wrap">
       <ol class="hiw" aria-label="How it works in three steps">
         <li><span class="hiw-n" aria-hidden="true">1</span><div><h2>Offbeat data</h2><p>Free public numbers most investors skip: paperboard output, TSA lines, FDA reports, developer downloads.</p></div></li>
-        <li><span class="hiw-n" aria-hidden="true">2</span><div><h2>Which way it leans</h2><p><b class="up">Green</b> or <b class="down">red</b> shows if the number rose or fell vs its recent past. We label that a tailwind or headwind for the company.</p></div></li>
+        <li><span class="hiw-n" aria-hidden="true">2</span><div><h2>What the data did, and whether it was tested</h2><p><b class="up">Green</b> or <b class="down">red</b> shows if the number rose or fell vs its recent past. A badge on each signal says if we backtested it and what we found: so far, no stock signal has shown predictive power.</p></div></li>
         <li><span class="hiw-n" aria-hidden="true">3</span><div><h2>Why it matters</h2><p>Every signal says, in plain English, how it connects to the business and the usual time frame: weeks to a quarter.</p></div></li>
       </ol>
       <p class="hero-fine"><a href="/how-to-read">New to stocks? Read the 2-minute beginner's guide →</a><br>Education only. Not financial advice. These are clues from public data, not predictions or buy/sell calls.</p>
@@ -118,7 +119,7 @@
           <span title="The underlying number fell vs its recent baseline"><i class="dot down"></i><b>Red</b> = number is down</span>
           <span><i class="dot neutral"></i>Gray = flat / noise</span>
         </div>
-        <p class="legend-note">Green and red track whether the <em>data</em> moved up or down vs its recent baseline. Separate <strong>Tailwind</strong> / <strong>Headwind</strong> badges say whether that move looks favorable or unfavorable for the company (some signals flip: more inventory can be a headwind even when the number is up).</p>
+        <p class="legend-note">Green and red track whether the <em>data</em> moved up or down vs its recent baseline. Each signal also carries a test badge: <strong>Tested: no predictive power found</strong> or <strong>Not tested yet</strong>. Stock pages still explain whether a move looks favorable (tailwind) or unfavorable (headwind) for the company, labeled with that test result.</p>
       </div>
       </div>
       <div class="cards" id="cards"></div>

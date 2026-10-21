@@ -5,7 +5,7 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const safeUrl = (u) => (/^https:\/\//i.test(String(u || "")) ? String(u) : "#");
   const local = (u) => String(u || "").replace(/^https:\/\/theotherdata\.com/, "") || "/";
-  const chip = (p) => `<span class="badge ${p.reading === "tailwind" ? "tailwind" : "headwind"}">${esc(p.strength ? `${p.strength} ` : "")}${esc(p.reading)}</span>`;
+  const chip = (p) => { const t = p.testStatus || { label: "Not tested yet", status: "untested", url: "/scoreboard" }; return `<a class="ts-badge ${t.status === "tested" ? "ts-tested" : "ts-untested"}" href="${esc(local(t.url))}">${esc(t.label)}</a>`; };
   fetch("/data/digest.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : Promise.reject(r.status))).then((d) => {
     $("#dg-intro").textContent = `Week of ${d.weekOf}. This is what the weekly email looks like right now, built from the same live data as the site (updated ${new Date(d.generatedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" })}).`;
     $("#dg").innerHTML = `

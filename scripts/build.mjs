@@ -11,6 +11,8 @@ import { buildShareAssets } from "./cards.mjs";
 import "../public/signal-size.js";
 import "../public/featured.js";
 import "../public/card-model.js";
+import "../public/test-status.js";
+import { buildSignalStatus } from "./signal-status.mjs";
 
 const escH = (x) => String(x ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
@@ -24,7 +26,7 @@ export function hookFor(index, docs = {}) {
   const s = { ...p.signal, ...((doc?.signals || []).find((x) => x.id === p.signal.id) || {}) };
   const card = doc ? C.signalCard(doc, s) : null;
   // What the data did, never which way the stock "leans" (leans live on stock pages only).
-  return { ...p, signal: s, line: Z.describe(s), change: Z.changeText(s), num: s.display || "", basis: s.basis || "", read: F.plainRead(s.now) || "", url: C.signalUrl(p.ticker, s.id), card };
+  return { ...p, signal: s, line: Z.describe(s), change: Z.changeText(s), num: s.display || "", basis: s.basis || "", read: F.plainRead(s.now) || "", url: C.signalUrl(p.ticker, s.id), status: globalThis.TODStatus?.forSignal(p.ticker, s.id) || null, card };
 }
 
 export function hookHtml(h) {
@@ -33,7 +35,8 @@ export function hookHtml(h) {
           <span class="hook-k"><span class="pulse" aria-hidden="true"></span> Today's hidden signal · live data</span>
           <span class="hook-line">${escH(h.line)}</span>
           <span class="hook-row"><span class="hook-co">${escH(h.ticker)} · ${escH(h.name)}</span>${h.change ? `<span class="hook-num">${escH(h.change)}${h.basis ? ` <small>· ${escH(h.basis)}</small>` : ""}</span>` : ""}</span>
-          <span class="hook-why">See the data →</span>
+          <span class="hook-why">See the data →</span>${h.status ? `
+          <span class="ts-badge ${h.status.status === "tested" ? "ts-tested" : "ts-untested"}">${escH(h.status.label)}</span>` : ""}
         </a>`;
 }
 
@@ -64,6 +67,8 @@ async function build() {
   const s = await loadSettings();
   if (s.gaInvalid) console.warn("GA_MEASUREMENT_ID ignored: expected something like G-ABC123XYZ");
   if (s.gscInvalid) console.warn("GOOGLE_SITE_VERIFICATION ignored: paste only the content value of the meta tag");
+  // Test status for every signal (from the backtest), used by badges on the site and on share images.
+  try { globalThis.TODStatus.set(await buildSignalStatus(ROOT)); } catch (e) { console.warn(`signal status skipped: ${e.message}`); }
   const out = join(ROOT, "dist");
   await rm(out, { recursive: true, force: true });
   await mkdir(out, { recursive: true });

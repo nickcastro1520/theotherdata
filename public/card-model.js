@@ -5,19 +5,6 @@
   "use strict";
   const SITE = "https://theotherdata.com";
   const WINDOW = "weeks to a quarter";
-  const LEAN = {
-    tailwind: { word: "Lean up", sub: "net tailwind", tone: "up" },
-    headwind: { word: "Lean down", sub: "net headwind", tone: "down" },
-    mixed: { word: "Mixed", sub: "no clear lean", tone: "flat" },
-    quiet: { word: "Quiet", sub: "nothing moving much", tone: "flat" },
-  };
-  const SIG_LEAN = {
-    tailwind: { word: "Lean up", sub: "tailwind", tone: "up" },
-    headwind: { word: "Lean down", sub: "headwind", tone: "down" },
-    neutral: { word: "No clear lean", sub: "inside its normal range", tone: "flat" },
-    context: { word: "Context", sub: "background, no lean", tone: "flat" },
-    tracking: { word: "No lean yet", sub: "just started tracking", tone: "flat" },
-  };
   const live = (s) => s && (s.status === "ok" || s.status === "stale");
   const directional = (s) => live(s) && (s.reading === "tailwind" || s.reading === "headwind");
   const cap = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : t);
@@ -48,6 +35,8 @@
   }
 
   const Z = () => root.TODSize;
+  const ST = () => root.TODStatus;
+  const statusOf = (tk, id) => { const x = ST() && (id ? ST().forSignal(tk, id) : ST().doc?.stock); return x ? x.label : ""; };
   const big = (s) => !Z() || Z().passes(s);
   const daysWord = (s) => (Z() ? Z().windowWords(s) : "");
   const windowName = (s) => { const w = daysWord(s); return !w ? "Snapshots" : w === "a quarter" ? "Quarter vs quarter" : `${w.replace(/^(\d+) (\w+?)s$/, "$1-$2")} windows`; };
@@ -78,7 +67,7 @@
     const n = (doc.signals || []).filter(live).length;
     return {
       kind: "stock",
-      ticker: doc.ticker, company: doc.name,
+      ticker: doc.ticker, company: doc.name, status: top ? statusOf(doc.ticker, top.id) : "",
       headline: top ? `${top.name} → ${doc.name}` : `Offbeat public data → ${doc.name}`,
       line: top && Z() ? Z().describe(top) : "",
       topAsOf: top ? fmtDay(top.asOf, top.freq) : "",
@@ -97,7 +86,7 @@
   function signalCard(doc, s) {
     const line = Z() ? Z().describe(s) : plainLine(s);
     return {
-      kind: "signal", id: slug(s.id),
+      kind: "signal", id: slug(s.id), status: statusOf(doc.ticker, s.id),
       ticker: doc.ticker, company: doc.name,
       headline: `${s.name} → ${doc.name}`,
       line: line || plainLine(s),
@@ -125,6 +114,6 @@
     whatsapp: `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`,
   });
 
-  const api = { SITE, LEAN, SIG_LEAN, slug, plainLine, topSignal, stockCard, signalCard, shareLinks, stockUrl, signalUrl, live };
+  const api = { SITE, slug, plainLine, topSignal, stockCard, signalCard, shareLinks, stockUrl, signalUrl, live };
   root.TODCard = api;
 })(typeof window !== "undefined" ? window : globalThis);

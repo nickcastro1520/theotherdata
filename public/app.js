@@ -120,6 +120,7 @@
       <div class="f-step">
         <p class="f-lab"><span class="f-n">2</span> What the data did</p>
         ${did ? `<p class="f-read">${esc(did)}</p>` : ""}
+        ${window.TODStatus ? `<p class="ts-row">${window.TODStatus.signalBadge(p.ticker, s.id)}</p>` : ""}
       </div>
       ${s.why ? `<div class="f-step"><p class="f-lab"><span class="f-n">3</span> Why it matters</p><p class="f-why">${esc(s.why)}</p></div>` : ""}
       <div class="f-foot">
@@ -179,9 +180,8 @@
     const html = INDEX.tickers.map((t) => {
       const hay = [t.ticker, t.name, t.sector, ...t.signals.map((s) => s.name)].join(" ").toLowerCase();
       const hide = f && !hay.includes(f);
-      const [cls, txt] = LEAN[t.summary.lean] || ["", t.summary.lean];
       return `<a class="tcard${hide ? " dimmed" : ""}" href="#/${esc(t.ticker)}" data-t="${esc(t.ticker)}">
-        <div class="row1"><div><div class="tk">${esc(t.ticker)}</div><div class="nm">${esc(t.name)} · ${esc(t.sector)}</div></div><span class="lean ${cls}">${esc(txt)}</span></div>
+        <div class="row1"><div><div class="tk">${esc(t.ticker)}</div><div class="nm">${esc(t.name)} · ${esc(t.sector)}</div></div>${window.TODStatus ? window.TODStatus.stockBadge() : ""}</div>
         <ul>${t.signals.map((s) => { const r = readingOf(s); const dir = dirOf(s.pct); return `<li><i class="dot ${r}" title="${esc(READ[r] || r)}"></i><span class="nm2">${esc(s.name)}</span><span class="pc ${dir}" title="${esc(`Green = up vs baseline, red = down${window.TODSize?.beforeAfter(s) ? `. ${window.TODSize.beforeAfter(s).text}` : ""}`)}">${s.status === "error" ? "n/a" : esc(pctTxt(s.pct))}</span><span class="mini">${spark(s.series || [], dir, { w: 56, h: 18 })}</span></li>`; }).join("")}</ul>
         ${t.headline ? `<p class="hl">📰 ${esc(t.headline.title)}</p>` : ""}
       </a>`;
@@ -229,10 +229,6 @@
       const dir = r.live?.direction || "flat";
       const pct = r.live?.pct;
       const plain = r.plain || {};
-      const priceLean = plain.priceLean || "unclear";
-      const mag = plain.magnitude || (r.absSpearman >= 0.55 ? "strong" : r.absSpearman >= 0.4 ? "moderate" : "mild");
-      const leanCls = priceLean === "up" ? "up" : priceLean === "down" ? "down" : "flat";
-      const leanLabel = priceLean === "up" ? "Lean up" : priceLean === "down" ? "Lean down" : "No clear lean";
       const tag = live && linkTk ? `Live on ${linkTk}` : r.spuriousRisk === "high" ? "Spurious risk high" : "Scout hit";
       const href = linkTk ? `#/${linkTk}` : (r.targetKind === "ticker" ? `#/${r.target}` : "#stocks");
       const targetShow = linkTk || r.targetLabel;
@@ -244,8 +240,8 @@
         <h3>${esc(r.name)} → ${esc(targetShow)}</h3>
         <p class="scout-q"><strong>What we pulled:</strong> ${esc(plain.whatPulled || r.name)}</p>
         <p class="scout-q"><strong>Why it matters:</strong> ${esc(plain.whyMatters || r.why)}</p>
-        <p class="scout-q"><strong>How it can lean the price:</strong> <span class="chg ${esc(leanCls)}">${esc(leanLabel)}</span> · ${esc(mag)} · ${esc(plain.horizon || "weeks to a quarter")}</p>
-        <p class="scout-how">${esc(plain.howLean || "")}</p>
+        <p class="scout-q"><strong>What the data did:</strong> ${pct == null ? "No current reading." : `The public number is ${esc(dir === "flat" ? "about flat" : `${dir} ${pctTxt(pct).replace(/^[+-]/, "")}`)} vs its baseline.`}</p>
+        <p class="scout-q">${(() => { const st = window.TODStatus && linkTk ? window.TODStatus.forSignal(linkTk, r.candidateId) : null; return st ? `<span class="ts-badge ${st.status === "tested" ? "ts-tested" : "ts-untested"}">${esc(st.label)}</span>` : `<span class="ts-badge ts-untested">Not tested yet</span>`; })()}</p>
         <p class="fine">Not financial advice. Correlation ≠ causation. Window ${esc(r.window?.from || "")} → ${esc(r.window?.to || "")}.</p>
       </a>`;
     }).join("");
@@ -299,28 +295,19 @@
     let scoutBox = "";
     if (s.scout) {
       // Prefer current reading; if still in the noise band, hint from polarity × series direction
-      let leanDir = r === "tailwind" ? "up" : r === "headwind" ? "down" : "flat";
-      let mag = s.strength || "mild";
-      if (leanDir === "flat" && s.pct != null && Math.abs(s.pct) > 0.05 && s.polarity) {
-        const seriesUp = s.pct > 0;
-        const favors = (s.polarity > 0 && seriesUp) || (s.polarity < 0 && !seriesUp);
-        leanDir = favors ? "up" : "down";
-        mag = "mild";
-      }
-      const leanTxt = leanDir === "up"
-        ? `This reading looks like a ${mag} lean <strong>up</strong> for ${d.ticker}'s story over weeks to a quarter.`
-        : leanDir === "down"
-        ? `This reading looks like a ${mag} lean <strong>down</strong> for ${d.ticker}'s story over weeks to a quarter.`
-        : `Right now this number is close to its usual range, so there is no clear up/down lean for ${d.ticker}.`;
+      // What the data did, not which way the stock "leans".
+      const leanDir = dirOf(s.pct);
+      const did = window.TODSize ? window.TODSize.describe(s) : "";
+      const leanTxt = did ? esc(did) : `Right now this number is close to its usual range.`;
       scoutBox = `<div class="scout-lean ${leanDir}">
         <p class="k">Scout find · easy read</p>
         <p><strong>What we pulled:</strong> ${esc(s.what)}</p>
         <p><strong>Why it matters for ${esc(d.ticker)}:</strong> ${esc(s.why)}</p>
-        <p><strong>How it can lean the price:</strong> ${leanTxt} <span class="chg ${leanDir}">${leanDir === "up" ? "Lean up" : leanDir === "down" ? "Lean down" : "No clear lean"}</span> Educational only — not advice to buy or sell.</p>
+        <p><strong>What the data did:</strong> ${leanTxt} ${window.TODStatus ? window.TODStatus.signalBadge(d.ticker, s.id) : ""} Educational only — not advice to buy or sell.</p>
       </div>`;
     }
     return `<article class="sig ${esc(r)}${stale ? " stale" : ""}" id="sig-${esc(s.id)}">
-      <div class="top"><div><h3>${esc(s.name)}${s.scout ? ` <span class="scout-pill">Scout</span>` : ""}</h3><p class="metric">${esc(s.metric)}</p></div>${badge}</div>
+      <div class="top"><div><h3>${esc(s.name)}${s.scout ? ` <span class="scout-pill">Scout</span>` : ""}</h3><p class="metric">${esc(s.metric)}</p>${window.TODStatus && d.pack !== "light" ? `<p class="ts-row">${window.TODStatus.signalBadge(d.ticker, s.id)}</p>` : ""}</div>${badge}</div>
       ${nums}
       ${stale ? `<div class="warnbox">The latest refresh couldn't reach this source (${esc(s.lastError || "error")}). Showing the last good data, fetched ${esc(when(s.staleSince || s.fetchedAt))}.</div>` : ""}
       ${scoutBox}
@@ -411,7 +398,7 @@
         <p class="k">Impact call · educational only</p>
         <div class="impact-steps">
           <div class="istep"><span class="n">1</span><div><h2 class="ih">What the alt-data is</h2><p>${esc(what)}</p></div></div>
-          <div class="istep"><span class="n">2</span><div><h2 class="ih">Because of that, the lean</h2><div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span><span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind · confidence ${esc(conf)}</span></div><p>${esc(because)}</p></div></div>
+          <div class="istep"><span class="n">2</span><div><h2 class="ih">Because of that, the lean</h2><div class="call"><span class="badge ${esc(cls)}">${esc(label)}</span>${window.TODStatus && d.pack !== "light" ? ` ${window.TODStatus.stockBadge()}` : ""}<span class="meta">${esc(d.summary?.tailwinds ?? 0)} tailwind · ${esc(d.summary?.headwinds ?? 0)} headwind · confidence ${esc(conf)}</span></div><p>${esc(because)}</p></div></div>
           <div class="istep"><span class="n">3</span><div><h2 class="ih">Rough magnitude band</h2><p><strong>${esc(magLabel)}</strong> — ${esc(imp.magnitudeWhy || "Based on how many mild vs notable signal moves line up. Not a dollar price target.")}</p></div></div>
           <div class="istep"><span class="n">4</span><div><h2 class="ih">Typical time horizon</h2><p><strong>${esc(horizon)}</strong>. ${esc(horizonNote)}</p></div></div>
         </div>
@@ -528,7 +515,7 @@
   }
 
   async function init() {
-    try { INDEX = await (await fetch("/data/index.json", { cache: "default" })).json(); }
+    try { [INDEX] = await Promise.all([fetch("/data/index.json", { cache: "default" }).then((r) => r.json()), window.TODStatus ? window.TODStatus.load() : null]); }
     catch { $("#status-line").textContent = "Couldn't load the latest data. Please refresh the page."; return; }
     renderStatus(); renderChips();
     // On /s/ permalink pages the home view is hidden: build its rotating example only if the visitor goes home.

@@ -1,0 +1,692 @@
+{
+ "generatedAt": "2026-10-21T00:34:14.876Z",
+ "source": "public/data/scoreboard.json",
+ "rule": "Tested = made calls in the backtest. A signal would need at least one of its three hit rates (direction, vs S&P 500, vs sector) to differ from 50% after a Holm correction across all 264 tests (two-sided exact binomial, 5% level). None does.",
+ "tests": 264,
+ "smallestP": 0.002935055643320093,
+ "counts": {
+  "tested": 88,
+  "untested": 23
+ },
+ "stock": {
+  "status": "tested",
+  "label": "Tested: no predictive power found",
+  "link": "/track",
+  "note": "The combined up/down lean per stock was backtested on /track and was about a coin flip."
+ },
+ "passed": [
+  {
+   "name": "Late-filing notices (SEC Form 12b-25), 3 months",
+   "label": "Passed",
+   "link": "/track#checks"
+  }
+ ],
+ "signals": {
+  "AAPL|iphone-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 19,
+   "link": "/scoreboard#s-AAPL-iphone-curiosity"
+  },
+  "AAPL|electronics-stores": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 25,
+   "link": "/scoreboard#s-AAPL-electronics-stores"
+  },
+  "AAPL|apple-inventory": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 30,
+   "link": "/scoreboard#s-AAPL-apple-inventory"
+  },
+  "NVDA|pytorch-installs": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-NVDA-pytorch-installs"
+  },
+  "NVDA|dev-chatter": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 33,
+   "link": "/scoreboard#s-NVDA-dev-chatter"
+  },
+  "NVDA|nvidia-inventory": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 39,
+   "link": "/scoreboard#s-NVDA-nvidia-inventory"
+  },
+  "NVDA|vix-stress": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-NVDA-vix-stress"
+  },
+  "MSFT|azure-sdk": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-MSFT-azure-sdk"
+  },
+  "MSFT|copilot-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 23,
+   "link": "/scoreboard#s-MSFT-copilot-curiosity"
+  },
+  "MSFT|copilot-chatter": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 28,
+   "link": "/scoreboard#s-MSFT-copilot-chatter"
+  },
+  "TSLA|modely-complaints": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Complaint counts for a fixed set of model years grow with the fleet, and complaints are posted with an unknown delay, so past readings would be biased.",
+   "link": "/scoreboard#s-TSLA-modely-complaints"
+  },
+  "TSLA|modely-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-TSLA-modely-curiosity"
+  },
+  "TSLA|gas-ev": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-TSLA-gas-ev"
+  },
+  "AMZN|cardboard": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-AMZN-cardboard"
+  },
+  "AMZN|paperboard": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 38,
+   "link": "/scoreboard#s-AMZN-paperboard"
+  },
+  "AMZN|online-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-AMZN-online-sales"
+  },
+  "AMZN|aws-sdk": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-AMZN-aws-sdk"
+  },
+  "WMT|egg-prices": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 43,
+   "link": "/scoreboard#s-WMT-egg-prices"
+  },
+  "WMT|gas-wallet": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-WMT-gas-wallet"
+  },
+  "WMT|jobless-claims": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-WMT-jobless-claims"
+  },
+  "DAL|tsa-dal": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-DAL-tsa-dal"
+  },
+  "DAL|jet-fuel": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 34,
+   "link": "/scoreboard#s-DAL-jet-fuel"
+  },
+  "UNP|rail-carloads": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 15,
+   "link": "/scoreboard#s-UNP-rail-carloads"
+  },
+  "UNP|truck-tonnage": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 14,
+   "link": "/scoreboard#s-UNP-truck-tonnage"
+  },
+  "UNP|building-permits": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 35,
+   "link": "/scoreboard#s-UNP-building-permits"
+  },
+  "LLY|tirzepatide-reports": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "FDA adverse-event data arrives late and is re-released quarterly, so we can't reconstruct what was public on a past date.",
+   "link": "/scoreboard#s-LLY-tirzepatide-reports"
+  },
+  "LLY|tirzepatide-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 27,
+   "link": "/scoreboard#s-LLY-tirzepatide-curiosity"
+  },
+  "NVO|semaglutide-reports": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "FDA adverse-event data arrives late and is re-released quarterly, so we can't reconstruct what was public on a past date.",
+   "link": "/scoreboard#s-NVO-semaglutide-reports"
+  },
+  "NVO|semaglutide-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 27,
+   "link": "/scoreboard#s-NVO-semaglutide-curiosity"
+  },
+  "NVO|rival-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 27,
+   "link": "/scoreboard#s-NVO-rival-curiosity"
+  },
+  "HD|housing-starts": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 30,
+   "link": "/scoreboard#s-HD-housing-starts"
+  },
+  "HD|mortgage-rates": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 21,
+   "link": "/scoreboard#s-HD-mortgage-rates"
+  },
+  "HD|lumber": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-HD-lumber"
+  },
+  "MCD|beef": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 38,
+   "link": "/scoreboard#s-MCD-beef"
+  },
+  "MCD|eating-out": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-MCD-eating-out"
+  },
+  "MCD|eggs-breakfast": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 43,
+   "link": "/scoreboard#s-MCD-eggs-breakfast"
+  },
+  "XOM|wti": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 33,
+   "link": "/scoreboard#s-XOM-wti"
+  },
+  "XOM|crude-stocks": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 24,
+   "link": "/scoreboard#s-XOM-crude-stocks"
+  },
+  "XOM|gas-refining": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-XOM-gas-refining"
+  },
+  "COIN|bitcoin": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-COIN-bitcoin"
+  },
+  "COIN|bitcoin-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 32,
+   "link": "/scoreboard#s-COIN-bitcoin-curiosity"
+  },
+  "COIN|coinbase-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-COIN-coinbase-hiring"
+  },
+  "ABNB|tsa-abnb": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-ABNB-tsa-abnb"
+  },
+  "ABNB|lodging-prices": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 23,
+   "link": "/scoreboard#s-ABNB-lodging-prices"
+  },
+  "ABNB|airbnb-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-ABNB-airbnb-hiring"
+  },
+  "ABNB|unemployment": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 15,
+   "link": "/scoreboard#s-ABNB-unemployment"
+  },
+  "DIS|wdw-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 21,
+   "link": "/scoreboard#s-DIS-wdw-curiosity"
+  },
+  "DIS|tsa-dis": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-DIS-tsa-dis"
+  },
+  "DIS|sentiment": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 38,
+   "link": "/scoreboard#s-DIS-sentiment"
+  },
+  "F|f150-complaints": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Complaint counts for a fixed set of model years grow with the fleet, and complaints are posted with an unknown delay, so past readings would be biased.",
+   "link": "/scoreboard#s-F-f150-complaints"
+  },
+  "F|vehicle-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 38,
+   "link": "/scoreboard#s-F-vehicle-sales"
+  },
+  "F|gas-trucks": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-F-gas-trucks"
+  },
+  "F|hy-spread": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 17,
+   "link": "/scoreboard#s-F-hy-spread"
+  },
+  "GOOGL|gemini-sdk": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-GOOGL-gemini-sdk"
+  },
+  "GOOGL|gcp-sdk": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-GOOGL-gcp-sdk"
+  },
+  "GOOGL|gemini-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 7,
+   "link": "/scoreboard#s-GOOGL-gemini-curiosity"
+  },
+  "META|online-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-META-online-sales"
+  },
+  "META|instagram-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 28,
+   "link": "/scoreboard#s-META-instagram-curiosity"
+  },
+  "META|threads-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 28,
+   "link": "/scoreboard#s-META-threads-curiosity"
+  },
+  "NFLX|netflix-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 25,
+   "link": "/scoreboard#s-NFLX-netflix-curiosity"
+  },
+  "NFLX|streaming-prices": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-NFLX-streaming-prices"
+  },
+  "COST|general-merch": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 32,
+   "link": "/scoreboard#s-COST-general-merch"
+  },
+  "COST|egg-prices": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 43,
+   "link": "/scoreboard#s-COST-egg-prices"
+  },
+  "COST|costco-inventory": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 8,
+   "link": "/scoreboard#s-COST-costco-inventory"
+  },
+  "NKE|nike-inventory": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 16,
+   "link": "/scoreboard#s-NKE-nike-inventory"
+  },
+  "NKE|clothing-stores": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 34,
+   "link": "/scoreboard#s-NKE-clothing-stores"
+  },
+  "NKE|footwear-prices": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 8,
+   "link": "/scoreboard#s-NKE-footwear-prices"
+  },
+  "SBUX|coffee-beans": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 37,
+   "link": "/scoreboard#s-SBUX-coffee-beans"
+  },
+  "SBUX|milk": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 20,
+   "link": "/scoreboard#s-SBUX-milk"
+  },
+  "SBUX|restaurant-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-SBUX-restaurant-sales"
+  },
+  "CMG|beef": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 38,
+   "link": "/scoreboard#s-CMG-beef"
+  },
+  "CMG|chicken": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 25,
+   "link": "/scoreboard#s-CMG-chicken"
+  },
+  "CMG|restaurant-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-CMG-restaurant-sales"
+  },
+  "UBER|tsa-uber": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-UBER-tsa-uber"
+  },
+  "UBER|restaurant-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-UBER-restaurant-sales"
+  },
+  "UBER|gas-drivers": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-UBER-gas-drivers"
+  },
+  "UBER|waymo-curiosity": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-UBER-waymo-curiosity"
+  },
+  "AMD|chip-output": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 43,
+   "link": "/scoreboard#s-AMD-chip-output"
+  },
+  "AMD|ryzen-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 22,
+   "link": "/scoreboard#s-AMD-ryzen-curiosity"
+  },
+  "AMD|amd-inventory": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 39,
+   "link": "/scoreboard#s-AMD-amd-inventory"
+  },
+  "AMD|vix-stress": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-AMD-vix-stress"
+  },
+  "BA|aircraft-orders": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 37,
+   "link": "/scoreboard#s-BA-aircraft-orders"
+  },
+  "BA|load-factor": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 19,
+   "link": "/scoreboard#s-BA-load-factor"
+  },
+  "BA|tsa-ba": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-BA-tsa-ba"
+  },
+  "BA|boeing-inventory": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": null,
+   "link": "/scoreboard#s-BA-boeing-inventory"
+  },
+  "JPM|business-loans": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 18,
+   "link": "/scoreboard#s-JPM-business-loans"
+  },
+  "JPM|card-delinquencies": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 33,
+   "link": "/scoreboard#s-JPM-card-delinquencies"
+  },
+  "JPM|jobless-claims": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 15,
+   "link": "/scoreboard#s-JPM-jobless-claims"
+  },
+  "JPM|hy-spread": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 17,
+   "link": "/scoreboard#s-JPM-hy-spread"
+  },
+  "KO|sugar": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 40,
+   "link": "/scoreboard#s-KO-sugar"
+  },
+  "KO|aluminum": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 36,
+   "link": "/scoreboard#s-KO-aluminum"
+  },
+  "KO|dollar": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 6,
+   "link": "/scoreboard#s-KO-dollar"
+  },
+  "PLTR|palantir-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-PLTR-palantir-hiring"
+  },
+  "PLTR|dev-chatter": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 36,
+   "link": "/scoreboard#s-PLTR-dev-chatter"
+  },
+  "PLTR|palantir-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 36,
+   "link": "/scoreboard#s-PLTR-palantir-curiosity"
+  },
+  "PLTR|vix-stress": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-PLTR-vix-stress"
+  },
+  "RBLX|roblox-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 26,
+   "link": "/scoreboard#s-RBLX-roblox-curiosity"
+  },
+  "RBLX|roblox-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-RBLX-roblox-hiring"
+  },
+  "RDDT|reddit-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 21,
+   "link": "/scoreboard#s-RDDT-reddit-curiosity"
+  },
+  "RDDT|reddit-api-builders": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "PyPI download stats only keep about 180 days of history, not enough for a multi-year backtest.",
+   "link": "/scoreboard#s-RDDT-reddit-api-builders"
+  },
+  "RDDT|reddit-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-RDDT-reddit-hiring"
+  },
+  "ONON|on-curiosity": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-ONON-on-curiosity"
+  },
+  "ONON|shoe-store-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 21,
+   "link": "/scoreboard#s-ONON-shoe-store-sales"
+  },
+  "ONON|on-hiring": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "Job boards only show today's count; our own snapshots started recently, so there's no past history.",
+   "link": "/scoreboard#s-ONON-on-hiring"
+  },
+  "SHOP|shopify-sdk": {
+   "status": "untested",
+   "label": "Not tested yet",
+   "why": "npm's public download counts only go back about 18 months, not enough for a backtest that starts in 2023.",
+   "link": "/scoreboard#s-SHOP-shopify-sdk"
+  },
+  "SHOP|online-sales": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 45,
+   "link": "/scoreboard#s-SHOP-online-sales"
+  },
+  "SHOP|dev-chatter": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 37,
+   "link": "/scoreboard#s-SHOP-dev-chatter"
+  },
+  "UAL|tsa-ual": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 31,
+   "link": "/scoreboard#s-UAL-tsa-ual"
+  },
+  "UAL|jet-fuel": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 34,
+   "link": "/scoreboard#s-UAL-jet-fuel"
+  },
+  "UAL|load-factor": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 19,
+   "link": "/scoreboard#s-UAL-load-factor"
+  },
+  "UAL|airfares": {
+   "status": "tested",
+   "label": "Tested: no predictive power found",
+   "calls": 35,
+   "link": "/scoreboard#s-UAL-airfares"
+  }
+ }
+}
