@@ -1,0 +1,18 @@
+{
+ "since": "2026-10-20",
+ "updatedAt": "2026-10-21T00:08:44+00:00",
+ "holdingDays": 63,
+ "logged": 0,
+ "scorable": 0,
+ "scored": 0,
+ "pending": 0,
+ "noPrice": 0,
+ "avgGap": null,
+ "avgGapCI": null,
+ "lagged": null,
+ "laggedCI": null,
+ "placebo": null,
+ "months": 0,
+ "monthlyT": null,
+ "monthlyTNote": "Newey-West t of the average gap by filing month; shown only once there are 24+ months"
+}

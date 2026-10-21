@@ -1,0 +1,35 @@
+name: Live test size deciles
+
+# On the 1st of each month, builds public/data/live/deciles/YYYY-MM.json (market-cap deciles, same method as the
+# backtest) for the live late-filing test. SEC fair access: User-Agent with contact email, ~7 requests/second max.
+on:
+  schedule:
+    - cron: "5 2 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: late-filers
+  cancel-in-progress: false
+
+jobs:
+  deciles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/live/deciles.py
+      - name: Commit
+        run: |
+          git config user.name "nick castro"
+          git config user.email "nickcastro1520@gmail.com"
+          git add public/data/live/deciles
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "data: live test size deciles $(date -u +%Y-%m)"
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main

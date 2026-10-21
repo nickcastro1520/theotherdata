@@ -57,3 +57,19 @@
       <ul class="caveats">${d.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>`;
   } catch { el.innerHTML = '<p class="n">Could not load the results.</p>'; }
 })();
+// Live late-filing test (since Oct 2026): scored events vs frozen size-matched controls.
+(async () => {
+  const el = document.getElementById("live-body"); if (!el) return;
+  const sg = (x) => (x > 0 ? "+" : "") + x;
+  try {
+    const s = await (await fetch("/data/live-late-filings-summary.json", { cache: "no-store" })).json();
+    const t = s.months >= 24 && s.monthlyT != null ? `t ${s.monthlyT} over ${s.months} months` : `Too early to judge (${s.months} of 24 months needed)`;
+    el.innerHTML = `<div class="tblwrap"><table class="tbl"><tbody>
+      <tr><th>Notices logged</th><td>${s.logged.toLocaleString()} (${s.scorable.toLocaleString()} could be size-matched)</td></tr>
+      <tr><th>Scored after 3 months</th><td>${s.scored.toLocaleString()}${s.pending ? ` (${s.pending.toLocaleString()} still waiting)` : ""}</td></tr>
+      <tr><th>Average gap vs matched stocks</th><td>${s.scored ? `${sg(s.avgGap)}%${s.avgGapCI ? ` (95% range ${s.avgGapCI[0]} to ${s.avgGapCI[1]}%)` : ""}` : "–"}</td></tr>
+      <tr><th>Lagged their matched stocks</th><td>${s.scored ? `${s.lagged}%${s.laggedCI ? ` (${s.laggedCI[0]}–${s.laggedCI[1]}%)` : ""} vs placebo ${s.placebo}%` : "–"}</td></tr>
+      <tr><th>Month-by-month t-stat</th><td>${t}</td></tr></tbody></table></div>
+      <p class="n">Backtest for comparison (2012–2026): about −4% vs matched stocks, lagged 60.8% vs placebo 55.7%. Updated ${new Date(s.updatedAt).toLocaleDateString("en-US", { timeZone: "America/Chicago" })}.</p>`;
+  } catch { el.innerHTML = '<p class="n">Live results are not available yet.</p>'; }
+})();

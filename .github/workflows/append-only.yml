@@ -1,0 +1,29 @@
+name: Append-only live log
+
+# Fails if any existing line of the live late-filing log or score file is edited, removed or reordered,
+# or if a hash chain is broken. (The daily data job runs the same check before it commits.)
+on:
+  push:
+    paths:
+      - public/data/live-late-filings.jsonl
+      - public/data/live-late-filings-scores.jsonl
+  pull_request:
+    paths:
+      - public/data/live-late-filings.jsonl
+      - public/data/live-late-filings-scores.jsonl
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check
+        run: |
+          BASE="${{ github.event.pull_request.base.sha || github.event.before }}"
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then BASE=$(git rev-list --max-parents=0 HEAD); fi
+          python3 scripts/live/check_append_only.py "$BASE"
