@@ -17,12 +17,12 @@ test("hero signup is compact and posts to the same endpoint as the full form", (
   assert.match(h, /class="sub-l sr"/, "label is visually hidden but present");
 });
 
-test("home page has one full form plus the compact hero form, hero form comes first", async () => {
+test("home page has exactly one email signup form; hero links down to it", async () => {
   const out = transformHtml(await readFile("public/index.html", "utf8"), {});
+  assert.equal((out.match(/type="email"/g) || []).length, 1);
   assert.equal((out.match(/sub-form sub-full/g) || []).length, 1);
-  assert.equal((out.match(/sub-form sub-hero/g) || []).length, 1);
-  assert.ok(out.indexOf("sub-hero") < out.indexOf("sub-full"));
-  assert.ok(out.indexOf("sub-hero") < out.indexOf('id="stocks"'), "hero signup sits in the hero");
+  assert.equal((out.match(/sub-form sub-hero/g) || []).length, 0);
+  assert.ok(out.indexOf('href="#digest"') < out.indexOf('id="stocks"'), "hero links to the signup");
 });
 
 test("top-of-page weekly email link on track, scoreboard, walkthrough and stock pages", async () => {

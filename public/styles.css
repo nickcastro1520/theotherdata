@@ -717,3 +717,4 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .sig .ts-row{margin:6px 0 0}
 .tcard .ts-badge{white-space:normal;text-align:right;max-width:150px}
 .hook .ts-badge{margin-top:8px;align-self:flex-start}
+.hero-sub-link{font-size:14px;font-weight:600;color:var(--accent,#5eead4);text-decoration:none}.hero-sub-link:hover{text-decoration:underline}
