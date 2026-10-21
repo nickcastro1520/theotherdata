@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-21T20:23:28.677Z",
- "dataUpdatedAt": "2026-10-21T20:14:58.319Z",
- "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
+ "generatedAt": "2026-10-21T23:36:04.714Z",
+ "dataUpdatedAt": "2026-10-21T23:27:50.826Z",
+ "subject": "This week's strangest signals: F-150 owner complaints, Tech chatter about Palantir",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -34,6 +34,32 @@
    "url": "https://theotherdata.com/#/F"
   },
   {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+77% (22 → 39)",
+   "pct": 77.3,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 21, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -58,32 +84,6 @@
     "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
    },
    "url": "https://theotherdata.com/#/TSLA"
-  },
-  {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+65% (23 → 38)",
-   "pct": 65.2,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 21, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/PLTR"
   },
   {
    "ticker": "LLY",
