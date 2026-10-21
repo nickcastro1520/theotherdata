@@ -1,6 +1,6 @@
 {
  "since": "2026-10-20",
- "updatedAt": "2026-10-21T00:09:21+00:00",
+ "updatedAt": "2026-10-21T15:59:20+00:00",
  "holdingDays": 63,
  "logged": 0,
  "scorable": 0,
@@ -14,5 +14,6 @@
  "placebo": null,
  "months": 0,
  "monthlyT": null,
+ "gaps": [],
  "monthlyTNote": "Newey-West t of the average gap by filing month; shown only once there are 24+ months"
 }
