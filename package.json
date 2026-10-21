@@ -12,7 +12,7 @@
     "refresh": "node scripts/refresh.mjs",
     "build": "node scripts/build.mjs",
     "symbols": "node scripts/build-symbols.mjs",
-    "test": "node --test test/*.test.js",
+    "test": "env -u BLOB_READ_WRITE_TOKEN -u BLOB_STORE_ID -u VERCEL_OIDC_TOKEN -u RESEND_API_KEY -u VERCEL node --test test/*.test.js",
     "scout": "node scripts/correlation-scout.mjs",
     "track": "node scripts/track-record.mjs",
     "track:backtest": "node scripts/track-record.mjs --backtest",

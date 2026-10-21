@@ -8,7 +8,7 @@
 // A new issue starts on the send day (or the day after, if that run was missed). Its content is frozen at
 // that moment, and it goes out in daily chunks under the cap until every confirmed subscriber has it.
 import { createHash } from "node:crypto";
-import { getStore, allRecords, removeEmail, saveRecord, signingKey, makeToken, validEmail, normEmail, emailKey, PENDING_TTL_DAYS, PENDING_PURGE_PAUSED } from "../lib/subscribers.js";
+import { getStore, allRecords, removeEmail, saveRecord, signingKey, makeToken, validEmail, normEmail, emailKey, PENDING_TTL_DAYS, PENDING_PURGE_PAUSED, isTestRecord } from "../lib/subscribers.js";
 import { mailerStatus, sendBatch } from "../lib/mailer.js";
 import { renderDigestHtml, renderDigestText, renderConfirmEmail, isoWeek, SITE } from "../lib/digest.js";
 import { json } from "../lib/page.js";
@@ -39,14 +39,17 @@ export async function run({ env = process.env, now = new Date(), store = getStor
   if (!store) { report.notes.push("No subscriber storage connected (Vercel Blob)."); return report; }
 
   const records = await allRecords(store);
-  const confirmed = records.filter((r) => r.status === "confirmed");
-  const pending = records.filter((r) => r.status === "pending");
+  const real = records.filter((r) => !isTestRecord(r)); // test/monitor addresses never count and never get a digest
+  const confirmed = real.filter((r) => r.status === "confirmed");
+  const pending = real.filter((r) => r.status === "pending");
   report.confirmed = confirmed.length; report.pending = pending.length;
 
   // Housekeeping: unconfirmed addresses go away 14 days after their confirm email.
   // PAUSED: see PENDING_PURGE_PAUSED in lib/subscribers.js.
-  if (PENDING_PURGE_PAUSED) report.notes.push("Unconfirmed-signup deletion is paused.");
-  else for (const r of pending) {
+  // Exception: an explicit expiresAt (set only by the one-time apology send) is always honoured.
+  if (PENDING_PURGE_PAUSED) report.notes.push("Unconfirmed-signup deletion is paused (except apology-send expiries).");
+  for (const r of pending) {
+    if (PENDING_PURGE_PAUSED && !r.expiresAt) continue;
     const due = r.expiresAt ? Date.parse(r.expiresAt) : r.confirmSentAt ? Date.parse(r.confirmSentAt) + PENDING_TTL_DAYS * 864e5 : null;
     if (due && now > due) { await removeEmail(store, r.email); report.expiredRemoved++; }
   }

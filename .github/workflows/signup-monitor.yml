@@ -1,0 +1,35 @@
+name: signup-monitor
+on:
+  schedule: [{ cron: "30 15 * * *" }]   # daily, ~10:30 AM CT
+  workflow_dispatch:
+permissions: { contents: read, issues: write }
+concurrency: { group: signup-monitor, cancel-in-progress: false }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci --omit=dev || npm ci
+      - name: Sign up a test address and verify the confirmation email
+        id: check
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+        run: node scripts/newsletter/signup-monitor.mjs 2>&1 | tee monitor.log
+        shell: bash -o pipefail {0}
+      - name: Alert Nick (GitHub issue)
+        if: failure()
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          title="Newsletter signup check failed ($(date -u +%F))"
+          if gh issue list --state open --label signup-monitor --json number --jq '.[0].number' | grep -q .; then
+            n=$(gh issue list --state open --label signup-monitor --json number --jq '.[0].number')
+            gh issue comment "$n" --body "Failed again: $(tail -1 monitor.log 2>/dev/null) — ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            gh label create signup-monitor --color B60205 2>/dev/null || true
+            gh issue create --title "$title" --assignee nickcastro1520 --label signup-monitor \
+              --body "The daily signup check did not see a delivered confirmation email. $(tail -1 monitor.log 2>/dev/null) Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          fi
