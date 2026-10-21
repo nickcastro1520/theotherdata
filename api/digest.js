@@ -8,7 +8,7 @@
 // A new issue starts on the send day (or the day after, if that run was missed). Its content is frozen at
 // that moment, and it goes out in daily chunks under the cap until every confirmed subscriber has it.
 import { createHash } from "node:crypto";
-import { getStore, allRecords, removeEmail, saveRecord, signingKey, makeToken, validEmail, normEmail, emailKey, PENDING_TTL_DAYS } from "../lib/subscribers.js";
+import { getStore, allRecords, removeEmail, saveRecord, signingKey, makeToken, validEmail, normEmail, emailKey, PENDING_TTL_DAYS, PENDING_PURGE_PAUSED } from "../lib/subscribers.js";
 import { mailerStatus, sendBatch } from "../lib/mailer.js";
 import { renderDigestHtml, renderDigestText, renderConfirmEmail, isoWeek, SITE } from "../lib/digest.js";
 import { json } from "../lib/page.js";
@@ -44,7 +44,12 @@ export async function run({ env = process.env, now = new Date(), store = getStor
   report.confirmed = confirmed.length; report.pending = pending.length;
 
   // Housekeeping: unconfirmed addresses go away 14 days after their confirm email.
-  for (const r of pending) if (r.confirmSentAt && now - Date.parse(r.confirmSentAt) > PENDING_TTL_DAYS * 864e5) { await removeEmail(store, r.email); report.expiredRemoved++; }
+  // PAUSED: see PENDING_PURGE_PAUSED in lib/subscribers.js.
+  if (PENDING_PURGE_PAUSED) report.notes.push("Unconfirmed-signup deletion is paused.");
+  else for (const r of pending) {
+    const due = r.expiresAt ? Date.parse(r.expiresAt) : r.confirmSentAt ? Date.parse(r.confirmSentAt) + PENDING_TTL_DAYS * 864e5 : null;
+    if (due && now > due) { await removeEmail(store, r.email); report.expiredRemoved++; }
+  }
 
   const issueId = isoWeek(now);
   const today = dayNum(DAYS[now.getUTCDay()]);
@@ -73,7 +78,8 @@ export async function run({ env = process.env, now = new Date(), store = getStor
   }
 
   // 1) Confirm emails for anyone who signed up before email was switched on.
-  const backlog = pending.filter((r) => !r.confirmSentAt).slice(0, Math.floor(budget / 2));
+  // Paused too: the one-time apology email (scripts/send-apology-confirms.mjs) replaces this backlog send.
+  const backlog = PENDING_PURGE_PAUSED ? [] : pending.filter((r) => !r.confirmSentAt && !r.isTest).slice(0, Math.floor(budget / 2));
   if (backlog.length) {
     const msgs = backlog.map((r) => ({ to: r.email, ...renderConfirmEmail({ confirmUrl: `${SITE}/api/confirm?token=${makeToken(key, "confirm", r.email, { ttlDays: 7 })}` }), tags: [{ name: "type", value: "confirm" }] }));
     for (let i = 0; i < msgs.length; i += 100) {
