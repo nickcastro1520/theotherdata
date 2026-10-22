@@ -25,6 +25,7 @@ theotherdata.com shows "hidden signals": offbeat public data (complaints, filing
 - **Oct 14: Method upgrades.** Scoreboard with Wilson ranges, sector-ETF benchmark, point-in-time ALFRED data, frozen signal versions. Why: no hindsight.
 
 ## 4. Next steps
+- **Draft (Oct 22):** article page /alt-data-signals-work on branch `draft/alt-data-work` (not merged). Links added from /track and home footer, plus sitemap and llms.txt. Needs Nick's own OK before merging to main.
 - **Paused:** no new signals or features while Nick focuses on his job search and an HN post.
 - **Oct 23:** first live late-filing results. Report them as they come, with no spin.
 - **Weekly SEO report:** any changes are proposals only, until Nick approves them himself.

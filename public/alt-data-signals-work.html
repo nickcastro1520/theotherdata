@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Do Alt-Data Signals Actually Work? What Our Tests Found | The Other Data</title>
+<meta name="description" content="We backtested 88 alternative-data stock signals, ran 7 deeper per-stock tests and 2 SEC filing studies. Almost all failed. Late filings held up at 3 months. Education only.">
+<link rel="canonical" href="https://theotherdata.com/alt-data-signals-work">
+<meta property="og:site_name" content="The Other Data">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://theotherdata.com/alt-data-signals-work">
+<meta property="og:title" content="Do Alt-Data Signals Actually Work? What Our Tests Found">
+<meta property="og:description" content="We backtested 88 alternative-data stock signals, ran 7 deeper per-stock tests and 2 SEC filing studies. Almost all failed. Late filings held up at 3 months. Education only.">
+<meta property="og:image" content="https://theotherdata.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Do Alt-Data Signals Actually Work? What Our Tests Found">
+<meta name="twitter:description" content="We backtested 88 alternative-data stock signals, ran 7 deeper per-stock tests and 2 SEC filing studies. Almost all failed. Late filings held up at 3 months. Education only.">
+<meta name="twitter:image" content="https://theotherdata.com/og.png">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/styles.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Do alt-data signals actually work?", "description": "We backtested 88 alternative-data stock signals, ran 7 deeper per-stock tests and 2 SEC filing studies. Almost all failed. Late filings held up at 3 months. Education only.", "url": "https://theotherdata.com/alt-data-signals-work", "mainEntityOfPage": "https://theotherdata.com/alt-data-signals-work", "image": "https://theotherdata.com/og.png", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "author": {"@type": "Person", "name": "Nick Castro", "url": "https://nickcastrobuilds.com"}, "publisher": {"@type": "Organization", "name": "The Other Data", "url": "https://theotherdata.com/"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do alternative data signals predict stock prices?", "acceptedAnswer": {"@type": "Answer", "text": "On this site, mostly no. 88 backtested signals showed no predictive power after a Holm correction across 264 tests, a 2024–2026 walk-forward study found no edge over a coin flip, and all 7 per-stock tests failed. This is a historical result, not advice."}}, {"@type": "Question", "name": "Which signal passed?", "acceptedAnswer": {"@type": "Answer", "text": "Late-filing notices (SEC Form 12b-25, NT 10-K / NT 10-Q). Passed (3 months): Late filers lagged similar-sized stocks by about 4% on average over the following 3 months (2012–2026). 1 month: not proven. Historical pattern only. Mostly small, hard-to-trade stocks. Not a prediction for any single company. Education only."}}, {"@type": "Question", "name": "How does a signal pass?", "acceptedAnswer": {"@type": "Answer", "text": "It needs a baseline of at least 20 events, a change of at least 2×√baseline, and an event hit rate above the better of always-up or always-down against the S&P 500, with the bottom of its 95% Wilson range above that baseline too."}}, {"@type": "Question", "name": "Is this investment advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Other Data is education only and never says what to buy or sell."}}]}]</script>
+<!--GA-->
+<!--GSC-->
+<script src="/subscribe-form.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="/" aria-label="theotherdata home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 40h10l6-16 8 26 7-20 5 10h12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="22" r="5" fill="#fbbf24"/></svg>
+      <span>the<b>other</b>data</span>
+    </a>
+    <nav class="main" aria-label="Main"><a href="/#stocks">Stocks</a><a href="/track">Track record</a><a href="/scoreboard">Scoreboard</a><a href="/how-to-read">How to read</a><a href="/#scout">Scout</a><a href="/how">How it works</a><a href="/how#sources">Sources</a><a href="/signal-walkthrough">How a signal is found</a><a href="/how-i-built-this">How I built this</a></nav>
+    <a class="help-btn" href="/how-to-read" aria-label="How to read this site" title="How to read this">?</a>
+  </div>
+</header>
+<div class="disclaimer-strip" role="note"><div class="wrap">Education only. Not financial advice. Signals are clues from public data, not predictions.</div></div>
+<main id="main" class="doc guide">
+  <div class="wrap">
+  <article>
+    <h1>Do alt-data signals actually work?</h1>
+    <p class="sub">Short answer from our own tests: almost never. Here is what we tried, what failed, and the one thing that held up.</p>
+
+    <h2>What we tested</h2>
+    <p>"Alternative data" means offbeat public numbers, like snowfall, box office sales, power outages or SEC filings, that might say something about a stock before the usual news does. This site tracks a lot of them, so we checked whether any of them actually helped.</p>
+    <ul>
+      <li><strong>111 signals</strong> on the site. <strong>88</strong> had enough dated history to backtest; <strong>23</strong> are not tested yet.</li>
+      <li>Each backtested signal was scored three ways (up/down right, beat the S&amp;P 500, beat its sector): <strong>264 tests</strong> in all. After a Holm correction for running that many tests, <strong>none</strong> showed predictive power. That's why they carry the "Tested: no predictive power found" badge.</li>
+      <li><strong>7 deeper per-stock tests</strong> with long histories: box office and Disney, snowpack and Vail, snowfall and Compass Minerals, bird flu and Cal-Maine, cattle on feed and Tyson, power outages and Generac, Suez Canal traffic and ZIM. <strong>All 7 failed.</strong></li>
+      <li><strong>2 SEC filing studies</strong>: insider buying (Form 4) and late-filing notices. Insider buying didn't pass. Late filings is the only result marked Passed.</li>
+    </ul>
+    <p>Some of these overlap (one idea can show up on the scoreboard and in a deeper test), so we don't add them into one big total. The honest summary: across every test, <strong>one</strong> result held up.</p>
+
+    <h2>Could we beat a coin flip by being smarter?</h2>
+    <p>We tried. In a walk-forward study for 2024, 2025 and 2026, each year's choices (which signals to keep, which to mute, how many had to agree) were made using only results known before that year started. We tried 18 setups. The main improved version made 518 calls and beat the S&amp;P 500 on 258 of them: <strong>49.8%</strong>, with a 95% range of 45.5% to 54.1%. The original method did about the same (49.5% of 782 calls). That's a coin flip. No version beat chance, so the site kept its original method and published the study.</p>
+
+    <h2>The one that held up: late filings</h2>
+    <p>When a company can't file its annual or quarterly report on time, it has to tell the SEC with a late-filing notice (Form 12b-25, filed as NT 10-K or NT 10-Q). We compared those companies with similar-sized stocks that didn't file late.</p>
+    <p class="note">Passed (3 months): Late filers lagged similar-sized stocks by about 4% on average over the following 3 months (2012–2026). 1 month: not proven. Historical pattern only. Mostly small, hard-to-trade stocks. Not a prediction for any single company. Education only.</p>
+    <p>The caveats matter. 26,162 notices from delisted or never-listed companies couldn't be matched to prices and are left out. Trading costs and short-selling limits aren't included and could erase the gap. And this is a known effect in academic research, not a new discovery. A live, append-only test started in October 2026 to check it on new filings; you can follow it on the <a href="/track#checks">track record</a>.</p>
+
+    <h2>The rules a signal has to pass</h2>
+    <ol>
+      <li><strong>Enough events.</strong> A signal needs a baseline of at least 20 events. Small samples make noisy "wins".</li>
+      <li><strong>A big enough change.</strong> The move has to be at least 2×√baseline. With a baseline of 25, that means a change of at least 10.</li>
+      <li><strong>Beat a fair baseline.</strong> Each idea is judged on its own stock against the better of "always guess up" and "always guess down" versus the S&amp;P 500 over the same months. Back-to-back calls in the same direction count as one event.</li>
+      <li><strong>Clear it with room to spare.</strong> The bottom of the 95% Wilson range for the hit rate has to sit above that baseline too, not just the average.</li>
+    </ol>
+    <p>For example, power outages and Generac beat the market in 64.1% of 39 events. That sounds good, but the 95% range was 48.4% to 77.3% against a 53.8% baseline, so it did not pass.</p>
+
+    <h2>So what does this mean?</h2>
+    <p>Most clever-sounding data stories don't survive a fair test. That's the point of this site: show the data, show the test, and say plainly when it doesn't work. Every signal carries its test result, and the full numbers are on the <a href="/track">track record</a> and <a href="/scoreboard">scoreboard</a>.</p>
+
+    <h2>Questions</h2>
+    <h3>Do alternative data signals predict stock prices?</h3><p>On this site, mostly no. 88 backtested signals showed no predictive power after a Holm correction across 264 tests, a 2024–2026 walk-forward study found no edge over a coin flip, and all 7 per-stock tests failed. This is a historical result, not advice.</p><h3>Which signal passed?</h3><p>Late-filing notices (SEC Form 12b-25, NT 10-K / NT 10-Q). Passed (3 months): Late filers lagged similar-sized stocks by about 4% on average over the following 3 months (2012–2026). 1 month: not proven. Historical pattern only. Mostly small, hard-to-trade stocks. Not a prediction for any single company. Education only.</p><h3>How does a signal pass?</h3><p>It needs a baseline of at least 20 events, a change of at least 2×√baseline, and an event hit rate above the better of always-up or always-down against the S&amp;P 500, with the bottom of its 95% Wilson range above that baseline too.</p><h3>Is this investment advice?</h3><p>No. The Other Data is education only and never says what to buy or sell.</p>
+    <p class="fine">Numbers from <a href="/data/signal-status.json">signal-status.json</a>, <a href="/data/signal-study.json">signal-study.json</a>, <a href="/data/single-stock-study.json">single-stock-study.json</a> and <a href="/data/event-study.json">event-study.json</a>, as of Oct 22, 2026. Education only. Not financial advice.</p>
+  </article>
+  </div>
+</main>
+<footer class="foot"><div class="wrap"><div class="foot-sub"><p class="foot-sub-h"><strong>Weekly digest:</strong> the strangest signal moves, explained in plain English.</p><!--SUBSCRIBE:compact--></div><p class="fine"><strong>Not financial advice. For education only.</strong> Past results, real or backtested, don't predict future ones. Built by <a href="https://nickcastrobuilds.com">Nick Castro</a>. <a href="/how-i-built-this">How I built this</a> · <a href="/">Back to the signals</a> · <a href="/how">Method &amp; sources</a> · <a href="/privacy">Privacy</a></p></div></footer>
+</body>
+</html>
