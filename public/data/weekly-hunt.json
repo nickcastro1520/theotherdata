@@ -1,0 +1,79 @@
+{
+ "rules": "Weekly offbeat-signal hunt: one new idea a week, tested with study rules v2 (per-stock, baseline = better of always-up/always-down vs SPY over the same months, independent events, 20+ events, pass = hit rate above baseline and 95% Wilson lower bound above it too). Fails are logged here. A pass is not added to the site until Nick approves.",
+ "tests": [
+  {
+   "id": "2026-10-22-mississippi-adm",
+   "huntWeek": "2026-10-22",
+   "name": "Mississippi River level at St. Louis -> ADM",
+   "ticker": "ADM",
+   "source": "USGS NWIS gage 07010000 (Mississippi River at St. Louis), daily gage height",
+   "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/07010000/",
+   "from": "1993-03-01",
+   "to": "2026-04-01",
+   "rawCalls": 230,
+   "rawUp": 98,
+   "rawDown": 132,
+   "rawHitVsSpy": 43.0,
+   "rawCI": [
+    36.8,
+    49.5
+   ],
+   "rawBaseline": 53.5,
+   "rawBaselineSide": "always down",
+   "rawFlipped": 57.0,
+   "meanExcessPerCall": -1.04,
+   "events": 80,
+   "eventHits": 33,
+   "eventHitVsSpy": 41.2,
+   "eventCI": [
+    31.1,
+    52.2
+   ],
+   "eventBaseline": 56.2,
+   "eventBaselineSide": "always down",
+   "eventFlipped": 58.8,
+   "eventFlippedCI": [
+    47.8,
+    68.9
+   ],
+   "enoughEvents": true,
+   "pass": false,
+   "samples": [
+    {
+     "d": "1993-03-01",
+     "call": "+",
+     "detail": "28 days to 1993-02-27: 13.0 ft at St. Louis, percentile 90 of 10 earlier years (bars 25/75)",
+     "from": "1993-03-01",
+     "to": "1993-04-01",
+     "stock": -2.86,
+     "spy": 2.18,
+     "right": false,
+     "excess": -5.03
+    },
+    {
+     "d": "2010-03-01",
+     "call": "+",
+     "detail": "28 days to 2010-02-27: 13.0 ft at St. Louis, percentile 85 of 27 earlier years (bars 25/75)",
+     "from": "2010-03-01",
+     "to": "2010-04-01",
+     "stock": -1.85,
+     "spy": 5.72,
+     "right": false,
+     "excess": -7.57
+    },
+    {
+     "d": "2026-04-01",
+     "call": "-",
+     "detail": "28 days to 2026-03-30: 8.6 ft at St. Louis, percentile 23 of 43 earlier years (bars 25/75)",
+     "from": "2026-04-01",
+     "to": "2026-05-01",
+     "stock": 3.55,
+     "spy": 9.98,
+     "right": true,
+     "excess": -6.43
+    }
+   ]
+  }
+ ],
+ "updatedAt": "2026-10-22T15:03:57.870935+00:00"
+}
