@@ -48,3 +48,5 @@ theotherdata.com shows "hidden signals": offbeat public data (complaints, filing
 - Never fabricate data.
 - Never show subscriber emails (counts and dates only).
 - No Grok Bot mentions on the site.
+
+- 2026-10-23: After any site change (new/edited pages, URLs, titles, content), message SEO & AEO Desk (priority true) with what changed and the URLs.
