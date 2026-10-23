@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-22T15:54:29.494Z",
+ "generatedAt": "2026-10-23T15:46:26.701Z",
  "windowDays": 30,
  "indexDaysRead": 21,
- "count": 36,
- "unmappedFilings": 5,
+ "count": 35,
+ "unmappedFilings": 6,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
@@ -278,14 +278,6 @@
    "form": "NT 10-K",
    "filed": "2026-09-28",
    "link": "https://www.sec.gov/Archives/edgar/data/1557376/000182912626010483/0001829126-26-010483-index.htm"
-  },
-  {
-   "ticker": "AAGH",
-   "company": "America Great Health",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-25",
-   "link": "https://www.sec.gov/Archives/edgar/data/1098009/000118518526004340/0001185185-26-004340-index.htm"
   },
   {
    "ticker": "VIVC",
