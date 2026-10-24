@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-24T13:02:54.112Z",
- "dataUpdatedAt": "2026-10-24T12:47:13.206Z",
+ "generatedAt": "2026-10-24T19:00:58.010Z",
+ "dataUpdatedAt": "2026-10-24T18:51:40.695Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -60,6 +60,32 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "dev-chatter",
+   "signal": "Tech chatter about Palantir",
+   "change": "+64% (22 → 36)",
+   "pct": 63.6,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "The tech crowd is talking about Palantir more than usual.",
+   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "dataThrough": "Oct 24, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -110,32 +136,6 @@
     "url": "https://theotherdata.com/scoreboard#s-ONON-on-curiosity"
    },
    "url": "https://theotherdata.com/#/ONON"
-  },
-  {
-   "ticker": "AAPL",
-   "company": "Apple",
-   "id": "iphone-curiosity",
-   "signal": "iPhone curiosity",
-   "change": "−48% (159.81K → 82,311)",
-   "pct": -48.5,
-   "direction": "down",
-   "basis": "vs the 28 days before",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
-   "what": "How many people look up “iPhone” on Wikipedia each day.",
-   "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 23, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
-   },
-   "url": "https://theotherdata.com/#/AAPL"
   }
  ],
  "story": {
