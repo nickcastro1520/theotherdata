@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-24T19:00:58.010Z",
- "dataUpdatedAt": "2026-10-24T18:51:40.695Z",
+ "generatedAt": "2026-10-24T22:41:26.968Z",
+ "dataUpdatedAt": "2026-10-24T22:34:59.946Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -60,32 +60,6 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+64% (22 → 36)",
-   "pct": 63.6,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Oct 24, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
    "ticker": "LLY",
    "company": "Eli Lilly",
    "id": "tirzepatide-reports",
@@ -110,6 +84,32 @@
     "url": "https://theotherdata.com/scoreboard#s-LLY-tirzepatide-reports"
    },
    "url": "https://theotherdata.com/#/LLY"
+  },
+  {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−53% (47 → 22)",
+   "pct": -53.2,
+   "direction": "down",
+   "basis": "vs the 4 weeks before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Oct 24, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
   },
   {
    "ticker": "ONON",
