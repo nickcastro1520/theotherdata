@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W43",
  "weekOf": "Oct 19, 2026",
- "generatedAt": "2026-10-25T05:06:41.842Z",
- "dataUpdatedAt": "2026-10-25T04:57:50.983Z",
+ "generatedAt": "2026-10-25T13:28:05.181Z",
+ "dataUpdatedAt": "2026-10-25T13:14:52.267Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Shopify",
-   "change": "+50% (30 → 45)",
-   "pct": 50,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
+   "ticker": "AAPL",
+   "company": "Apple",
+   "id": "iphone-curiosity",
+   "signal": "iPhone curiosity",
+   "change": "−48% (156.59K → 81,947)",
+   "pct": -47.7,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
    "strength": "notable",
-   "plain": "Developers are talking about Shopify more than usual.",
-   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Developers talk about the platforms they build on.",
-   "dataThrough": "Oct 25, 2026",
+   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
+   "what": "How many people look up “iPhone” on Wikipedia each day.",
+   "why": "iPhones are roughly half of Apple's revenue.",
+   "dataThrough": "Oct 24, 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
+    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
    },
-   "url": "https://theotherdata.com/#/SHOP"
+   "url": "https://theotherdata.com/#/AAPL"
   }
  ],
  "story": {
