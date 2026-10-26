@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-10-25T14:58:05.752Z",
+ "generatedAt": "2026-10-26T17:25:30.515Z",
  "windowDays": 30,
- "indexDaysRead": 20,
- "count": 35,
- "unmappedFilings": 6,
+ "indexDaysRead": 19,
+ "count": 34,
+ "unmappedFilings": 4,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
@@ -278,14 +278,6 @@
    "form": "NT 10-K",
    "filed": "2026-09-28",
    "link": "https://www.sec.gov/Archives/edgar/data/1557376/000182912626010483/0001829126-26-010483-index.htm"
-  },
-  {
-   "ticker": "VIVC",
-   "company": "VIVIC CORP.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-25",
-   "link": "https://www.sec.gov/Archives/edgar/data/1703073/000149315226044272/0001493152-26-044272-index.htm"
   }
  ]
 }
