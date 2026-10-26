@@ -41,3 +41,18 @@ test("signal list and sitemap lastmod", () => {
   assert.equal(withLastmod("<url><loc>https://x/</loc></url>", "2026-10-14T20:00:00Z"), "<url><loc>https://x/</loc><lastmod>2026-10-14</lastmod></url>");
   assert.equal(withLastmod("<url><loc>a</loc></url>", "bad"), "<url><loc>a</loc></url>");
 });
+
+test("sibling signal permalinks are not near-duplicates (META curiosity pages, Search Console Oct 26 2026)", async () => {
+  await import("../public/signal-size.js"); await import("../public/card-model.js");
+  const { plan, permalinkHtml } = await import("../scripts/cards.mjs");
+  const items = (await plan()).filter((i) => i.model.ticker === "META" && i.model.kind === "signal");
+  const ig = items.find((i) => i.model.id === "instagram-curiosity"), th = items.find((i) => i.model.id === "threads-curiosity");
+  assert.ok(ig && th);
+  const base = readFileSync(new URL("../public/index.html", import.meta.url), "utf8");
+  const body = (m) => permalinkHtml(base, m).match(/<section class="detail" id="detail">([\s\S]*?)<\/section>/)[1];
+  assert.notEqual(body(ig.model), body(th.model));
+  assert.match(body(th.model), /<h1>Threads curiosity: a Meta Platforms \(META\) signal<\/h1>/);
+  assert.match(body(ig.model), /Why it can matter to Meta Platforms/);
+  assert.notEqual(ig.model.description.replace(/[\d.,%K→:]+/g, ""), th.model.description.replace(/[\d.,%K→:]+/g, ""));
+  for (const it of items) assert.doesNotMatch(it.model.description, /\blean|tailwind|headwind|\bbuy\b|\bsell\b/i);
+});

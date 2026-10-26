@@ -12,7 +12,7 @@ import { Worker, isMainThread, parentPort, workerData } from "node:worker_thread
 import { availableParallelism } from "node:os";
 import "../public/signal-size.js";
 import "../public/card-model.js";
-import { stockSeo, stockJsonLd, signalListHtml, withLastmod } from "../lib/seo.js";
+import { stockSeo, stockJsonLd, signalListHtml, signalShellHtml, signalJsonLd, withLastmod } from "../lib/seo.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const C = globalThis.TODCard;
@@ -32,7 +32,10 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
     items.push({ model: { ...sc, title: seo.title, description: seo.description, h1: seo.h1, jsonld: stockJsonLd(doc, sc.url), sigList: signalListHtml(links), lastmod: doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
     for (const s of doc.signals || []) {
       if (!(C.live(s) || s.status === "tracking")) continue;
-      let model = { ...C.signalCard(doc, s), lastmod: s.asOf || doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
+      const sc0 = C.signalCard(doc, s);
+      const status = globalThis.TODStatus?.forSignal?.(doc.ticker, s.id) || null;
+      const siblings = (doc.signals || []).filter((x) => C.live(x) || x.status === "tracking").map((x) => ({ id: x.id, name: x.name, url: C.signalUrl(doc.ticker, x.id) }));
+      let model = { ...sc0, lastmod: s.asOf || doc.updatedAt, h1: `${s.name}: a ${doc.name} (${doc.ticker}) signal`, jsonld: signalJsonLd(doc, s, sc0.url, sc0.description), shellHtml: signalShellHtml(doc, s, { line: sc0.line, dataDate: sc0.dataDate, status, siblings }) };
       // Rule 3 (public/signal-size.js): a too-small sample never gets its own share image.
       // Its permalink unfurls with the stock card instead, which only features signals that pass.
       if (!model.featured) model = { ...model, img: C.stockCard(doc).img, imgVertical: null, noImage: true, alt: `${model.headline}. Education only, not advice.` };
@@ -73,7 +76,7 @@ export function permalinkHtml(baseHtml, m) {
     .replace(/<meta (?:property|name)="(?:og|twitter):[^"]*"[^>]*>\n?/g, "");
   if (m.jsonld) html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => m.jsonld);
   // Static first paint for the stock view (same layout as app.js renders), so the page shows instantly.
-  const shell = `<div class="wrap" data-tod-shell>
+  const shell = m.shellHtml || `<div class="wrap" data-tod-shell>
       <div class="dtop"><a class="back" href="/">← All stocks</a></div>
       <div class="dhead"><div><div class="tk">${esc(m.ticker)}</div><h1>${esc(m.h1 || m.company)}</h1><div class="meta">Loading live signals…</div></div></div>
       <p class="shell-lede">${esc(m.narrative || m.description)}</p>${m.sigList || ""}
