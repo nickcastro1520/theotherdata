@@ -411,6 +411,7 @@
 
   let CURRENT = null;
   const PERMALINK = () => document.querySelector('meta[name="tod-ticker"]')?.content || null;
+  const STATIC_TITLE = typeof document !== "undefined" ? document.title : "";
   // Share model for the open stock (curated stocks get image cards and /s/ permalinks).
   function shareModel(d, sigId) {
     const C = window.TODCard;
@@ -425,7 +426,9 @@
   function renderDetail(d) {
     CURRENT = d;
     const det = $("#detail");
-    document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
+    // On a /s/... permalink keep the page's own server-rendered title (each signal page has a distinct one).
+    const onPermalink = !location.hash && PERMALINK() && PERMALINK().toUpperCase() === d.ticker;
+    document.title = onPermalink && STATIC_TITLE ? STATIC_TITLE : `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
     const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Basic info</span> ${esc(`Deep signals are available for our ${INDEX?.tickers?.length || 35} curated stocks. This stock gets basic public data only.`)}</div>` : "";
@@ -500,9 +503,18 @@
     else if (!location.hash && PERMALINK()) {
       // /s/AMZN or /s/AMZN/cardboard: a crawler-readable permalink page. Open the stock, then the signal.
       const sig = document.querySelector('meta[name="tod-signal"]')?.content;
+      // A signal permalink keeps its own heading and "what / why" intro once the live view loads,
+      // so sibling signal pages on one stock don't render as the same page.
+      const shell = sig && document.querySelector("#detail [data-tod-shell]");
+      const sigH1 = shell?.querySelector("h1")?.textContent || "";
+      const intro = shell ? [...shell.children].filter((n) => !n.matches(".dtop, .dhead, .shell-sigs") && !(n.tagName === "H2" && /^Other /.test(n.textContent))) : [];
       // Let the static stock header from the HTML paint first, then swap in the live view.
       const afterPaint = () => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0)));
       afterPaint().then(() => showTicker(PERMALINK().toUpperCase())).then(() => {
+        const h1 = $("#detail .dhead h1");
+        if (sigH1 && h1) h1.textContent = sigH1;
+        const head = $("#detail .dhead");
+        if (intro.length && head) { const box = document.createElement("section"); box.className = "sig-intro"; intro.forEach((n) => box.appendChild(n)); head.after(box); }
         const el = sig && document.getElementById(`sig-${sig}`);
         if (el) { el.classList.add("sig-focus"); el.scrollIntoView({ block: "start" }); }
       });

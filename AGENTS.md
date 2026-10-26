@@ -33,6 +33,7 @@ theotherdata.com shows "hidden signals": offbeat public data (complaints, filing
 - **Thursdays: weekly signal hunt.** Test one new idea a week (study rules v2). Log fails on /track via `public/data/weekly-hunt.json`. If one passes, commit only the script and ask Nick before adding it to the site. Skip ideas already tried (see /track and `scripts/hunt/`).
 - **Local tests:** run `npm ci` first. Without node_modules, 6 test files fail on a missing `xlsx` (this is not a code bug). With it, 112/112 pass (Oct 22).
 - **Oct 23:** first live late-filing results. Report them as they come, with no spin.
+- **Oct 26 (branch `seo/meta-dupe-fix`, not merged):** Search Console saw /s/META/instagram-curiosity and /s/META/threads-curiosity as duplicates. Cause: every /s/TICKER/signal page had the same body and H1 as the stock page, and app.js reset the title to the stock title after load. Fix: each signal permalink now gets its own H1, what/why text, source, badge, JSON-LD and description, and keeps its own title and intro after the live view loads. Needs Nick's OK to merge; then ping SEO & AEO Desk.
 - **Weekly SEO report:** any changes are proposals only, until Nick approves them himself.
 - **GA review:** look at traffic and signup funnel numbers; report, don't change.
 
