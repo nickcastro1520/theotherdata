@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W44",
  "weekOf": "Oct 26, 2026",
- "generatedAt": "2026-10-26T21:13:30.845Z",
- "dataUpdatedAt": "2026-10-26T21:06:00.405Z",
+ "generatedAt": "2026-10-27T05:26:36.145Z",
+ "dataUpdatedAt": "2026-10-27T05:17:35.562Z",
  "subject": "This week's strangest signals: F-150 owner complaints, Model Y owner complaints, On curiosity",
  "preheader": "F-150 owner complaints for Ford: −43% (89 → 51) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -64,8 +64,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−55% (78,679 → 35,157)",
-   "pct": -55.3,
+   "change": "−57% (79,287 → 34,306)",
+   "pct": -56.7,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -73,7 +73,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 25, 2026",
+   "dataThrough": "Oct 26, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "+48% (23 → 34)",
-   "pct": 47.8,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
+   "ticker": "AAPL",
+   "company": "Apple",
+   "id": "iphone-curiosity",
+   "signal": "iPhone curiosity",
+   "change": "−47% (152.18K → 81,264)",
+   "pct": -46.6,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
    "strength": "notable",
-   "plain": "The tech crowd is talking about Palantir more than usual.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
+   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
+   "what": "How many people look up “iPhone” on Wikipedia each day.",
+   "why": "iPhones are roughly half of Apple's revenue.",
    "dataThrough": "Oct 26, 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
+    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
    },
-   "url": "https://theotherdata.com/#/PLTR"
+   "url": "https://theotherdata.com/#/AAPL"
   }
  ],
  "story": {
