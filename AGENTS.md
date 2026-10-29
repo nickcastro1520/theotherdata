@@ -5,16 +5,17 @@ Read this first. It is the hand-off note for any AI working on this repo.
 ## 1. What this is
 theotherdata.com shows "hidden signals": offbeat public data (complaints, filings, pageviews, shipping, weather) behind well-known stocks, explained in plain English. It is an education-only showpiece Nick uses with recruiters. It is not a trading tool. Plain HTML/JS on Vercel; a push to `main` deploys.
 
-## 2. Current status (Oct 22, 2026)
+## 2. Current status (Oct 29, 2026)
 - **Live:** home, stock pages, scoreboard, /track (track record), /late-filers (filings and links only), /how walkthrough, share cards, weekly digest signup (double opt-in, Vercel Blob).
 - **Test badges live** on every signal: "Tested: no predictive power found", "Not tested yet", or "Passed" (late filings at 3 months only, shown on /track).
 - **Running:** data refresh every ~4h, daily late-filers feed, live late-filing test (`live-deciles.yml`, append-only hash-chained log), daily signup monitor, IndexNow.
 - **Newsletter:** 0 subscribers. Auto-deletion of unconfirmed signups is paused. Apology confirm script is ready but has 0 recipients and has never been run.
 - **In progress:** live late-filing test is collecting; first scored results due Oct 23.
-- **Weekly signal hunt (Thursdays):** first run Oct 22. Tested Mississippi River level at St. Louis (USGS 07010000) -> ADM: fails. Logged on /track ("Tougher tests" single-stock table, from `public/data/weekly-hunt.json`). Scripts live in `scripts/hunt/`.
+- **Weekly signal hunt (Thursdays):** first run Oct 22. Tested Mississippi River level at St. Louis (USGS 07010000) -> ADM: fails. Logged on /track ("Tougher tests" single-stock table, from `public/data/weekly-hunt.json`). Scripts live in `scripts/hunt/`. Oct 29: CDC flu-like doctor visits -> QDEL: fails, logged.
 - **Open PRs:** none (`gh pr list`, Oct 22).
 
 ## 3. Decisions (newest first)
+- **Oct 29: Weekly hunt #2, CDC flu-like doctor visits (ILINet) -> QuidelOrtho (QDEL): failed.** Prompted by this week's flu news (Walgreens cold/flu sales +21.7%, Haleon -15% on weak flu demand). Rule fixed before scoring: on the 1st of Nov-Apr, mean of the last 2 first-release national weighted ILI weeks (Delphi Epidata lag=1, used only after release) vs the same weeks in earlier seasons; <=25th percentile headwind, >=75th tailwind. 2009-11 to 2026-02: 65 calls, 25 independent events, right 44.0% (Wilson 26.7-62.9%) vs a 72.0% always-down baseline. Flipped 56.0% also fails. Logged on /track. Script: `scripts/hunt/2026-10-29-flu-qdel.py`, raw data `data/cdc-ilinet-national.json`.
 - **Oct 22: Weekly hunt #1, Mississippi River -> ADM: failed.** Rule fixed before scoring: 28-day St. Louis stage at or below the 25th percentile of earlier years means headwind, at or above the 75th means tailwind. 1993-03 to 2026-04: 230 calls, 80 independent events, right 41.2% (Wilson 95% 31.1–52.2%) vs a 56.2% always-down baseline. Flipped 58.8% (47.8–68.9%) also fails. Logged on /track. Script: `scripts/hunt/2026-10-22-mississippi-adm.py`. Why: one idea a week, and fails are shown publicly.
 - **Oct 22: X can't support a fair hunt test.** Full-archive post search works back to at least 2008, but post counts only cover the last 7 days. Searches return at most 25 posts per call, with 1,000 reads a day, and deleted posts are gone (not point-in-time). So X-volume ideas can't get 20+ independent events of honest history. Why: tested on Oct 22.
 - **Oct 21: Pause on new signals lifted (Nick).** New signals are welcome but only go live after passing the test. The Thursday hunt tests one idea a week, logs fails publicly, and asks Nick before adding a passed one.
