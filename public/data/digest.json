@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W44",
  "weekOf": "Oct 26, 2026",
- "generatedAt": "2026-10-29T21:25:09.163Z",
- "dataUpdatedAt": "2026-10-29T21:15:27.092Z",
+ "generatedAt": "2026-10-30T06:10:17.842Z",
+ "dataUpdatedAt": "2026-10-30T06:03:20.145Z",
  "subject": "This week's strangest signals: Model Y owner complaints, F-150 owner complaints, On curiosity",
  "preheader": "Model Y owner complaints for Tesla: +37% (87 → 119) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -64,8 +64,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−57% (79,200 → 33,884)",
-   "pct": -57.2,
+   "change": "−58% (79,752 → 33,287)",
+   "pct": -58.3,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -73,7 +73,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 28, 2026",
+   "dataThrough": "Oct 29, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -116,8 +116,8 @@
    "company": "Apple",
    "id": "iphone-curiosity",
    "signal": "iPhone curiosity",
-   "change": "−46% (149.2K → 80,641)",
-   "pct": -46,
+   "change": "−45% (146.79K → 80,450)",
+   "pct": -45.2,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -125,7 +125,7 @@
    "plain": "Interest in iPhones is cooling off compared with recent weeks.",
    "what": "How many people look up “iPhone” on Wikipedia each day.",
    "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 28, 2026",
+   "dataThrough": "Oct 29, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
