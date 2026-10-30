@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W44",
  "weekOf": "Oct 26, 2026",
- "generatedAt": "2026-10-30T06:10:17.842Z",
- "dataUpdatedAt": "2026-10-30T06:03:20.145Z",
+ "generatedAt": "2026-10-30T15:26:54.242Z",
+ "dataUpdatedAt": "2026-10-30T15:07:22.219Z",
  "subject": "This week's strangest signals: Model Y owner complaints, F-150 owner complaints, On curiosity",
  "preheader": "Model Y owner complaints for Tesla: +37% (87 → 119) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "AAPL",
-   "company": "Apple",
-   "id": "iphone-curiosity",
-   "signal": "iPhone curiosity",
-   "change": "−45% (146.79K → 80,450)",
-   "pct": -45.2,
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−47% (30 → 16)",
+   "pct": -46.7,
    "direction": "down",
-   "basis": "vs the 28 days before",
+   "basis": "vs the 4 weeks before",
    "reading": "headwind",
    "strength": "notable",
-   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
-   "what": "How many people look up “iPhone” on Wikipedia each day.",
-   "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 29, 2026",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Oct 30, 2026",
    "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
    },
-   "url": "https://theotherdata.com/#/AAPL"
+   "url": "https://theotherdata.com/#/SHOP"
   }
  ],
  "story": {
