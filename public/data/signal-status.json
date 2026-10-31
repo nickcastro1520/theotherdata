@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T21:02:45.520Z",
+ "generatedAt": "2026-10-31T06:08:24.108Z",
  "source": "public/data/scoreboard.json",
  "rule": "Tested = made calls in the backtest. A signal would need at least one of its three hit rates (direction, vs S&P 500, vs sector) to differ from 50% after a Holm correction across all 264 tests (two-sided exact binomial, 5% level). None does.",
  "tests": 264,
