@@ -2,70 +2,18 @@
  "version": 1,
  "issueId": "2026-W44",
  "weekOf": "Oct 26, 2026",
- "generatedAt": "2026-10-31T23:37:34.645Z",
- "dataUpdatedAt": "2026-10-31T23:29:01.967Z",
- "subject": "This week's strangest signals: Model Y owner complaints, F-150 owner complaints, On curiosity",
- "preheader": "Model Y owner complaints for Tesla: +37% (87 → 119) vs the 3 months before. Plus 4 more offbeat moves, explained in plain English.",
+ "generatedAt": "2026-11-01T06:35:50.431Z",
+ "dataUpdatedAt": "2026-11-01T06:27:12.619Z",
+ "subject": "This week's strangest signals: On curiosity, Mounjaro/Zepbound usage footprint, iPhone curiosity",
+ "preheader": "On curiosity for On Holding: −62% (81,603 → 30,692) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
-  {
-   "ticker": "TSLA",
-   "company": "Tesla",
-   "id": "modely-complaints",
-   "signal": "Model Y owner complaints",
-   "change": "+37% (87 → 119)",
-   "pct": 36.8,
-   "direction": "up",
-   "basis": "vs the 3 months before",
-   "reading": "headwind",
-   "strength": "mild",
-   "plain": "Complaints are climbing faster than the prior few months.",
-   "what": "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator.",
-   "why": "The Model Y is Tesla's best-selling car.",
-   "dataThrough": "Sep 2026",
-   "source": {
-    "name": "NHTSA complaints API",
-    "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
-   },
-   "testStatus": {
-    "label": "Not tested yet",
-    "status": "untested",
-    "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
-   },
-   "url": "https://theotherdata.com/#/TSLA"
-  },
-  {
-   "ticker": "F",
-   "company": "Ford",
-   "id": "f150-complaints",
-   "signal": "F-150 owner complaints",
-   "change": "−33% (90 → 60)",
-   "pct": -33.3,
-   "direction": "down",
-   "basis": "vs the 3 months before",
-   "reading": "tailwind",
-   "strength": "mild",
-   "plain": "Complaints have eased versus the prior few months.",
-   "what": "Complaints F-150 owners file with the National Highway Traffic Safety Administration.",
-   "why": "The F-Series is Ford's profit machine, and Ford has led the industry in recalls.",
-   "dataThrough": "Sep 2026",
-   "source": {
-    "name": "NHTSA complaints API",
-    "url": "https://www.nhtsa.gov/vehicle/2026/FORD/F-150%20(SUPER%20CREW)%20GAS"
-   },
-   "testStatus": {
-    "label": "Not tested yet",
-    "status": "untested",
-    "url": "https://theotherdata.com/scoreboard#s-F-f150-complaints"
-   },
-   "url": "https://theotherdata.com/#/F"
-  },
   {
    "ticker": "ONON",
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−61% (81,145 → 31,736)",
-   "pct": -60.9,
+   "change": "−62% (81,603 → 30,692)",
+   "pct": -62.4,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -73,7 +21,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 30, 2026",
+   "dataThrough": "Oct 31, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -116,8 +64,8 @@
    "company": "Apple",
    "id": "iphone-curiosity",
    "signal": "iPhone curiosity",
-   "change": "−45% (144.84K → 80,205)",
-   "pct": -44.6,
+   "change": "−44% (142.58K → 79,986)",
+   "pct": -43.9,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -125,7 +73,7 @@
    "plain": "Interest in iPhones is cooling off compared with recent weeks.",
    "what": "How many people look up “iPhone” on Wikipedia each day.",
    "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 30, 2026",
+   "dataThrough": "Oct 31, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
@@ -136,20 +84,72 @@
     "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
    },
    "url": "https://theotherdata.com/#/AAPL"
+  },
+  {
+   "ticker": "TSLA",
+   "company": "Tesla",
+   "id": "modely-complaints",
+   "signal": "Model Y owner complaints",
+   "change": "+23% (97 → 119)",
+   "pct": 22.7,
+   "direction": "up",
+   "basis": "vs the 3 months before",
+   "reading": "headwind",
+   "strength": "mild",
+   "plain": "Complaints are climbing faster than the prior few months.",
+   "what": "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator.",
+   "why": "The Model Y is Tesla's best-selling car.",
+   "dataThrough": "Oct 2026",
+   "source": {
+    "name": "NHTSA complaints API",
+    "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
+   },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
+   },
+   "url": "https://theotherdata.com/#/TSLA"
+  },
+  {
+   "ticker": "META",
+   "company": "Meta Platforms",
+   "id": "instagram-curiosity",
+   "signal": "Instagram curiosity",
+   "change": "+43% (573.18K → 821.01K)",
+   "pct": 43.2,
+   "direction": "up",
+   "basis": "vs the 28 days before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "More people are looking up Instagram than in recent weeks.",
+   "what": "How many people look up “Instagram” on Wikipedia each day.",
+   "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
+   "dataThrough": "Oct 31, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-META-instagram-curiosity"
+   },
+   "url": "https://theotherdata.com/#/META"
   }
  ],
  "story": {
-  "ticker": "TSLA",
-  "company": "Tesla",
-  "signal": "Model Y owner complaints",
-  "title": "Model Y owner complaints rose 37% (87 → 119) (vs the 3 months before)",
+  "ticker": "ONON",
+  "company": "On Holding",
+  "signal": "On curiosity",
+  "title": "On curiosity fell 62% (81,603 → 30,692) (vs the 28 days before)",
   "paragraphs": [
-   "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator. A surge is how many recalls and investigations start.",
-   "Why it might matter for Tesla: the Model Y is Tesla's best-selling car. A rising complaint count can foreshadow recalls, investigations, and warranty costs. (More cars on the road also means more complaints, so sharp jumps matter more than slow drift.)",
-   "What it shows now: complaints are climbing faster than the prior few months.",
-   "Test status: Not tested yet."
+   "How many people look up “On (company)” on Wikipedia each day. It is a free, public stand-in for search interest: when curiosity spikes, pageviews usually spike too.",
+   "Why it might matter for On Holding: on is a fast-growing brand, and its growth depends on more people discovering its shoes. Rising curiosity is an early hint of new customers; a fade suggests the buzz is cooling.",
+   "What it shows now: public curiosity about On is fading.",
+   "Test status: Tested: no predictive power found. In our backtest this signal did not predict the stock better than chance."
   ],
-  "url": "https://theotherdata.com/#/TSLA"
+  "url": "https://theotherdata.com/#/ONON"
  },
  "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.3% of the time (522 of 1058). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49% (515 of 1050). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
  "links": {
