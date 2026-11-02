@@ -15,8 +15,9 @@ NY = ZoneInfo("America/New_York")
 START = "2026-10-20"  # live test start: filings on or after this date
 rows, prev = read_chain(LOG)
 filings = [r for r in rows if r.get("type", "filing") == "filing"]
-have = {r["accession"] for r in filings}
-if len(have) != len(filings): raise SystemExit("duplicate accession already in the log; refusing to run")
+have = {r["accession"] for r in filings}  # past duplicates (if any) are left as-is: the log is append-only
+if len(have) != len(filings): print(f"warning: {len(filings) - len(have)} duplicate accession(s) already in the log; left untouched, never re-logged")
+logged_before = frozenset(have)  # snapshot: `have` grows inside the loop below
 RUNS = "public/data/live-late-filings-runs.json"
 TODAY = dt.datetime.now(NY).date()
 lf = json.load(open("public/data/late-filers.json"))
@@ -72,8 +73,10 @@ if st.get("lastSuccess"):
     for d in days:
         if st["lastSuccess"] < d < TODAY.isoformat() and d not in logged_gaps:
             gaps.append({"type": "gap", "date": d, "note": f"no run on {d}", "detectedAt": now.isoformat(timespec="seconds")})
-new = gaps + new
-assert len({e["accession"] for e in new if e["type"] == "filing"} | have) == len(have) + sum(e["type"] == "filing" for e in new)
+from dedupe import dedupe_new
+new = gaps + dedupe_new(new, logged_before)
+new_acc = [e["accession"] for e in new if e["type"] == "filing"]
+assert len(set(new_acc)) == len(new_acc) and not (set(new_acc) & logged_before), "duplicate accession about to be logged"
 append(LOG, prev, new)
 json.dump({"lastSuccess": TODAY.isoformat(), "lastRunAt": now.isoformat(timespec="seconds"), "note": "Date (New York) of the last successful run of scripts/live/log.py; used to detect days with no run."}, open(RUNS, "w"), indent=1)
 print(f"live log: {len(rows)} existing, {len(new) - len(gaps)} filings and {len(gaps)} gap entries appended, skipped {skipped}")
