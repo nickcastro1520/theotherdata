@@ -1,12 +1,100 @@
 {
- "generatedAt": "2026-10-27T16:43:15.009Z",
+ "generatedAt": "2026-11-02T17:29:10.581Z",
  "windowDays": 30,
- "indexDaysRead": 20,
- "count": 34,
- "unmappedFilings": 4,
+ "indexDaysRead": 19,
+ "count": 20,
+ "unmappedFilings": 3,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "BIAI",
+   "company": "Bitari Inc",
+   "exchange": null,
+   "form": "NT 10-K",
+   "filed": "2026-10-30",
+   "link": "https://www.sec.gov/Archives/edgar/data/2091680/000118518526005091/0001185185-26-005091-index.htm"
+  },
+  {
+   "ticker": "CLEV",
+   "company": "Concrete Leveling Systems Inc",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-30",
+   "link": "https://www.sec.gov/Archives/edgar/data/1414382/000147793226006529/0001477932-26-006529-index.htm"
+  },
+  {
+   "ticker": "GAFC",
+   "company": "Guru App Factory Corp",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-30",
+   "link": "https://www.sec.gov/Archives/edgar/data/1989788/000168316826008206/0001683168-26-008206-index.htm"
+  },
+  {
+   "ticker": "NPLY",
+   "company": "Naploy Corp.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-30",
+   "link": "https://www.sec.gov/Archives/edgar/data/1978111/000168316826008166/0001683168-26-008166-index.htm"
+  },
+  {
+   "ticker": "CIIT",
+   "company": "Tianci International, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-K",
+   "filed": "2026-10-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1557798/000168316826008163/0001683168-26-008163-index.htm"
+  },
+  {
+   "ticker": "CRSF",
+   "company": "Crisp Momentum Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/924396/000149315226049266/0001493152-26-049266-index.htm"
+  },
+  {
+   "ticker": "NMEX",
+   "company": "NORTHERN MINERALS & EXPLORATION LTD.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1415744/000143774926033881/0001437749-26-033881-index.htm"
+  },
+  {
+   "ticker": "SSGC",
+   "company": "SafeSpace Global Corp",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-29",
+   "link": "https://www.sec.gov/Archives/edgar/data/1584693/000149315226049305/0001493152-26-049305-index.htm"
+  },
+  {
+   "ticker": "HFUS",
+   "company": "Hartford Creative Group, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1482554/000149315226049020/0001493152-26-049020-index.htm"
+  },
+  {
+   "ticker": "PHCI",
+   "company": "Panamera Holdings Corp",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-28",
+   "link": "https://www.sec.gov/Archives/edgar/data/1620749/000164033426001695/0001640334-26-001695-index.htm"
+  },
+  {
+   "ticker": "QGAI",
+   "company": "Quantum Genesis AI Corp.",
+   "exchange": "OTC",
+   "form": "NT 10-K",
+   "filed": "2026-10-27",
+   "link": "https://www.sec.gov/Archives/edgar/data/1663038/000147793226006471/0001477932-26-006471-index.htm"
+  },
   {
    "ticker": "CBIH",
    "company": "Cannabis Bioscience International Holdings, Inc.",
@@ -78,206 +166,6 @@
    "form": "NT 10-Q",
    "filed": "2026-10-13",
    "link": "https://www.sec.gov/Archives/edgar/data/1823635/000149315226046735/0001493152-26-046735-index.htm"
-  },
-  {
-   "ticker": "AWCA",
-   "company": "Awaysis Capital, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1021917/000149315226044681/0001493152-26-044681-index.htm"
-  },
-  {
-   "ticker": "CBLO",
-   "company": "C2 Blockchain, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1882781/000188278126000044/0001882781-26-000044-index.htm"
-  },
-  {
-   "ticker": "GTLL",
-   "company": "GLOBAL TECHNOLOGIES LTD",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/932021/000149315226044925/0001493152-26-044925-index.htm"
-  },
-  {
-   "ticker": "HSCT",
-   "company": "HOOPS SCOUTING USA",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1721056/000147793226005903/0001477932-26-005903-index.htm"
-  },
-  {
-   "ticker": "LNAI",
-   "company": "Lunai Bioworks Inc.",
-   "exchange": "Nasdaq",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1527728/000173112226001299/0001731122-26-001299-index.htm"
-  },
-  {
-   "ticker": "NVA",
-   "company": "Nova Minerals Corp",
-   "exchange": "NYSE",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1852551/000149315226044708/0001493152-26-044708-index.htm"
-  },
-  {
-   "ticker": "SGLY",
-   "company": "Singularity Future Technology Ltd.",
-   "exchange": "Nasdaq",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1422892/000121390026104272/0001213900-26-104272-index.htm"
-  },
-  {
-   "ticker": "VIPZ",
-   "company": "VIP Play, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1832161/000149315226044847/0001493152-26-044847-index.htm"
-  },
-  {
-   "ticker": "VISM",
-   "company": "VISIUM TECHNOLOGIES, INC.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-29",
-   "link": "https://www.sec.gov/Archives/edgar/data/1082733/000165495426008617/0001654954-26-008617-index.htm"
-  },
-  {
-   "ticker": "ADVB",
-   "company": "Advanced Biomed Inc.",
-   "exchange": "Nasdaq",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1941029/000121390026104071/0001213900-26-104071-index.htm"
-  },
-  {
-   "ticker": "ALDS",
-   "company": "APPlife Digital Solutions Inc",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1755101/000109690626001457/0001096906-26-001457-index.htm"
-  },
-  {
-   "ticker": "BNET",
-   "company": "BION ENVIRONMENTAL TECHNOLOGIES INC",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/875729/000107997326001291/0001079973-26-001291-index.htm"
-  },
-  {
-   "ticker": "CVAT",
-   "company": "Cavitation Technologies, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1376793/000168316826007449/0001683168-26-007449-index.htm"
-  },
-  {
-   "ticker": "ESMC",
-   "company": "ESCALON MEDICAL CORP",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/862668/000121390026104085/0001213900-26-104085-index.htm"
-  },
-  {
-   "ticker": "GHST",
-   "company": "GHST World Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1121795/000107997326001290/0001079973-26-001290-index.htm"
-  },
-  {
-   "ticker": "IPW",
-   "company": "iPower Inc.",
-   "exchange": "Nasdaq",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1830072/000168316826007458/0001683168-26-007458-index.htm"
-  },
-  {
-   "ticker": "LDDD",
-   "company": "Longduoduo Co Ltd",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1892316/000121390026103959/0001213900-26-103959-index.htm"
-  },
-  {
-   "ticker": "MWAI",
-   "company": "MedWellAI, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1520118/000147793226005825/0001477932-26-005825-index.htm"
-  },
-  {
-   "ticker": "NGTF",
-   "company": "NightFood Holdings, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1593001/000149315226044557/0001493152-26-044557-index.htm"
-  },
-  {
-   "ticker": "OKMN",
-   "company": "OKMIN RESOURCES, INC.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1848334/000107997326001294/0001079973-26-001294-index.htm"
-  },
-  {
-   "ticker": "OZVN",
-   "company": "OZ VISION INC.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1751707/000149315226044562/0001493152-26-044562-index.htm"
-  },
-  {
-   "ticker": "SAGU",
-   "company": "Shreya Acquisition Group",
-   "exchange": "NYSE",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/2083452/000182912626010487/0001829126-26-010487-index.htm"
-  },
-  {
-   "ticker": "TGL",
-   "company": "TREASURE GLOBAL INC",
-   "exchange": "Nasdaq",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1905956/000121390026104122/0001213900-26-104122-index.htm"
-  },
-  {
-   "ticker": "TRXA",
-   "company": "T-REX Acquisition Corp.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1437750/000147793226005821/0001477932-26-005821-index.htm"
-  },
-  {
-   "ticker": "ZEOX",
-   "company": "Zeo ScientifiX, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-09-28",
-   "link": "https://www.sec.gov/Archives/edgar/data/1557376/000182912626010483/0001829126-26-010483-index.htm"
   }
  ]
 }
