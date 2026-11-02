@@ -1,19 +1,19 @@
 {
  "version": 1,
- "issueId": "2026-W44",
- "weekOf": "Oct 26, 2026",
- "generatedAt": "2026-11-01T20:45:19.892Z",
- "dataUpdatedAt": "2026-11-01T20:37:35.413Z",
- "subject": "This week's strangest signals: On curiosity, Mounjaro/Zepbound usage footprint, iPhone curiosity",
- "preheader": "On curiosity for On Holding: −62% (81,603 → 30,692) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
+ "issueId": "2026-W45",
+ "weekOf": "Nov 2, 2026",
+ "generatedAt": "2026-11-02T06:36:42.845Z",
+ "dataUpdatedAt": "2026-11-02T06:28:43.069Z",
+ "subject": "This week's strangest signals: On curiosity, Mounjaro/Zepbound usage footprint",
+ "preheader": "On curiosity for On Holding: −64% (82,028 → 29,682) vs the 28 days before. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
    "ticker": "ONON",
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−62% (81,603 → 30,692)",
-   "pct": -62.4,
+   "change": "−64% (82,028 → 29,682)",
+   "pct": -63.8,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -21,7 +21,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Oct 31, 2026",
+   "dataThrough": "Nov 1, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -60,32 +60,6 @@
    "url": "https://theotherdata.com/#/LLY"
   },
   {
-   "ticker": "AAPL",
-   "company": "Apple",
-   "id": "iphone-curiosity",
-   "signal": "iPhone curiosity",
-   "change": "−44% (142.58K → 79,986)",
-   "pct": -43.9,
-   "direction": "down",
-   "basis": "vs the 28 days before",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
-   "what": "How many people look up “iPhone” on Wikipedia each day.",
-   "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Oct 31, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
-   },
-   "url": "https://theotherdata.com/#/AAPL"
-  },
-  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -112,12 +86,38 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "AAPL",
+   "company": "Apple",
+   "id": "iphone-curiosity",
+   "signal": "iPhone curiosity",
+   "change": "−43% (140.77K → 79,577)",
+   "pct": -43.5,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
+   "what": "How many people look up “iPhone” on Wikipedia each day.",
+   "why": "iPhones are roughly half of Apple's revenue.",
+   "dataThrough": "Nov 1, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
+   },
+   "url": "https://theotherdata.com/#/AAPL"
+  },
+  {
    "ticker": "META",
    "company": "Meta Platforms",
    "id": "instagram-curiosity",
    "signal": "Instagram curiosity",
-   "change": "+43% (573.18K → 821.01K)",
-   "pct": 43.2,
+   "change": "+42% (576.37K → 819.9K)",
+   "pct": 42.3,
    "direction": "up",
    "basis": "vs the 28 days before",
    "reading": "tailwind",
@@ -125,7 +125,7 @@
    "plain": "More people are looking up Instagram than in recent weeks.",
    "what": "How many people look up “Instagram” on Wikipedia each day.",
    "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
-   "dataThrough": "Oct 31, 2026",
+   "dataThrough": "Nov 1, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
@@ -142,7 +142,7 @@
   "ticker": "ONON",
   "company": "On Holding",
   "signal": "On curiosity",
-  "title": "On curiosity fell 62% (81,603 → 30,692) (vs the 28 days before)",
+  "title": "On curiosity fell 64% (82,028 → 29,682) (vs the 28 days before)",
   "paragraphs": [
    "How many people look up “On (company)” on Wikipedia each day. It is a free, public stand-in for search interest: when curiosity spikes, pageviews usually spike too.",
    "Why it might matter for On Holding: on is a fast-growing brand, and its growth depends on more people discovering its shoes. Rising curiosity is an early hint of new customers; a fade suggests the buzz is cooling.",
