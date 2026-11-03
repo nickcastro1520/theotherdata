@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-02T18:47:06.927Z",
+ "generatedAt": "2026-11-03T02:37:19.845Z",
  "source": "public/data/scoreboard.json",
  "rule": "Tested = made calls in the backtest. A signal would need at least one of its three hit rates (direction, vs S&P 500, vs sector) to differ from 50% after a Holm correction across all 264 tests (two-sided exact binomial, 5% level). None does.",
  "tests": 264,
- "smallestP": 0.002935055643320093,
+ "smallestP": 0.005988120567053568,
  "counts": {
   "tested": 88,
   "untested": 23
@@ -25,19 +25,19 @@
   "AAPL|iphone-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 19,
+   "calls": 20,
    "link": "/scoreboard#s-AAPL-iphone-curiosity"
   },
   "AAPL|electronics-stores": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 25,
+   "calls": 26,
    "link": "/scoreboard#s-AAPL-electronics-stores"
   },
   "AAPL|apple-inventory": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 30,
+   "calls": 31,
    "link": "/scoreboard#s-AAPL-apple-inventory"
   },
   "NVDA|pytorch-installs": {
@@ -49,13 +49,13 @@
   "NVDA|dev-chatter": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 33,
+   "calls": 34,
    "link": "/scoreboard#s-NVDA-dev-chatter"
   },
   "NVDA|nvidia-inventory": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 39,
+   "calls": 40,
    "link": "/scoreboard#s-NVDA-nvidia-inventory"
   },
   "NVDA|vix-stress": {
@@ -73,7 +73,7 @@
   "MSFT|copilot-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 23,
+   "calls": 24,
    "link": "/scoreboard#s-MSFT-copilot-curiosity"
   },
   "MSFT|copilot-chatter": {
@@ -91,13 +91,13 @@
   "TSLA|modely-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-TSLA-modely-curiosity"
   },
   "TSLA|gas-ev": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-TSLA-gas-ev"
   },
   "AMZN|cardboard": {
@@ -115,7 +115,7 @@
   "AMZN|online-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-AMZN-online-sales"
   },
   "AMZN|aws-sdk": {
@@ -127,13 +127,13 @@
   "WMT|egg-prices": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 43,
+   "calls": 44,
    "link": "/scoreboard#s-WMT-egg-prices"
   },
   "WMT|gas-wallet": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-WMT-gas-wallet"
   },
   "WMT|jobless-claims": {
@@ -145,19 +145,19 @@
   "DAL|tsa-dal": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-DAL-tsa-dal"
   },
   "DAL|jet-fuel": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 34,
+   "calls": 35,
    "link": "/scoreboard#s-DAL-jet-fuel"
   },
   "UNP|rail-carloads": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 15,
+   "calls": 16,
    "link": "/scoreboard#s-UNP-rail-carloads"
   },
   "UNP|truck-tonnage": {
@@ -211,7 +211,7 @@
   "HD|mortgage-rates": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 21,
+   "calls": 22,
    "link": "/scoreboard#s-HD-mortgage-rates"
   },
   "HD|lumber": {
@@ -223,7 +223,7 @@
   "MCD|beef": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 38,
+   "calls": 39,
    "link": "/scoreboard#s-MCD-beef"
   },
   "MCD|eating-out": {
@@ -235,13 +235,13 @@
   "MCD|eggs-breakfast": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 43,
+   "calls": 44,
    "link": "/scoreboard#s-MCD-eggs-breakfast"
   },
   "XOM|wti": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 33,
+   "calls": 34,
    "link": "/scoreboard#s-XOM-wti"
   },
   "XOM|crude-stocks": {
@@ -253,19 +253,19 @@
   "XOM|gas-refining": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-XOM-gas-refining"
   },
   "COIN|bitcoin": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-COIN-bitcoin"
   },
   "COIN|bitcoin-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 32,
+   "calls": 33,
    "link": "/scoreboard#s-COIN-bitcoin-curiosity"
   },
   "COIN|coinbase-hiring": {
@@ -277,13 +277,13 @@
   "ABNB|tsa-abnb": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-ABNB-tsa-abnb"
   },
   "ABNB|lodging-prices": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 23,
+   "calls": 24,
    "link": "/scoreboard#s-ABNB-lodging-prices"
   },
   "ABNB|airbnb-hiring": {
@@ -295,7 +295,7 @@
   "ABNB|unemployment": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 15,
+   "calls": 16,
    "link": "/scoreboard#s-ABNB-unemployment"
   },
   "DIS|wdw-curiosity": {
@@ -307,13 +307,13 @@
   "DIS|tsa-dis": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-DIS-tsa-dis"
   },
   "DIS|sentiment": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 38,
+   "calls": 39,
    "link": "/scoreboard#s-DIS-sentiment"
   },
   "F|f150-complaints": {
@@ -331,7 +331,7 @@
   "F|gas-trucks": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-F-gas-trucks"
   },
   "F|hy-spread": {
@@ -355,13 +355,13 @@
   "GOOGL|gemini-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 7,
+   "calls": 8,
    "link": "/scoreboard#s-GOOGL-gemini-curiosity"
   },
   "META|online-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-META-online-sales"
   },
   "META|instagram-curiosity": {
@@ -385,19 +385,19 @@
   "NFLX|streaming-prices": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-NFLX-streaming-prices"
   },
   "COST|general-merch": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 32,
+   "calls": 33,
    "link": "/scoreboard#s-COST-general-merch"
   },
   "COST|egg-prices": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 43,
+   "calls": 44,
    "link": "/scoreboard#s-COST-egg-prices"
   },
   "COST|costco-inventory": {
@@ -415,37 +415,37 @@
   "NKE|clothing-stores": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 34,
+   "calls": 35,
    "link": "/scoreboard#s-NKE-clothing-stores"
   },
   "NKE|footwear-prices": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 8,
+   "calls": 9,
    "link": "/scoreboard#s-NKE-footwear-prices"
   },
   "SBUX|coffee-beans": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 37,
+   "calls": 38,
    "link": "/scoreboard#s-SBUX-coffee-beans"
   },
   "SBUX|milk": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 20,
+   "calls": 21,
    "link": "/scoreboard#s-SBUX-milk"
   },
   "SBUX|restaurant-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-SBUX-restaurant-sales"
   },
   "CMG|beef": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 38,
+   "calls": 39,
    "link": "/scoreboard#s-CMG-beef"
   },
   "CMG|chicken": {
@@ -457,25 +457,25 @@
   "CMG|restaurant-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-CMG-restaurant-sales"
   },
   "UBER|tsa-uber": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-UBER-tsa-uber"
   },
   "UBER|restaurant-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-UBER-restaurant-sales"
   },
   "UBER|gas-drivers": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 26,
+   "calls": 27,
    "link": "/scoreboard#s-UBER-gas-drivers"
   },
   "UBER|waymo-curiosity": {
@@ -487,7 +487,7 @@
   "AMD|chip-output": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 43,
+   "calls": 44,
    "link": "/scoreboard#s-AMD-chip-output"
   },
   "AMD|ryzen-curiosity": {
@@ -499,7 +499,7 @@
   "AMD|amd-inventory": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 39,
+   "calls": 40,
    "link": "/scoreboard#s-AMD-amd-inventory"
   },
   "AMD|vix-stress": {
@@ -511,7 +511,7 @@
   "BA|aircraft-orders": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 37,
+   "calls": 38,
    "link": "/scoreboard#s-BA-aircraft-orders"
   },
   "BA|load-factor": {
@@ -523,7 +523,7 @@
   "BA|tsa-ba": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-BA-tsa-ba"
   },
   "BA|boeing-inventory": {
@@ -535,13 +535,13 @@
   "JPM|business-loans": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 18,
+   "calls": 19,
    "link": "/scoreboard#s-JPM-business-loans"
   },
   "JPM|card-delinquencies": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 33,
+   "calls": 34,
    "link": "/scoreboard#s-JPM-card-delinquencies"
   },
   "JPM|jobless-claims": {
@@ -559,13 +559,13 @@
   "KO|sugar": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 40,
+   "calls": 41,
    "link": "/scoreboard#s-KO-sugar"
   },
   "KO|aluminum": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 36,
+   "calls": 37,
    "link": "/scoreboard#s-KO-aluminum"
   },
   "KO|dollar": {
@@ -631,7 +631,7 @@
   "ONON|on-curiosity": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-ONON-on-curiosity"
   },
   "ONON|shoe-store-sales": {
@@ -655,25 +655,25 @@
   "SHOP|online-sales": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 45,
+   "calls": 46,
    "link": "/scoreboard#s-SHOP-online-sales"
   },
   "SHOP|dev-chatter": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 37,
+   "calls": 38,
    "link": "/scoreboard#s-SHOP-dev-chatter"
   },
   "UAL|tsa-ual": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 31,
+   "calls": 32,
    "link": "/scoreboard#s-UAL-tsa-ual"
   },
   "UAL|jet-fuel": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 34,
+   "calls": 35,
    "link": "/scoreboard#s-UAL-jet-fuel"
   },
   "UAL|load-factor": {
@@ -685,7 +685,7 @@
   "UAL|airfares": {
    "status": "tested",
    "label": "Tested: no predictive power found",
-   "calls": 35,
+   "calls": 36,
    "link": "/scoreboard#s-UAL-airfares"
   }
  }
