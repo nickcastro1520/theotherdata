@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-03T19:45:55.317Z",
- "dataUpdatedAt": "2026-11-03T19:38:46.305Z",
+ "generatedAt": "2026-11-04T00:58:21.749Z",
+ "dataUpdatedAt": "2026-11-04T00:42:33.054Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -60,32 +60,6 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Shopify",
-   "change": "−51% (49 → 24)",
-   "pct": -51,
-   "direction": "down",
-   "basis": "vs the 4 weeks before",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Developer chatter about Shopify has quieted.",
-   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Developers talk about the platforms they build on.",
-   "dataThrough": "Nov 3, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
-  },
-  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -136,6 +110,32 @@
     "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
    },
    "url": "https://theotherdata.com/#/AAPL"
+  },
+  {
+   "ticker": "META",
+   "company": "Meta Platforms",
+   "id": "instagram-curiosity",
+   "signal": "Instagram curiosity",
+   "change": "+41% (579.01K → 817.01K)",
+   "pct": 41.1,
+   "direction": "up",
+   "basis": "vs the 28 days before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "More people are looking up Instagram than in recent weeks.",
+   "what": "How many people look up “Instagram” on Wikipedia each day.",
+   "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
+   "dataThrough": "Nov 2, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-META-instagram-curiosity"
+   },
+   "url": "https://theotherdata.com/#/META"
   }
  ],
  "story": {
