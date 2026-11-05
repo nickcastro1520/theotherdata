@@ -31,7 +31,8 @@ theotherdata.com shows "hidden signals": offbeat public data (complaints, filing
 - **Oct 14: Method upgrades.** Scoreboard with Wilson ranges, sector-ETF benchmark, point-in-time ALFRED data, frozen signal versions. Why: no hindsight.
 
 ## 4. Next steps
-- **Nov 4: /what-is-alternative-data built on branch `feat/what-is-alternative-data` (NOT merged).** Nick asked to see it before publishing. Static page from the SEO brief (2026-11-03); numbers baked in from signal-status.json and DAL/AMZN/NVO ticker files as of Nov 4. Added to sitemap, llms.txt, and linked from /how. After Nick OKs: re-check the numbers, merge, confirm live, and notify SEO & AEO Desk (priority true).
+- **Nov 4: /what-is-alternative-data published (Nick approved).** Static guide from the SEO brief (2026-11-03); numbers baked in from signal-status.json and DAL/AMZN/NVO ticker files as of Nov 4 (re-checked at publish, unchanged). In sitemap, llms.txt, linked from /how. Re-check numbers if the page is edited.
+- **Nov 4: TSA feed (DAL tsa-dal) is stale since Nov 4: www.tsa.gov returns an Akamai 'Access Denied' 403 to our network (even robots.txt), despite our User-Agent. No official API; the BTS T100 dataset that includes TSA counts lags months. Not scraped around. Signal shows data through Nov 2 and 'stale'. Retry later; if it persists, ask Nick.
 - **Oct 22:** article page /alt-data-signals-work published 2026-10-22 with Nick's OK. Links from /track and home footer, plus sitemap and llms.txt.
 - **Thursdays: weekly signal hunt.** Test one new idea a week (study rules v2). Log fails on /track via `public/data/weekly-hunt.json`. If one passes, commit only the script and ask Nick before adding it to the site. Skip ideas already tried (see /track and `scripts/hunt/`).
 - **Local tests:** run `npm ci` first. Without node_modules, 6 test files fail on a missing `xlsx` (this is not a code bug). With it, 112/112 pass (Oct 22).
