@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-04T20:04:24.045Z",
- "dataUpdatedAt": "2026-11-04T19:55:15.681Z",
+ "generatedAt": "2026-11-05T01:06:30.074Z",
+ "dataUpdatedAt": "2026-11-05T00:56:34.315Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -86,6 +86,32 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−44% (27 → 15)",
+   "pct": -44.4,
+   "direction": "down",
+   "basis": "vs the 4 weeks before",
+   "reading": "headwind",
+   "strength": "mild",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Nov 5, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
+  },
+  {
    "ticker": "PLTR",
    "company": "Palantir",
    "id": "palantir-curiosity",
@@ -110,32 +136,6 @@
     "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
    },
    "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
-   "ticker": "AAPL",
-   "company": "Apple",
-   "id": "iphone-curiosity",
-   "signal": "iPhone curiosity",
-   "change": "−42% (135.92K → 78,888)",
-   "pct": -42,
-   "direction": "down",
-   "basis": "vs the 28 days before",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Interest in iPhones is cooling off compared with recent weeks.",
-   "what": "How many people look up “iPhone” on Wikipedia each day.",
-   "why": "iPhones are roughly half of Apple's revenue.",
-   "dataThrough": "Nov 3, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=IPhone"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-AAPL-iphone-curiosity"
-   },
-   "url": "https://theotherdata.com/#/AAPL"
   }
  ],
  "story": {
