@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-05T01:06:30.074Z",
- "dataUpdatedAt": "2026-11-05T00:56:34.315Z",
+ "generatedAt": "2026-11-05T12:54:05.036Z",
+ "dataUpdatedAt": "2026-11-05T12:33:35.499Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−65% (82,255 → 28,651)",
-   "pct": -65.2,
+   "change": "−64% (80,959 → 28,776)",
+   "pct": -64.5,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -47,7 +47,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 3, 2026",
+   "dataThrough": "Nov 4, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -86,38 +86,12 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Shopify",
-   "change": "−44% (27 → 15)",
-   "pct": -44.4,
-   "direction": "down",
-   "basis": "vs the 4 weeks before",
-   "reading": "headwind",
-   "strength": "mild",
-   "plain": "Developer chatter about Shopify has quieted.",
-   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Developers talk about the platforms they build on.",
-   "dataThrough": "Nov 5, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
-  },
-  {
    "ticker": "PLTR",
    "company": "Palantir",
    "id": "palantir-curiosity",
    "signal": "Palantir curiosity",
-   "change": "−43% (34,713 → 19,888)",
-   "pct": -42.7,
+   "change": "−45% (34,755 → 19,267)",
+   "pct": -44.6,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -125,7 +99,7 @@
    "plain": "Public curiosity about Palantir is fading.",
    "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
    "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 3, 2026",
+   "dataThrough": "Nov 4, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
@@ -136,6 +110,32 @@
     "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
    },
    "url": "https://theotherdata.com/#/PLTR"
+  },
+  {
+   "ticker": "META",
+   "company": "Meta Platforms",
+   "id": "instagram-curiosity",
+   "signal": "Instagram curiosity",
+   "change": "+40% (581.88K → 813.15K)",
+   "pct": 39.7,
+   "direction": "up",
+   "basis": "vs the 28 days before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "More people are looking up Instagram than in recent weeks.",
+   "what": "How many people look up “Instagram” on Wikipedia each day.",
+   "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
+   "dataThrough": "Nov 4, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-META-instagram-curiosity"
+   },
+   "url": "https://theotherdata.com/#/META"
   }
  ],
  "story": {
