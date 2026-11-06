@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-05T22:16:31.671Z",
- "dataUpdatedAt": "2026-11-05T22:08:10.566Z",
+ "generatedAt": "2026-11-06T07:09:05.399Z",
+ "dataUpdatedAt": "2026-11-06T07:02:10.744Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−64% (80,959 → 28,776)",
-   "pct": -64.5,
+   "change": "−64% (80,979 → 28,938)",
+   "pct": -64.3,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -47,7 +47,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 4, 2026",
+   "dataThrough": "Nov 5, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -90,8 +90,8 @@
    "company": "Palantir",
    "id": "palantir-curiosity",
    "signal": "Palantir curiosity",
-   "change": "−45% (34,755 → 19,267)",
-   "pct": -44.6,
+   "change": "−46% (34,622 → 18,630)",
+   "pct": -46.2,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -99,7 +99,7 @@
    "plain": "Public curiosity about Palantir is fading.",
    "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
    "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 4, 2026",
+   "dataThrough": "Nov 5, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
@@ -116,8 +116,8 @@
    "company": "Meta Platforms",
    "id": "instagram-curiosity",
    "signal": "Instagram curiosity",
-   "change": "+40% (581.88K → 813.15K)",
-   "pct": 39.7,
+   "change": "+39% (583K → 812.2K)",
+   "pct": 39.3,
    "direction": "up",
    "basis": "vs the 28 days before",
    "reading": "tailwind",
@@ -125,7 +125,7 @@
    "plain": "More people are looking up Instagram than in recent weeks.",
    "what": "How many people look up “Instagram” on Wikipedia each day.",
    "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
-   "dataThrough": "Nov 4, 2026",
+   "dataThrough": "Nov 5, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
