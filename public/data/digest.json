@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-07T20:29:36.359Z",
- "dataUpdatedAt": "2026-11-07T20:20:05.471Z",
+ "generatedAt": "2026-11-07T23:51:03.878Z",
+ "dataUpdatedAt": "2026-11-07T23:43:32.575Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -60,6 +60,32 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−52% (46 → 22)",
+   "pct": -52.2,
+   "direction": "down",
+   "basis": "vs the 4 weeks before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Nov 7, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
+  },
+  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -110,32 +136,6 @@
     "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
    },
    "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Shopify",
-   "change": "−41% (27 → 16)",
-   "pct": -40.7,
-   "direction": "down",
-   "basis": "vs the 4 weeks before",
-   "reading": "headwind",
-   "strength": "mild",
-   "plain": "Developer chatter about Shopify has quieted.",
-   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Developers talk about the platforms they build on.",
-   "dataThrough": "Nov 7, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
   }
  ],
  "story": {
