@@ -1,12 +1,20 @@
 {
- "generatedAt": "2026-11-06T18:06:03.177Z",
+ "generatedAt": "2026-11-07T16:52:05.454Z",
  "windowDays": 30,
  "indexDaysRead": 21,
- "count": 22,
- "unmappedFilings": 3,
+ "count": 23,
+ "unmappedFilings": 4,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "DRVN",
+   "company": "Driven Brands Holdings Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-06",
+   "link": "https://www.sec.gov/Archives/edgar/data/1804745/000162828026071315/0001628280-26-071315-index.htm"
+  },
   {
    "ticker": "BYND",
    "company": "BEYOND MEAT, INC.",
