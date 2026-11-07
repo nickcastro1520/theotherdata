@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W45",
  "weekOf": "Nov 2, 2026",
- "generatedAt": "2026-11-07T15:13:25.759Z",
- "dataUpdatedAt": "2026-11-07T14:57:27.970Z",
+ "generatedAt": "2026-11-07T20:29:36.359Z",
+ "dataUpdatedAt": "2026-11-07T20:20:05.471Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/PLTR"
   },
   {
-   "ticker": "META",
-   "company": "Meta Platforms",
-   "id": "instagram-curiosity",
-   "signal": "Instagram curiosity",
-   "change": "+38% (586.18K → 809.2K)",
-   "pct": 38,
-   "direction": "up",
-   "basis": "vs the 28 days before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "More people are looking up Instagram than in recent weeks.",
-   "what": "How many people look up “Instagram” on Wikipedia each day.",
-   "why": "Instagram is Meta's biggest ad engine after Facebook itself.",
-   "dataThrough": "Nov 6, 2026",
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Shopify",
+   "change": "−41% (27 → 16)",
+   "pct": -40.7,
+   "direction": "down",
+   "basis": "vs the 4 weeks before",
+   "reading": "headwind",
+   "strength": "mild",
+   "plain": "Developer chatter about Shopify has quieted.",
+   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Developers talk about the platforms they build on.",
+   "dataThrough": "Nov 7, 2026",
    "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Instagram"
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-META-instagram-curiosity"
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
    },
-   "url": "https://theotherdata.com/#/META"
+   "url": "https://theotherdata.com/#/SHOP"
   }
  ],
  "story": {
