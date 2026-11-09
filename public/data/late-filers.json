@@ -1,7 +1,7 @@
 {
- "generatedAt": "2026-11-08T17:05:39.664Z",
+ "generatedAt": "2026-11-09T21:28:26.905Z",
  "windowDays": 30,
- "indexDaysRead": 20,
+ "indexDaysRead": 19,
  "count": 23,
  "unmappedFilings": 4,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
