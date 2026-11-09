@@ -112,4 +112,6 @@ test("stock permalink shell includes unique hub signal copy", async () => {
   const sigHtml = permalinkHtml(read("public/index.html"), curiosity.model);
   assert.match(sigHtml, /data-tod-hub-link/);
   assert.match(sigHtml, /href="\/s\/COIN"/);
+  assert.match(sigHtml, /<h1>Bitcoin curiosity: a Coinbase \(COIN\) signal<\/h1>/);
+  assert.match(sigHtml, /What this number is/);
 });

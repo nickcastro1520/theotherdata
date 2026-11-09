@@ -32,13 +32,14 @@ theotherdata.com shows "hidden signals": offbeat public data (complaints, filing
 - **Oct 14: Method upgrades.** Scoreboard with Wilson ranges, sector-ETF benchmark, point-in-time ALFRED data, frozen signal versions. Why: no hindsight.
 
 ## 4. Next steps
-- **Nov 9: branch `seo/coin-hub-content` (NOT merged; SEO window to Nov 16).** /s/COIN was crawled but not indexed (thin shared template). Branch adds unique crawlable hub copy per signal (what / latest numbers / what the data did / test-status badge) via `hubSignalsHtml` in lib/seo.js, wired through scripts/cards.mjs for every stock hub, plus a hub link on signal permalinks (incl. /s/COIN/bitcoin-curiosity → /s/COIN). Static shell is preserved after the live view loads. Needs Nick's OK before merge; then notify SEO & AEO Desk.
+- **Nov 9: seo/coin-hub-content published (Nick approved).** Unique crawlable hub copy per signal (what / latest / what the data did / test-status badge) via `hubSignalsHtml` in lib/seo.js for every stock hub; hub link on signal permalinks. Shell preserved after live view loads.
 - **Nov 4: /what-is-alternative-data published (Nick approved).** Static guide from the SEO brief (2026-11-03); numbers baked in from signal-status.json and DAL/AMZN/NVO ticker files as of Nov 4 (re-checked at publish, unchanged). In sitemap, llms.txt, linked from /how. Re-check numbers if the page is edited.
 - **Nov 4: TSA feed (DAL tsa-dal) is stale since Nov 4: www.tsa.gov returns an Akamai 'Access Denied' 403 to our network (even robots.txt), despite our User-Agent. No official API; the BTS T100 dataset that includes TSA counts lags months. Not scraped around. Signal shows data through Nov 2 and 'stale'. Retry later; if it persists, ask Nick.
 - **Oct 22:** article page /alt-data-signals-work published 2026-10-22 with Nick's OK. Links from /track and home footer, plus sitemap and llms.txt.
 - **Thursdays: weekly signal hunt.** Test one new idea a week (study rules v2). Log fails on /track via `public/data/weekly-hunt.json`. If one passes, commit only the script and ask Nick before adding it to the site. Skip ideas already tried (see /track and `scripts/hunt/`).
 - **Local tests:** run `npm ci` first. Without node_modules, 6 test files fail on a missing `xlsx` (this is not a code bug). With it, 112/112 pass (Oct 22).
 - **Oct 23:** first live late-filing results. Report them as they come, with no spin.
+- **Nov 9: seo/meta-dupe-fix published (Nick approved; built Oct 26).** Each signal permalink has its own H1, what/why, source, badge, JSON-LD and description, and keeps its title/H1/intro after the live view loads (fixes META curiosity duplicates).
 - **Weekly SEO report:** any changes are proposals only, until Nick approves them himself.
 - **GA review:** look at traffic and signup funnel numbers; report, don't change.
 

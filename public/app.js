@@ -411,6 +411,7 @@
 
   let CURRENT = null;
   const PERMALINK = () => document.querySelector('meta[name="tod-ticker"]')?.content || null;
+  const STATIC_TITLE = typeof document !== "undefined" ? document.title : "";
   // Share model for the open stock (curated stocks get image cards and /s/ permalinks).
   function shareModel(d, sigId) {
     const C = window.TODCard;
@@ -425,7 +426,9 @@
   function renderDetail(d) {
     CURRENT = d;
     const det = $("#detail");
-    document.title = `${d.ticker}: ${d.name} hidden signals | The Other Data`;
+    // On a /s/... permalink keep the page's own server-rendered title (each signal page has a distinct one).
+    const onPermalink = !location.hash && PERMALINK() && PERMALINK().toUpperCase() === d.ticker;
+    document.title = onPermalink && STATIC_TITLE ? STATIC_TITLE : `${d.ticker}: ${d.name} hidden signals | The Other Data`;
     det.hidden = false;
     for (const id of HOME_SECTIONS) { const el = $(`#${id}`); if (el) el.hidden = true; }
     const pack = d.pack === "light" ? `<div class="pack-banner"><span class="pill light">Basic info</span> ${esc(`Deep signals are available for our ${INDEX?.tickers?.length || 35} curated stocks. This stock gets basic public data only.`)}</div>` : "";
@@ -500,16 +503,20 @@
     else if (!location.hash && PERMALINK()) {
       // /s/AMZN or /s/AMZN/cardboard: a crawler-readable permalink page. Open the stock, then the signal.
       const sig = document.querySelector('meta[name="tod-signal"]')?.content;
-      // Keep crawlable unique hub/signal copy from the static shell after the live view loads.
+      // Signal permalinks keep title/H1/intro (meta-dupe); stock hubs keep unique hub copy (coin-hub).
       const shell = document.querySelector("#detail [data-tod-shell]");
-      const hub = shell?.querySelector("[data-tod-hub]");
-      const hubLink = shell?.querySelector("[data-tod-hub-link]");
+      const hub = !sig && shell?.querySelector("[data-tod-hub]");
+      const sigH1 = (sig && shell?.querySelector("h1")?.textContent) || "";
+      // Keep what/why/source/hub-link; drop chrome, sibling lists, and the hub body (hub is stock-only).
+      const intro = sig && shell ? [...shell.children].filter((n) => !n.matches(".dtop, .dhead, .shell-sigs, .shell-hub") && !(n.tagName === "H2" && /^Other /.test(n.textContent || ""))) : [];
       // Let the static stock header from the HTML paint first, then swap in the live view.
       const afterPaint = () => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0)));
       afterPaint().then(() => showTicker(PERMALINK().toUpperCase())).then(() => {
         const head = $("#detail .dhead");
-        if (!sig && hub && head && !$("#detail [data-tod-hub]")) head.after(hub);
-        if (sig && hubLink && head && !$("#detail [data-tod-hub-link]")) head.after(hubLink);
+        const h1 = $("#detail .dhead h1");
+        if (sigH1 && h1) h1.textContent = sigH1;
+        if (intro.length && head && !$("#detail .sig-intro")) { const box = document.createElement("section"); box.className = "sig-intro"; intro.forEach((n) => box.appendChild(n)); head.after(box); }
+        if (hub && head && !$("#detail [data-tod-hub]")) head.after(hub);
         const el = sig && document.getElementById(`sig-${sig}`);
         if (el) { el.classList.add("sig-focus"); el.scrollIntoView({ block: "start" }); }
       });

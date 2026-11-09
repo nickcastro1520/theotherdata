@@ -38,6 +38,10 @@
   const ST = () => root.TODStatus;
   const statusOf = (tk, id) => { const x = ST() && (id ? ST().forSignal(tk, id) : ST().doc?.stock); return x ? x.label : ""; };
   const big = (s) => !Z() || Z().passes(s);
+  // The signal's own angle: first sentence of "why it matters" (or "what it is"), skipped if it carries a direction word.
+  const NO_DIR = /\blean|tailwind|headwind|▲|▼|\bbuy\b|\bsell\b/i;
+  const firstSentence = (t) => (String(t || "").match(/^.*?[.!?](?=\s|$)/) || [String(t || "")])[0].trim();
+  const angleOf = (s) => [s.why, s.what].map(firstSentence).find((x) => x && !NO_DIR.test(x)) || "";
   const daysWord = (s) => (Z() ? Z().windowWords(s) : "");
   const windowName = (s) => { const w = daysWord(s); return !w ? "Snapshots" : w === "a quarter" ? "Quarter vs quarter" : `${w.replace(/^(\d+) (\w+?)s$/, "$1-$2")} windows`; };
 
@@ -101,7 +105,8 @@
       // Small samples (rule 3) get no image card of their own.
       url: signalUrl(doc.ticker, s.id), img: big(s) ? signalImg(doc.ticker, s.id) : null, imgVertical: big(s) ? signalImg(doc.ticker, s.id, true) : null,
       title: `${s.name} → ${doc.name} (${doc.ticker}) | The Other Data`,
-      description: `${line || plainLine(s)} Free public data explained in plain English. Education only, not advice.`.replace(/\s+/g, " ").trim(),
+      angle: angleOf(s),
+      description: `${line || plainLine(s)} ${angleOf(s) || "Free public data explained in plain English."} Education only, not advice.`.replace(/\s+/g, " ").trim(),
       alt: `${s.name} → ${doc.name}. ${line || ""} Education only, not advice.`.replace(/\s+/g, " ").trim(),
       shareText: `What “${s.name}” can hint about ${doc.name} ($${doc.ticker}), explained in plain English. Free weekly email: theotherdata.com/subscribe`,
     };
