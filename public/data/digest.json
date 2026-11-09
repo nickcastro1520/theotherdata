@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-09T07:01:04.293Z",
- "dataUpdatedAt": "2026-11-09T06:54:19.057Z",
- "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
+ "generatedAt": "2026-11-09T19:15:24.546Z",
+ "dataUpdatedAt": "2026-11-09T18:56:27.791Z",
+ "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity, Palantir curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -38,8 +38,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−65% (80,941 → 28,518)",
-   "pct": -64.8,
+   "change": "−63% (76,138 → 28,053)",
+   "pct": -63.2,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -47,7 +47,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 6, 2026",
+   "dataThrough": "Nov 8, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -58,6 +58,32 @@
     "url": "https://theotherdata.com/scoreboard#s-ONON-on-curiosity"
    },
    "url": "https://theotherdata.com/#/ONON"
+  },
+  {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "palantir-curiosity",
+   "signal": "Palantir curiosity",
+   "change": "−50% (34,184 → 17,078)",
+   "pct": -50,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Public curiosity about Palantir is fading.",
+   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
+   "why": "Palantir is one of the most popular stocks with everyday investors.",
+   "dataThrough": "Nov 8, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
   },
   {
    "ticker": "TSLA",
@@ -86,56 +112,30 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "palantir-curiosity",
-   "signal": "Palantir curiosity",
-   "change": "−47% (34,406 → 18,097)",
-   "pct": -47.4,
+   "ticker": "WMT",
+   "company": "Walmart",
+   "id": "egg-prices",
+   "signal": "Egg prices",
+   "change": "−37% ($3.56/dozen → $2.24/dozen)",
+   "pct": -36.9,
    "direction": "down",
-   "basis": "vs the 28 days before",
+   "basis": "vs the same period last year",
    "reading": "headwind",
    "strength": "notable",
-   "plain": "Public curiosity about Palantir is fading.",
-   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
-   "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 6, 2026",
+   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
+   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
+   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
+   "dataThrough": "Sep 2026",
    "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
+    "name": "FRED, Federal Reserve Bank of St. Louis",
+    "url": "https://fred.stlouisfed.org/series/APU0000708111"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
+    "url": "https://theotherdata.com/scoreboard#s-WMT-egg-prices"
    },
-   "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Shopify",
-   "change": "−45% (38 → 21)",
-   "pct": -44.7,
-   "direction": "down",
-   "basis": "vs the 4 weeks before",
-   "reading": "headwind",
-   "strength": "mild",
-   "plain": "Developer chatter about Shopify has quieted.",
-   "what": "How often “shopify” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Developers talk about the platforms they build on.",
-   "dataThrough": "Nov 9, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=shopify&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
+   "url": "https://theotherdata.com/#/WMT"
   }
  ],
  "story": {
