@@ -98,3 +98,18 @@ test("share copy respects the CSP and the no-advice rule", () => {
   assert.match(read("public/index.html"), /src="\/share\.js"/);
   assert.match(read("public/app.js"), /data-share-stock/);
 });
+
+test("stock permalink shell includes unique hub signal copy", async () => {
+  const items = await plan(undefined, new Set(["COIN"]));
+  const stock = items.find((i) => i.page === "s/COIN.html");
+  const curiosity = items.find((i) => i.page === "s/COIN/bitcoin-curiosity.html");
+  assert.ok(stock); assert.ok(curiosity);
+  const html = permalinkHtml(read("public/index.html"), stock.model);
+  assert.match(html, /data-tod-hub/);
+  assert.match(html, /Bitcoin curiosity/);
+  assert.match(html, /What the data did/);
+  assert.doesNotMatch(html, /data-tod-hub[\s\S]*\b(lean|tailwind|headwind)\b/i);
+  const sigHtml = permalinkHtml(read("public/index.html"), curiosity.model);
+  assert.match(sigHtml, /data-tod-hub-link/);
+  assert.match(sigHtml, /href="\/s\/COIN"/);
+});

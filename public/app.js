@@ -500,9 +500,16 @@
     else if (!location.hash && PERMALINK()) {
       // /s/AMZN or /s/AMZN/cardboard: a crawler-readable permalink page. Open the stock, then the signal.
       const sig = document.querySelector('meta[name="tod-signal"]')?.content;
+      // Keep crawlable unique hub/signal copy from the static shell after the live view loads.
+      const shell = document.querySelector("#detail [data-tod-shell]");
+      const hub = shell?.querySelector("[data-tod-hub]");
+      const hubLink = shell?.querySelector("[data-tod-hub-link]");
       // Let the static stock header from the HTML paint first, then swap in the live view.
       const afterPaint = () => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0)));
       afterPaint().then(() => showTicker(PERMALINK().toUpperCase())).then(() => {
+        const head = $("#detail .dhead");
+        if (!sig && hub && head && !$("#detail [data-tod-hub]")) head.after(hub);
+        if (sig && hubLink && head && !$("#detail [data-tod-hub-link]")) head.after(hubLink);
         const el = sig && document.getElementById(`sig-${sig}`);
         if (el) { el.classList.add("sig-focus"); el.scrollIntoView({ block: "start" }); }
       });

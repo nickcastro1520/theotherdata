@@ -718,3 +718,5 @@ kbd{font:600 12px var(--mono);background:var(--bg2);border:1px solid var(--line2
 .tcard .ts-badge{white-space:normal;text-align:right;max-width:150px}
 .hook .ts-badge{margin-top:8px;align-self:flex-start}
 .hero-sub-link{font-size:14px;font-weight:600;color:var(--accent,#5eead4);text-decoration:none}.hero-sub-link:hover{text-decoration:underline}
+
+.shell-hub{margin:18px 0 0;max-width:860px}.shell-hub-sig{margin:16px 0;padding:14px 0;border-top:1px solid var(--line2,#1f2a44)}.shell-hub-sig:first-child{border-top:0;padding-top:0}.shell-hub-sig h2{font-size:18px;margin:0 0 6px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}.shell-hub-sig h2 a{color:#e8eefc;text-decoration:none}.shell-hub-sig h2 a:hover{text-decoration:underline}.shell-hub-sig p{margin:6px 0;color:#c3cde2;line-height:1.55}.shell-hub-link{margin:12px 0 0;font-size:15px;color:#c3cde2}.shell-hub-link a{color:#8fb8ff}

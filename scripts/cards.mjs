@@ -12,7 +12,8 @@ import { Worker, isMainThread, parentPort, workerData } from "node:worker_thread
 import { availableParallelism } from "node:os";
 import "../public/signal-size.js";
 import "../public/card-model.js";
-import { stockSeo, stockJsonLd, signalListHtml, withLastmod } from "../lib/seo.js";
+import { stockSeo, stockJsonLd, signalListHtml, hubSignalsHtml, hubLinkHtml, withLastmod } from "../lib/seo.js";
+import "../public/test-status.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const C = globalThis.TODCard;
@@ -21,6 +22,9 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 // Every card to draw and every permalink page to write, from the data snapshot.
 export async function plan(dataDir = join(ROOT, "public", "data"), only = null) {
   const index = JSON.parse(await readFile(join(dataDir, "index.json"), "utf8"));
+  let statusDoc = null;
+  try { statusDoc = JSON.parse(await readFile(join(dataDir, "signal-status.json"), "utf8")); globalThis.TODStatus?.set(statusDoc); } catch { /* optional */ }
+  const describe = globalThis.TODSize?.describe;
   const items = [];
   for (const row of index.tickers) {
     if (only && !only.has(row.ticker)) continue;
@@ -29,10 +33,12 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
     const seo = stockSeo(doc);
     const links = (doc.signals || []).filter((s) => C.live(s) || s.status === "tracking").map((s) => ({ name: s.name, url: C.signalUrl(doc.ticker, s.id) }));
     const sc = C.stockCard(doc);
-    items.push({ model: { ...sc, title: seo.title, description: seo.description, h1: seo.h1, jsonld: stockJsonLd(doc, sc.url), sigList: signalListHtml(links), lastmod: doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
+    // Unique crawlable hub body (what / latest / what the data did / badge) plus the short link list.
+    const hub = hubSignalsHtml(doc, statusDoc, describe);
+    items.push({ model: { ...sc, title: seo.title, description: seo.description, h1: seo.h1, jsonld: stockJsonLd(doc, sc.url), sigList: `${hub}${signalListHtml(links)}`, lastmod: doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" }, page: `s/${doc.ticker}.html` });
     for (const s of doc.signals || []) {
       if (!(C.live(s) || s.status === "tracking")) continue;
-      let model = { ...C.signalCard(doc, s), lastmod: s.asOf || doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "" };
+      let model = { ...C.signalCard(doc, s), lastmod: s.asOf || doc.updatedAt, narrative: doc.ai?.text || doc.summary?.impact?.text || doc.summary?.text || "", hubLink: hubLinkHtml(doc) };
       // Rule 3 (public/signal-size.js): a too-small sample never gets its own share image.
       // Its permalink unfurls with the stock card instead, which only features signals that pass.
       if (!model.featured) model = { ...model, img: C.stockCard(doc).img, imgVertical: null, noImage: true, alt: `${model.headline}. Education only, not advice.` };
@@ -76,7 +82,7 @@ export function permalinkHtml(baseHtml, m) {
   const shell = `<div class="wrap" data-tod-shell>
       <div class="dtop"><a class="back" href="/">← All stocks</a></div>
       <div class="dhead"><div><div class="tk">${esc(m.ticker)}</div><h1>${esc(m.h1 || m.company)}</h1><div class="meta">Loading live signals…</div></div></div>
-      <p class="shell-lede">${esc(m.narrative || m.description)}</p>${m.sigList || ""}
+      <p class="shell-lede">${esc(m.narrative || m.description)}</p>${m.hubLink || ""}${m.sigList || ""}
     </div>`;
   return html
     .replace(/<meta name="viewport"[^>]*>/, (v) => `${v}\n${tags}`)
