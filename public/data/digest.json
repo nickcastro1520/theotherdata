@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-10T02:59:03.908Z",
- "dataUpdatedAt": "2026-11-10T02:48:45.253Z",
+ "generatedAt": "2026-11-10T13:06:44.298Z",
+ "dataUpdatedAt": "2026-11-10T12:47:54.987Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity, Palantir curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−63% (76,138 → 28,053)",
-   "pct": -63.2,
+   "change": "−63% (75,382 → 27,965)",
+   "pct": -62.9,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -47,7 +47,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 8, 2026",
+   "dataThrough": "Nov 9, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -64,8 +64,8 @@
    "company": "Palantir",
    "id": "palantir-curiosity",
    "signal": "Palantir curiosity",
-   "change": "−50% (34,184 → 17,078)",
-   "pct": -50,
+   "change": "−51% (34,026 → 16,571)",
+   "pct": -51.3,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -73,7 +73,7 @@
    "plain": "Public curiosity about Palantir is fading.",
    "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
    "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 8, 2026",
+   "dataThrough": "Nov 9, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "NVDA",
-   "company": "Nvidia",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Nvidia",
-   "change": "+42% (158 → 225)",
-   "pct": 42.4,
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "shopify-sdk",
+   "signal": "Developers building Shopify apps",
+   "change": "+23% (2.56M → 3.15M)",
+   "pct": 22.9,
    "direction": "up",
-   "basis": "vs the 4 weeks before",
+   "basis": "vs the 28 days before",
    "reading": "tailwind",
-   "strength": "mild",
-   "plain": "Engineers are talking about Nvidia more than usual.",
-   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 10, 2026",
+   "strength": "notable",
+   "plain": "More developers are building on Shopify than a month ago.",
+   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
+   "why": "Shopify grows when more merchants and app makers build on it.",
+   "dataThrough": "Nov 9, 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
+    "name": "npm download stats (api.npmjs.org)",
+    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
    },
    "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-shopify-sdk"
    },
-   "url": "https://theotherdata.com/#/NVDA"
+   "url": "https://theotherdata.com/#/SHOP"
   }
  ],
  "story": {
