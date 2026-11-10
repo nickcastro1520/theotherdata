@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-09T19:15:24.546Z",
- "dataUpdatedAt": "2026-11-09T18:56:27.791Z",
+ "generatedAt": "2026-11-10T02:59:03.908Z",
+ "dataUpdatedAt": "2026-11-10T02:48:45.253Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity, Palantir curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/TSLA"
   },
   {
-   "ticker": "WMT",
-   "company": "Walmart",
-   "id": "egg-prices",
-   "signal": "Egg prices",
-   "change": "−37% ($3.56/dozen → $2.24/dozen)",
-   "pct": -36.9,
-   "direction": "down",
-   "basis": "vs the same period last year",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Grocery staples are cheaper than a year ago, easing the pressure to trade down.",
-   "what": "What a dozen eggs costs at the store on average, from the Bureau of Labor Statistics.",
-   "why": "When grocery bills jump, shoppers have historically traded down to discount grocers, and Walmart is the biggest one.",
-   "dataThrough": "Sep 2026",
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Nvidia",
+   "change": "+42% (158 → 225)",
+   "pct": 42.4,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "mild",
+   "plain": "Engineers are talking about Nvidia more than usual.",
+   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Engineers talk about the chips they want and can't get.",
+   "dataThrough": "Nov 10, 2026",
    "source": {
-    "name": "FRED, Federal Reserve Bank of St. Louis",
-    "url": "https://fred.stlouisfed.org/series/APU0000708111"
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-WMT-egg-prices"
+    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
    },
-   "url": "https://theotherdata.com/#/WMT"
+   "url": "https://theotherdata.com/#/NVDA"
   }
  ],
  "story": {
@@ -151,7 +151,7 @@
   ],
   "url": "https://theotherdata.com/#/NVO"
  },
- "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live tracking started Oct 7, 2026; first live results after Oct 22, 2026.",
+ "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live since Oct 7, 2026: 11 of 22 right on up/down, 12 of 22 beat the market.",
  "links": {
   "site": "https://theotherdata.com",
   "track": "https://theotherdata.com/track",
