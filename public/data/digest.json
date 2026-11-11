@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-11T16:40:40.007Z",
- "dataUpdatedAt": "2026-11-11T16:21:43.597Z",
+ "generatedAt": "2026-11-11T23:01:14.039Z",
+ "dataUpdatedAt": "2026-11-11T22:53:34.605Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity, Palantir curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -86,6 +86,32 @@
    "url": "https://theotherdata.com/#/PLTR"
   },
   {
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Nvidia",
+   "change": "+49% (156 → 232)",
+   "pct": 48.7,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Engineers are talking about Nvidia more than usual.",
+   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Engineers talk about the chips they want and can't get.",
+   "dataThrough": "Nov 11, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/NVDA"
+  },
+  {
    "ticker": "TSLA",
    "company": "Tesla",
    "id": "modely-complaints",
@@ -110,32 +136,6 @@
     "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
    },
    "url": "https://theotherdata.com/#/TSLA"
-  },
-  {
-   "ticker": "NVDA",
-   "company": "Nvidia",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Nvidia",
-   "change": "+44% (156 → 225)",
-   "pct": 44.2,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "mild",
-   "plain": "Engineers are talking about Nvidia more than usual.",
-   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 11, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/NVDA"
   }
  ],
  "story": {
