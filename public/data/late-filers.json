@@ -1,12 +1,108 @@
 {
- "generatedAt": "2026-11-10T18:41:52.630Z",
+ "generatedAt": "2026-11-11T18:44:22.749Z",
  "windowDays": 30,
- "indexDaysRead": 20,
- "count": 29,
- "unmappedFilings": 4,
+ "indexDaysRead": 21,
+ "count": 41,
+ "unmappedFilings": 5,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "BALY",
+   "company": "Bally's Corp",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1747079/000174707926000099/0001747079-26-000099-index.htm"
+  },
+  {
+   "ticker": "CTA-PB",
+   "company": "EIDP, Inc.",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/30554/000119312526455598/0001193125-26-455598-index.htm"
+  },
+  {
+   "ticker": "CTVA",
+   "company": "Corteva, Inc.",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1755672/000119312526455598/0001193125-26-455598-index.htm"
+  },
+  {
+   "ticker": "GDRX",
+   "company": "GoodRx Holdings, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1809519/000180951926000192/0001809519-26-000192-index.htm"
+  },
+  {
+   "ticker": "GPRO",
+   "company": "GoPro, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1500435/000162828026072722/0001628280-26-072722-index.htm"
+  },
+  {
+   "ticker": "HUBG",
+   "company": "Hub Group, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/940942/000119312526455499/0001193125-26-455499-index.htm"
+  },
+  {
+   "ticker": "ITP",
+   "company": "IT TECH PACKAGING, INC.",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1358190/000121390026117687/0001213900-26-117687-index.htm"
+  },
+  {
+   "ticker": "MNTK",
+   "company": "Montauk Renewables, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1826600/000119312526454404/0001193125-26-454404-index.htm"
+  },
+  {
+   "ticker": "NFE",
+   "company": "New Fortress Energy Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/1749723/000174972326000178/0001749723-26-000178-index.htm"
+  },
+  {
+   "ticker": "RAMP",
+   "company": "LiveRamp Holdings, Inc.",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/733269/000110465926125180/0001104659-26-125180-index.htm"
+  },
+  {
+   "ticker": "TRS",
+   "company": "TRIMAS CORP",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/842633/000084263326000059/0000842633-26-000059-index.htm"
+  },
+  {
+   "ticker": "VYLR",
+   "company": "Vylor Inc.",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-10",
+   "link": "https://www.sec.gov/Archives/edgar/data/2128626/000119312526455591/0001193125-26-455591-index.htm"
+  },
   {
    "ticker": "BTBD",
    "company": "BT Brands, Inc.",
