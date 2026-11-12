@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-11T23:01:14.039Z",
- "dataUpdatedAt": "2026-11-11T22:53:34.605Z",
- "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity, Palantir curiosity",
+ "generatedAt": "2026-11-12T07:41:30.761Z",
+ "dataUpdatedAt": "2026-11-12T07:26:21.651Z",
+ "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -38,8 +38,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−63% (75,401 → 27,695)",
-   "pct": -63.3,
+   "change": "−64% (75,465 → 27,480)",
+   "pct": -63.6,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -47,7 +47,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 10, 2026",
+   "dataThrough": "Nov 11, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -60,38 +60,12 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "palantir-curiosity",
-   "signal": "Palantir curiosity",
-   "change": "−52% (33,814 → 16,095)",
-   "pct": -52.4,
-   "direction": "down",
-   "basis": "vs the 28 days before",
-   "reading": "headwind",
-   "strength": "notable",
-   "plain": "Public curiosity about Palantir is fading.",
-   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
-   "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 10, 2026",
-   "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
-   },
-   "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
    "ticker": "NVDA",
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+49% (156 → 232)",
-   "pct": 48.7,
+   "change": "+53% (157 → 240)",
+   "pct": 52.9,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -99,7 +73,7 @@
    "plain": "Engineers are talking about Nvidia more than usual.",
    "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
    "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 11, 2026",
+   "dataThrough": "Nov 12, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
@@ -110,6 +84,32 @@
     "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
    },
    "url": "https://theotherdata.com/#/NVDA"
+  },
+  {
+   "ticker": "PLTR",
+   "company": "Palantir",
+   "id": "palantir-curiosity",
+   "signal": "Palantir curiosity",
+   "change": "−52% (33,405 → 16,071)",
+   "pct": -51.9,
+   "direction": "down",
+   "basis": "vs the 28 days before",
+   "reading": "headwind",
+   "strength": "notable",
+   "plain": "Public curiosity about Palantir is fading.",
+   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
+   "why": "Palantir is one of the most popular stocks with everyday investors.",
+   "dataThrough": "Nov 11, 2026",
+   "source": {
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
+   },
+   "url": "https://theotherdata.com/#/PLTR"
   },
   {
    "ticker": "TSLA",
