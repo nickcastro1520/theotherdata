@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-12T07:41:30.761Z",
- "dataUpdatedAt": "2026-11-12T07:26:21.651Z",
+ "generatedAt": "2026-11-12T17:18:48.515Z",
+ "dataUpdatedAt": "2026-11-12T16:54:25.077Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -64,8 +64,8 @@
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+53% (157 → 240)",
-   "pct": 52.9,
+   "change": "+63% (162 → 264)",
+   "pct": 63,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -84,6 +84,32 @@
     "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
    },
    "url": "https://theotherdata.com/#/NVDA"
+  },
+  {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "shopify-sdk",
+   "signal": "Developers building Shopify apps",
+   "change": "+28% (2.6M → 3.34M)",
+   "pct": 28.3,
+   "direction": "up",
+   "basis": "vs the 28 days before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "More developers are building on Shopify than a month ago.",
+   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
+   "why": "Shopify grows when more merchants and app makers build on it.",
+   "dataThrough": "Nov 11, 2026",
+   "source": {
+    "name": "npm download stats (api.npmjs.org)",
+    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
+   },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-shopify-sdk"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
   },
   {
    "ticker": "PLTR",
@@ -110,32 +136,6 @@
     "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
    },
    "url": "https://theotherdata.com/#/PLTR"
-  },
-  {
-   "ticker": "TSLA",
-   "company": "Tesla",
-   "id": "modely-complaints",
-   "signal": "Model Y owner complaints",
-   "change": "+25% (97 → 121)",
-   "pct": 24.7,
-   "direction": "up",
-   "basis": "vs the 3 months before",
-   "reading": "headwind",
-   "strength": "mild",
-   "plain": "Complaints are climbing faster than the prior few months.",
-   "what": "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator.",
-   "why": "The Model Y is Tesla's best-selling car.",
-   "dataThrough": "Oct 2026",
-   "source": {
-    "name": "NHTSA complaints API",
-    "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
-   },
-   "testStatus": {
-    "label": "Not tested yet",
-    "status": "untested",
-    "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
-   },
-   "url": "https://theotherdata.com/#/TSLA"
   }
  ],
  "story": {
