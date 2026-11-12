@@ -219,7 +219,90 @@
      "excess": 18.01
     }
    ]
+  },
+  {
+   "id": "2026-11-12-nrc-callaway-aee",
+   "huntWeek": "2026-11-12",
+   "name": "Callaway nuclear plant output (NRC daily reports) -> Ameren",
+   "ticker": "AEE",
+   "source": "NRC Power Reactor Status Reports, daily % power for Callaway",
+   "sourceUrl": "https://www.nrc.gov/reading-rm/doc-collections/event-status/reactor-status/index",
+   "from": "1999-02-01",
+   "to": "2026-09-01",
+   "rawCalls": 300,
+   "rawUp": 244,
+   "rawDown": 56,
+   "rawHitVsSpy": 52.0,
+   "rawCI": [
+    46.4,
+    57.6
+   ],
+   "rawBaseline": 51.3,
+   "rawBaselineSide": "always up",
+   "rawFlipped": 48.0,
+   "meanExcessPerCall": 0.29,
+   "events": 66,
+   "eventHits": 31,
+   "eventHitVsSpy": 47.0,
+   "eventCI": [
+    35.4,
+    58.8
+   ],
+   "eventBaseline": 53.0,
+   "eventBaselineSide": "always down",
+   "eventFlipped": 53.0,
+   "eventFlippedCI": [
+    41.2,
+    64.6
+   ],
+   "enoughEvents": true,
+   "pass": false,
+   "bySide": {
+    "+": {
+     "events": 40,
+     "hits": 18
+    },
+    "-": {
+     "events": 26,
+     "hits": 13
+    }
+   },
+   "samples": [
+    {
+     "d": "1999-02-01",
+     "call": "+",
+     "detail": "Callaway 1999-01: 0 days offline, average power 99% (31 NRC daily reports)",
+     "from": "1999-02-01",
+     "to": "1999-03-01",
+     "stock": -2.94,
+     "spy": -2.36,
+     "right": false,
+     "excess": -0.58
+    },
+    {
+     "d": "2012-12-01",
+     "call": "+",
+     "detail": "Callaway 2012-11: 0 days offline, average power 100% (30 NRC daily reports)",
+     "from": "2012-12-03",
+     "to": "2013-01-02",
+     "stock": 7.31,
+     "spy": 4.0,
+     "right": true,
+     "excess": 3.31
+    },
+    {
+     "d": "2026-09-01",
+     "call": "+",
+     "detail": "Callaway 2026-08: 0 days offline, average power 100% (31 NRC daily reports)",
+     "from": "2026-09-01",
+     "to": "2026-10-01",
+     "stock": -5.42,
+     "spy": 0.54,
+     "right": false,
+     "excess": -5.96
+    }
+   ]
   }
  ],
- "updatedAt": "2026-11-05T16:07:07.231517+00:00"
+ "updatedAt": "2026-11-12T16:21:49.549996+00:00"
 }
