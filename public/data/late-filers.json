@@ -1,12 +1,60 @@
 {
- "generatedAt": "2026-11-12T18:58:14.202Z",
+ "generatedAt": "2026-11-13T18:33:50.892Z",
  "windowDays": 30,
  "indexDaysRead": 21,
- "count": 41,
- "unmappedFilings": 5,
+ "count": 46,
+ "unmappedFilings": 6,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "AIFC",
+   "company": "AI Financial Corp",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/862861/000149315226051069/0001493152-26-051069-index.htm"
+  },
+  {
+   "ticker": "CFOO",
+   "company": "China Foods Holdings Ltd.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/1310630/000149315226051059/0001493152-26-051059-index.htm"
+  },
+  {
+   "ticker": "EPSN",
+   "company": "Epsilon Energy Ltd.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/1726126/000110465926125376/0001104659-26-125376-index.htm"
+  },
+  {
+   "ticker": "GURE",
+   "company": "GULF RESOURCES, INC.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/885462/000149315226051451/0001493152-26-051451-index.htm"
+  },
+  {
+   "ticker": "OMTK",
+   "company": "Omnitek Engineering Corp",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/1404804/000109690626001718/0001096906-26-001718-index.htm"
+  },
+  {
+   "ticker": "SPWR",
+   "company": "SunPower Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-12",
+   "link": "https://www.sec.gov/Archives/edgar/data/1838987/000121390026118944/0001213900-26-118944-index.htm"
+  },
   {
    "ticker": "BALY",
    "company": "Bally's Corp",
@@ -326,14 +374,6 @@
    "form": "NT 10-Q",
    "filed": "2026-10-14",
    "link": "https://www.sec.gov/Archives/edgar/data/1616262/000121390026109441/0001213900-26-109441-index.htm"
-  },
-  {
-   "ticker": "ECXJ",
-   "company": "CXJ GROUP CO., Ltd",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-13",
-   "link": "https://www.sec.gov/Archives/edgar/data/1823635/000149315226046735/0001493152-26-046735-index.htm"
   }
  ]
 }
