@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-13T01:23:32.106Z",
- "dataUpdatedAt": "2026-11-13T01:13:14.945Z",
- "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
+ "generatedAt": "2026-11-13T12:40:10.210Z",
+ "dataUpdatedAt": "2026-11-13T12:23:42.415Z",
+ "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developers building Shopify apps",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -34,12 +34,38 @@
    "url": "https://theotherdata.com/#/NVO"
   },
   {
+   "ticker": "SHOP",
+   "company": "Shopify",
+   "id": "shopify-sdk",
+   "signal": "Developers building Shopify apps",
+   "change": "+41% (2.49M → 3.52M)",
+   "pct": 41,
+   "direction": "up",
+   "basis": "vs the 28 days before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "More developers are building on Shopify than a month ago.",
+   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
+   "why": "Shopify grows when more merchants and app makers build on it.",
+   "dataThrough": "Nov 12, 2026",
+   "source": {
+    "name": "npm download stats (api.npmjs.org)",
+    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
+   },
+   "testStatus": {
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-SHOP-shopify-sdk"
+   },
+   "url": "https://theotherdata.com/#/SHOP"
+  },
+  {
    "ticker": "NVDA",
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+73% (166 → 287)",
-   "pct": 72.9,
+   "change": "+80% (166 → 298)",
+   "pct": 79.5,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -64,8 +90,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−64% (75,465 → 27,480)",
-   "pct": -63.6,
+   "change": "−64% (75,637 → 27,078)",
+   "pct": -64.2,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -73,7 +99,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 11, 2026",
+   "dataThrough": "Nov 12, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -86,38 +112,12 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
-   "ticker": "SHOP",
-   "company": "Shopify",
-   "id": "shopify-sdk",
-   "signal": "Developers building Shopify apps",
-   "change": "+28% (2.6M → 3.34M)",
-   "pct": 28.3,
-   "direction": "up",
-   "basis": "vs the 28 days before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "More developers are building on Shopify than a month ago.",
-   "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
-   "why": "Shopify grows when more merchants and app makers build on it.",
-   "dataThrough": "Nov 11, 2026",
-   "source": {
-    "name": "npm download stats (api.npmjs.org)",
-    "url": "https://www.npmjs.com/package/@shopify/shopify-api"
-   },
-   "testStatus": {
-    "label": "Not tested yet",
-    "status": "untested",
-    "url": "https://theotherdata.com/scoreboard#s-SHOP-shopify-sdk"
-   },
-   "url": "https://theotherdata.com/#/SHOP"
-  },
-  {
    "ticker": "PLTR",
    "company": "Palantir",
    "id": "palantir-curiosity",
    "signal": "Palantir curiosity",
-   "change": "−52% (33,405 → 16,071)",
-   "pct": -51.9,
+   "change": "−50% (32,780 → 16,346)",
+   "pct": -50.1,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -125,7 +125,7 @@
    "plain": "Public curiosity about Palantir is fading.",
    "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
    "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 11, 2026",
+   "dataThrough": "Nov 12, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
