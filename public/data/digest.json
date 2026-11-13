@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-12T17:18:48.515Z",
- "dataUpdatedAt": "2026-11-12T16:54:25.077Z",
- "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, On curiosity",
+ "generatedAt": "2026-11-13T01:23:32.106Z",
+ "dataUpdatedAt": "2026-11-13T01:13:14.945Z",
+ "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -34,6 +34,32 @@
    "url": "https://theotherdata.com/#/NVO"
   },
   {
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Nvidia",
+   "change": "+73% (166 → 287)",
+   "pct": 72.9,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Engineers are talking about Nvidia more than usual.",
+   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Engineers talk about the chips they want and can't get.",
+   "dataThrough": "Nov 13, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/NVDA"
+  },
+  {
    "ticker": "ONON",
    "company": "On Holding",
    "id": "on-curiosity",
@@ -58,32 +84,6 @@
     "url": "https://theotherdata.com/scoreboard#s-ONON-on-curiosity"
    },
    "url": "https://theotherdata.com/#/ONON"
-  },
-  {
-   "ticker": "NVDA",
-   "company": "Nvidia",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Nvidia",
-   "change": "+63% (162 → 264)",
-   "pct": 63,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Engineers are talking about Nvidia more than usual.",
-   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 12, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/NVDA"
   },
   {
    "ticker": "SHOP",
@@ -151,7 +151,7 @@
   ],
   "url": "https://theotherdata.com/#/NVO"
  },
- "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live since Oct 7, 2026: 11 of 22 right on up/down, 12 of 22 beat the market.",
+ "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live since Oct 7, 2026: 24 of 47 right on up/down, 25 of 47 beat the market.",
  "links": {
   "site": "https://theotherdata.com",
   "track": "https://theotherdata.com/track",
