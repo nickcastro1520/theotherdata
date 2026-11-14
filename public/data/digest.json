@@ -2,9 +2,9 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-13T22:15:33.921Z",
- "dataUpdatedAt": "2026-11-13T22:02:10.134Z",
- "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developers building Shopify apps",
+ "generatedAt": "2026-11-14T06:56:21.001Z",
+ "dataUpdatedAt": "2026-11-14T06:45:40.076Z",
+ "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
   {
@@ -34,6 +34,32 @@
    "url": "https://theotherdata.com/#/NVO"
   },
   {
+   "ticker": "NVDA",
+   "company": "Nvidia",
+   "id": "dev-chatter",
+   "signal": "Developer chatter about Nvidia",
+   "change": "+92% (172 → 331)",
+   "pct": 92.4,
+   "direction": "up",
+   "basis": "vs the 4 weeks before",
+   "reading": "tailwind",
+   "strength": "notable",
+   "plain": "Engineers are talking about Nvidia more than usual.",
+   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
+   "why": "Engineers talk about the chips they want and can't get.",
+   "dataThrough": "Nov 14, 2026",
+   "source": {
+    "name": "Hacker News (Algolia search API)",
+    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
+   },
+   "testStatus": {
+    "label": "Tested: no predictive power found",
+    "status": "tested",
+    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
+   },
+   "url": "https://theotherdata.com/#/NVDA"
+  },
+  {
    "ticker": "SHOP",
    "company": "Shopify",
    "id": "shopify-sdk",
@@ -60,38 +86,12 @@
    "url": "https://theotherdata.com/#/SHOP"
   },
   {
-   "ticker": "NVDA",
-   "company": "Nvidia",
-   "id": "dev-chatter",
-   "signal": "Developer chatter about Nvidia",
-   "change": "+85% (171 → 317)",
-   "pct": 85.4,
-   "direction": "up",
-   "basis": "vs the 4 weeks before",
-   "reading": "tailwind",
-   "strength": "notable",
-   "plain": "Engineers are talking about Nvidia more than usual.",
-   "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 13, 2026",
-   "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
-   },
-   "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-NVDA-dev-chatter"
-   },
-   "url": "https://theotherdata.com/#/NVDA"
-  },
-  {
    "ticker": "ONON",
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−64% (75,637 → 27,078)",
-   "pct": -64.2,
+   "change": "−57% (61,713 → 26,788)",
+   "pct": -56.6,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -99,7 +99,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 12, 2026",
+   "dataThrough": "Nov 13, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -116,8 +116,8 @@
    "company": "Palantir",
    "id": "palantir-curiosity",
    "signal": "Palantir curiosity",
-   "change": "−50% (32,780 → 16,346)",
-   "pct": -50.1,
+   "change": "−49% (32,160 → 16,409)",
+   "pct": -49,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -125,7 +125,7 @@
    "plain": "Public curiosity about Palantir is fading.",
    "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
    "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 12, 2026",
+   "dataThrough": "Nov 13, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
@@ -151,7 +151,7 @@
   ],
   "url": "https://theotherdata.com/#/NVO"
  },
- "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live since Oct 7, 2026: 24 of 47 right on up/down, 25 of 47 beat the market.",
+ "trackLine": "In our backtest (Jan 2023–Oct 2026), the stock moved the way the lean pointed over the next month 49.6% of the time (537 of 1083). Beat the market (did it do better than the S&P 500 over the same month, the tougher test): 49.2% (529 of 1075). That's about a coin flip, so treat these as conversation starters, not predictions. Live since Oct 7, 2026: 25 of 49 right on up/down, 26 of 49 beat the market.",
  "links": {
   "site": "https://theotherdata.com",
   "track": "https://theotherdata.com/track",
