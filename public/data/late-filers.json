@@ -1,12 +1,92 @@
 {
- "generatedAt": "2026-11-13T18:33:50.892Z",
+ "generatedAt": "2026-11-14T17:11:17.114Z",
  "windowDays": 30,
  "indexDaysRead": 21,
- "count": 46,
- "unmappedFilings": 6,
+ "count": 54,
+ "unmappedFilings": 9,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "CHUC",
+   "company": "Charlie's Holdings, Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1134765/000143774926036883/0001437749-26-036883-index.htm"
+  },
+  {
+   "ticker": "FMHS",
+   "company": "FARMHOUSE, INC. /NV",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1811999/000109690626001737/0001096906-26-001737-index.htm"
+  },
+  {
+   "ticker": "HBUV",
+   "company": "Hubilu Venture Corp",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1639068/000149315226051684/0001493152-26-051684-index.htm"
+  },
+  {
+   "ticker": "HGYN",
+   "company": "HONG YUAN HOLDING GROUP",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1324759/000149315226051686/0001493152-26-051686-index.htm"
+  },
+  {
+   "ticker": "KALA",
+   "company": "KALA BIO, Inc.",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1479419/000182912626012407/0001829126-26-012407-index.htm"
+  },
+  {
+   "ticker": "KPTIQ",
+   "company": "Karyopharm Therapeutics Inc.",
+   "exchange": null,
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1503802/000119312526460615/0001193125-26-460615-index.htm"
+  },
+  {
+   "ticker": "MDXR",
+   "company": "MEDICAL EXERCISE INC.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/2001249/000121390026119622/0001213900-26-119622-index.htm"
+  },
+  {
+   "ticker": "NORD",
+   "company": "Nordicus Partners Corp",
+   "exchange": "Nasdaq",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1011060/000149315226051705/0001493152-26-051705-index.htm"
+  },
+  {
+   "ticker": "RTGN",
+   "company": "RetinalGenix Technologies Inc.",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1836295/000149315226051692/0001493152-26-051692-index.htm"
+  },
+  {
+   "ticker": "SRRE",
+   "company": "SUNRISE REAL ESTATE GROUP INC",
+   "exchange": "OTC",
+   "form": "NT 10-Q",
+   "filed": "2026-11-13",
+   "link": "https://www.sec.gov/Archives/edgar/data/1083490/000110465926126856/0001104659-26-126856-index.htm"
+  },
   {
    "ticker": "AIFC",
    "company": "AI Financial Corp",
@@ -126,14 +206,6 @@
    "form": "NT 10-Q",
    "filed": "2026-11-10",
    "link": "https://www.sec.gov/Archives/edgar/data/1749723/000174972326000178/0001749723-26-000178-index.htm"
-  },
-  {
-   "ticker": "RAMP",
-   "company": "LiveRamp Holdings, Inc.",
-   "exchange": "NYSE",
-   "form": "NT 10-Q",
-   "filed": "2026-11-10",
-   "link": "https://www.sec.gov/Archives/edgar/data/733269/000110465926125180/0001104659-26-125180-index.htm"
   },
   {
    "ticker": "TRS",
@@ -366,14 +438,6 @@
    "form": "NT 10-Q",
    "filed": "2026-10-15",
    "link": "https://www.sec.gov/Archives/edgar/data/1677897/000157587226000703/0001575872-26-000703-index.htm"
-  },
-  {
-   "ticker": "RMCF",
-   "company": "Rocky Mountain Chocolate Factory, Inc.",
-   "exchange": "Nasdaq",
-   "form": "NT 10-Q",
-   "filed": "2026-10-14",
-   "link": "https://www.sec.gov/Archives/edgar/data/1616262/000121390026109441/0001213900-26-109441-index.htm"
   }
  ]
 }
