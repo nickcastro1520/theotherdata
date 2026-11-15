@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-14T17:11:17.114Z",
+ "generatedAt": "2026-11-15T17:47:00.996Z",
  "windowDays": 30,
- "indexDaysRead": 21,
- "count": 54,
- "unmappedFilings": 9,
+ "indexDaysRead": 20,
+ "count": 49,
+ "unmappedFilings": 8,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
@@ -398,46 +398,6 @@
    "form": "NT 10-Q",
    "filed": "2026-10-16",
    "link": "https://www.sec.gov/Archives/edgar/data/1813603/000168316826007912/0001683168-26-007912-index.htm"
-  },
-  {
-   "ticker": "AITX",
-   "company": "Artificial Intelligence Technology Solutions Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-15",
-   "link": "https://www.sec.gov/Archives/edgar/data/1498148/000149315226047276/0001493152-26-047276-index.htm"
-  },
-  {
-   "ticker": "AUSI",
-   "company": "AURA SYSTEMS INC",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-15",
-   "link": "https://www.sec.gov/Archives/edgar/data/826253/000121390026109913/0001213900-26-109913-index.htm"
-  },
-  {
-   "ticker": "KARX",
-   "company": "Karbon-X Corp.",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-15",
-   "link": "https://www.sec.gov/Archives/edgar/data/1729637/000147793226006230/0001477932-26-006230-index.htm"
-  },
-  {
-   "ticker": "TMGI",
-   "company": "Transglobal Management Group, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-15",
-   "link": "https://www.sec.gov/Archives/edgar/data/1434601/000168316826007887/0001683168-26-007887-index.htm"
-  },
-  {
-   "ticker": "UPYY",
-   "company": "UPAY",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-15",
-   "link": "https://www.sec.gov/Archives/edgar/data/1677897/000157587226000703/0001575872-26-000703-index.htm"
   }
  ]
 }
