@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W46",
  "weekOf": "Nov 9, 2026",
- "generatedAt": "2026-11-14T20:58:18.502Z",
- "dataUpdatedAt": "2026-11-14T20:48:45.275Z",
+ "generatedAt": "2026-11-15T07:03:01.834Z",
+ "dataUpdatedAt": "2026-11-15T06:50:39.050Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+98% (173 → 342)",
-   "pct": 97.7,
+   "change": "+103% (173 → 351)",
+   "pct": 102.9,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -47,7 +47,7 @@
    "plain": "Engineers are talking about Nvidia more than usual.",
    "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
    "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 14, 2026",
+   "dataThrough": "Nov 15, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
@@ -64,8 +64,8 @@
    "company": "Shopify",
    "id": "shopify-sdk",
    "signal": "Developers building Shopify apps",
-   "change": "+40% (2.53M → 3.54M)",
-   "pct": 40,
+   "change": "+39% (2.55M → 3.55M)",
+   "pct": 39.4,
    "direction": "up",
    "basis": "vs the 28 days before",
    "reading": "tailwind",
@@ -73,7 +73,7 @@
    "plain": "More developers are building on Shopify than a month ago.",
    "what": "Daily downloads of @shopify/shopify-api, Shopify's official JavaScript toolkit for building store apps.",
    "why": "Shopify grows when more merchants and app makers build on it.",
-   "dataThrough": "Nov 13, 2026",
+   "dataThrough": "Nov 14, 2026",
    "source": {
     "name": "npm download stats (api.npmjs.org)",
     "url": "https://www.npmjs.com/package/@shopify/shopify-api"
@@ -90,8 +90,8 @@
    "company": "On Holding",
    "id": "on-curiosity",
    "signal": "On curiosity",
-   "change": "−57% (61,713 → 26,788)",
-   "pct": -56.6,
+   "change": "−50% (52,473 → 26,408)",
+   "pct": -49.7,
    "direction": "down",
    "basis": "vs the 28 days before",
    "reading": "headwind",
@@ -99,7 +99,7 @@
    "plain": "Public curiosity about On is fading.",
    "what": "How many people look up “On (company)” on Wikipedia each day.",
    "why": "On is a fast-growing brand, and its growth depends on more people discovering its shoes.",
-   "dataThrough": "Nov 13, 2026",
+   "dataThrough": "Nov 14, 2026",
    "source": {
     "name": "Wikimedia pageviews API",
     "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=On_(company)"
@@ -112,30 +112,30 @@
    "url": "https://theotherdata.com/#/ONON"
   },
   {
-   "ticker": "PLTR",
-   "company": "Palantir",
-   "id": "palantir-curiosity",
-   "signal": "Palantir curiosity",
-   "change": "−49% (32,160 → 16,409)",
-   "pct": -49,
-   "direction": "down",
-   "basis": "vs the 28 days before",
+   "ticker": "TSLA",
+   "company": "Tesla",
+   "id": "modely-complaints",
+   "signal": "Model Y owner complaints",
+   "change": "+25% (97 → 121)",
+   "pct": 24.7,
+   "direction": "up",
+   "basis": "vs the 3 months before",
    "reading": "headwind",
-   "strength": "notable",
-   "plain": "Public curiosity about Palantir is fading.",
-   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
-   "why": "Palantir is one of the most popular stocks with everyday investors.",
-   "dataThrough": "Nov 13, 2026",
+   "strength": "mild",
+   "plain": "Complaints are climbing faster than the prior few months.",
+   "what": "Complaints Model Y owners file with the National Highway Traffic Safety Administration, the federal auto-safety regulator.",
+   "why": "The Model Y is Tesla's best-selling car.",
+   "dataThrough": "Oct 2026",
    "source": {
-    "name": "Wikimedia pageviews API",
-    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
+    "name": "NHTSA complaints API",
+    "url": "https://www.nhtsa.gov/vehicle/2026/TESLA/MODEL%20Y%20(ALL%20VARIANTS)"
    },
    "testStatus": {
-    "label": "Tested: no predictive power found",
-    "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
+    "label": "Not tested yet",
+    "status": "untested",
+    "url": "https://theotherdata.com/scoreboard#s-TSLA-modely-complaints"
    },
-   "url": "https://theotherdata.com/#/PLTR"
+   "url": "https://theotherdata.com/#/TSLA"
   }
  ],
  "story": {
