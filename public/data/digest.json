@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W47",
  "weekOf": "Nov 16, 2026",
- "generatedAt": "2026-11-16T07:00:10.154Z",
- "dataUpdatedAt": "2026-11-16T06:50:26.829Z",
+ "generatedAt": "2026-11-16T19:01:43.943Z",
+ "dataUpdatedAt": "2026-11-16T18:41:26.340Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+111% (174 → 367)",
-   "pct": 110.9,
+   "change": "+120% (175 → 385)",
+   "pct": 120,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -114,26 +114,26 @@
   {
    "ticker": "PLTR",
    "company": "Palantir",
-   "id": "dev-chatter",
-   "signal": "Tech chatter about Palantir",
-   "change": "−48% (44 → 23)",
-   "pct": -47.7,
+   "id": "palantir-curiosity",
+   "signal": "Palantir curiosity",
+   "change": "−47% (31,300 → 16,660)",
+   "pct": -46.8,
    "direction": "down",
-   "basis": "vs the 4 weeks before",
+   "basis": "vs the 28 days before",
    "reading": "headwind",
    "strength": "notable",
-   "plain": "Tech chatter about Palantir has quieted.",
-   "what": "How often “palantir” shows up in stories posted to Hacker News, the news board many software engineers read.",
-   "why": "Palantir sells software to governments and big companies, so engineers' attention is a rough read on how central it is to the AI conversation.",
-   "dataThrough": "Nov 16, 2026",
+   "plain": "Public curiosity about Palantir is fading.",
+   "what": "How many people look up “Palantir Technologies” on Wikipedia each day.",
+   "why": "Palantir is one of the most popular stocks with everyday investors.",
+   "dataThrough": "Nov 15, 2026",
    "source": {
-    "name": "Hacker News (Algolia search API)",
-    "url": "https://hn.algolia.com/?dateRange=pastMonth&query=palantir&type=story"
+    "name": "Wikimedia pageviews API",
+    "url": "https://pageviews.wmcloud.org/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-90&pages=Palantir_Technologies"
    },
    "testStatus": {
     "label": "Tested: no predictive power found",
     "status": "tested",
-    "url": "https://theotherdata.com/scoreboard#s-PLTR-dev-chatter"
+    "url": "https://theotherdata.com/scoreboard#s-PLTR-palantir-curiosity"
    },
    "url": "https://theotherdata.com/#/PLTR"
   }
