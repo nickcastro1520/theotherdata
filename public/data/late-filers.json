@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-15T17:47:00.996Z",
+ "generatedAt": "2026-11-16T21:04:18.291Z",
  "windowDays": 30,
- "indexDaysRead": 20,
- "count": 49,
- "unmappedFilings": 8,
+ "indexDaysRead": 19,
+ "count": 47,
+ "unmappedFilings": 7,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
@@ -382,22 +382,6 @@
    "form": "NT 10-K",
    "filed": "2026-10-27",
    "link": "https://www.sec.gov/Archives/edgar/data/1663038/000147793226006471/0001477932-26-006471-index.htm"
-  },
-  {
-   "ticker": "CBIH",
-   "company": "Cannabis Bioscience International Holdings, Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-16",
-   "link": "https://www.sec.gov/Archives/edgar/data/1411057/000168316826007933/0001683168-26-007933-index.htm"
-  },
-  {
-   "ticker": "HSTA",
-   "company": "Hestia Insight Inc.",
-   "exchange": "OTC",
-   "form": "NT 10-Q",
-   "filed": "2026-10-16",
-   "link": "https://www.sec.gov/Archives/edgar/data/1813603/000168316826007912/0001683168-26-007912-index.htm"
   }
  ]
 }
