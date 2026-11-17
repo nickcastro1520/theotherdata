@@ -2,8 +2,8 @@
  "version": 1,
  "issueId": "2026-W47",
  "weekOf": "Nov 16, 2026",
- "generatedAt": "2026-11-16T19:01:43.943Z",
- "dataUpdatedAt": "2026-11-16T18:41:26.340Z",
+ "generatedAt": "2026-11-17T03:09:59.076Z",
+ "dataUpdatedAt": "2026-11-17T02:59:28.691Z",
  "subject": "This week's strangest signals: Ozempic/Wegovy usage footprint, Developer chatter about Nvidia",
  "preheader": "Ozempic/Wegovy usage footprint for Novo Nordisk: −59% (11,819 → 4,820) vs the same period last year. Plus 4 more offbeat moves, explained in plain English.",
  "picks": [
@@ -38,8 +38,8 @@
    "company": "Nvidia",
    "id": "dev-chatter",
    "signal": "Developer chatter about Nvidia",
-   "change": "+120% (175 → 385)",
-   "pct": 120,
+   "change": "+126% (175 → 396)",
+   "pct": 126.3,
    "direction": "up",
    "basis": "vs the 4 weeks before",
    "reading": "tailwind",
@@ -47,7 +47,7 @@
    "plain": "Engineers are talking about Nvidia more than usual.",
    "what": "How often “nvidia” shows up in stories posted to Hacker News, the news board many software engineers read.",
    "why": "Engineers talk about the chips they want and can't get.",
-   "dataThrough": "Nov 16, 2026",
+   "dataThrough": "Nov 17, 2026",
    "source": {
     "name": "Hacker News (Algolia search API)",
     "url": "https://hn.algolia.com/?dateRange=pastMonth&query=nvidia&type=story"
