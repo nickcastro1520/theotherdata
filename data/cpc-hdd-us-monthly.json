@@ -1,0 +1,3236 @@
+{
+ "source": "NOAA Climate Prediction Center, Heating Degree Day Data Monthly Summary, population-weighted national (UNITED STATES) line: monthly total and departure from normal, as first published",
+ "sourceUrl": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/",
+ "fetched": "2026-11-19",
+ "note": "posted = server Last-Modified of the archive file (UTC). Where CPC's archive has two copies of a month, the earliest-posted copy is used and the other is kept in otherCopies.",
+ "points": [
+  {
+   "month": "1997-05",
+   "hdd": 209,
+   "devFromNormal": 59,
+   "normal": 150,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/may%2097.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-06",
+   "hdd": 55,
+   "devFromNormal": 19,
+   "normal": 36,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/jun%2097.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-07",
+   "hdd": 17,
+   "devFromNormal": 10,
+   "normal": 7,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/jul%2097.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-08",
+   "hdd": 25,
+   "devFromNormal": 12,
+   "normal": 13,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/aug%2097.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-09",
+   "hdd": 78,
+   "devFromNormal": 9,
+   "normal": 69,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/sep%2097.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-10",
+   "hdd": 294,
+   "devFromNormal": 23,
+   "normal": 271,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/Oct%201997.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-11",
+   "hdd": 589,
+   "devFromNormal": 61,
+   "normal": 528,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/nov%201997.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1997-12",
+   "hdd": 809,
+   "devFromNormal": -27,
+   "normal": 836,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1997/dec%201997.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-01",
+   "hdd": 754,
+   "devFromNormal": -194,
+   "normal": 948,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/jan%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-02",
+   "hdd": 616,
+   "devFromNormal": -152,
+   "normal": 768,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/feb%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-03",
+   "hdd": 605,
+   "devFromNormal": -6,
+   "normal": 611,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/mar%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-04",
+   "hdd": 336,
+   "devFromNormal": -3,
+   "normal": 339,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/april%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-05",
+   "hdd": 121,
+   "devFromNormal": -29,
+   "normal": 150,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/may%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-06",
+   "hdd": 58,
+   "devFromNormal": 22,
+   "normal": 36,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/jun%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-07",
+   "hdd": 9,
+   "devFromNormal": 2,
+   "normal": 7,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/jul%2098hdd.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-08",
+   "hdd": 9,
+   "devFromNormal": -4,
+   "normal": 13,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/aug%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-09",
+   "hdd": 50,
+   "devFromNormal": -19,
+   "normal": 69,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/sep%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-10",
+   "hdd": 250,
+   "devFromNormal": -21,
+   "normal": 271,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/oct%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-11",
+   "hdd": 484,
+   "devFromNormal": -44,
+   "normal": 528,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/nov%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1998-12",
+   "hdd": 734,
+   "devFromNormal": -102,
+   "normal": 836,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1998/dec%201998.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-01",
+   "hdd": 860,
+   "devFromNormal": -88,
+   "normal": 948,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/jan%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-02",
+   "hdd": 643,
+   "devFromNormal": -125,
+   "normal": 768,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/feb%2099.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-03",
+   "hdd": 641,
+   "devFromNormal": 30,
+   "normal": 611,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/mar%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-04",
+   "hdd": 338,
+   "devFromNormal": -1,
+   "normal": 339,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/apr%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-05",
+   "hdd": 151,
+   "devFromNormal": 1,
+   "normal": 150,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/may%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-06",
+   "hdd": 52,
+   "devFromNormal": 16,
+   "normal": 36,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/jun%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-07",
+   "hdd": 5,
+   "devFromNormal": -2,
+   "normal": 7,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/jul%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-08",
+   "hdd": 9,
+   "devFromNormal": -4,
+   "normal": 13,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/aug%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-09",
+   "hdd": 67,
+   "devFromNormal": -2,
+   "normal": 69,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/sep%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-10",
+   "hdd": 272,
+   "devFromNormal": 1,
+   "normal": 271,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/oct%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-11",
+   "hdd": 429,
+   "devFromNormal": -99,
+   "normal": 528,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/nov%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "1999-12",
+   "hdd": 755,
+   "devFromNormal": -81,
+   "normal": 836,
+   "posted": "2000-02-24T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/1999/dec,%201999.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-01",
+   "hdd": 880,
+   "devFromNormal": -68,
+   "normal": 948,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/jan%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-02",
+   "hdd": 652,
+   "devFromNormal": -140,
+   "normal": 792,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/feb%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-03",
+   "hdd": 493,
+   "devFromNormal": -118,
+   "normal": 611,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/mar%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-04",
+   "hdd": 345,
+   "devFromNormal": 6,
+   "normal": 339,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/apr%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-05",
+   "hdd": 121,
+   "devFromNormal": -29,
+   "normal": 150,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/may%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-06",
+   "hdd": 34,
+   "devFromNormal": -2,
+   "normal": 36,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/june%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-07",
+   "hdd": 5,
+   "devFromNormal": -2,
+   "normal": 7,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/july%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-08",
+   "hdd": 6,
+   "devFromNormal": -7,
+   "normal": 13,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/aug%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-09",
+   "hdd": 85,
+   "devFromNormal": 16,
+   "normal": 69,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/sep%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-10",
+   "hdd": 246,
+   "devFromNormal": -25,
+   "normal": 271,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/oct%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-11",
+   "hdd": 611,
+   "devFromNormal": 83,
+   "normal": 528,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/nov%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2000-12",
+   "hdd": 999,
+   "devFromNormal": 163,
+   "normal": 836,
+   "posted": "2001-02-20T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2000/dec%202000.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-01",
+   "hdd": 915,
+   "devFromNormal": -33,
+   "normal": 948,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/jan%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-02",
+   "hdd": 721,
+   "devFromNormal": -47,
+   "normal": 768,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/feb%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-03",
+   "hdd": 658,
+   "devFromNormal": 47,
+   "normal": 611,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/mar%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-04",
+   "hdd": 310,
+   "devFromNormal": -29,
+   "normal": 339,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/apr%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-05",
+   "hdd": 113,
+   "devFromNormal": -37,
+   "normal": 150,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/may%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-06",
+   "hdd": 29,
+   "devFromNormal": -7,
+   "normal": 36,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/jun%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-07",
+   "hdd": 6,
+   "devFromNormal": -1,
+   "normal": 7,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/jul%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-08",
+   "hdd": 4,
+   "devFromNormal": -9,
+   "normal": 13,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/aug%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-09",
+   "hdd": 76,
+   "devFromNormal": 7,
+   "normal": 69,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/sep%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-10",
+   "hdd": 264,
+   "devFromNormal": -7,
+   "normal": 271,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/oct,%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-11",
+   "hdd": 402,
+   "devFromNormal": -126,
+   "normal": 528,
+   "posted": "2001-12-10T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/nov%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2001-12",
+   "hdd": 700,
+   "devFromNormal": -136,
+   "normal": 836,
+   "posted": "2002-01-22T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2001/dec%202001.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-01",
+   "hdd": 770,
+   "devFromNormal": -178,
+   "normal": 948,
+   "posted": "2002-03-06T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/jan%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-02",
+   "hdd": 674,
+   "devFromNormal": -94,
+   "normal": 768,
+   "posted": "2002-03-06T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/feb%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-03",
+   "hdd": 623,
+   "devFromNormal": 12,
+   "normal": 611,
+   "posted": "2002-05-23T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/mar%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-04",
+   "hdd": 308,
+   "devFromNormal": -31,
+   "normal": 339,
+   "posted": "2002-05-23T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/apr%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-05",
+   "hdd": 190,
+   "devFromNormal": 40,
+   "normal": 150,
+   "posted": "2002-06-04T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/may%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-06",
+   "hdd": 23,
+   "devFromNormal": -13,
+   "normal": 36,
+   "posted": "2002-07-15T04:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/june%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-07",
+   "hdd": 2,
+   "devFromNormal": -7,
+   "normal": 9,
+   "posted": "2003-12-16T14:52Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/jul%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-08",
+   "hdd": 6,
+   "devFromNormal": -9,
+   "normal": 15,
+   "posted": "2003-12-16T14:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/aug%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-09",
+   "hdd": 38,
+   "devFromNormal": -39,
+   "normal": 77,
+   "posted": "2003-12-11T19:19Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/sep%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-10",
+   "hdd": 311,
+   "devFromNormal": 29,
+   "normal": 282,
+   "posted": "2003-12-11T19:21Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/oct%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-11",
+   "hdd": 552,
+   "devFromNormal": 13,
+   "normal": 539,
+   "posted": "2003-12-11T19:15Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/nov%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2002-12",
+   "hdd": 794,
+   "devFromNormal": -23,
+   "normal": 817,
+   "posted": "2003-12-16T14:49Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2002/dec%202002.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-01",
+   "hdd": 939,
+   "devFromNormal": 22,
+   "normal": 917,
+   "posted": "2003-12-16T14:58Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/jan%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-02",
+   "hdd": 794,
+   "devFromNormal": 62,
+   "normal": 732,
+   "posted": "2003-12-16T14:59Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/feb%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-03",
+   "hdd": 564,
+   "devFromNormal": -29,
+   "normal": 593,
+   "posted": "2003-12-16T15:02Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/mar%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-04",
+   "hdd": 351,
+   "devFromNormal": 6,
+   "normal": 345,
+   "posted": "2003-12-16T15:09Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/apr%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-05",
+   "hdd": 162,
+   "devFromNormal": 3,
+   "normal": 159,
+   "posted": "2003-12-16T15:12Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/may%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-06",
+   "hdd": 39,
+   "devFromNormal": 0,
+   "normal": 39,
+   "posted": "2003-12-16T15:14Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/jun%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-07",
+   "hdd": 2,
+   "devFromNormal": -7,
+   "normal": 9,
+   "posted": "2003-12-16T15:17Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/jul%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-08",
+   "hdd": 2,
+   "devFromNormal": -13,
+   "normal": 15,
+   "posted": "2003-12-16T15:21Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/aug%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-09",
+   "hdd": 59,
+   "devFromNormal": -18,
+   "normal": 77,
+   "posted": "2003-12-16T15:23Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/sep%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-10",
+   "hdd": 252,
+   "devFromNormal": -30,
+   "normal": 282,
+   "posted": "2003-11-30T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/oct%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-11",
+   "hdd": 477,
+   "devFromNormal": -62,
+   "normal": 539,
+   "posted": "2003-12-28T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/nov%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2003-12",
+   "hdd": 773,
+   "devFromNormal": -44,
+   "normal": 817,
+   "posted": "2004-01-25T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/dec%202003.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-01",
+   "hdd": 957,
+   "devFromNormal": 40,
+   "normal": 917,
+   "posted": "2004-02-01T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2003/jan%202004.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/jan%202004.txt",
+     "posted": "29-Feb-2004 22:55",
+     "hdd": 957,
+     "dev": 40
+    }
+   ]
+  },
+  {
+   "month": "2004-02",
+   "hdd": 769,
+   "devFromNormal": 14,
+   "normal": 755,
+   "posted": "2004-03-28T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/feb%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-03",
+   "hdd": 487,
+   "devFromNormal": -106,
+   "normal": 593,
+   "posted": "2004-04-25T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/mar%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-04",
+   "hdd": 302,
+   "devFromNormal": -43,
+   "normal": 345,
+   "posted": "2004-05-30T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/apr%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-05",
+   "hdd": 105,
+   "devFromNormal": -54,
+   "normal": 159,
+   "posted": "2004-06-27T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/may%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-06",
+   "hdd": 28,
+   "devFromNormal": -11,
+   "normal": 39,
+   "posted": "2004-07-25T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/jun%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-07",
+   "hdd": 5,
+   "devFromNormal": -4,
+   "normal": 9,
+   "posted": "2004-08-29T21:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/jul%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-08",
+   "hdd": 16,
+   "devFromNormal": 1,
+   "normal": 15,
+   "posted": "2004-09-26T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/aug%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-09",
+   "hdd": 42,
+   "devFromNormal": -35,
+   "normal": 77,
+   "posted": "2004-10-31T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/sep%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-10",
+   "hdd": 241,
+   "devFromNormal": -41,
+   "normal": 282,
+   "posted": "2004-11-28T22:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/oct%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-11",
+   "hdd": 484,
+   "devFromNormal": -55,
+   "normal": 539,
+   "posted": "2004-12-26T22:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/nov%202004.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2004-12",
+   "hdd": 788,
+   "devFromNormal": -29,
+   "normal": 817,
+   "posted": "2005-01-09T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2004/dec%202004.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/dec%202004.txt",
+     "posted": "30-Jan-2005 22:54",
+     "hdd": 788,
+     "dev": -29
+    }
+   ]
+  },
+  {
+   "month": "2005-01",
+   "hdd": 851,
+   "devFromNormal": -66,
+   "normal": 917,
+   "posted": "2005-02-27T22:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/jan%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-02",
+   "hdd": 661,
+   "devFromNormal": -71,
+   "normal": 732,
+   "posted": "2005-03-27T22:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/feb%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-03",
+   "hdd": 629,
+   "devFromNormal": 36,
+   "normal": 593,
+   "posted": "2005-04-24T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/mar%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-04",
+   "hdd": 304,
+   "devFromNormal": -41,
+   "normal": 345,
+   "posted": "2005-05-29T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/apr%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-05",
+   "hdd": 173,
+   "devFromNormal": 14,
+   "normal": 159,
+   "posted": "2005-06-26T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/may%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-06",
+   "hdd": 21,
+   "devFromNormal": -18,
+   "normal": 39,
+   "posted": "2005-07-31T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/jun%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2005-08-28T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/jul%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-08",
+   "hdd": 4,
+   "devFromNormal": -11,
+   "normal": 15,
+   "posted": "2005-09-25T21:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/aug%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-09",
+   "hdd": 32,
+   "devFromNormal": -45,
+   "normal": 77,
+   "posted": "2005-10-30T22:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/sep%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-10",
+   "hdd": 241,
+   "devFromNormal": -41,
+   "normal": 282,
+   "posted": "2005-11-27T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/oct%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-11",
+   "hdd": 466,
+   "devFromNormal": -73,
+   "normal": 539,
+   "posted": "2005-12-25T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/nov%202005.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2005-12",
+   "hdd": 844,
+   "devFromNormal": 27,
+   "normal": 817,
+   "posted": "2006-01-22T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2005/dec%202005.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/dec%202005.txt",
+     "posted": "29-Jan-2006 22:55",
+     "hdd": 844,
+     "dev": 27
+    }
+   ]
+  },
+  {
+   "month": "2006-01",
+   "hdd": 662,
+   "devFromNormal": -255,
+   "normal": 917,
+   "posted": "2006-02-26T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/jan%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-02",
+   "hdd": 714,
+   "devFromNormal": -18,
+   "normal": 732,
+   "posted": "2006-03-26T22:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/feb%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-03",
+   "hdd": 580,
+   "devFromNormal": -13,
+   "normal": 593,
+   "posted": "2006-04-30T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/mar%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-04",
+   "hdd": 262,
+   "devFromNormal": -83,
+   "normal": 345,
+   "posted": "2006-06-01T13:59Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/apr%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-05",
+   "hdd": 134,
+   "devFromNormal": -25,
+   "normal": 159,
+   "posted": "2006-06-25T21:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/may%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-06",
+   "hdd": 19,
+   "devFromNormal": -20,
+   "normal": 39,
+   "posted": "2006-07-31T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/jun%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2006-10-23T14:18Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/jul%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-08",
+   "hdd": 8,
+   "devFromNormal": -7,
+   "normal": 15,
+   "posted": "2006-10-23T14:21Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/aug%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-09",
+   "hdd": 84,
+   "devFromNormal": 7,
+   "normal": 77,
+   "posted": "2006-10-23T14:10Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/sep%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-10",
+   "hdd": 307,
+   "devFromNormal": 25,
+   "normal": 282,
+   "posted": "2006-11-27T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/oct%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-11",
+   "hdd": 469,
+   "devFromNormal": -70,
+   "normal": 539,
+   "posted": "2007-01-01T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/nov%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2006-12",
+   "hdd": 683,
+   "devFromNormal": -134,
+   "normal": 817,
+   "posted": "2007-01-29T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/dec%202006.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-01",
+   "hdd": 835,
+   "devFromNormal": -82,
+   "normal": 917,
+   "posted": "2007-02-05T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2006/jan%202007.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/jan%202007.txt",
+     "posted": "05-Feb-2007 20:03",
+     "hdd": 835,
+     "dev": -82
+    }
+   ]
+  },
+  {
+   "month": "2007-02",
+   "hdd": 847,
+   "devFromNormal": 115,
+   "normal": 732,
+   "posted": "2007-04-02T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/feb%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-03",
+   "hdd": 500,
+   "devFromNormal": -93,
+   "normal": 593,
+   "posted": "2007-04-30T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/mar%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-04",
+   "hdd": 382,
+   "devFromNormal": 37,
+   "normal": 345,
+   "posted": "2007-05-29T12:38Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/apr%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-05",
+   "hdd": 107,
+   "devFromNormal": -52,
+   "normal": 159,
+   "posted": "2007-07-02T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/may%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-06",
+   "hdd": 27,
+   "devFromNormal": -12,
+   "normal": 39,
+   "posted": "2007-07-30T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/jun%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-07",
+   "hdd": 7,
+   "devFromNormal": -2,
+   "normal": 9,
+   "posted": "2007-08-27T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/jul%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-08",
+   "hdd": 10,
+   "devFromNormal": -5,
+   "normal": 15,
+   "posted": "2007-10-01T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/aug%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-09",
+   "hdd": 54,
+   "devFromNormal": -23,
+   "normal": 77,
+   "posted": "2007-10-29T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/sep%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-10",
+   "hdd": 191,
+   "devFromNormal": -91,
+   "normal": 282,
+   "posted": "2007-11-26T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/oct%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-11",
+   "hdd": 521,
+   "devFromNormal": -18,
+   "normal": 539,
+   "posted": "2007-12-31T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/nov%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2007-12",
+   "hdd": 790,
+   "devFromNormal": -27,
+   "normal": 817,
+   "posted": "2008-01-28T04:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/dec%202007.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-01",
+   "hdd": 883,
+   "devFromNormal": -34,
+   "normal": 917,
+   "posted": "2008-05-19T16:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Jan%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-02",
+   "hdd": 753,
+   "devFromNormal": -2,
+   "normal": 755,
+   "posted": "2008-03-31T03:54Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/feb%202008.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Feb%202008.txt",
+     "posted": "19-May-2008 16:49",
+     "hdd": 763,
+     "dev": 8
+    }
+   ]
+  },
+  {
+   "month": "2008-03",
+   "hdd": 595,
+   "devFromNormal": 2,
+   "normal": 593,
+   "posted": "2008-04-21T11:03Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2007/mar%202008.txt",
+   "otherCopies": [
+    {
+     "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Mar%202008.txt",
+     "posted": "19-May-2008 16:54",
+     "hdd": 600,
+     "dev": 7
+    }
+   ]
+  },
+  {
+   "month": "2008-04",
+   "hdd": 338,
+   "devFromNormal": -7,
+   "normal": 345,
+   "posted": "2008-05-19T16:56Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Apr%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-05",
+   "hdd": 176,
+   "devFromNormal": 17,
+   "normal": 159,
+   "posted": "2008-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/May%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-06",
+   "hdd": 26,
+   "devFromNormal": -13,
+   "normal": 39,
+   "posted": "2008-07-03T11:36Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Jun%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-07",
+   "hdd": 5,
+   "devFromNormal": -4,
+   "normal": 9,
+   "posted": "2008-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Jul%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-08",
+   "hdd": 13,
+   "devFromNormal": -2,
+   "normal": 15,
+   "posted": "2008-11-14T17:48Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Aug%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-09",
+   "hdd": 59,
+   "devFromNormal": -18,
+   "normal": 77,
+   "posted": "2008-11-14T18:00Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Sep%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-10",
+   "hdd": 286,
+   "devFromNormal": 4,
+   "normal": 282,
+   "posted": "2008-11-14T18:05Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Oct%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-11",
+   "hdd": 537,
+   "devFromNormal": -2,
+   "normal": 539,
+   "posted": "2008-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Nov%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2008-12",
+   "hdd": 824,
+   "devFromNormal": 7,
+   "normal": 817,
+   "posted": "2009-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2008/Dec%202008.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-01",
+   "hdd": 953,
+   "devFromNormal": 36,
+   "normal": 917,
+   "posted": "2009-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Jan%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-02",
+   "hdd": 701,
+   "devFromNormal": -31,
+   "normal": 732,
+   "posted": "2009-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Feb%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-03",
+   "hdd": 582,
+   "devFromNormal": -11,
+   "normal": 593,
+   "posted": "2009-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Mar%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-04",
+   "hdd": 346,
+   "devFromNormal": 1,
+   "normal": 345,
+   "posted": "2009-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Apr%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-05",
+   "hdd": 126,
+   "devFromNormal": -33,
+   "normal": 159,
+   "posted": "2009-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/May%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-06",
+   "hdd": 43,
+   "devFromNormal": 4,
+   "normal": 39,
+   "posted": "2009-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Jun%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-07",
+   "hdd": 15,
+   "devFromNormal": 6,
+   "normal": 9,
+   "posted": "2009-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Jul%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-08",
+   "hdd": 16,
+   "devFromNormal": 1,
+   "normal": 15,
+   "posted": "2009-11-06T18:33Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Aug%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-09",
+   "hdd": 62,
+   "devFromNormal": -15,
+   "normal": 77,
+   "posted": "2010-07-30T19:03Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Sep%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-10",
+   "hdd": 331,
+   "devFromNormal": 49,
+   "normal": 282,
+   "posted": "2009-11-06T18:39Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Oct%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-11",
+   "hdd": 442,
+   "devFromNormal": -97,
+   "normal": 539,
+   "posted": "2009-12-02T20:57Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Nov%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2009-12",
+   "hdd": 867,
+   "devFromNormal": 50,
+   "normal": 817,
+   "posted": "2010-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2009/Dec%202009.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-01",
+   "hdd": 931,
+   "devFromNormal": 14,
+   "normal": 917,
+   "posted": "2010-02-02T20:52Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Jan%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-02",
+   "hdd": 810,
+   "devFromNormal": 78,
+   "normal": 732,
+   "posted": "2010-03-04T16:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Feb%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-03",
+   "hdd": 541,
+   "devFromNormal": -52,
+   "normal": 593,
+   "posted": "2010-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Mar%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-04",
+   "hdd": 271,
+   "devFromNormal": -74,
+   "normal": 345,
+   "posted": "2010-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Apr%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-05",
+   "hdd": 141,
+   "devFromNormal": -18,
+   "normal": 159,
+   "posted": "2010-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/May%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-06",
+   "hdd": 24,
+   "devFromNormal": -15,
+   "normal": 39,
+   "posted": "2010-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Jun%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-07",
+   "hdd": 5,
+   "devFromNormal": -4,
+   "normal": 9,
+   "posted": "2010-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Jul%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-08",
+   "hdd": 7,
+   "devFromNormal": -8,
+   "normal": 15,
+   "posted": "2010-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Aug%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-09",
+   "hdd": 56,
+   "devFromNormal": -21,
+   "normal": 77,
+   "posted": "2010-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Sep%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-10",
+   "hdd": 238,
+   "devFromNormal": -44,
+   "normal": 282,
+   "posted": "2010-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Oct%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-11",
+   "hdd": 523,
+   "devFromNormal": -16,
+   "normal": 539,
+   "posted": "2010-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Nov%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2010-12",
+   "hdd": 898,
+   "devFromNormal": 81,
+   "normal": 817,
+   "posted": "2011-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2010/Dec%202010.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-01",
+   "hdd": 956,
+   "devFromNormal": 39,
+   "normal": 917,
+   "posted": "2011-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Jan%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-02",
+   "hdd": 743,
+   "devFromNormal": 11,
+   "normal": 732,
+   "posted": "2011-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Feb%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-03",
+   "hdd": 586,
+   "devFromNormal": -7,
+   "normal": 593,
+   "posted": "2011-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Mar%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-04",
+   "hdd": 316,
+   "devFromNormal": -29,
+   "normal": 345,
+   "posted": "2011-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Apr%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-05",
+   "hdd": 166,
+   "devFromNormal": 7,
+   "normal": 159,
+   "posted": "2011-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/May%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-06",
+   "hdd": 35,
+   "devFromNormal": -4,
+   "normal": 39,
+   "posted": "2011-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Jun%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2011-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Jul%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-08",
+   "hdd": 6,
+   "devFromNormal": -9,
+   "normal": 15,
+   "posted": "2011-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Aug%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-09",
+   "hdd": 67,
+   "devFromNormal": -10,
+   "normal": 77,
+   "posted": "2011-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Sep%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-10",
+   "hdd": 259,
+   "devFromNormal": -23,
+   "normal": 282,
+   "posted": "2011-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Oct%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-11",
+   "hdd": 469,
+   "devFromNormal": -70,
+   "normal": 539,
+   "posted": "2011-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Nov%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2011-12",
+   "hdd": 713,
+   "devFromNormal": -104,
+   "normal": 817,
+   "posted": "2012-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2011/Dec%202011.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-01",
+   "hdd": 751,
+   "devFromNormal": -166,
+   "normal": 917,
+   "posted": "2012-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Jan%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-02",
+   "hdd": 654,
+   "devFromNormal": -101,
+   "normal": 755,
+   "posted": "2012-03-05T14:11Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Feb%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-03",
+   "hdd": 377,
+   "devFromNormal": -216,
+   "normal": 593,
+   "posted": "2012-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Mar%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-04",
+   "hdd": 300,
+   "devFromNormal": -45,
+   "normal": 345,
+   "posted": "2012-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Apr%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-05",
+   "hdd": 90,
+   "devFromNormal": -69,
+   "normal": 159,
+   "posted": "2012-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/May%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-06",
+   "hdd": 33,
+   "devFromNormal": -6,
+   "normal": 39,
+   "posted": "2012-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Jun%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-07",
+   "hdd": 2,
+   "devFromNormal": -7,
+   "normal": 9,
+   "posted": "2012-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Jul%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-08",
+   "hdd": 8,
+   "devFromNormal": -7,
+   "normal": 15,
+   "posted": "2012-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Aug%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-09",
+   "hdd": 72,
+   "devFromNormal": -5,
+   "normal": 77,
+   "posted": "2012-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Sep%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-10",
+   "hdd": 270,
+   "devFromNormal": -12,
+   "normal": 282,
+   "posted": "2012-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Oct%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-11",
+   "hdd": 540,
+   "devFromNormal": 1,
+   "normal": 539,
+   "posted": "2012-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Nov%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2012-12",
+   "hdd": 695,
+   "devFromNormal": -122,
+   "normal": 817,
+   "posted": "2013-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2012/Dec%202012.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-01",
+   "hdd": 827,
+   "devFromNormal": -90,
+   "normal": 917,
+   "posted": "2013-02-02T20:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Jan%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-02",
+   "hdd": 740,
+   "devFromNormal": 8,
+   "normal": 732,
+   "posted": "2013-03-02T20:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Feb%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-03",
+   "hdd": 660,
+   "devFromNormal": 67,
+   "normal": 593,
+   "posted": "2013-04-02T20:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Mar%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-04",
+   "hdd": 358,
+   "devFromNormal": 13,
+   "normal": 345,
+   "posted": "2013-05-02T20:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Apr%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-05",
+   "hdd": 141,
+   "devFromNormal": -18,
+   "normal": 159,
+   "posted": "2013-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/May%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-06",
+   "hdd": 27,
+   "devFromNormal": -12,
+   "normal": 39,
+   "posted": "2013-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Jun%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-07",
+   "hdd": 8,
+   "devFromNormal": -1,
+   "normal": 9,
+   "posted": "2013-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Jul%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-08",
+   "hdd": 10,
+   "devFromNormal": -5,
+   "normal": 15,
+   "posted": "2013-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Aug%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-09",
+   "hdd": 68,
+   "devFromNormal": -9,
+   "normal": 77,
+   "posted": "2013-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Sep%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-10",
+   "hdd": 257,
+   "devFromNormal": -25,
+   "normal": 282,
+   "posted": "2013-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Oct%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-11",
+   "hdd": 570,
+   "devFromNormal": 31,
+   "normal": 539,
+   "posted": "2013-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Nov%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2013-12",
+   "hdd": 830,
+   "devFromNormal": 13,
+   "normal": 817,
+   "posted": "2014-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2013/Dec%202013.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-01",
+   "hdd": 970,
+   "devFromNormal": 53,
+   "normal": 917,
+   "posted": "2014-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Jan%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-02",
+   "hdd": 812,
+   "devFromNormal": 80,
+   "normal": 732,
+   "posted": "2014-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Feb%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-03",
+   "hdd": 683,
+   "devFromNormal": 90,
+   "normal": 593,
+   "posted": "2014-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Mar%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-04",
+   "hdd": 332,
+   "devFromNormal": -13,
+   "normal": 345,
+   "posted": "2014-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Apr%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-05",
+   "hdd": 128,
+   "devFromNormal": -31,
+   "normal": 159,
+   "posted": "2014-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/May%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-06",
+   "hdd": 21,
+   "devFromNormal": -18,
+   "normal": 39,
+   "posted": "2014-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Jun%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-07",
+   "hdd": 12,
+   "devFromNormal": 3,
+   "normal": 9,
+   "posted": "2014-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Jul%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-08",
+   "hdd": 8,
+   "devFromNormal": -7,
+   "normal": 15,
+   "posted": "2014-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Aug%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-09",
+   "hdd": 66,
+   "devFromNormal": -11,
+   "normal": 77,
+   "posted": "2014-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Sep%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-10",
+   "hdd": 221,
+   "devFromNormal": -61,
+   "normal": 282,
+   "posted": "2014-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Oct%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-11",
+   "hdd": 611,
+   "devFromNormal": 72,
+   "normal": 539,
+   "posted": "2014-12-09T20:14Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Nov%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2014-12",
+   "hdd": 708,
+   "devFromNormal": -109,
+   "normal": 817,
+   "posted": "2015-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2014/Dec%202014.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-01",
+   "hdd": 895,
+   "devFromNormal": -22,
+   "normal": 917,
+   "posted": "2015-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Jan%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-02",
+   "hdd": 883,
+   "devFromNormal": 151,
+   "normal": 732,
+   "posted": "2015-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Feb%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-03",
+   "hdd": 588,
+   "devFromNormal": -5,
+   "normal": 593,
+   "posted": "2015-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Mar%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-04",
+   "hdd": 302,
+   "devFromNormal": -43,
+   "normal": 345,
+   "posted": "2015-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Apr%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-05",
+   "hdd": 116,
+   "devFromNormal": -43,
+   "normal": 159,
+   "posted": "2015-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/May%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-06",
+   "hdd": 27,
+   "devFromNormal": -12,
+   "normal": 39,
+   "posted": "2015-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Jun%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-07",
+   "hdd": 6,
+   "devFromNormal": -3,
+   "normal": 9,
+   "posted": "2015-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Jul%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-08",
+   "hdd": 11,
+   "devFromNormal": -4,
+   "normal": 15,
+   "posted": "2015-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Aug%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-09",
+   "hdd": 37,
+   "devFromNormal": -40,
+   "normal": 77,
+   "posted": "2015-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Sep%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-10",
+   "hdd": 228,
+   "devFromNormal": -54,
+   "normal": 282,
+   "posted": "2015-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Oct%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-11",
+   "hdd": 442,
+   "devFromNormal": -97,
+   "normal": 539,
+   "posted": "2015-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Nov%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2015-12",
+   "hdd": 576,
+   "devFromNormal": -241,
+   "normal": 817,
+   "posted": "2016-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2015/Dec%202015.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-01",
+   "hdd": 870,
+   "devFromNormal": -47,
+   "normal": 917,
+   "posted": "2016-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Jan%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-02",
+   "hdd": 659,
+   "devFromNormal": -96,
+   "normal": 755,
+   "posted": "2016-03-03T16:40Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Feb%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-03",
+   "hdd": 450,
+   "devFromNormal": -143,
+   "normal": 593,
+   "posted": "2016-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Mar%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-04",
+   "hdd": 317,
+   "devFromNormal": -28,
+   "normal": 345,
+   "posted": "2016-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Apr%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-05",
+   "hdd": 154,
+   "devFromNormal": -5,
+   "normal": 159,
+   "posted": "2016-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/May%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-06",
+   "hdd": 19,
+   "devFromNormal": -20,
+   "normal": 39,
+   "posted": "2016-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Jun%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-07",
+   "hdd": 5,
+   "devFromNormal": -4,
+   "normal": 9,
+   "posted": "2016-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Jul%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-08",
+   "hdd": 3,
+   "devFromNormal": -12,
+   "normal": 15,
+   "posted": "2016-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Aug%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-09",
+   "hdd": 27,
+   "devFromNormal": -50,
+   "normal": 77,
+   "posted": "2016-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Sep%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-10",
+   "hdd": 168,
+   "devFromNormal": -114,
+   "normal": 282,
+   "posted": "2016-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Oct%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-11",
+   "hdd": 418,
+   "devFromNormal": -121,
+   "normal": 539,
+   "posted": "2016-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Nov%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2016-12",
+   "hdd": 785,
+   "devFromNormal": -32,
+   "normal": 817,
+   "posted": "2017-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2016/Dec%202016.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-01",
+   "hdd": 766,
+   "devFromNormal": -151,
+   "normal": 917,
+   "posted": "2017-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Jan%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-02",
+   "hdd": 549,
+   "devFromNormal": -183,
+   "normal": 732,
+   "posted": "2017-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Feb%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-03",
+   "hdd": 556,
+   "devFromNormal": -37,
+   "normal": 593,
+   "posted": "2017-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Mar%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-04",
+   "hdd": 249,
+   "devFromNormal": -96,
+   "normal": 345,
+   "posted": "2017-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Apr%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-05",
+   "hdd": 157,
+   "devFromNormal": -2,
+   "normal": 159,
+   "posted": "2017-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/May%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-06",
+   "hdd": 29,
+   "devFromNormal": -10,
+   "normal": 39,
+   "posted": "2017-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Jun%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2017-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Jul%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-08",
+   "hdd": 14,
+   "devFromNormal": -1,
+   "normal": 15,
+   "posted": "2017-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Aug%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-09",
+   "hdd": 57,
+   "devFromNormal": -20,
+   "normal": 77,
+   "posted": "2017-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Sep%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-10",
+   "hdd": 204,
+   "devFromNormal": -78,
+   "normal": 282,
+   "posted": "2017-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Oct%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-11",
+   "hdd": 488,
+   "devFromNormal": -51,
+   "normal": 539,
+   "posted": "2017-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Nov%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2017-12",
+   "hdd": 809,
+   "devFromNormal": -8,
+   "normal": 817,
+   "posted": "2018-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2017/Dec%202017.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-01",
+   "hdd": 898,
+   "devFromNormal": -19,
+   "normal": 917,
+   "posted": "2018-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Jan%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-02",
+   "hdd": 627,
+   "devFromNormal": -105,
+   "normal": 732,
+   "posted": "2018-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Feb%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-03",
+   "hdd": 609,
+   "devFromNormal": 16,
+   "normal": 593,
+   "posted": "2018-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Mar%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-04",
+   "hdd": 430,
+   "devFromNormal": 85,
+   "normal": 345,
+   "posted": "2018-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Apr%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-05",
+   "hdd": 95,
+   "devFromNormal": -64,
+   "normal": 159,
+   "posted": "2018-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/May%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-06",
+   "hdd": 22,
+   "devFromNormal": -17,
+   "normal": 39,
+   "posted": "2018-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Jun%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2018-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Jul%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-08",
+   "hdd": 5,
+   "devFromNormal": -10,
+   "normal": 15,
+   "posted": "2018-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Aug%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-09",
+   "hdd": 46,
+   "devFromNormal": -31,
+   "normal": 77,
+   "posted": "2018-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Sep%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-10",
+   "hdd": 271,
+   "devFromNormal": -11,
+   "normal": 282,
+   "posted": "2018-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Oct%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-11",
+   "hdd": 598,
+   "devFromNormal": 59,
+   "normal": 539,
+   "posted": "2018-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Nov%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2018-12",
+   "hdd": 728,
+   "devFromNormal": -89,
+   "normal": 817,
+   "posted": "2019-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2018/Dec%202018.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-01",
+   "hdd": 867,
+   "devFromNormal": -50,
+   "normal": 917,
+   "posted": "2019-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Jan%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-02",
+   "hdd": 726,
+   "devFromNormal": -6,
+   "normal": 732,
+   "posted": "2019-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Feb%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-03",
+   "hdd": 642,
+   "devFromNormal": 49,
+   "normal": 593,
+   "posted": "2019-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Mar%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-04",
+   "hdd": 293,
+   "devFromNormal": -52,
+   "normal": 345,
+   "posted": "2019-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Apr%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-05",
+   "hdd": 153,
+   "devFromNormal": -6,
+   "normal": 159,
+   "posted": "2019-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/May%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-06",
+   "hdd": 30,
+   "devFromNormal": -9,
+   "normal": 39,
+   "posted": "2019-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Jun%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2019-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Jul%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-08",
+   "hdd": 8,
+   "devFromNormal": -7,
+   "normal": 15,
+   "posted": "2019-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Aug%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-09",
+   "hdd": 36,
+   "devFromNormal": -41,
+   "normal": 77,
+   "posted": "2019-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Sep%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-10",
+   "hdd": 262,
+   "devFromNormal": -20,
+   "normal": 282,
+   "posted": "2019-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Oct%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-11",
+   "hdd": 591,
+   "devFromNormal": 52,
+   "normal": 539,
+   "posted": "2019-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Nov%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2019-12",
+   "hdd": 716,
+   "devFromNormal": -101,
+   "normal": 817,
+   "posted": "2020-01-14T17:10Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2019/Dec%202019.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-01",
+   "hdd": 741,
+   "devFromNormal": -176,
+   "normal": 917,
+   "posted": "2020-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Jan%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-02",
+   "hdd": 689,
+   "devFromNormal": -66,
+   "normal": 755,
+   "posted": "2020-03-03T17:33Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Feb%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-03",
+   "hdd": 495,
+   "devFromNormal": -98,
+   "normal": 593,
+   "posted": "2020-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Mar%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-04",
+   "hdd": 372,
+   "devFromNormal": 27,
+   "normal": 345,
+   "posted": "2020-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Apr%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-05",
+   "hdd": 170,
+   "devFromNormal": 11,
+   "normal": 159,
+   "posted": "2020-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/May%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-06",
+   "hdd": 26,
+   "devFromNormal": -13,
+   "normal": 39,
+   "posted": "2020-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Jun%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2020-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Jul%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-08",
+   "hdd": 7,
+   "devFromNormal": -8,
+   "normal": 15,
+   "posted": "2020-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Aug%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-09",
+   "hdd": 70,
+   "devFromNormal": -7,
+   "normal": 77,
+   "posted": "2020-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Sep%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-10",
+   "hdd": 259,
+   "devFromNormal": -23,
+   "normal": 282,
+   "posted": "2020-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Oct%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-11",
+   "hdd": 423,
+   "devFromNormal": -116,
+   "normal": 539,
+   "posted": "2020-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Nov%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2020-12",
+   "hdd": 753,
+   "devFromNormal": -64,
+   "normal": 817,
+   "posted": "2021-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2020/Dec%202020.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-01",
+   "hdd": 812,
+   "devFromNormal": -105,
+   "normal": 917,
+   "posted": "2021-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Jan%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-02",
+   "hdd": 811,
+   "devFromNormal": 79,
+   "normal": 732,
+   "posted": "2021-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Feb%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-03",
+   "hdd": 518,
+   "devFromNormal": -75,
+   "normal": 593,
+   "posted": "2021-04-02T20:50Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Mar%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-04",
+   "hdd": 321,
+   "devFromNormal": -24,
+   "normal": 345,
+   "posted": "2021-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Apr%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-05",
+   "hdd": 161,
+   "devFromNormal": 2,
+   "normal": 159,
+   "posted": "2021-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/May%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-06",
+   "hdd": 19,
+   "devFromNormal": -20,
+   "normal": 39,
+   "posted": "2021-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Jun%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2021-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Jul%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-08",
+   "hdd": 6,
+   "devFromNormal": -9,
+   "normal": 15,
+   "posted": "2021-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Aug%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-09",
+   "hdd": 39,
+   "devFromNormal": -38,
+   "normal": 77,
+   "posted": "2021-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Sep%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-10",
+   "hdd": 186,
+   "devFromNormal": -96,
+   "normal": 282,
+   "posted": "2021-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Oct%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-11",
+   "hdd": 511,
+   "devFromNormal": -28,
+   "normal": 539,
+   "posted": "2021-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Nov%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2021-12",
+   "hdd": 624,
+   "devFromNormal": -193,
+   "normal": 817,
+   "posted": "2022-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2021/Dec%202021.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-01",
+   "hdd": 927,
+   "devFromNormal": 10,
+   "normal": 917,
+   "posted": "2022-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Jan%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-02",
+   "hdd": 726,
+   "devFromNormal": -6,
+   "normal": 732,
+   "posted": "2022-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Feb%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-03",
+   "hdd": 539,
+   "devFromNormal": -54,
+   "normal": 593,
+   "posted": "2022-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Mar%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-04",
+   "hdd": 357,
+   "devFromNormal": 12,
+   "normal": 345,
+   "posted": "2022-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Apr%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-05",
+   "hdd": 127,
+   "devFromNormal": -32,
+   "normal": 159,
+   "posted": "2022-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/May%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-06",
+   "hdd": 27,
+   "devFromNormal": -12,
+   "normal": 39,
+   "posted": "2022-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Jun%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2022-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Jul%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-08",
+   "hdd": 4,
+   "devFromNormal": -11,
+   "normal": 15,
+   "posted": "2022-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Aug%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-09",
+   "hdd": 59,
+   "devFromNormal": -18,
+   "normal": 77,
+   "posted": "2022-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Sep%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-10",
+   "hdd": 272,
+   "devFromNormal": -10,
+   "normal": 282,
+   "posted": "2022-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Oct%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-11",
+   "hdd": 537,
+   "devFromNormal": -2,
+   "normal": 539,
+   "posted": "2022-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Nov%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2022-12",
+   "hdd": 814,
+   "devFromNormal": -3,
+   "normal": 817,
+   "posted": "2023-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2022/Dec%202022.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-01",
+   "hdd": 742,
+   "devFromNormal": -175,
+   "normal": 917,
+   "posted": "2023-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Jan%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-02",
+   "hdd": 649,
+   "devFromNormal": -83,
+   "normal": 732,
+   "posted": "2023-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Feb%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-03",
+   "hdd": 617,
+   "devFromNormal": 24,
+   "normal": 593,
+   "posted": "2023-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Mar%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-04",
+   "hdd": 320,
+   "devFromNormal": -25,
+   "normal": 345,
+   "posted": "2023-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Apr%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-05",
+   "hdd": 146,
+   "devFromNormal": -13,
+   "normal": 159,
+   "posted": "2023-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/May%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-06",
+   "hdd": 41,
+   "devFromNormal": 2,
+   "normal": 39,
+   "posted": "2023-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Jun%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-07",
+   "hdd": 3,
+   "devFromNormal": -6,
+   "normal": 9,
+   "posted": "2023-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Jul%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-08",
+   "hdd": 8,
+   "devFromNormal": -7,
+   "normal": 15,
+   "posted": "2023-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Aug%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-09",
+   "hdd": 53,
+   "devFromNormal": -24,
+   "normal": 77,
+   "posted": "2023-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Sep%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-10",
+   "hdd": 237,
+   "devFromNormal": -45,
+   "normal": 282,
+   "posted": "2023-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Oct%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-11",
+   "hdd": 524,
+   "devFromNormal": -15,
+   "normal": 539,
+   "posted": "2023-12-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Nov%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2023-12",
+   "hdd": 661,
+   "devFromNormal": -156,
+   "normal": 817,
+   "posted": "2024-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2023/Dec%202023.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-01",
+   "hdd": 867,
+   "devFromNormal": -50,
+   "normal": 917,
+   "posted": "2025-03-18T15:05Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Jan%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-02",
+   "hdd": 625,
+   "devFromNormal": -130,
+   "normal": 755,
+   "posted": "2025-03-18T15:05Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Feb%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-03",
+   "hdd": 512,
+   "devFromNormal": -81,
+   "normal": 593,
+   "posted": "2025-03-18T15:06Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Mar%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-04",
+   "hdd": 305,
+   "devFromNormal": -40,
+   "normal": 345,
+   "posted": "2025-03-18T15:06Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Apr%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-05",
+   "hdd": 110,
+   "devFromNormal": -49,
+   "normal": 159,
+   "posted": "2025-03-18T15:06Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/May%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-06",
+   "hdd": 20,
+   "devFromNormal": -19,
+   "normal": 39,
+   "posted": "2025-03-18T15:06Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Jun%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2025-03-18T15:07Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Jul%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-08",
+   "hdd": 12,
+   "devFromNormal": -3,
+   "normal": 15,
+   "posted": "2025-03-18T15:07Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Aug%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-09",
+   "hdd": 38,
+   "devFromNormal": -39,
+   "normal": 77,
+   "posted": "2025-03-18T15:07Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Sep%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-10",
+   "hdd": 202,
+   "devFromNormal": -80,
+   "normal": 282,
+   "posted": "2025-03-18T15:08Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Oct%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-11",
+   "hdd": 459,
+   "devFromNormal": -80,
+   "normal": 539,
+   "posted": "2025-03-18T15:08Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Nov%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2024-12",
+   "hdd": 732,
+   "devFromNormal": -85,
+   "normal": 817,
+   "posted": "2025-03-18T15:08Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2024/Dec%202024.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-01",
+   "hdd": 978,
+   "devFromNormal": 61,
+   "normal": 917,
+   "posted": "2025-03-18T15:08Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Jan%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-02",
+   "hdd": 727,
+   "devFromNormal": -5,
+   "normal": 732,
+   "posted": "2025-03-31T19:26Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Feb%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-03",
+   "hdd": 503,
+   "devFromNormal": -90,
+   "normal": 593,
+   "posted": "2025-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Mar%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-04",
+   "hdd": 307,
+   "devFromNormal": -38,
+   "normal": 345,
+   "posted": "2025-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Apr%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-05",
+   "hdd": 142,
+   "devFromNormal": -17,
+   "normal": 159,
+   "posted": "2025-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/May%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-06",
+   "hdd": 24,
+   "devFromNormal": -15,
+   "normal": 39,
+   "posted": "2025-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Jun%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-07",
+   "hdd": 2,
+   "devFromNormal": -7,
+   "normal": 9,
+   "posted": "2025-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Jul%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-08",
+   "hdd": 15,
+   "devFromNormal": 0,
+   "normal": 15,
+   "posted": "2025-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Aug%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-09",
+   "hdd": 36,
+   "devFromNormal": -41,
+   "normal": 77,
+   "posted": "2025-10-06T16:04Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Sep%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-10",
+   "hdd": 232,
+   "devFromNormal": -50,
+   "normal": 282,
+   "posted": "2025-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Oct%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-11",
+   "hdd": 493,
+   "devFromNormal": -46,
+   "normal": 539,
+   "posted": "2025-12-04T23:55Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Nov%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2025-12",
+   "hdd": 785,
+   "devFromNormal": -32,
+   "normal": 817,
+   "posted": "2026-01-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2025/Dec%202025.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-01",
+   "hdd": 918,
+   "devFromNormal": 1,
+   "normal": 917,
+   "posted": "2026-02-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Jan%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-02",
+   "hdd": 689,
+   "devFromNormal": -43,
+   "normal": 732,
+   "posted": "2026-03-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Feb%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-03",
+   "hdd": 433,
+   "devFromNormal": -160,
+   "normal": 593,
+   "posted": "2026-04-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Mar%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-04",
+   "hdd": 266,
+   "devFromNormal": -79,
+   "normal": 345,
+   "posted": "2026-05-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Apr%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-05",
+   "hdd": 155,
+   "devFromNormal": -4,
+   "normal": 159,
+   "posted": "2026-06-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/May%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-06",
+   "hdd": 24,
+   "devFromNormal": -15,
+   "normal": 39,
+   "posted": "2026-07-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Jun%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-07",
+   "hdd": 4,
+   "devFromNormal": -5,
+   "normal": 9,
+   "posted": "2026-08-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Jul%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-08",
+   "hdd": 5,
+   "devFromNormal": -10,
+   "normal": 15,
+   "posted": "2026-09-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Aug%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-09",
+   "hdd": 48,
+   "devFromNormal": -29,
+   "normal": 77,
+   "posted": "2026-10-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Sep%202026.txt",
+   "otherCopies": []
+  },
+  {
+   "month": "2026-10",
+   "hdd": 195,
+   "devFromNormal": -87,
+   "normal": 282,
+   "posted": "2026-11-02T20:51Z",
+   "file": "https://ftp.cpc.ncep.noaa.gov/htdocs/products/analysis_monitoring/cdus/degree_days/archives/Heating%20degree%20Days/monthly%20states/2026/Oct%202026.txt",
+   "otherCopies": []
+  }
+ ]
+}
