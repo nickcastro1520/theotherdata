@@ -1,12 +1,20 @@
 {
- "generatedAt": "2026-11-18T19:25:41.306Z",
+ "generatedAt": "2026-11-19T19:30:13.417Z",
  "windowDays": 30,
  "indexDaysRead": 21,
- "count": 242,
- "unmappedFilings": 28,
+ "count": 243,
+ "unmappedFilings": 29,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
  "items": [
+  {
+   "ticker": "SAGU",
+   "company": "Shreya Acquisition Group",
+   "exchange": "NYSE",
+   "form": "NT 10-Q",
+   "filed": "2026-11-18",
+   "link": "https://www.sec.gov/Archives/edgar/data/2083452/000182912626012616/0001829126-26-012616-index.htm"
+  },
   {
    "ticker": "AAME",
    "company": "ATLANTIC AMERICAN CORP",
@@ -705,7 +713,7 @@
   },
   {
    "ticker": "AIBT",
-   "company": "AIBOTICS, INC.",
+   "company": "AIBOTICS THERAPIES, INC.",
    "exchange": "OTC",
    "form": "NT 10-Q",
    "filed": "2026-11-16",
