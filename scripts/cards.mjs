@@ -12,7 +12,7 @@ import { Worker, isMainThread, parentPort, workerData } from "node:worker_thread
 import { availableParallelism } from "node:os";
 import "../public/signal-size.js";
 import "../public/card-model.js";
-import { stockSeo, stockJsonLd, signalListHtml, hubSignalsHtml, hubLinkHtml, signalShellHtml, signalJsonLd, withLastmod } from "../lib/seo.js";
+import { stockSeo, stockJsonLd, signalListHtml, hubSignalsHtml, hubLinkHtml, signalShellHtml, signalJsonLd, signalSeo, signalOpening, withLastmod } from "../lib/seo.js";
 import "../public/test-status.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -41,8 +41,12 @@ export async function plan(dataDir = join(ROOT, "public", "data"), only = null) 
       const sc0 = C.signalCard(doc, s);
       const status = globalThis.TODStatus?.forSignal?.(doc.ticker, s.id) || null;
       const siblings = (doc.signals || []).filter((x) => C.live(x) || x.status === "tracking").map((x) => ({ id: x.id, name: x.name, url: C.signalUrl(doc.ticker, x.id) }));
+      const sigSeo = signalSeo(doc, s, { line: sc0.line, angle: sc0.angle });
+      const opening = signalOpening(doc, s, sc0.line);
+      const pageName = sigSeo.title.replace(/ \| The Other Data$/, "");
       // Distinct signal shell (meta-dupe) + explicit hub link back to the stock page (coin-hub).
-      let model = { ...sc0, lastmod: s.asOf || doc.updatedAt, h1: `${s.name}: a ${doc.name} (${doc.ticker}) signal`, jsonld: signalJsonLd(doc, s, sc0.url, sc0.description), hubLink: hubLinkHtml(doc), shellHtml: signalShellHtml(doc, s, { line: sc0.line, dataDate: sc0.dataDate, status, siblings, hubLink: hubLinkHtml(doc) }) };
+      // Title/description/JSON-LD come from signalSeo so special-case pages stay consistent with OG tags.
+      let model = { ...sc0, title: sigSeo.title, description: sigSeo.description, lastmod: s.asOf || doc.updatedAt, h1: `${s.name}: a ${doc.name} (${doc.ticker}) signal`, jsonld: signalJsonLd(doc, s, sc0.url, sigSeo.description, pageName), hubLink: hubLinkHtml(doc), shellHtml: signalShellHtml(doc, s, { line: opening, dataDate: sc0.dataDate, status, siblings, hubLink: hubLinkHtml(doc) }) };
       // Rule 3 (public/signal-size.js): a too-small sample never gets its own share image.
       // Its permalink unfurls with the stock card instead, which only features signals that pass.
       if (!model.featured) model = { ...model, img: C.stockCard(doc).img, imgVertical: null, noImage: true, alt: `${model.headline}. Education only, not advice.` };
