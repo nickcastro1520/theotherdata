@@ -1,5 +1,5 @@
 {
- "lastSuccess": "2026-11-25",
- "lastRunAt": "2026-11-25T20:29:58+00:00",
+ "lastSuccess": "2026-11-26",
+ "lastRunAt": "2026-11-26T20:13:40+00:00",
  "note": "Date (New York) of the last successful run of scripts/live/log.py; used to detect days with no run."
 }
