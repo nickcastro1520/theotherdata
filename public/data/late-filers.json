@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-11-26T20:13:40.093Z",
+ "generatedAt": "2026-11-27T19:59:47.241Z",
  "windowDays": 30,
- "indexDaysRead": 21,
- "count": 243,
+ "indexDaysRead": 20,
+ "count": 242,
  "unmappedFilings": 30,
  "source": "SEC EDGAR daily form index (NT 10-K, NT 10-Q), tickers from SEC company_tickers_exchange.json",
  "sourceUrl": "https://www.sec.gov/Archives/edgar/daily-index/",
@@ -1942,14 +1942,6 @@
    "form": "NT 10-K",
    "filed": "2026-10-28",
    "link": "https://www.sec.gov/Archives/edgar/data/1620749/000164033426001695/0001640334-26-001695-index.htm"
-  },
-  {
-   "ticker": "QGAI",
-   "company": "Quantum Genesis AI Corp.",
-   "exchange": "OTC",
-   "form": "NT 10-K",
-   "filed": "2026-10-27",
-   "link": "https://www.sec.gov/Archives/edgar/data/1663038/000147793226006471/0001477932-26-006471-index.htm"
   }
  ]
 }
